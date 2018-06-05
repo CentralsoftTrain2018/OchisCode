@@ -8,7 +8,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>ホーム画面</title>
 </head>
+
+<style>
+.relative {
+    position: relative;
+}
+.absolute {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+</style>
+
 <body>
+
 ホーム画面
 <form  method="POST" action="SelectClothServlet">
  <input type="submit" value="コーデ画面へ">
@@ -16,5 +29,16 @@
 <form  method="POST" action="ListOutUserClotheServlet">
  <input type="submit" value="所有服一覧へ">
 </form>
+<br>
+<br>
+
+<!--  -->
+
+<div class="relative">
+<img src="./images/Black.png" width="175" height="147"/>
+<img src="./images/TShirt.png" width="175" height="147" class="absolute"  />
+</div>
+
 </body>
+
 </html>

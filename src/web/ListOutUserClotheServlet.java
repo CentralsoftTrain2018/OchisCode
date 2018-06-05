@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bean.UserClothBean;
+
 
 
 /**
@@ -33,6 +35,15 @@ public class ListOutUserClotheServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //		// TODO Auto-generated method stub
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
+
+
+        UserClothBean bean =new UserClothBean();
+         // bean.setList( list );
+          request.setAttribute( "bean", bean );
+
+         RequestDispatcher disp = request.getRequestDispatcher("/listoutuserclothe.jsp");
+         disp.forward(request, response);
+
     }
 
     /**
@@ -40,11 +51,11 @@ public class ListOutUserClotheServlet extends HttpServlet {
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
-        //doGet(request, response);
+        doGet(request, response);
 
 
-        RequestDispatcher disp = request.getRequestDispatcher("/listoutuserclothe.jsp");
-        disp.forward(request, response);
+
+
     }
 
 }
