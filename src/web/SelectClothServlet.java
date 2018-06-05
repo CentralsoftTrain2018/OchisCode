@@ -16,6 +16,7 @@ import bean.SelectBean;
 import domain.CategoryEnum;
 import domain.ColorEnum;
 import domain.PatternEnum;
+import domain.SizeEnum;
 
 
 
@@ -38,29 +39,33 @@ public class SelectClothServlet extends HttpServlet {
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		// TODO Auto-generated method stub
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
+        //		// TODO Auto-generated method stub
+        //		response.getWriter().append("Served at: ").append(request.getContextPath());
 
-         SelectBean bean =new SelectBean();
+        SelectBean bean =new SelectBean();
 
-         List <PatternEnum> list =new ArrayList<PatternEnum>();
-         for(PatternEnum pe : PatternEnum.values()) {
-         list.add(pe);
-         }
-         bean.setPatternlist( list );
-         List <ColorEnum> list2 =new ArrayList<ColorEnum>();
-         for(ColorEnum ce : ColorEnum.values()) {
-             list2.add(ce);
-             }
-         bean.setColorlist( list2 );
-         List <CategoryEnum> list3 =new ArrayList<CategoryEnum>();
-         for(CategoryEnum cae : CategoryEnum.values()) {
-             list3.add(cae);
-             }
-         bean.setCategorylist( list3 );
+        List <PatternEnum> list =new ArrayList<PatternEnum>();
+        for(PatternEnum pe : PatternEnum.values()) {
+            list.add(pe);
+        }
+        bean.setPatternlist( list );
+        List <ColorEnum> list2 =new ArrayList<ColorEnum>();
+        for(ColorEnum ce : ColorEnum.values()) {
+            list2.add(ce);
+        }
+        bean.setColorlist( list2 );
+        List <CategoryEnum> list3 =new ArrayList<CategoryEnum>();
+        for(CategoryEnum cae : CategoryEnum.values()) {
+            list3.add(cae);
+        }
+        bean.setCategorylist( list3 );
+        List <SizeEnum> list4 =new ArrayList<SizeEnum>();
+        for(SizeEnum se : SizeEnum.values()) {
+            list4.add(se);
+        }
+        bean.setSizelist( list4 );
 
-
-           request.setAttribute( "bean", bean );
+        request.setAttribute( "bean", bean );
 
         RequestDispatcher disp = request.getRequestDispatcher("/selectcloth.jsp");
         disp.forward(request, response);

@@ -4,6 +4,7 @@
 <%@ page import="domain.ColorEnum" %>
 <%@ page import="domain.PatternEnum" %>
 <%@ page import="domain.CategoryEnum" %>
+<%@ page import="domain.SizeEnum" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -63,6 +64,15 @@ out.println("</option>");%>
 out.print(cae);
 out.print(">");
 out.print(cae);
+out.println("</option>");%>
+<%} %>
+</select>
+<select name ="test">
+<%for(SizeEnum se:bean.getSizelist()){ %>
+<% out.print("<option value=");
+out.print(se);
+out.print(">");
+out.print(se);
 out.println("</option>");%>
 <%} %>
 </select>
