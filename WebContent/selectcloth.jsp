@@ -21,10 +21,20 @@
     }
 </style>
 <body>
-<img src="./images/ochi's.png" class="absolute"width="75" height="85"/>
+
 <div class="relative">
-<img src="./images/Black.png"class="absolute"/>
-<img src="./images/TShirt.png"class="absolute"/>
+<img src="./images/黒.png" width="60" height="70"/>
+<img src="./images/ochi's.png" class="absolute"width="60" height="70"/>
+</div>
+
+<div class="relative">
+<img src="./images/黒.png" width="75" height="85"/>
+<img src="./images/Tシャツ.png"class="absolute"width="75" height="85"/>
+</div>
+
+<div class="relative">
+<img src="./images/水玉.png" width="75" height="85"/>
+<img src="./images/半ズボン.png"class="absolute"width="75" height="85"/>
 </div>
 
 コーディネイト画面
