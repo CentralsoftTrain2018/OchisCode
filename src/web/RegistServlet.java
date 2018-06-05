@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/RegistServlet")
 public class RegistServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-
+//ああ
     /**
      * @see HttpServlet#HttpServlet()
      */
