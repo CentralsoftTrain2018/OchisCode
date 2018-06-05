@@ -20,12 +20,17 @@ public class RecomClothDao
 
     private static final String LISTUSERCLOTHES_SQL =
             "select "
-                    + "   id "
-                    + "  ,name "
-                    + "  ,date "
-                    + "  ,sex "
+                    + "   sizename "
+                    + "  ,colorname "
+                    + "  ,patternname "
+                    + "  ,categoryname "
                     + "from   "
-                    + "   member ";
+                    + "   user_cloth "
+                    +" ,pattern"
+                    +" ,color"
+                    +" ,category"
+                    +" where"
+                    + " user_cloth.colorid = ";
 
     private static final String KAIINN_SQL =
             "select "
