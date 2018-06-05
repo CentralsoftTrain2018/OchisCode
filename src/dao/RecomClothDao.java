@@ -43,7 +43,7 @@ public class RecomClothDao
         List<ListOutRecomClothBean> list = new ArrayList<ListOutRecomClothBean>();
 
             /* Statementの作成 */
-            stmt = this.connection.prepareStatement(SALECLOTHLIST_SQL);
+ /*           stmt = this.connection.prepareStatement(SALECLOTHLIST_SQL);
 
             rset = stmt.executeQuery();
 
@@ -53,6 +53,7 @@ public class RecomClothDao
 
             }
         bean.setList(list);
-        return bean;
+        return bean;*/
+        return null;
     }
 }
