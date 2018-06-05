@@ -1,5 +1,6 @@
 package web;
 
+
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -9,17 +10,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
+
 /**
  * Servlet implementation class RegistServlet
  */
-@WebServlet("/RegistServlet")
-public class RegistServlet extends HttpServlet {
+@WebServlet("/SelectServlet")
+public class SelectServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-//ああ
+
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RegistServlet() {
+    public SelectServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,19 +41,9 @@ public class RegistServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
         //doGet(request, response);
-        System.out.println("RegistServletが実行されました。");
-        String inputidStr = request.getParameter("id");
-        String inputnameStr = request.getParameter("name");
-        String inputsexStr = request.getParameter("sex");
-        int inputNum = Integer.parseInt(inputidStr);
-//        SexEnum inputSex = SexEnum.valueOf(inputsexStr);
-//        KaiinnService kserv = new KaiinnService();
 
-//        RegistBean bean = kserv.regist(inputNum,inputnameStr,inputSex);
 
-//        request.setAttribute("bean", bean);
-
-        RequestDispatcher disp = request.getRequestDispatcher("/regist.jsp");
+        RequestDispatcher disp = request.getRequestDispatcher("/select.jsp");
         disp.forward(request, response);
     }
 
