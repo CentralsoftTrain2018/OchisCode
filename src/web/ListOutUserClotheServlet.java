@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bean.UserClothBean;
+//import bean.UserClothBean;
 
 
 
@@ -37,9 +37,14 @@ public class ListOutUserClotheServlet extends HttpServlet {
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
 
 
-        UserClothBean bean =new UserClothBean();
-         // bean.setList( list );
-          request.setAttribute( "bean", bean );
+//        UserClothBean bean =new UserClothBean();
+//
+//        List <String> list =new ArrayList<String>();
+//        list.add("白-無地-Tシャツ");
+//        list.add("白-水玉-半ズボン");
+
+//          bean.setList( list );
+//          request.setAttribute( "bean", bean );
 
          RequestDispatcher disp = request.getRequestDispatcher("/listoutuserclothe.jsp");
          disp.forward(request, response);
