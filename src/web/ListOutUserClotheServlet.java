@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bean.userclothBean;
+import bean.UserClothBean;
 
 
 
@@ -37,7 +37,7 @@ public class ListOutUserClotheServlet extends HttpServlet {
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
 
 
-        userclothBean bean =new userclothBean();
+        UserClothBean bean =new UserClothBean();
          // bean.setList( list );
           request.setAttribute( "bean", bean );
 
