@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-
+<jsp:useBean id="bean" class="bean.ListOutRecomClothBean" scope="request" />
+<%@ page import="java.lang.String" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -33,12 +33,28 @@
 <br>
 
 <!--  -->
-
-<div class="relative">
-<img src="./images/Black.png" width="175" height="147"/>
-<img src="./images/TShirt.png" width="175" height="147" class="absolute"  />
-</div>
-
+<table>
+<tr>
+<%int i=0;%>
+<%for( bean.LineRecomClothBean record:bean.getList() ){
+  out.println("<td>");
+  out.println("<div class="+"relative"+">");%>
+  <%String color = record.getColor().name();%>
+  <%String cate = record.getCategory().name();%>
+  <%String pat = record.getPattern().name();%>
+<% out.println("<img src=./images/"+ color +".png width=175 height=147/>");%>
+<% out.println("<img src=./images/"+ pat +".png width=175 height=147/ class=absolute>");%>
+<% out.println("<img src=./images/"+ cate +".png width=175 height=147/ class=absolute>");%>
+<%out.println("</div>");%>
+<%out.println("</td>"); %>
+<%i++; %>
+  <%if(i%3==2)
+  {
+  out.println("</tr> <tr>");
+  }%>
+<%} %>
+</tr>
+</table>
 </body>
 
 </html>
