@@ -23,7 +23,7 @@
 <body>
 
 <div class="relative">
-<img src="./images/黒.png" width="60" height="70"/>
+<img src="./images/白.png" width="60" height="70"/>
 <img src="./images/ochi's.png" class="absolute"width="60" height="70"/>
 </div>
 
