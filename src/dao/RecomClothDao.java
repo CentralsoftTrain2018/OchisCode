@@ -12,13 +12,13 @@ public class RecomClothDao
 
     private Connection connection;
 
-    public KaiinManager(Connection connection)
+    public RecomClothDao(Connection connection)
     {
         super();
         this.connection = connection;
     }
 
-    private static final String KAIINNLIST_SQL =
+    private static final String LISTUSERCLOTHES_SQL =
             "select "
                     + "   id "
                     + "  ,name "
