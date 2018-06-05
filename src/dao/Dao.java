@@ -1,6 +1,6 @@
 package dao;
 
-public class ClothDao
+public class Dao
 {
 
 }
