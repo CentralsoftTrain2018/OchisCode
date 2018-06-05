@@ -10,10 +10,10 @@
 </head>
 <body>
 所有服一覧
-<form method="POST" action="SelectServlet">
+<form method="POST" action="SelectClothServlet">
  <input type="submit" value="コーデ画面へ">
 </form>
-<form method="POST" action="HomeServlet">
+<form method="POST" action="ListOutRecomClothServlet">
  <input type="submit" value="ホーム画面へ">
 <br>
 </form>

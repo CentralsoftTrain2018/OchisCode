@@ -15,14 +15,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class RegistServlet
  */
-@WebServlet("/ClothesListServlet")
-public class ClothesListServlet extends HttpServlet {
+@WebServlet("/SelectClothServlet")
+public class SelectClothServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ClothesListServlet() {
+    public SelectClothServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,7 +43,7 @@ public class ClothesListServlet extends HttpServlet {
         //doGet(request, response);
 
 
-        RequestDispatcher disp = request.getRequestDispatcher("/clothesList.jsp");
+        RequestDispatcher disp = request.getRequestDispatcher("/selectcloth.jsp");
         disp.forward(request, response);
     }
 

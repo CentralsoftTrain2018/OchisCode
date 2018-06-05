@@ -6,18 +6,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>２Dモデルの画面</title>
+<title>ホーム画面</title>
 </head>
 <body>
-コーディネイト画面
-
-<form  method="POST" action="HomeServlet">
-
- <input type="submit" value="ホーム画面へ">
+ホーム画面
+<form  method="POST" action="SelectClothServlet">
+ <input type="submit" value="コーデ画面へ">
 </form>
-<form  method="POST" action="ClothesListServlet">
+<form  method="POST" action="ListOutUserClotheServlet">
  <input type="submit" value="所有服一覧へ">
 </form>
-
 </body>
 </html>
