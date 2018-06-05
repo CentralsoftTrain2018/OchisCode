@@ -13,9 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import bean.LineRecomClothBean;
 import bean.ListOutRecomClothBean;
+import bean.ListOutUserClothBean;
 import domain.CategoryEnum;
 import domain.ColorEnum;
 import domain.PatternEnum;
+import service.ClothService;
 
 /**
  * Servlet implementation class RegistServlet
@@ -50,6 +52,12 @@ public class ListOutRecomClothServlet extends HttpServlet
         ListOutRecomClothBean bean = new ListOutRecomClothBean();
         LineRecomClothBean recordbean =new LineRecomClothBean();
         LineRecomClothBean recordbean1 =new LineRecomClothBean();
+        ListOutUserClothBean bean2 =new ListOutUserClothBean();
+
+        //持ち服の表示
+        ClothService cserv=new ClothService();
+        bean2= cserv.UserCloth();
+        request.setAttribute( "bean2", bean2 );
 
         recordbean.setCategory(CategoryEnum.半ズボン);
         recordbean.setColor( ColorEnum.白 );
