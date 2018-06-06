@@ -21,7 +21,6 @@ public class ClothService
             //ユーザーの持ち服一覧をDBから取得
             Collection<UserClothVo> list = ucdao.getAllUserCloth( userId );
 
-
             //TODO Beanが違うため要変更
             //とりあえず直書き   本来はDBから取り出したデータ
             ListOutUserClothBean bean = new ListOutUserClothBean();
