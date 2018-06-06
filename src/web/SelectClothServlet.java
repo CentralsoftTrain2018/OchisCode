@@ -1,8 +1,6 @@
 package web;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,10 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bean.SelectBean;
-import domain.CategoryEnum;
-import domain.ColorEnum;
-import domain.PatternEnum;
-import domain.SizeEnum;
 
 /**
  * Servlet implementation class RegistServlet
@@ -41,33 +35,10 @@ public class SelectClothServlet extends HttpServlet
     {
         String colorStr = request.getParameter("color");
         String patternStr = request.getParameter( "pattern" );
-        String categoryStr = request.getParameter( "" );
+        String categoryStr = request.getParameter( "category" );
+        String sizeStr = request.getParameter("size");
+
         SelectBean bean = new SelectBean();
-        //列挙子をすべてリストに追加
-        List<PatternEnum> list = new ArrayList<PatternEnum>();
-        for (PatternEnum pe : PatternEnum.values())
-        {
-            list.add( pe );
-        }
-        bean.setPatternlist( list );
-        List<ColorEnum> list2 = new ArrayList<ColorEnum>();
-        for (ColorEnum ce : ColorEnum.values())
-        {
-            list2.add( ce );
-        }
-        bean.setColorlist( list2 );
-        List<CategoryEnum> list3 = new ArrayList<CategoryEnum>();
-        for (CategoryEnum cae : CategoryEnum.values())
-        {
-            list3.add( cae );
-        }
-        bean.setCategorylist( list3 );
-        List<SizeEnum> list4 = new ArrayList<SizeEnum>();
-        for (SizeEnum se : SizeEnum.values())
-        {
-            list4.add( se );
-        }
-        bean.setSizelist( list4 );
 
         request.setAttribute( "bean", bean );
 

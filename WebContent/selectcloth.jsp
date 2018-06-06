@@ -58,7 +58,7 @@
 <form  method="POST" action=SelectClothServlet>
 <!-- 色プルダウン -->
 <select name ="color">
-<%for(ColorEnum ce :bean.getColorlist()){ %>
+<%for(ColorEnum ce :ColorEnum.values()){ %>
 <% out.print("<option value=");
 out.print(ce);
 out.print(">");
@@ -69,7 +69,7 @@ out.println("</option>");%>
 
 <!-- 柄プルダウン -->
 <select name ="pattern">
-<%for(PatternEnum pe:bean.getPatternlist()){ %>
+<%for(PatternEnum pe:PatternEnum.values()){ %>
 <% out.print("<option value=");
 out.print(pe);
 out.print(">");
@@ -80,7 +80,7 @@ out.println("</option>");%>
 
 <!-- カテゴリープルダウン -->
 <select name ="category">
-<%for(CategoryEnum cae:bean.getCategorylist()){ %>
+<%for(CategoryEnum cae:CategoryEnum.values()){ %>
 <% out.print("<option value=");
 out.print(cae);
 out.print(">");
@@ -90,7 +90,7 @@ out.println("</option>");%>
 </select>
 <!-- サイズプルダウン -->
 <select name ="size">
-<%for(SizeEnum se:bean.getSizelist()){ %>
+<%for(SizeEnum se:SizeEnum.values()){ %>
 <% out.print("<option value=");
 out.print(se);
 out.print(">");

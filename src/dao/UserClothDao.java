@@ -39,7 +39,7 @@ public class UserClothDao extends Dao
             + " AND"
             + " user_cloth.categoryid = category.categoryid"
             + " AND"
-            + " user_cloth.userid = ?";
+            + " user_cloth.userid = ? ";
 
     //ユーザーの持ち服一覧をDBから取得し、Listで返す
     public Collection<UserClothVo> getAllUserCloth(int id) throws SQLException
