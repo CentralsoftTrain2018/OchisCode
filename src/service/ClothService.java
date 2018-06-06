@@ -31,7 +31,6 @@ public class ClothService
             e.printStackTrace();
             throw new RuntimeException( e );
         }
-
     }
 
 }
