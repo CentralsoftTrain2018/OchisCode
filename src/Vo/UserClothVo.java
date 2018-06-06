@@ -62,6 +62,7 @@ public class UserClothVo
     }
 
     @Override
+    //プルダウン表示用文字列を生成
     public String toString()
     {
         return color.name() + "-" + pattern.name() + "-" + category.name() + "-" + size.name();

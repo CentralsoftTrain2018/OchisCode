@@ -5,8 +5,8 @@ import java.util.List;
 
 public class ListOutRecomClothBean
 {
-    List<LineRecomClothBean> list =new ArrayList<>();
-    List<String> userClothList = new ArrayList<>();
+    private List<LineRecomClothBean> list =new ArrayList<>();
+    private List<String> userClothList = new ArrayList<>();
 
     public ListOutRecomClothBean()
     {

@@ -25,22 +25,39 @@
     }
 </style>
 <body>
+コーディネイト画面
 
+<!-- 画面遷移ボタン -->
+<form  method="POST" action="ListOutRecomClothServlet">
+
+ <input type="submit" value="ホーム画面へ">
+</form>
+<form  method="POST" action="ListOutUserClotheServlet">
+ <input type="submit" value="所有服一覧へ">
+</form>
+
+<!-- 画像表示部分 -->
+<!-- 越智くんの顔 -->
 <div class="relative">
 <img src="./images/白.png" width="60" height="70"/>
 <img src="./images/ochi's.png" class="absolute"width="60" height="70"/>
 </div>
 
+<!-- 上 -->
 <div class="relative">
 <img src="./images/黒.png" width="75" height="85"/>
 <img src="./images/Tシャツ.png"class="absolute"width="75" height="85"/>
 </div>
 
+<!-- 下 -->
 <div class="relative">
 <img src="./images/水玉.png" width="75" height="85"/>
 <img src="./images/半ズボン.png"class="absolute"width="75" height="85"/>
 </div>
-<select name ="test">
+
+<form  method="POST" action=SelectClothServlet>
+<!-- 色プルダウン -->
+<select name ="color">
 <%for(ColorEnum ce :bean.getColorlist()){ %>
 <% out.print("<option value=");
 out.print(ce);
@@ -49,7 +66,9 @@ out.print(ce);
 out.println("</option>");%>
 <%} %>
 </select>
-<select name ="test">
+
+<!-- 柄プルダウン -->
+<select name ="pattern">
 <%for(PatternEnum pe:bean.getPatternlist()){ %>
 <% out.print("<option value=");
 out.print(pe);
@@ -58,7 +77,9 @@ out.print(pe);
 out.println("</option>");%>
 <%} %>
 </select>
-<select name ="test">
+
+<!-- カテゴリープルダウン -->
+<select name ="category">
 <%for(CategoryEnum cae:bean.getCategorylist()){ %>
 <% out.print("<option value=");
 out.print(cae);
@@ -67,7 +88,8 @@ out.print(cae);
 out.println("</option>");%>
 <%} %>
 </select>
-<select name ="test">
+<!-- サイズプルダウン -->
+<select name ="size">
 <%for(SizeEnum se:bean.getSizelist()){ %>
 <% out.print("<option value=");
 out.print(se);
@@ -76,14 +98,7 @@ out.print(se);
 out.println("</option>");%>
 <%} %>
 </select>
-コーディネイト画面
-
-<form  method="POST" action="ListOutRecomClothServlet">
-
- <input type="submit" value="ホーム画面へ">
-</form>
-<form  method="POST" action="ListOutUserClotheServlet">
- <input type="submit" value="所有服一覧へ">
+<input type="submit" value="変更">
 </form>
 
 </body>
