@@ -45,7 +45,7 @@ public class RecomClothDao
                     + " On"
                     + " sale_cloth.patternid = pattern.patternid";
 
-    public List<RecomClothVo> doList()throws SQLException
+    public List<RecomClothVo> getRecomCloth()throws SQLException
     {
         List<RecomClothVo> list = new ArrayList<>();
         PreparedStatement stmt = null;
