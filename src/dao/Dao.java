@@ -24,7 +24,7 @@ public class Dao
         /* サーバ名 */
         String servername = "localhost:3306";
         /* DB名 */
-        String dbname = "code";
+        String dbname = "ochi'scode";
 
         // ドライバーのロード
         Class.forName("com.mysql.jdbc.Driver");

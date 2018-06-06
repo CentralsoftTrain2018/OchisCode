@@ -38,7 +38,7 @@ public class ListOutUserClotheServlet extends HttpServlet
 
         ListOutUserClothBean bean = new ListOutUserClothBean();
 
-        ClothService cserv= new ClothService();
+        ClothService cserv = new ClothService();
         //bean=cserv.ListOutUserCloth(1);//userIdは定数
 
         request.setAttribute( "bean", bean );
