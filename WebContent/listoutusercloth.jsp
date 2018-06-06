@@ -10,10 +10,21 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>所有服　一覧</title>
 </head>
+<style>
+.relative {
+    position: relative;
+}
+.absolute {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+</style>
 <body>
-所有服一覧
-<%for(UserClothLineBean listout :bean.getList()) {%>
-<%=listout.toString() %>
+所有服一覧<br><br>
+<%for(UserClothLineBean record : bean.getList()) {%>
+<%=record.toString() %><br>
+
 <%} %>
 
 
@@ -29,4 +40,5 @@
 </form>
 <br>
 </body>
+
 </html>
