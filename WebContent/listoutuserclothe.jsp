@@ -17,8 +17,10 @@
 </form>
 <form method="POST" action="ListOutRecomClothServlet">
  <input type="submit" value="ホーム画面へ">
-<br>
 </form>
-
+<form method="POST" action="registusercloth.jsp">
+ <input type="submit" value="持ち服登録画面へ">
+</form>
+<br>
 </body>
 </html>
