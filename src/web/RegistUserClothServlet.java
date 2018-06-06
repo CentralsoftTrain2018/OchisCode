@@ -32,7 +32,13 @@ public class RegistUserClothServlet extends HttpServlet
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        RequestDispatcher disp = request.getRequestDispatcher( "/listoutuserclothe.jsp" );
+        //値の取り出し
+        request.getAttribute("color");
+        request.getAttribute("pattern");
+        request.getAttribute("category");
+        request.getAttribute("size");
+        System.out.print(request.getAttribute("color"));
+        RequestDispatcher disp = request.getRequestDispatcher( "/listoutusercloth.jsp" );
         disp.forward( request, response );
     }
 
