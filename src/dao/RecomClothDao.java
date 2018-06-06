@@ -7,8 +7,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import bean.LineRecomClothBean;
-import bean.ListOutRecomClothBean;
+import Vo.RecomClothVo;
+import domain.CategoryEnum;
+import domain.ColorEnum;
+import domain.PatternEnum;
+import domain.SizeEnum;
 
 public class RecomClothDao
 {
@@ -23,37 +26,47 @@ public class RecomClothDao
     //服の情報全てを取り出す
     private static final String SALECLOTHLIST_SQL =
             "select "
-                    + "   clothid "
                     + "  ,size "
-                    + "  ,price "
-                    + "  ,colorid "
-                    + "  ,patternid "
-                    + "  ,categoryid "
+                    + "  ,color "
+                    + "  ,pattern "
+                    + "  ,category "
                     + "from   "
-                    + "   sale_cloth ";
+                    + "   sale_cloth "
+                    + "Join "
+                    + "   color"
+                    + "On "
+                    + " sale_cloth.colorid = color.colorid"
+                    + "Join "
+                    + " category"
+                    + "On"
+                    + " sale_cloth.categoryid = category.categoryid"
+                    + "Join "
+                    + " pattern"
+                    + " On"
+                    + " sale_cloth.patternid = pattern.patternid";
 
-
-    public LineRecomClothBean doList()throws SQLException
+    public List<RecomClothVo> doList()throws SQLException
     {
-
+        List<RecomClothVo> list = new ArrayList<>();
         PreparedStatement stmt = null;
         ResultSet rset = null;
-        LineRecomClothBean bean = new LineRecomClothBean();
-        List<ListOutRecomClothBean> list = new ArrayList<ListOutRecomClothBean>();
 
             /* Statementの作成 */
- /*           stmt = this.connection.prepareStatement(SALECLOTHLIST_SQL);
+            stmt = this.connection.prepareStatement(SALECLOTHLIST_SQL);
 
             rset = stmt.executeQuery();
 
             while(rset.next())
             {
-                ListOutRecomClothBean recom = new ListOutRecomClothBean();
-
+                RecomClothVo recomvo = new RecomClothVo(
+                        CategoryEnum.valueOf(rset.getString(1)),
+                        ColorEnum.valueOf(rset.getString(2)),
+                        PatternEnum.valueOf(rset.getString(3)),
+                        SizeEnum.valueOf(rset.getString(4))
+                        );
+                list.add(recomvo);
             }
-        bean.setList(list);
-        return bean;*/
-        return null;
+            return list;
     }
 
     public void getRecomCloth(Connection con) throws SQLException {

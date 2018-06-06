@@ -12,9 +12,9 @@ public class RecomClothVo
     private PatternEnum pattern;
     private SizeEnum size;
 
-    //コンストラクタ
-    public RecomClothVo(CategoryEnum category, ColorEnum color, PatternEnum pattern, SizeEnum size)
-    {
+
+   public RecomClothVo(CategoryEnum category, ColorEnum color, PatternEnum pattern, SizeEnum size) {
+        super();
         this.category = category;
         this.color = color;
         this.pattern = pattern;
@@ -60,6 +60,5 @@ public class RecomClothVo
     {
         this.size = size;
     }
-
 
 }
