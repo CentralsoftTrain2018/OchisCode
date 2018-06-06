@@ -7,11 +7,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import Vo.RecomClothVo;
 import domain.CategoryEnum;
 import domain.ColorEnum;
 import domain.PatternEnum;
 import domain.SizeEnum;
+import vo.RecomClothVo;
 
 public class RecomClothDao
 {
