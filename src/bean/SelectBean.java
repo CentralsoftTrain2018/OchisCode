@@ -1,8 +1,5 @@
 package bean;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import domain.CategoryEnum;
 import domain.ColorEnum;
 import domain.PatternEnum;
@@ -10,56 +7,53 @@ import domain.SizeEnum;
 
 public class SelectBean
 {
-    private List <ColorEnum> colorlist =new ArrayList<ColorEnum>();
-    private List <PatternEnum> patternlist =new ArrayList<PatternEnum>();
-    private List <CategoryEnum> categorylist =new ArrayList<CategoryEnum>();
-    private List <SizeEnum> sizelist =new ArrayList<SizeEnum>();
+    private CategoryEnum category;
+    private ColorEnum color;
+    private PatternEnum pattern;
+    private SizeEnum size;
 
     public SelectBean()
     {
 
     }
 
-    public List<ColorEnum> getColorlist()
+    public CategoryEnum getCategory()
     {
-        return colorlist;
+        return category;
     }
 
-    public void setColorlist(List<ColorEnum> colorlist)
+    public void setCategory(CategoryEnum category)
     {
-        this.colorlist = colorlist;
+        this.category = category;
     }
 
-    public List<PatternEnum> getPatternlist()
+    public ColorEnum getColor()
     {
-        return patternlist;
+        return color;
     }
 
-    public void setPatternlist(List<PatternEnum> patternlist)
+    public void setColor(ColorEnum color)
     {
-        this.patternlist = patternlist;
+        this.color = color;
     }
 
-    public List<CategoryEnum> getCategorylist()
+    public PatternEnum getPattern()
     {
-        return categorylist;
+        return pattern;
     }
 
-    public void setCategorylist(List<CategoryEnum> categorylist)
+    public void setPattern(PatternEnum pattern)
     {
-        this.categorylist = categorylist;
+        this.pattern = pattern;
     }
 
-    public List<SizeEnum> getSizelist()
+    public SizeEnum getSize()
     {
-        return sizelist;
+        return size;
     }
 
-    public void setSizelist(List<SizeEnum> sizelist)
+    public void setSize(SizeEnum size)
     {
-        this.sizelist = sizelist;
+        this.size = size;
     }
-
-
-
 }

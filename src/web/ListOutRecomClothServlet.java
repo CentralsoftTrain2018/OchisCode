@@ -51,26 +51,26 @@ public class ListOutRecomClothServlet extends HttpServlet
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         ListOutRecomClothBean bean = new ListOutRecomClothBean();
-        LineRecomClothBean recordbean =new LineRecomClothBean();
-        LineRecomClothBean recordbean1 =new LineRecomClothBean();
-        ListOutUserClothBean bean2 =new ListOutUserClothBean();
+        LineRecomClothBean recordbean = new LineRecomClothBean();
+        LineRecomClothBean recordbean1 = new LineRecomClothBean();
+        ListOutUserClothBean bean2 = new ListOutUserClothBean();
         //ListOutRecomClothBean bean =cs.UserCloth();
 
         //持ち服の表示
-        ClothService cserv=new ClothService();
-        cserv.UserCloth(1);
+        ClothService cserv = new ClothService();
+        cserv.userCloth( 1 );
         //bean2= cserv.UserCloth();
         request.setAttribute( "bean2", bean2 );
 
-        recordbean.setCategory(CategoryEnum.半ズボン);
+        recordbean.setCategory( CategoryEnum.半ズボン );
         recordbean.setColor( ColorEnum.白 );
         recordbean.setPattern( PatternEnum.無地 );
 
-        recordbean1.setCategory(CategoryEnum.Tシャツ);
+        recordbean1.setCategory( CategoryEnum.Tシャツ );
         recordbean1.setColor( ColorEnum.白 );
         recordbean1.setPattern( PatternEnum.水玉 );
 
-        List<LineRecomClothBean> list =new ArrayList<>();
+        List<LineRecomClothBean> list = new ArrayList<>();
         list.add( recordbean );
         list.add( recordbean1 );
         bean.setList( list );

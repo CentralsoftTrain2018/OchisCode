@@ -21,5 +21,4 @@ public enum SizeEnum
     {
         return height;
     }
-
 }
