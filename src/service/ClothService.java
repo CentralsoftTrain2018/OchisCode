@@ -1,34 +1,37 @@
 package service;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.Collection;
 
+import Vo.UserClothVo;
 import bean.ListOutUserClothBean;
+import dao.Dao;
+import dao.UserClothDao;
 
 public class ClothService
 {
-
-
-    public  ListOutUserClothBean  UserCloth()//持ち服を表示するやつ
+    //持ち服一覧
+    public ListOutUserClothBean UserCloth(int userId)
     {
-        //コネクションの取得
+        try (
+                Connection con = Dao.getConnection();)
+        {
+            UserClothDao ucdao = new UserClothDao( con );
+            //ユーザーの持ち服一覧をDBから取得
+            Collection<UserClothVo> list = ucdao.getAllUserCloth( userId );
 
 
+            //TODO Beanが違うため要変更
+            //とりあえず直書き   本来はDBから取り出したデータ
+            ListOutUserClothBean bean = new ListOutUserClothBean();
+            return bean;
+        } catch (ClassNotFoundException | SQLException e)
+        {
+            e.printStackTrace();
+            throw new RuntimeException( e );
+        }
 
-//とりあえず直書き   本来はDBから取り出したデータ
-      ListOutUserClothBean bean =new ListOutUserClothBean();
-      List <String> list =new ArrayList<String>();
-
-      list.add("白-無地-Tシャツ-M");
-      list.add("白-水玉-半ズボン-S");
-      list.add("黒-無地-Tシャツ-L");
-      bean.setList( list );
-
-
-      //クローズ処理など
-
-      return bean;
     }
-
 
 }

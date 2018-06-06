@@ -60,4 +60,12 @@ public class UserClothVo
     {
         this.size = size;
     }
+
+    @Override
+    public String toString()
+    {
+        return color.name() + "-" + pattern.name() + "-" + category.name() + "-" + size.name();
+    }
+
+
 }

@@ -1,6 +1,5 @@
 package web;
 
-
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -12,46 +11,39 @@ import javax.servlet.http.HttpServletResponse;
 
 //import bean.UserClothBean;
 
-
 /**
  * Servlet implementation class RegistServlet
  */
 @WebServlet("/ListOutUserClotheServlet")
-public class ListOutUserClotheServlet extends HttpServlet {
+public class ListOutUserClotheServlet extends HttpServlet
+{
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ListOutUserClotheServlet() {
+    public ListOutUserClotheServlet()
+    {
         super();
-        // TODO Auto-generated constructor stub
     }
 
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //		// TODO Auto-generated method stub
-        //		response.getWriter().append("Served at: ").append(request.getContextPath());
-
-
-
-
-        RequestDispatcher disp = request.getRequestDispatcher("/listoutuserclothe.jsp");
-        disp.forward(request, response);
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
+        RequestDispatcher disp = request.getRequestDispatcher( "/listoutuserclothe.jsp" );
+        disp.forward( request, response );
 
     }
 
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
         // TODO Auto-generated method stub
-        doGet(request, response);
-
-
-
+        doGet( request, response );
 
     }
 

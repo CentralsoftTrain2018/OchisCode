@@ -27,7 +27,7 @@ public class UserClothDao extends Dao
             + "  ,colorname "
             + "  ,patternname "
             + "  ,size "
-            + "from   "
+            + " from   "
             + " user_cloth "
             + " ,pattern"
             + " ,color"
@@ -38,7 +38,7 @@ public class UserClothDao extends Dao
             + " user_cloth.patternid = pattern.patternid"
             + " AND"
             + " user_cloth.categoryid = category.categoryid"
-            + "AND"
+            + " AND"
             + " user_cloth.userid = ?";
 
     //ユーザーの持ち服一覧をDBから取得し、Listで返す
@@ -48,6 +48,7 @@ public class UserClothDao extends Dao
         try (
                 PreparedStatement stmt = con.prepareStatement( LISTUSERCLOTHES_SQL );)
         {
+            stmt.setInt( 1, id );
             ResultSet rset = stmt.executeQuery();
             //レコードがなくなるまでVoを生成してArrayListに追加
             while (rset.next())

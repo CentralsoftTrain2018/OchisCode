@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:useBean id="bean" class="bean.ListOutRecomClothBean" scope="request" />
-<jsp:useBean id="bean2" class="bean.ListOutUserClothBean" scope="request" />
 <%@ page import="java.lang.String" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -56,18 +55,24 @@
 <%} %>
 </tr>
 </table>
+
+<form  method="POST" action="ListOutRecomClothServlet">
 <select name ="test">
 
-<%for(String str:bean2.getList()){ %>
-<% out.print("<option value=");
-out.print(str);
-out.print(">");
-out.print(str);
-out.println("</option>");%>
-<%} %>
-
+<!-- Beanが複数使用されていたためコメントアウト -->
+<%//for(String str:
+  //bean2.getList()){ %>
+<% //out.print("<option value=");
+//out.print(str);
+//out.print(">");
+//out.print(str);
+//out.println("</option>");%>
+<%//} %>
+<!-- コメントアウトここまで -->
 
 </select>
+<input type="submit" value="オススメ服表示">
+</form>
 </body>
 
 </html>

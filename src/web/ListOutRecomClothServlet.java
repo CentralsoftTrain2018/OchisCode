@@ -22,6 +22,7 @@ import service.ClothService;
 /**
  * Servlet implementation class RegistServlet
  */
+//持ち服を基に一覧表示
 @WebServlet("/ListOutRecomClothServlet")
 public class ListOutRecomClothServlet extends HttpServlet
 {
@@ -53,10 +54,12 @@ public class ListOutRecomClothServlet extends HttpServlet
         LineRecomClothBean recordbean =new LineRecomClothBean();
         LineRecomClothBean recordbean1 =new LineRecomClothBean();
         ListOutUserClothBean bean2 =new ListOutUserClothBean();
+        //ListOutRecomClothBean bean =cs.UserCloth();
 
         //持ち服の表示
         ClothService cserv=new ClothService();
-        bean2= cserv.UserCloth();
+        cserv.UserCloth(1);
+        //bean2= cserv.UserCloth();
         request.setAttribute( "bean2", bean2 );
 
         recordbean.setCategory(CategoryEnum.半ズボン);
