@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bean.ListOutUserClothBean;
+import service.ClothService;
+
 //import bean.UserClothBean;
 
 /**
@@ -32,7 +35,14 @@ public class ListOutUserClotheServlet extends HttpServlet
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        RequestDispatcher disp = request.getRequestDispatcher( "/listoutuserclothe.jsp" );
+
+        ListOutUserClothBean bean = new ListOutUserClothBean();
+
+        ClothService cserv= new ClothService();
+        bean=cserv.ListOutUserCloth(1);//userIdは定数
+
+        request.setAttribute( "bean", bean );
+        RequestDispatcher disp = request.getRequestDispatcher( "/listoutusercloth.jsp" );
         disp.forward( request, response );
 
     }
