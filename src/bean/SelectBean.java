@@ -10,10 +10,10 @@ import domain.SizeEnum;
 
 public class SelectBean
 {
-    List <ColorEnum> colorlist =new ArrayList<ColorEnum>();
-    List <PatternEnum> patternlist =new ArrayList<PatternEnum>();
-    List <CategoryEnum> categorylist =new ArrayList<CategoryEnum>();
-    List <SizeEnum> sizelist =new ArrayList<SizeEnum>();
+    private List <ColorEnum> colorlist =new ArrayList<ColorEnum>();
+    private List <PatternEnum> patternlist =new ArrayList<PatternEnum>();
+    private List <CategoryEnum> categorylist =new ArrayList<CategoryEnum>();
+    private List <SizeEnum> sizelist =new ArrayList<SizeEnum>();
 
     public SelectBean()
     {

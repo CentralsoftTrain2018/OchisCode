@@ -1,6 +1,5 @@
 package web;
 
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,67 +17,71 @@ import domain.ColorEnum;
 import domain.PatternEnum;
 import domain.SizeEnum;
 
-
-
 /**
  * Servlet implementation class RegistServlet
  */
 @WebServlet("/SelectClothServlet")
-public class SelectClothServlet extends HttpServlet {
+public class SelectClothServlet extends HttpServlet
+{
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SelectClothServlet() {
+    public SelectClothServlet()
+    {
         super();
-        // TODO Auto-generated constructor stub
     }
 
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //		// TODO Auto-generated method stub
-        //		response.getWriter().append("Served at: ").append(request.getContextPath());
-
-        SelectBean bean =new SelectBean();
-
-        List <PatternEnum> list =new ArrayList<PatternEnum>();
-        for(PatternEnum pe : PatternEnum.values()) {
-            list.add(pe);
+    //シミュレーション部分
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
+        String colorStr = request.getParameter("color");
+        String patternStr = request.getParameter( "pattern" );
+        String categoryStr = request.getParameter( "" );
+        SelectBean bean = new SelectBean();
+        //列挙子をすべてリストに追加
+        List<PatternEnum> list = new ArrayList<PatternEnum>();
+        for (PatternEnum pe : PatternEnum.values())
+        {
+            list.add( pe );
         }
         bean.setPatternlist( list );
-        List <ColorEnum> list2 =new ArrayList<ColorEnum>();
-        for(ColorEnum ce : ColorEnum.values()) {
-            list2.add(ce);
+        List<ColorEnum> list2 = new ArrayList<ColorEnum>();
+        for (ColorEnum ce : ColorEnum.values())
+        {
+            list2.add( ce );
         }
         bean.setColorlist( list2 );
-        List <CategoryEnum> list3 =new ArrayList<CategoryEnum>();
-        for(CategoryEnum cae : CategoryEnum.values()) {
-            list3.add(cae);
+        List<CategoryEnum> list3 = new ArrayList<CategoryEnum>();
+        for (CategoryEnum cae : CategoryEnum.values())
+        {
+            list3.add( cae );
         }
         bean.setCategorylist( list3 );
-        List <SizeEnum> list4 =new ArrayList<SizeEnum>();
-        for(SizeEnum se : SizeEnum.values()) {
-            list4.add(se);
+        List<SizeEnum> list4 = new ArrayList<SizeEnum>();
+        for (SizeEnum se : SizeEnum.values())
+        {
+            list4.add( se );
         }
         bean.setSizelist( list4 );
 
         request.setAttribute( "bean", bean );
 
-        RequestDispatcher disp = request.getRequestDispatcher("/selectcloth.jsp");
-        disp.forward(request, response);
+        RequestDispatcher disp = request.getRequestDispatcher( "/selectcloth.jsp" );
+        disp.forward( request, response );
     }
 
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
         // TODO Auto-generated method stub
-        doGet(request, response);
-
-
+        doGet( request, response );
 
     }
 
