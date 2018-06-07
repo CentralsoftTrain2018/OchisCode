@@ -92,6 +92,7 @@
 <option value="<%=se.name() %>"><%=se %></option>
 <%} %>
 </select>
+
 <!-- 表示している服の情報をサーブレットに受け渡し -->
 <input type="hidden" name="topcolor" value="<%=bean.getTopColor().name() %>">
 <input type="hidden" name="toppattern" value="<%=bean.getTopPattern().name() %>">
@@ -105,6 +106,17 @@
 
 <input type="submit" value="変更">
 
+<!-- 持ち服と販売服を合わせたプルダウン(上下は分ける) -->
+<select name ="topslist">
+<%//for(:){ %>
+<option value="<%="a" %>"><%="---top一覧---" %></option>
+<%//} %>
+</select>
+<select name ="bottomlist">
+<%//for(:){ %>
+<option value="<%="a" %>"><%="---bottom一覧---" %></option>
+<%//} %>
+</select>
 </form>
 
 </body>
