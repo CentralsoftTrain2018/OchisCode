@@ -9,24 +9,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bean.ClothBean;
 import bean.ListOutRecomClothBean;
 import bean.ListOutUserClothBean;
+import bean.ClothBean;
 import service.ClothService;
 
 /**
  * Servlet implementation class RegistServlet
  */
 //持ち服を基に一覧表示
-@WebServlet("/ListOutRecomClothServlet")
-public class ListOutRecomClothServlet extends HttpServlet
+@WebServlet("/SelectedRecomClothServlet")
+public class SelectedRecomClothServlet extends HttpServlet
 {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ListOutRecomClothServlet()
+    public SelectedRecomClothServlet()
     {
         super();
     }
@@ -45,10 +45,10 @@ public class ListOutRecomClothServlet extends HttpServlet
     //オススメ一覧表示
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
+        int clothid = Integer.parseInt(request.getParameter("usercloth"));
         ClothService cs = new ClothService();
-
         ListOutUserClothBean ucbean = cs.userCloth(1);
-        ListOutRecomClothBean rcbean = cs.getRecommendCloth(1);;
+        ListOutRecomClothBean rcbean = cs.getSelectedRecommendCloth(clothid);;
 
         ClothBean bean = new ClothBean();
         bean.setUsercloth(ucbean);
@@ -70,3 +70,4 @@ public class ListOutRecomClothServlet extends HttpServlet
     }
 
 }
+

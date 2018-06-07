@@ -23,7 +23,8 @@ public class UserClothDao extends Dao
 
     //持ち服抽出用SQL文
     private static final String LISTUSERCLOTHES_SQL = "select"
-            + "   category "
+            + "   clothid"
+            + "  ,category "
             + "  ,color "
             + "  ,pattern "
             + "  ,size "
@@ -31,6 +32,24 @@ public class UserClothDao extends Dao
             + " user_cloth "
             + " where"
             + " user_cloth.userid = ? ";
+
+    //持ち服追加SQL文
+    private static final String REGIIST_SQL =
+            "insert "
+                    + "into user_cloth( "
+                    + "  userid"
+                    + "  ,size"
+                    + "  ,color"
+                    + "  ,pattern"
+                    + "  ,category"
+                    + ") "
+                    + " valuse("
+                    +  "	?,"
+                    + "    ?, "
+                    + "    ?, "
+                    + "    ?, "
+                    + "    ? "
+                    +")";
 
     //ユーザーの持ち服一覧をDBから取得し、Listで返す
     public Collection<UserClothVo> getAllUserCloth(int id) throws SQLException
@@ -46,10 +65,11 @@ public class UserClothDao extends Dao
             while (rset.next())
             {
                 UserClothVo user = new UserClothVo(
-                        CategoryEnum.valueOf( rset.getString( 1 ) ),
-                        ColorEnum.valueOf( rset.getString( 2 ) ),
-                        PatternEnum.valueOf( rset.getString( 3 ) ),
-                        SizeEnum.valueOf( rset.getString( 4 ) ) );
+                        rset.getInt(1),
+                        CategoryEnum.valueOf( rset.getString( 2 ) ),
+                        ColorEnum.valueOf( rset.getString( 3 ) ),
+                        PatternEnum.valueOf( rset.getString( 4 ) ),
+                        SizeEnum.valueOf( rset.getString( 5 ) ) );
 
                 list.add( user );
             }
@@ -60,4 +80,22 @@ public class UserClothDao extends Dao
         return list;
     }
 
+    //持ち服登録
+    public void doRegist(UserClothVo user) throws SQLException
+    {
+        try(
+                PreparedStatement stmt = con.prepareStatement(REGIIST_SQL);)
+        {
+            stmt.setString(1,user.getCategory().toString());
+            stmt.setString(2,user.getColor().toString());
+            stmt.setString(3,user.getPattern().toString());
+            stmt.setString(4, user.getSize().toString());
+
+        stmt.executeUpdate();
+        }catch(SQLException e)
+        {
+            throw e;
+        }
+
+    }
 }
