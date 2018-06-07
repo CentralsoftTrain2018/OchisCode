@@ -44,10 +44,12 @@ public class RegistUserClothServlet extends HttpServlet
         String pattern = request.getParameter("pattern");
         String category = request.getParameter("category");
         String size = request.getParameter("size");
-
+        //TODO コネクションから取得
+        int id=1;
         ClothService cloth = new ClothService();
-        cloth.registcloth(CategoryEnum.valueOf(category), ColorEnum.valueOf(color),
-                PatternEnum.valueOf(pattern), SizeEnum.valueOf(size));
+
+        cloth.registcloth(id, SizeEnum.valueOf(size),ColorEnum.valueOf(color),
+                PatternEnum.valueOf(pattern),CategoryEnum.valueOf(category));
 
         RequestDispatcher disp = request.getRequestDispatcher( "/ListOutUserClotheServlet" );
         disp.forward( request, response );

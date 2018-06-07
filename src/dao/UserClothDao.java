@@ -41,9 +41,11 @@ public class UserClothDao extends Dao
                     + "  ,color"
                     + "  ,pattern"
                     + "  ,category"
-                    + ") "
-                    + " valuse("
+                    + "  ,jouge"
+                    + " ) "
+                    + " values("
                     +  "	?,"
+                    + "    ?, "
                     + "    ?, "
                     + "    ?, "
                     + "    ?, "
@@ -55,7 +57,7 @@ public class UserClothDao extends Dao
     {
         List<UserClothVo> list = new ArrayList<>();
         try (
-                PreparedStatement stmt = con.prepareStatement( LISTUSERCLOTHES_SQL );)
+                PreparedStatement stmt = con.prepareStatement( LISTUSERCLOTHES_SQL);)
         {
             stmt.setInt( 1, id );
             ResultSet rset = stmt.executeQuery();
@@ -79,17 +81,21 @@ public class UserClothDao extends Dao
     }
 
     //持ち服登録
-    public void doRegist(UserClothVo user) throws SQLException
+    public void doRegist(int id, UserClothVo user) throws SQLException
     {
         try(
-                PreparedStatement stmt = con.prepareStatement(REGIIST_SQL);)
+                PreparedStatement stmt = con.prepareStatement(REGIIST_SQL
+                       /* java.sql.Statement.RETURN_GENERATED_KEYS*/);)
         {
-            stmt.setString(1,user.getCategory().toString());
-            stmt.setString(2,user.getColor().toString());
-            stmt.setString(3,user.getPattern().toString());
-            stmt.setString(4, user.getSize().toString());
-
-        stmt.executeUpdate();
+            stmt.setInt(1, id);
+            stmt.setString(2, user.getSize().name());
+            stmt.setString(3,user.getColor().name());
+            stmt.setString(4,user.getPattern().name());
+            stmt.setString(5,user.getCategory().name());
+            stmt.setString(6, user.getCategory().getJouge().name());
+            System.out.println("確認");
+            int i =stmt.executeUpdate();
+            System.out.println("確認1");
         }catch(SQLException e)
         {
             throw e;

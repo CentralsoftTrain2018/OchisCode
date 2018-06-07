@@ -58,22 +58,20 @@ public class ClothService
 
 
     //持ち服登録
-    public void registcloth(CategoryEnum category, ColorEnum color, PatternEnum pattern, SizeEnum size)
+    public void registcloth(int id, SizeEnum size,ColorEnum color,PatternEnum pattern, CategoryEnum category )
     {
         try (
                 Connection con = Dao.getConnection();
-                )
-
+             )
         {
             UserClothDao ucdao = new UserClothDao( con );
             UserClothVo user = new UserClothVo( category,  color,  pattern,  size);
-            ucdao.doRegist(user);
+            ucdao.doRegist(id,user);
         }
         catch(SQLException | ClassNotFoundException e)
         {
             throw new RuntimeException(e);
         }
-
     }
 
 
