@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bean.LineRecomClothBean;
 import bean.ListOutRecomClothBean;
 import service.ClothService;
 
@@ -45,17 +44,7 @@ public class ListOutRecomClothServlet extends HttpServlet
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         ClothService cs = new ClothService();
-        ListOutRecomClothBean bean = cs.getRecommendCloth(1);;
-        LineRecomClothBean recordbean = new LineRecomClothBean();
-        LineRecomClothBean recordbean1 = new LineRecomClothBean();
-
-        //ListOutRecomClothBean bean =cs.UserCloth();
-
-        //持ち服の表示
-        //TODO 持ち服情報を取っているが、beanにまとめて次のページに送れていない。
-//        ClothService cserv = new ClothService();
-//        cserv.userCloth( 1 );//userId=1の持ち服情報のbeanが帰ってくる。
-//        //bean2= cserv.UserCloth();
+        ListOutRecomClothBean bean = cs.getRecommendCloth(1);
 
         //jspに遷移
         request.setAttribute( "bean", bean );

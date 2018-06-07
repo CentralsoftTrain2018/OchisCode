@@ -23,7 +23,7 @@ public class RecomClothDao
         this.connection = connection;
     }
 
-    //服の情報全てを取り出す
+    //販売服の情報全てを取り出す
     private static final String SALECLOTHLIST_SQL =
             "select "
                     + "  ,size "
@@ -45,6 +45,7 @@ public class RecomClothDao
                     + " On"
                     + " sale_cloth.patternid = pattern.patternid";
 
+    //販売服をすべて
     public List<RecomClothVo> getRecomCloth()throws SQLException
     {
         List<RecomClothVo> list = new ArrayList<>();
