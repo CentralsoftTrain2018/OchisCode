@@ -45,16 +45,16 @@
 
 <!-- 上 -->
 <div class="relative">
-<img src="./images/<%=bean.getTopColor(  ) %>.png" width="<%=bean.getTopSize(  ).getWidth(  ) %>" height="<%=bean.getTopSize(  ).getHeight(  ) %>"/>
-<img src="./images/<%=bean.getTopPattern(  ) %>.png" class="absolute" width="<%=bean.getTopSize(  ).getWidth(  ) %>" height="<%=bean.getTopSize(  ).getHeight(  ) %>"/>
-<img src="./images/<%=bean.getTopCategory(  ) %>.png"class="absolute"width="<%=bean.getTopSize(  ).getWidth(  ) %>" height="<%=bean.getTopSize(  ).getHeight(  ) %>"/>
+<img src="./images/<%=bean.getTopColor(  ).name() %>.png" width="<%=bean.getTopSize(  ).getWidth(  ) %>" height="<%=bean.getTopSize(  ).getHeight(  ) %>"/>
+<img src="./images/<%=bean.getTopPattern(  ).name() %>.png" class="absolute" width="<%=bean.getTopSize(  ).getWidth(  ) %>" height="<%=bean.getTopSize(  ).getHeight(  ) %>"/>
+<img src="./images/<%=bean.getTopCategory(  ).name() %>.png"class="absolute"width="<%=bean.getTopSize(  ).getWidth(  ) %>" height="<%=bean.getTopSize(  ).getHeight(  ) %>"/>
 </div>
 
 <!-- 下 -->
 <div class="relative">
-<img src="./images/<%=bean.getBottomColor(  ) %>.png" width="<%=bean.getBottomSize(  ).getWidth(  ) %>" height="<%=bean.getBottomSize(  ).getHeight(  ) %>"/>
-<img src="./images/<%=bean.getBottomPattern(  ) %>.png" class="absolute" width="<%=bean.getBottomSize(  ).getWidth(  ) %>" height="<%=bean.getBottomSize(  ).getHeight(  ) %>"/>
-<img src="./images/<%=bean.getBottomCategory(  ) %>.png"class="absolute"width="<%=bean.getBottomSize(  ).getWidth(  ) %>" height="<%=bean.getBottomSize(  ).getHeight(  ) %>"/>
+<img src="./images/<%=bean.getBottomColor().name() %>.png" width="<%=bean.getBottomSize().getWidth() %>" height="<%=bean.getBottomSize().getHeight(  ) %>"/>
+<img src="./images/<%=bean.getBottomPattern(  ).name() %>.png" class="absolute" width="<%=bean.getBottomSize(  ).getWidth(  ) %>" height="<%=bean.getBottomSize(  ).getHeight(  ) %>"/>
+<img src="./images/<%=bean.getBottomCategory(  ).name() %>.png"class="absolute"width="<%=bean.getBottomSize(  ).getWidth(  ) %>" height="<%=bean.getBottomSize(  ).getHeight(  ) %>"/>
 </div>
 
 <!-- 変更する服の情報を入力 -->
@@ -92,7 +92,19 @@
 <option value="<%=se.name() %>"><%=se %></option>
 <%} %>
 </select>
+<!-- 表示している服の情報をサーブレットに受け渡し -->
+<input type="hidden" name="topcolor" value="<%=bean.getTopColor().name() %>">
+<input type="hidden" name="toppattern" value="<%=bean.getTopPattern().name() %>">
+<input type="hidden" name="topcategory" value="<%= bean.getTopCategory().name()%>">
+<input type="hidden" name="topsize" value="<%= bean.getTopSize().name()%>">
+
+<input type="hidden" name="bottomcolor" value="<%=bean.getBottomColor().name() %>">
+<input type="hidden" name="bottompattern" value="<%=bean.getBottomPattern().name() %>">
+<input type="hidden" name="bottomcategory" value="<%= bean.getBottomCategory().name()%>">
+<input type="hidden" name="bottomsize" value="<%= bean.getBottomSize().name()%>">
+
 <input type="submit" value="変更">
+
 </form>
 
 </body>

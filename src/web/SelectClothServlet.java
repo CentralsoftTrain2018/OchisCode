@@ -1,8 +1,8 @@
 package web;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -46,10 +46,14 @@ public class SelectClothServlet extends HttpServlet
         bean.setTopPattern( PatternEnum.無地 );
         bean.setTopSize( SizeEnum.M );
         //デフォルトの服をセット(下)
-        bean.setTopCategory( CategoryEnum.半ズボン );
-        bean.setTopColor( ColorEnum.黒 );
-        bean.setTopPattern( PatternEnum.無地 );
-        bean.setTopSize( SizeEnum.M );
+        bean.setBottomCategory( CategoryEnum.半ズボン );
+        bean.setBottomColor( ColorEnum.黒 );
+        bean.setBottomPattern( PatternEnum.無地 );
+        bean.setBottomSize( SizeEnum.M );
+
+        request.setAttribute( "bean", bean );
+        RequestDispatcher disp = request.getRequestDispatcher( "/selectcloth.jsp" );
+        disp.forward( request, response );
     }
 
     /**
@@ -57,18 +61,7 @@ public class SelectClothServlet extends HttpServlet
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        // TODO Auto-generated method stub
         doGet( request, response );
-
-    }
-
-    //文字化け対策に文字コードを変更
-    //TODO 複数クラスで使用するため新規クラスでstaticメソッド実装検討
-    private String changeCharacterCode(String str) throws UnsupportedEncodingException
-    {
-        byte[] bi = str.getBytes( "iso-8859-1" );
-        String string = new String( bi, "UTF-8" );
-        return string;
     }
 
 }

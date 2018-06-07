@@ -38,13 +38,13 @@ public class ChangeSelectClothServlet extends HttpServlet
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         //プルダウンの値を取得(文字化け対策に文字コード変更)
-        request.setCharacterEncoding("utf-8");
+        request.setCharacterEncoding( "utf-8" );
 
         String colorStr = request.getParameter( "color" );
         String patternStr = request.getParameter( "pattern" );
         String categoryStr = request.getParameter( "category" );
         String sizeStr = request.getParameter( "size" );
-        //TODO HIDDEN追加して値を追加
+
         SelectBean bean = new SelectBean();
         //プルダウンで選択された上下に応じてbeanにセットする値を変更
         if (CategoryEnum.valueOf( categoryStr ).getJouge() == JougeEnum.上)
@@ -53,9 +53,16 @@ public class ChangeSelectClothServlet extends HttpServlet
             bean.setTopColor( ColorEnum.valueOf( colorStr ) );
             bean.setTopPattern( PatternEnum.valueOf( patternStr ) );
             bean.setTopSize( SizeEnum.valueOf( sizeStr ) );
-        }
-        else if(CategoryEnum.valueOf( categoryStr ).getJouge() == JougeEnum.下)
+            bean.setBottomCategory( CategoryEnum.valueOf( request.getParameter( "bottomcategory" ) ) );
+            bean.setBottomColor( ColorEnum.valueOf( request.getParameter( "bottomcolor" ) ) );
+            bean.setBottomPattern( PatternEnum.valueOf( request.getParameter( "bottompattern" ) ) );
+            bean.setBottomSize( SizeEnum.valueOf( request.getParameter( "bottomsize" ) ) );
+        } else if (CategoryEnum.valueOf( categoryStr ).getJouge() == JougeEnum.下)
         {
+            bean.setTopCategory( CategoryEnum.valueOf( request.getParameter( "topcategory" ) ) );
+            bean.setTopColor( ColorEnum.valueOf( request.getParameter( "topcolor" ) ) );
+            bean.setTopPattern( PatternEnum.valueOf( request.getParameter( "toppattern" ) ) );
+            bean.setTopSize( SizeEnum.valueOf( request.getParameter( "topsize" ) ) );
             bean.setBottomCategory( CategoryEnum.valueOf( categoryStr ) );
             bean.setBottomColor( ColorEnum.valueOf( colorStr ) );
             bean.setBottomPattern( PatternEnum.valueOf( patternStr ) );
