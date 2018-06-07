@@ -41,6 +41,24 @@ public class UserClothDao extends Dao
             + " AND"
             + " user_cloth.userid = ? ";
 
+    //持ち服追加SQL文
+    private static final String REGIIST_SQL =
+            "insert "
+                    + "into user_cloth( "
+                    + "  userid"
+                    + "  ,size"
+                    + "  ,color"
+                    + "  ,pattern"
+                    + "  ,category"
+                    + ") "
+                    + " valuse("
+                    +  "	?,"
+                    + "    ?, "
+                    + "    ?, "
+                    + "    ?, "
+                    + "    ? "
+                    +")";
+
     //ユーザーの持ち服一覧をDBから取得し、Listで返す
     public Collection<UserClothVo> getAllUserCloth(int id) throws SQLException
     {
@@ -67,5 +85,4 @@ public class UserClothDao extends Dao
         }
         return list;
     }
-
 }

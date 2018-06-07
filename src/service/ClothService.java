@@ -48,9 +48,24 @@ public class ClothService
             e.printStackTrace();
             throw new RuntimeException( e );
         }
-
-
-
-
     }
+
+    /*//持ち服登録
+    public RegistUserClothBean registcloth()
+    {
+        try (
+                Connection con = Dao.getConnection();
+                )
+
+        {
+            UserClothDao ucdao = new UserClothDao( con );
+
+        }
+        catch(SQLException | ClassNotFoundException e)
+        {
+            throw new RuntimeException(e);
+        }
+        return null;
+
+    }*/
 }

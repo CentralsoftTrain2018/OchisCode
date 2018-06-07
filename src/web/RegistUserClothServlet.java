@@ -34,11 +34,12 @@ public class RegistUserClothServlet extends HttpServlet
     {
         request.setCharacterEncoding("utf-8");
         //値の取り出し
-        request.getParameter("color");
-        request.getParameter("pattern");
-        request.getParameter("category");
-        request.getParameter("size");
-        RequestDispatcher disp = request.getRequestDispatcher( "/listoutusercloth.jsp" );
+        String color = request.getParameter("color");
+        String pattern = request.getParameter("pattern");
+        String category = request.getParameter("category");
+        String size = request.getParameter("size");
+
+        RequestDispatcher disp = request.getRequestDispatcher( "/ClothService" );
         disp.forward( request, response );
     }
 
