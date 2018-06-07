@@ -30,7 +30,7 @@
 <!-- 画面遷移ボタン -->
 <form  method="POST" action="ListOutRecomClothServlet">
 
- <input type="submit" value="ホーム画面へ">
+ <input type="submit" value="おすすめ画面へ">
 </form>
 <form  method="POST" action="ListOutUserClotheServlet">
  <input type="submit" value="所有服一覧へ">

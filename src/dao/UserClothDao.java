@@ -41,6 +41,7 @@ public class UserClothDao extends Dao
         {
             stmt.setInt( 1, id );
             ResultSet rset = stmt.executeQuery();
+
             //レコードがなくなるまでVoを生成してArrayListに追加
             while (rset.next())
             {

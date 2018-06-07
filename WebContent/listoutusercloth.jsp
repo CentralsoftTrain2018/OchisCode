@@ -23,7 +23,15 @@
 </style>
 <body>
 
-所有服一覧<br><br>
+所有服一覧
+<form method="POST" action="SelectClothServlet">
+ <input type="submit" value="コーデ画面へ">
+</form>
+<form method="POST" action="ListOutRecomClothServlet">
+ <input type="submit" value="おすすめ画面へ">
+</form>
+
+<br><br>
 <%for(UserClothLineBean record : bean.getList()) {%>
 <% out.println("<td>");%>
 <%=record.toString() %>
@@ -42,17 +50,10 @@
 <%out.println("</td>"); %>
 <%} %>
 
-
-
-<form method="POST" action="SelectClothServlet">
- <input type="submit" value="コーデ画面へ">
-</form>
-<form method="POST" action="ListOutRecomClothServlet">
- <input type="submit" value="ホーム画面へ">
-</form>
 <form method="POST" action="registusercloth.jsp">
  <input type="submit" value="持ち服登録画面へ">
 </form>
+
 <br>
 </body>
 

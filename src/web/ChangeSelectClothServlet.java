@@ -35,6 +35,8 @@ public class ChangeSelectClothServlet extends HttpServlet
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
+
+    //シミュレーション画面の服の変更
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         //プルダウンの値を取得(文字化け対策に文字コード変更)
@@ -46,7 +48,9 @@ public class ChangeSelectClothServlet extends HttpServlet
         String sizeStr = request.getParameter( "size" );
 
         SelectBean bean = new SelectBean();
+
         //プルダウンで選択された上下に応じてbeanにセットする値を変更
+        //上の服を変更
         if (CategoryEnum.valueOf( categoryStr ).getJouge() == JougeEnum.上)
         {
             bean.setTopCategory( CategoryEnum.valueOf( categoryStr ) );
@@ -57,7 +61,9 @@ public class ChangeSelectClothServlet extends HttpServlet
             bean.setBottomColor( ColorEnum.valueOf( request.getParameter( "bottomcolor" ) ) );
             bean.setBottomPattern( PatternEnum.valueOf( request.getParameter( "bottompattern" ) ) );
             bean.setBottomSize( SizeEnum.valueOf( request.getParameter( "bottomsize" ) ) );
-        } else if (CategoryEnum.valueOf( categoryStr ).getJouge() == JougeEnum.下)
+        }
+        //下の服を変更
+        else if (CategoryEnum.valueOf( categoryStr ).getJouge() == JougeEnum.下)
         {
             bean.setTopCategory( CategoryEnum.valueOf( request.getParameter( "topcategory" ) ) );
             bean.setTopColor( ColorEnum.valueOf( request.getParameter( "topcolor" ) ) );

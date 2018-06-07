@@ -38,6 +38,7 @@ public class RegistUserClothServlet extends HttpServlet
         request.getParameter("pattern");
         request.getParameter("category");
         request.getParameter("size");
+        
         RequestDispatcher disp = request.getRequestDispatcher( "/listoutusercloth.jsp" );
         disp.forward( request, response );
     }

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>ホーム画面</title>
+<title>おすすめ画面</title>
 </head>
 
 <style>
