@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:useBean id="bean" class="bean.ListOutRecomClothBean" scope="request" />
+<jsp:useBean id="bean" class="bean.ClothBean" scope="request" />
 <%@ page import="java.lang.String" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -36,7 +36,7 @@
 <table>
 <tr>
 <%int i=0;%>
-<%for( bean.LineRecomClothBean record:bean.getList() ){
+<%for( bean.LineRecomClothBean record:bean.getRecomcloth().getList() ){
   out.println("<td>");
   out.println("<div class="+"relative"+">");%>
   <%String color = record.getColor().name();%>
@@ -56,18 +56,17 @@
 </tr>
 </table>
 
-<form  method="POST" action="ListOutRecomClothServlet">
-<select name ="test">
+<form  method="POST" action="SelectedRecomClothServlet">
+<select name ="usercloth">
 
 <!-- Beanが複数使用されていたためコメントアウト -->
-<%//for(String str:
-  //bean2.getList()){ %>
-<% //out.print("<option value=");
-//out.print(str);
-//out.print(">");
-//out.print(str);
-//out.println("</option>");%>
-<%//} %>
+<%for( bean.UserClothLineBean str : bean.getUsercloth().getList()){ %>
+<% out.print("<option value=");
+out.print(str.getClothid());
+out.print(">");
+out.print(str);
+out.println("</option>");%>
+<%} %>
 <!-- コメントアウトここまで -->
 
 </select>
