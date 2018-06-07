@@ -49,6 +49,6 @@ public class UserClothLineBean
     }
     public String toString() {
 
-        return getColor().name()+"色の"+getCategory().name()+"  "+getSize().name();
+        return getColor().name()+"色　"+getPattern().name()+"　"+getCategory().name()+"  "+getSize().name()+"サイズ";
     }
 }

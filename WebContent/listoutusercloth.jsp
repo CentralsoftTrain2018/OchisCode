@@ -14,24 +14,28 @@
 .relative {
     position: relative;
 }
+<%-- absolute内のleftとtopは画像の位置を設定した --%>
 .absolute {
     position: absolute;
-    left: 0px;
-    top: 0px;
+    left: 220px;
+    top: -80px;
 }
 </style>
 <body>
 
 所有服一覧<br><br>
 <%for(UserClothLineBean record : bean.getList()) {%>
-
-<%=record.toString() %>
 <% out.println("<td>");%>
- <% out.println("<div class="+"relative"+">");%>
-  <%String color = record.getColor().name();%>
-  <%String cate = record.getCategory().name();%>
-  <%String pat = record.getPattern().name();%>
-<% out.println("<img src=./images/"+ color +".png width=50 height=50/>");%>
+<%=record.toString() %>
+<br><br>
+<br><br>
+<% out.println("</td>");%>
+<% out.println("<td>");%>
+<% out.println("<div class="+"relative"+">");%>
+<%String color = record.getColor().name();%>
+<%String cate = record.getCategory().name();%>
+<%String pat = record.getPattern().name();%>
+<% out.println("<img src=./images/"+ color +".png width=50 height=50/ class=absolute>");%>
 <% out.println("<img src=./images/"+ pat +".png width=50 height=50/ class=absolute>");%>
 <% out.println("<img src=./images/"+ cate +".png width=50 height=50/ class=absolute>");%>
 <%out.println("</div>");%>
