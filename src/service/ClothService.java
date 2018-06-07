@@ -15,7 +15,7 @@ import vo.UserClothVo;
 public class ClothService
 {
     //持ち服一覧
-    public ListOutUserClothBean UserCloth(int userId)
+    public ListOutUserClothBean userCloth(int userId)
     {
         UserClothLineBean bean;
         ListOutUserClothBean listbean;

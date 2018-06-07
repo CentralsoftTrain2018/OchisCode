@@ -12,6 +12,7 @@
 <title>持ち服登録</title>
 </head>
 <body>
+<form  method="POST" action="RegistUserClothServlet">
 <!-- 色プルダウン -->
 <select name ="color">
 <%for(ColorEnum ce :ColorEnum.values()){ %>
@@ -54,7 +55,6 @@ out.print(se);
 out.println("</option>");%>
 <%} %>
 </select>
-<form  method="POST" action="RegistUserClothServlet">
  <input type="submit" value="登録">
 </form>
 </body>

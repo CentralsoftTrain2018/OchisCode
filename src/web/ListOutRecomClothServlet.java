@@ -58,7 +58,7 @@ public class ListOutRecomClothServlet extends HttpServlet
 
         //持ち服の表示
         ClothService cserv = new ClothService();
-        cserv.UserCloth( 1 );
+        cserv.userCloth( 1 );
         //bean2= cserv.UserCloth();
         request.setAttribute( "bean2", bean2 );
 
