@@ -52,7 +52,7 @@ public class ClothService
         }
     }
 
-    public void getRecommendCloth(int userid) throws ClassNotFoundException, SQLException {
+    public ListOutRecomClothBean getRecommendCloth(int userid) {
         try
         (
             Connection con = Dao.getConnection();
@@ -75,6 +75,13 @@ public class ClothService
             listoutrcbean.setList(rcbeanlist);
 
             System.out.println(listoutrcbean);
+
+            return listoutrcbean;
+        }catch (ClassNotFoundException | SQLException e)
+        {
+            e.printStackTrace();
+            throw new RuntimeException( e );
         }
+
     }
 }
