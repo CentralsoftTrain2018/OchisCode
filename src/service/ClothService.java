@@ -57,7 +57,6 @@ public class ClothService
         }
     }
 
-
     //持ち服登録
     public void registcloth(int id, SizeEnum size,ColorEnum color,PatternEnum pattern, CategoryEnum category )
     {
@@ -74,6 +73,7 @@ public class ClothService
             throw new RuntimeException(e);
         }
     }
+
 
 
     public ListOutRecomClothBean getRecommendCloth(int userid) {

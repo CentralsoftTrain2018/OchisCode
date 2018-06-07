@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bean.ClothBean;
 import bean.ListOutRecomClothBean;
 import bean.ListOutUserClothBean;
-import bean.ClothBean;
 import service.ClothService;
 
 /**
@@ -46,6 +46,7 @@ public class ListOutRecomClothServlet extends HttpServlet
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         ClothService cs = new ClothService();
+
         ListOutUserClothBean ucbean = cs.userCloth(1);
         ListOutRecomClothBean rcbean = cs.getRecommendCloth(1);;
 
