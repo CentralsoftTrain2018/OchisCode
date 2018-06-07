@@ -23,6 +23,14 @@ public class UserClothVo
         this.size = size;
     }
 
+    public UserClothVo(CategoryEnum category, ColorEnum color, PatternEnum pattern, SizeEnum size)
+    {
+        this.category = category;
+        this.color = color;
+        this.pattern = pattern;
+        this.size = size;
+    }
+
 
 
     public int getClothid() {

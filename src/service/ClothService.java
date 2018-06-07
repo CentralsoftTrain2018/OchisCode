@@ -13,6 +13,10 @@ import bean.UserClothLineBean;
 import dao.Dao;
 import dao.RecomClothDao;
 import dao.UserClothDao;
+import domain.CategoryEnum;
+import domain.ColorEnum;
+import domain.PatternEnum;
+import domain.SizeEnum;
 import vo.RecomClothVo;
 import vo.UserClothVo;
 
@@ -53,6 +57,27 @@ public class ClothService
         }
     }
 
+
+    //持ち服登録
+    public void registcloth(CategoryEnum category, ColorEnum color, PatternEnum pattern, SizeEnum size)
+    {
+        try (
+                Connection con = Dao.getConnection();
+                )
+
+        {
+            UserClothDao ucdao = new UserClothDao( con );
+            UserClothVo user = new UserClothVo( category,  color,  pattern,  size);
+            ucdao.doRegist(user);
+        }
+        catch(SQLException | ClassNotFoundException e)
+        {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+
     public ListOutRecomClothBean getRecommendCloth(int userid) {
         try
         (
@@ -83,6 +108,7 @@ public class ClothService
             e.printStackTrace();
             throw new RuntimeException( e );
         }
+
 
     }
 
@@ -118,4 +144,6 @@ public class ClothService
         }
 
     }
-}
+
+    }
+

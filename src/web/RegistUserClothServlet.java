@@ -9,6 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import domain.CategoryEnum;
+import domain.ColorEnum;
+import domain.PatternEnum;
+import domain.SizeEnum;
+import service.ClothService;
+
 //持ち服登録
 /**
  * Servlet implementation class RegistUserClothServlet
@@ -34,12 +40,16 @@ public class RegistUserClothServlet extends HttpServlet
     {
         request.setCharacterEncoding("utf-8");
         //値の取り出し
-        request.getParameter("color");
-        request.getParameter("pattern");
-        request.getParameter("category");
-        request.getParameter("size");
-        
-        RequestDispatcher disp = request.getRequestDispatcher( "/listoutusercloth.jsp" );
+        String color = request.getParameter("color");
+        String pattern = request.getParameter("pattern");
+        String category = request.getParameter("category");
+        String size = request.getParameter("size");
+
+        ClothService cloth = new ClothService();
+        cloth.registcloth(CategoryEnum.valueOf(category), ColorEnum.valueOf(color),
+                PatternEnum.valueOf(pattern), SizeEnum.valueOf(size));
+
+        RequestDispatcher disp = request.getRequestDispatcher( "/ListOutUserClotheServlet" );
         disp.forward( request, response );
     }
 
