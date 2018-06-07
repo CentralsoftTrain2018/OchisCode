@@ -40,7 +40,8 @@ public class ListOutUserClotheServlet extends HttpServlet
 
 
         ClothService cserv = new ClothService();
-        //bean=cserv.ListOutUserCloth(1);//userIdは定数
+        //TODO ログイン情報からIDを取得してuserCloth(userid)が動的に変更できるように。
+        bean=cserv.userCloth(1);//userIdは定数
 
 
         request.setAttribute( "bean", bean );
