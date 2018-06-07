@@ -6,7 +6,6 @@
 <%@ page import="domain.PatternEnum" %>
 <%@ page import="domain.CategoryEnum" %>
 <%@ page import="domain.SizeEnum" %>
-<%@ page import="java.lang.String" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -31,7 +30,7 @@
 <!-- 画面遷移ボタン -->
 <form  method="POST" action="ListOutRecomClothServlet">
 
- <input type="submit" value="ホーム画面へ">
+ <input type="submit" value="おすすめ画面へ">
 </form>
 <form  method="POST" action="ListOutUserClotheServlet">
  <input type="submit" value="所有服一覧へ">
@@ -46,20 +45,20 @@
 
 <!-- 上 -->
 <div class="relative">
-<img src="./images/白.png" width="75" height="85"/>
-<img src="./images/無地.png" class="absolute" width="75" height="85"/>
-<img src="./images/Tシャツ.png"class="absolute"width="75" height="85"/>
+<img src="./images/<%=bean.getTopColor(  ).name() %>.png" width="<%=bean.getTopSize(  ).getWidth(  ) %>" height="<%=bean.getTopSize(  ).getHeight(  ) %>"/>
+<img src="./images/<%=bean.getTopPattern(  ).name() %>.png" class="absolute" width="<%=bean.getTopSize(  ).getWidth(  ) %>" height="<%=bean.getTopSize(  ).getHeight(  ) %>"/>
+<img src="./images/<%=bean.getTopCategory(  ).name() %>.png"class="absolute"width="<%=bean.getTopSize(  ).getWidth(  ) %>" height="<%=bean.getTopSize(  ).getHeight(  ) %>"/>
 </div>
 
 <!-- 下 -->
 <div class="relative">
-<img src="./images/黒.png" width="75" height="85"/>
-<img src="./images/水玉.png" class="absolute" width="75" height="85"/>
-<img src="./images/半ズボン.png" class="absolute" width="75" height="85"/>
+<img src="./images/<%=bean.getBottomColor().name() %>.png" width="<%=bean.getBottomSize().getWidth() %>" height="<%=bean.getBottomSize().getHeight(  ) %>"/>
+<img src="./images/<%=bean.getBottomPattern(  ).name() %>.png" class="absolute" width="<%=bean.getBottomSize(  ).getWidth(  ) %>" height="<%=bean.getBottomSize(  ).getHeight(  ) %>"/>
+<img src="./images/<%=bean.getBottomCategory(  ).name() %>.png"class="absolute"width="<%=bean.getBottomSize(  ).getWidth(  ) %>" height="<%=bean.getBottomSize(  ).getHeight(  ) %>"/>
 </div>
 
 <!-- 変更する服の情報を入力 -->
-<form  method="POST" action=SelectClothServlet>
+<form  method="POST" action=ChangeSelectClothServlet>
 <!-- 色プルダウン -->
 <select name ="color">
 <%for(ColorEnum ce :ColorEnum.values()){ %>
@@ -93,7 +92,31 @@
 <option value="<%=se.name() %>"><%=se %></option>
 <%} %>
 </select>
+
+<!-- 表示している服の情報をサーブレットに受け渡し -->
+<input type="hidden" name="topcolor" value="<%=bean.getTopColor().name() %>">
+<input type="hidden" name="toppattern" value="<%=bean.getTopPattern().name() %>">
+<input type="hidden" name="topcategory" value="<%= bean.getTopCategory().name()%>">
+<input type="hidden" name="topsize" value="<%= bean.getTopSize().name()%>">
+
+<input type="hidden" name="bottomcolor" value="<%=bean.getBottomColor().name() %>">
+<input type="hidden" name="bottompattern" value="<%=bean.getBottomPattern().name() %>">
+<input type="hidden" name="bottomcategory" value="<%= bean.getBottomCategory().name()%>">
+<input type="hidden" name="bottomsize" value="<%= bean.getBottomSize().name()%>">
+
 <input type="submit" value="変更">
+
+<!-- 持ち服と販売服を合わせたプルダウン(上下は分ける) -->
+<select name ="topslist">
+<%//for(:){ %>
+<option value="<%="a" %>"><%="---top一覧---" %></option>
+<%//} %>
+</select>
+<select name ="bottomlist">
+<%//for(:){ %>
+<option value="<%="a" %>"><%="---bottom一覧---" %></option>
+<%//} %>
+</select>
 </form>
 
 </body>

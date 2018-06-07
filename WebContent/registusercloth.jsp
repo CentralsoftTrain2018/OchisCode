@@ -12,6 +12,9 @@
 <title>持ち服登録</title>
 </head>
 <body>
+持ち服登録
+
+プルダウンで持っている服の色、柄、カテゴリ、サイズを選んでください。
 <form  method="POST" action="RegistUserClothServlet">
 <!-- 色プルダウン -->
 <select name ="color">

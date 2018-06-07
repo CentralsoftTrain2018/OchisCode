@@ -13,11 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import bean.LineRecomClothBean;
 import bean.ListOutRecomClothBean;
-import bean.ListOutUserClothBean;
 import domain.CategoryEnum;
 import domain.ColorEnum;
 import domain.PatternEnum;
-import service.ClothService;
 
 /**
  * Servlet implementation class RegistServlet
@@ -53,14 +51,15 @@ public class ListOutRecomClothServlet extends HttpServlet
         ListOutRecomClothBean bean = new ListOutRecomClothBean();
         LineRecomClothBean recordbean = new LineRecomClothBean();
         LineRecomClothBean recordbean1 = new LineRecomClothBean();
-        ListOutUserClothBean bean2 = new ListOutUserClothBean();
+
         //ListOutRecomClothBean bean =cs.UserCloth();
 
         //持ち服の表示
-        ClothService cserv = new ClothService();
-        cserv.userCloth( 1 );
-        //bean2= cserv.UserCloth();
-        request.setAttribute( "bean2", bean2 );
+        //TODO 持ち服情報を取っているが、beanにまとめて次のページに送れていない。
+//        ClothService cserv = new ClothService();
+//        cserv.userCloth( 1 );//userId=1の持ち服情報のbeanが帰ってくる。
+//        //bean2= cserv.UserCloth();
+
 
         recordbean.setCategory( CategoryEnum.半ズボン );
         recordbean.setColor( ColorEnum.白 );
@@ -70,7 +69,7 @@ public class ListOutRecomClothServlet extends HttpServlet
         recordbean1.setColor( ColorEnum.白 );
         recordbean1.setPattern( PatternEnum.水玉 );
 
-        List<LineRecomClothBean> list = new ArrayList<>();
+        List<LineRecomClothBean> list = new ArrayList<LineRecomClothBean>();
         list.add( recordbean );
         list.add( recordbean1 );
         bean.setList( list );
@@ -78,6 +77,7 @@ public class ListOutRecomClothServlet extends HttpServlet
         request.setAttribute( "bean", bean );
         RequestDispatcher disp = request.getRequestDispatcher( "/listoutrecomcloth.jsp" );
         disp.forward( request, response );
+        doGet( request, response );
     }
 
 }

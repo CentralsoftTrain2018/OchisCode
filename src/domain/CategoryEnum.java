@@ -2,16 +2,16 @@ package domain;
 
 public enum CategoryEnum
 {
-    Tシャツ("上"), 半ズボン("下");
-    private String jouge;
+    Tシャツ(JougeEnum.上), 半ズボン(JougeEnum.下);
+    private JougeEnum jouge;
 
-    private CategoryEnum(String jouge)
+    private CategoryEnum(JougeEnum jouge)
     {
         this.jouge = jouge;
     }
 
-    public String getJouge()
+    public JougeEnum getJouge()
     {
-        return this.jouge;
+        return jouge;
     }
 }

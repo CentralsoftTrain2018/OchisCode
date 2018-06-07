@@ -20,26 +20,24 @@ public class ClothService
         UserClothLineBean bean;
         ListOutUserClothBean listbean;
         try (
-                Connection con = Dao.getConnection();
-                )
+                Connection con = Dao.getConnection();)
         {
             UserClothDao ucdao = new UserClothDao( con );
             //ユーザーの持ち服一覧をDBから取得
             Collection<UserClothVo> list = ucdao.getAllUserCloth( userId );
-            //TODO Beanが違うため要変更
-            //とりあえず直書き   本来はDBから取り出したデータ
-            listbean=new ListOutUserClothBean();
+            listbean = new ListOutUserClothBean();
 
-           List<UserClothLineBean> clothlist = new ArrayList<UserClothLineBean>();
-            for(UserClothVo uvo : list) {
+            List<UserClothLineBean> clothlist = new ArrayList<UserClothLineBean>();
+            for (UserClothVo uvo : list)
+            {
                 bean = new UserClothLineBean();
-                bean.setCategory(uvo.getCategory());
-                bean.setColor(uvo.getColor());
-                bean.setPattern(uvo.getPattern());
-                bean.setSize(uvo.getSize());
-                clothlist.add(bean);
+                bean.setCategory( uvo.getCategory() );
+                bean.setColor( uvo.getColor() );
+                bean.setPattern( uvo.getPattern() );
+                bean.setSize( uvo.getSize() );
+                clothlist.add( bean );
             }
-            listbean.setList(clothlist);
+            listbean.setList( clothlist );
 
             return listbean;//
 

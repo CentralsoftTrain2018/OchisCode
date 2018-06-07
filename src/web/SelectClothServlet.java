@@ -1,7 +1,6 @@
 package web;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -37,26 +36,22 @@ public class SelectClothServlet extends HttpServlet
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
-    //シミュレーション部分
+    //シミュレーション部分(初回表示)
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-       //プルダウンの値を取得(文字化け対策に文字コード変更)
-        String colorStr = changeCharacterCode(request.getParameter("color"));
-        String patternStr = changeCharacterCode(request.getParameter( "pattern" ));
-        String categoryStr = changeCharacterCode(request.getParameter( "category" ));
-        String sizeStr = changeCharacterCode(request.getParameter("size"));
-
         SelectBean bean = new SelectBean();
-        System.out.println( "値確認" );
-        System.out.println( colorStr + patternStr + categoryStr + sizeStr);
-
-        bean.setCategory( CategoryEnum.valueOf( categoryStr ) );
-        bean.setPattern( PatternEnum.valueOf( patternStr ) );
-        bean.setColor( ColorEnum.valueOf( colorStr ) );
-        bean.setSize( SizeEnum.valueOf( sizeStr ) );
+        //デフォルトの服をセット(上)
+        bean.setTopCategory( CategoryEnum.Tシャツ );
+        bean.setTopColor( ColorEnum.白 );
+        bean.setTopPattern( PatternEnum.無地 );
+        bean.setTopSize( SizeEnum.M );
+        //デフォルトの服をセット(下)
+        bean.setBottomCategory( CategoryEnum.半ズボン );
+        bean.setBottomColor( ColorEnum.黒 );
+        bean.setBottomPattern( PatternEnum.無地 );
+        bean.setBottomSize( SizeEnum.M );
 
         request.setAttribute( "bean", bean );
-
         RequestDispatcher disp = request.getRequestDispatcher( "/selectcloth.jsp" );
         disp.forward( request, response );
     }
@@ -66,17 +61,7 @@ public class SelectClothServlet extends HttpServlet
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        // TODO Auto-generated method stub
         doGet( request, response );
-
-    }
-
-    //文字化け対策に文字コードを変更
-    //TODO 複数クラスで使用するため新規クラスでstaticメソッド実装検討
-    private String changeCharacterCode(String str) throws UnsupportedEncodingException {
-        byte[] bi = str.getBytes( "iso-8859-1" );
-        String string = new String( bi, "UTF-8" );
-        return string;
     }
 
 }

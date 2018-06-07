@@ -23,22 +23,13 @@ public class UserClothDao extends Dao
 
     //持ち服抽出用SQL文
     private static final String LISTUSERCLOTHES_SQL = "select"
-            + "   categoryname "
-            + "  ,colorname "
-            + "  ,patternname "
+            + "   category "
+            + "  ,color "
+            + "  ,pattern "
             + "  ,size "
             + " from   "
             + " user_cloth "
-            + " ,pattern"
-            + " ,color"
-            + " ,category"
             + " where"
-            + " user_cloth.colorid = color.colorid"
-            + " AND"
-            + " user_cloth.patternid = pattern.patternid"
-            + " AND"
-            + " user_cloth.categoryid = category.categoryid"
-            + " AND"
             + " user_cloth.userid = ? ";
 
     //持ち服追加SQL文
@@ -68,6 +59,7 @@ public class UserClothDao extends Dao
         {
             stmt.setInt( 1, id );
             ResultSet rset = stmt.executeQuery();
+
             //レコードがなくなるまでVoを生成してArrayListに追加
             while (rset.next())
             {
