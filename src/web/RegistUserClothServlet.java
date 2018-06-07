@@ -32,12 +32,12 @@ public class RegistUserClothServlet extends HttpServlet
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
+        request.setCharacterEncoding("utf-8");
         //値の取り出し
-        request.getAttribute("color");
-        request.getAttribute("pattern");
-        request.getAttribute("category");
-        request.getAttribute("size");
-        System.out.print(request.getAttribute("color"));
+        request.getParameter("color");
+        request.getParameter("pattern");
+        request.getParameter("category");
+        request.getParameter("size");
         RequestDispatcher disp = request.getRequestDispatcher( "/listoutusercloth.jsp" );
         disp.forward( request, response );
     }

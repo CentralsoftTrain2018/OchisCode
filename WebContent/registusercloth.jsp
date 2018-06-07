@@ -16,43 +16,34 @@
 <!-- 色プルダウン -->
 <select name ="color">
 <%for(ColorEnum ce :ColorEnum.values()){ %>
-<% out.print("<option value=");
-out.print(ce);
-out.print(">");
-out.print(ce);
-out.println("</option>");%>
+<option value="<%=ce.name() %>">
+<%= ce.name()%>
+</option>
 <%} %>
 </select>
 
 <!-- 柄プルダウン -->
 <select name ="pattern">
 <%for(PatternEnum pe:PatternEnum.values()){ %>
-<% out.print("<option value=");
-out.print(pe);
-out.print(">");
-out.print(pe);
-out.println("</option>");%>
+<option value="<%=pe.name() %>">
+<%=pe %>
+</option>
 <%} %>
 </select>
 
 <!-- カテゴリープルダウン -->
 <select name ="category">
 <%for(CategoryEnum cae:CategoryEnum.values()){ %>
-<% out.print("<option value=");
-out.print(cae);
-out.print(">");
-out.print(cae);
-out.println("</option>");%>
+<option value="<%=cae.name() %>">
+<%=cae %>
+</option>
 <%} %>
 </select>
+
 <!-- サイズプルダウン -->
 <select name ="size">
 <%for(SizeEnum se:SizeEnum.values()){ %>
-<% out.print("<option value=");
-out.print(se);
-out.print(">");
-out.print(se);
-out.println("</option>");%>
+<option value="<%=se.name() %>"><%=se %></option>
 <%} %>
 </select>
  <input type="submit" value="登録">
