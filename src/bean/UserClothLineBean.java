@@ -8,12 +8,20 @@ import domain.SizeEnum;
 public class UserClothLineBean
 {
 
+    private int clothid;
     private SizeEnum size;
     private CategoryEnum category;
     private ColorEnum color;
     private PatternEnum pattern;
 
 
+
+    public int getClothid() {
+        return clothid;
+    }
+    public void setClothid(int clothid) {
+        this.clothid = clothid;
+    }
     public SizeEnum getSize()
     {
         return size;

@@ -23,7 +23,8 @@ public class UserClothDao extends Dao
 
     //持ち服抽出用SQL文
     private static final String LISTUSERCLOTHES_SQL = "select"
-            + "   category "
+            + "   clothid"
+            + "  ,category "
             + "  ,color "
             + "  ,pattern "
             + "  ,size "
@@ -66,10 +67,11 @@ public class UserClothDao extends Dao
             while (rset.next())
             {
                 UserClothVo user = new UserClothVo(
-                        CategoryEnum.valueOf( rset.getString( 1 ) ),
-                        ColorEnum.valueOf( rset.getString( 2 ) ),
-                        PatternEnum.valueOf( rset.getString( 3 ) ),
-                        SizeEnum.valueOf( rset.getString( 4 ) ) );
+                        rset.getInt(1),
+                        CategoryEnum.valueOf( rset.getString( 2 ) ),
+                        ColorEnum.valueOf( rset.getString( 3 ) ),
+                        PatternEnum.valueOf( rset.getString( 4 ) ),
+                        SizeEnum.valueOf( rset.getString( 5 ) ) );
 
                 list.add( user );
             }

@@ -7,12 +7,22 @@ import domain.SizeEnum;
 
 public class UserClothVo
 {
+    private int clothid;
     private CategoryEnum category;
     private ColorEnum color;
     private PatternEnum pattern;
     private SizeEnum size;
 
     //コンストラクタ
+    public UserClothVo(int clothid, CategoryEnum category, ColorEnum color, PatternEnum pattern, SizeEnum size)
+    {
+        this.clothid = clothid;
+        this.category = category;
+        this.color = color;
+        this.pattern = pattern;
+        this.size = size;
+    }
+
     public UserClothVo(CategoryEnum category, ColorEnum color, PatternEnum pattern, SizeEnum size)
     {
         this.category = category;
@@ -20,6 +30,20 @@ public class UserClothVo
         this.pattern = pattern;
         this.size = size;
     }
+
+
+
+    public int getClothid() {
+        return clothid;
+    }
+
+
+
+    public void setClothid(int clothid) {
+        this.clothid = clothid;
+    }
+
+
 
     public CategoryEnum getCategory()
     {
