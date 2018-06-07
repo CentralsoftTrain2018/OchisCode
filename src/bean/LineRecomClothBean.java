@@ -44,5 +44,8 @@ public class LineRecomClothBean
         this.pattern = pattern;
     }
 
+    public String toString() {
+        return "色：" + color + "　柄：" + pattern + "　カテゴリー：" + category + "\n";
+    }
 
 }

@@ -1,6 +1,7 @@
 package web;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +17,7 @@ import bean.ListOutRecomClothBean;
 import domain.CategoryEnum;
 import domain.ColorEnum;
 import domain.PatternEnum;
+import service.ClothService;
 
 /**
  * Servlet implementation class RegistServlet
@@ -59,6 +61,14 @@ public class ListOutRecomClothServlet extends HttpServlet
 //        ClothService cserv = new ClothService();
 //        cserv.userCloth( 1 );//userId=1の持ち服情報のbeanが帰ってくる。
 //        //bean2= cserv.UserCloth();
+
+        ClothService cs = new ClothService();
+        try {
+            cs.getRecommendCloth(1);
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
 
 
         recordbean.setCategory( CategoryEnum.半ズボン );

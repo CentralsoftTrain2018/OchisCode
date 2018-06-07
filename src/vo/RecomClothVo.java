@@ -61,4 +61,7 @@ public class RecomClothVo
         this.size = size;
     }
 
+    public String toString() {
+        return "色：" + color + "　柄：" + pattern + "　カテゴリー：" + category + "\n";
+    }
 }

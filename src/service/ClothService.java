@@ -6,10 +6,14 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import bean.LineRecomClothBean;
+import bean.ListOutRecomClothBean;
 import bean.ListOutUserClothBean;
 import bean.UserClothLineBean;
 import dao.Dao;
+import dao.RecomClothDao;
 import dao.UserClothDao;
+import vo.RecomClothVo;
 import vo.UserClothVo;
 
 public class ClothService
@@ -45,6 +49,32 @@ public class ClothService
         {
             e.printStackTrace();
             throw new RuntimeException( e );
+        }
+    }
+
+    public void getRecommendCloth(int userid) throws ClassNotFoundException, SQLException {
+        try
+        (
+            Connection con = Dao.getConnection();
+        )
+        {
+            RecomClothDao rcdao = new RecomClothDao(con);
+            List<RecomClothVo> rcvolist = rcdao.getRecomClothList(userid);
+
+            ListOutRecomClothBean listoutrcbean = new ListOutRecomClothBean();
+            List<LineRecomClothBean> rcbeanlist = new ArrayList<LineRecomClothBean>();
+            for(RecomClothVo rcvo : rcvolist) {
+                LineRecomClothBean linercbean = new LineRecomClothBean();
+                linercbean.setColor(rcvo.getColor());
+                linercbean.setPattern(rcvo.getPattern());
+                linercbean.setCategory(rcvo.getCategory());
+
+                rcbeanlist.add(linercbean);
+            }
+
+            listoutrcbean.setList(rcbeanlist);
+
+            System.out.println(listoutrcbean);
         }
     }
 }

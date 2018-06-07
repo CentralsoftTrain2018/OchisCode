@@ -69,43 +69,88 @@ public class RecomClothDao
             return list;
     }
 
-    public void getRecomCloth(Connection con) throws SQLException {
+    public List<RecomClothVo> getRecomClothList(int userid) throws SQLException {
         PreparedStatement stmt = null;
-        ResultSet rset = null;
+        ResultSet userClothSet = null;
+
+        List<RecomClothVo> recomClothList = new ArrayList<RecomClothVo>();
 
         /* ユーザーの持ち服にお勧めできる服のデザインを取得 */
-        stmt =  con.prepareStatement(
-                          "select "
-                        + "   reccolor"
-                        + " from"
-                        + "   usercloth"
-                        + "  ,salecloth"
-                        + "  ,recommend"
-                        + " where "
-                        + "   userid = 1 and"
-                        + "  (usercloth.color = recommend.color or"
-                        + "   usercloth.pattern  = recommend.pattern or"
-                        + "   usercloth.category = recommend.category) and"
-                        + "  (salecloth.color = recommend.rec_color or"
-                        + "   salecloth.pattern = salecloth.rec_pattern or"
-                        + "   salecloth.category = salecloth.reccategory)");
+        stmt = connection.prepareStatement(
+                "  select"
+                        + "    clothid"
+                        + " from "
+                        + "   user_cloth"
+                        + " where"
+                        + "   userid = ?");
+        stmt.setInt(1, userid);
+
+        userClothSet = stmt.executeQuery();
+
+        while (userClothSet.next()) {
+            List<RecomClothVo> recomCloth = getRecomCloth(userClothSet.getInt(1));
+            recomClothList.addAll(recomCloth);
+        }
+
+        System.out.println(recomClothList);
+
+        return recomClothList;
+    }
+
+    public List<RecomClothVo> getRecomCloth(int clothid) throws SQLException {
+        List<RecomClothVo> recomClothList = new ArrayList<RecomClothVo>();
+        PreparedStatement stmt = connection.prepareStatement(
+                "  select"
+                        + "  sale_cloth.*"
+                        + "  from"
+                        + "   sale_cloth,"
+                        + "   recommend,"
+                        + "   user_cloth"
+                        + " where"
+                        + "  user_cloth.clothid = ? and"
+                        + "  user_cloth.color = recommend.color and"
+                        + "  sale_cloth.color = recommend.rec_color and"
+                        + "  sale_cloth.clothid in "
+                        + "  (select"
+                        + "  sale_cloth.clothid"
+                        + "  from"
+                        + "   sale_cloth,"
+                        + "   recommend,"
+                        + "   user_cloth"
+                        + " where"
+                        + "  user_cloth.clothid = ? and"
+                        + "  user_cloth.pattern = recommend.pattern and"
+                        + "  sale_cloth.pattern = recommend.rec_pattern)"
+                        + " and"
+                        + "  sale_cloth.clothid in "
+                        + "  (select"
+                        + "  sale_cloth.clothid"
+                        + "  from"
+                        + "   sale_cloth,"
+                        + "   recommend,"
+                        + "   user_cloth"
+                        + " where"
+                        + "  user_cloth.clothid = ? and"
+                        + "  user_cloth.category = recommend.category and"
+                        + "  sale_cloth.category = recommend.rec_category)");
+
+        //持ち服の指定
+        stmt.setInt(1, clothid);
+        stmt.setInt(2, clothid);
+        stmt.setInt(3, clothid);
 
         /* ｓｑｌ実行 */
-        rset = stmt.executeQuery();
+        ResultSet recomClothSet = stmt.executeQuery();
 
-        /* 取得したデータを表示します。 */
-        /*
-        while (rset.next())
-            {
-                em.setEmployeeid(		rset.getInt(1) );
-                em.setEmployeename( 	rset.getString(2));
-                em.setHeight( 			rset.getBigDecimal(3));
-                em.setEmail(			rset.getString(4));
-                em.setWeight(			rset.getBigDecimal(5));
-                em.setHirefiscalyear(	rset.getInt(6));
-                em.setBirthday(			rset.getDate(7));
-                em.setBloodtype(		rset.getString(4));
-            }
-            */
+        while (recomClothSet.next()) {
+            RecomClothVo recomCloth = new RecomClothVo(
+                    CategoryEnum.valueOf(recomClothSet.getString(6)),
+                    ColorEnum.valueOf(recomClothSet.getString(4)),
+                    PatternEnum.valueOf(recomClothSet.getString(5)),
+                    SizeEnum.valueOf(recomClothSet.getString(2)));
+
+            recomClothList.add(recomCloth);
+        }
+        return recomClothList;
     }
 }
