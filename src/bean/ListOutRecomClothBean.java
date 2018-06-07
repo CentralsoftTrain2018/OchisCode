@@ -32,4 +32,8 @@ public class ListOutRecomClothBean
         this.userClothList = userClothList;
     }
 
+    @Override
+    public String toString() {
+        return "ListOutRecomClothBean [list=" + list + "]";
+    }
 }

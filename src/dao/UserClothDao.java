@@ -81,16 +81,19 @@ public class UserClothDao extends Dao
     //持ち服登録
     public void doRegist(UserClothVo user) throws SQLException
     {
-        PreparedStatement stmt = null;
-
-        stmt = con.prepareStatement(REGIIST_SQL);
-
-        stmt.setString(1,user.getCategory().toString());
-        stmt.setString(2,user.getColor().toString());
-        stmt.setString(3,user.getPattern().toString());
-        stmt.setString(4, user.getSize().toString());
+        try(
+                PreparedStatement stmt = con.prepareStatement(REGIIST_SQL);)
+        {
+            stmt.setString(1,user.getCategory().toString());
+            stmt.setString(2,user.getColor().toString());
+            stmt.setString(3,user.getPattern().toString());
+            stmt.setString(4, user.getSize().toString());
 
         stmt.executeUpdate();
+        }catch(SQLException e)
+        {
+            throw e;
+        }
 
     }
 }

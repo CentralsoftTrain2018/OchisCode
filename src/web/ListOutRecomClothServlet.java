@@ -1,8 +1,6 @@
 package web;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,9 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import bean.LineRecomClothBean;
 import bean.ListOutRecomClothBean;
-import domain.CategoryEnum;
-import domain.ColorEnum;
-import domain.PatternEnum;
+import service.ClothService;
 
 /**
  * Servlet implementation class RegistServlet
@@ -48,7 +44,8 @@ public class ListOutRecomClothServlet extends HttpServlet
     //オススメ一覧表示
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        ListOutRecomClothBean bean = new ListOutRecomClothBean();
+        ClothService cs = new ClothService();
+        ListOutRecomClothBean bean = cs.getRecommendCloth(1);;
         LineRecomClothBean recordbean = new LineRecomClothBean();
         LineRecomClothBean recordbean1 = new LineRecomClothBean();
 
@@ -60,19 +57,6 @@ public class ListOutRecomClothServlet extends HttpServlet
 //        cserv.userCloth( 1 );//userId=1の持ち服情報のbeanが帰ってくる。
 //        //bean2= cserv.UserCloth();
 
-
-        recordbean.setCategory( CategoryEnum.半ズボン );
-        recordbean.setColor( ColorEnum.白 );
-        recordbean.setPattern( PatternEnum.無地 );
-
-        recordbean1.setCategory( CategoryEnum.Tシャツ );
-        recordbean1.setColor( ColorEnum.白 );
-        recordbean1.setPattern( PatternEnum.水玉 );
-
-        List<LineRecomClothBean> list = new ArrayList<LineRecomClothBean>();
-        list.add( recordbean );
-        list.add( recordbean1 );
-        bean.setList( list );
         //jspに遷移
         request.setAttribute( "bean", bean );
         RequestDispatcher disp = request.getRequestDispatcher( "/listoutrecomcloth.jsp" );

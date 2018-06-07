@@ -6,10 +6,18 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import bean.LineRecomClothBean;
+import bean.ListOutRecomClothBean;
 import bean.ListOutUserClothBean;
 import bean.UserClothLineBean;
 import dao.Dao;
+import dao.RecomClothDao;
 import dao.UserClothDao;
+import domain.CategoryEnum;
+import domain.ColorEnum;
+import domain.PatternEnum;
+import domain.SizeEnum;
+import vo.RecomClothVo;
 import vo.UserClothVo;
 
 public class ClothService
@@ -48,8 +56,9 @@ public class ClothService
         }
     }
 
-    /*//持ち服登録
-    public RegistUserClothBean registcloth()
+
+    //持ち服登録
+    public void registcloth(CategoryEnum category, ColorEnum color, PatternEnum pattern, SizeEnum size)
     {
         try (
                 Connection con = Dao.getConnection();
@@ -57,13 +66,47 @@ public class ClothService
 
         {
             UserClothDao ucdao = new UserClothDao( con );
-
+            UserClothVo user = new UserClothVo( category,  color,  pattern,  size);
+            ucdao.doRegist(user);
         }
         catch(SQLException | ClassNotFoundException e)
         {
             throw new RuntimeException(e);
         }
-        return null;
 
-    }*/
+    }
+
+
+    public ListOutRecomClothBean getRecommendCloth(int userid) {
+        try
+        (
+            Connection con = Dao.getConnection();
+        )
+        {
+            RecomClothDao rcdao = new RecomClothDao(con);
+            List<RecomClothVo> rcvolist = rcdao.getRecomClothList(userid);
+
+            ListOutRecomClothBean listoutrcbean = new ListOutRecomClothBean();
+            List<LineRecomClothBean> rcbeanlist = new ArrayList<LineRecomClothBean>();
+            for(RecomClothVo rcvo : rcvolist) {
+                LineRecomClothBean linercbean = new LineRecomClothBean();
+                linercbean.setColor(rcvo.getColor());
+                linercbean.setPattern(rcvo.getPattern());
+                linercbean.setCategory(rcvo.getCategory());
+
+                rcbeanlist.add(linercbean);
+            }
+
+            listoutrcbean.setList(rcbeanlist);
+
+            System.out.println(listoutrcbean);
+
+            return listoutrcbean;
+        }catch (ClassNotFoundException | SQLException e)
+        {
+            e.printStackTrace();
+            throw new RuntimeException( e );
+        }
+
+    }
 }
