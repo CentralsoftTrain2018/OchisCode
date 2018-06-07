@@ -46,7 +46,7 @@
 
 <!-- 上 -->
 <div class="relative">
-<img src="./images/水.png" width="75" height="85"/>
+<img src="./images/白.png" width="75" height="85"/>
 <img src="./images/無地.png" class="absolute" width="75" height="85"/>
 <img src="./images/Tシャツ.png"class="absolute"width="75" height="85"/>
 </div>
@@ -58,49 +58,39 @@
 <img src="./images/半ズボン.png" class="absolute" width="75" height="85"/>
 </div>
 
+<!-- 変更する服の情報を入力 -->
 <form  method="POST" action=SelectClothServlet>
 <!-- 色プルダウン -->
 <select name ="color">
 <%for(ColorEnum ce :ColorEnum.values()){ %>
-<% out.print("<option value=");
-out.print(ce.name());
-out.print(">");
-out.print(ce);
-out.println("</option>");%>
+<option value="<%=ce.name() %>">
+<%= ce.name()%>
+</option>
 <%} %>
 </select>
 
 <!-- 柄プルダウン -->
 <select name ="pattern">
 <%for(PatternEnum pe:PatternEnum.values()){ %>
-<% out.print("<option value=");
-out.print(pe.name());
-out.print(">");
-out.print(pe);
-out.println("</option>");%>
+<option value="<%=pe.name() %>">
+<%=pe %>
+</option>
 <%} %>
 </select>
 
 <!-- カテゴリープルダウン -->
 <select name ="category">
 <%for(CategoryEnum cae:CategoryEnum.values()){ %>
-<% out.print("<option value=");
-String caename =cae.name();
-out.print(caename);
-out.print(">");
-out.print(cae);
-out.println("</option>");%>
+<option value="<%=cae.name() %>">
+<%=cae %>
+</option>
 <%} %>
 </select>
+
 <!-- サイズプルダウン -->
 <select name ="size">
 <%for(SizeEnum se:SizeEnum.values()){ %>
-<% out.print("<option value=");
-String sename = se.name();
-out.print(sename);
-out.print(">");
-out.print(se);
-out.println("</option>");%>
+<option value="<%=se.name() %>"><%=se %></option>
 <%} %>
 </select>
 <input type="submit" value="変更">
