@@ -7,53 +7,100 @@ import domain.SizeEnum;
 
 public class SelectBean
 {
-    private CategoryEnum category;
-    private ColorEnum color;
-    private PatternEnum pattern;
-    private SizeEnum size;
+    private CategoryEnum topCategory;
+    private ColorEnum topColor;
+    private PatternEnum topPattern;
+    private SizeEnum topSize;
+
+    private CategoryEnum bottomCategory;
+    private ColorEnum bottomColor;
+    private PatternEnum bottomPattern;
+    private SizeEnum bottomSize;
 
     public SelectBean()
     {
 
     }
 
-    public CategoryEnum getCategory()
+    public CategoryEnum getTopCategory()
     {
-        return category;
+        return topCategory;
     }
 
-    public void setCategory(CategoryEnum category)
+    public void setTopCategory(CategoryEnum topCategory)
     {
-        this.category = category;
+        this.topCategory = topCategory;
     }
 
-    public ColorEnum getColor()
+    public ColorEnum getTopColor()
     {
-        return color;
+        return topColor;
     }
 
-    public void setColor(ColorEnum color)
+    public void setTopColor(ColorEnum topColor)
     {
-        this.color = color;
+        this.topColor = topColor;
     }
 
-    public PatternEnum getPattern()
+    public PatternEnum getTopPattern()
     {
-        return pattern;
+        return topPattern;
     }
 
-    public void setPattern(PatternEnum pattern)
+    public void setTopPattern(PatternEnum topPattern)
     {
-        this.pattern = pattern;
+        this.topPattern = topPattern;
     }
 
-    public SizeEnum getSize()
+    public SizeEnum getTopSize()
     {
-        return size;
+        return topSize;
     }
 
-    public void setSize(SizeEnum size)
+    public void setTopSize(SizeEnum topSize)
     {
-        this.size = size;
+        this.topSize = topSize;
     }
+
+    public CategoryEnum getBottomCategory()
+    {
+        return bottomCategory;
+    }
+
+    public void setBottomCategory(CategoryEnum bottomCategory)
+    {
+        this.bottomCategory = bottomCategory;
+    }
+
+    public ColorEnum getBottomColor()
+    {
+        return bottomColor;
+    }
+
+    public void setBottomColor(ColorEnum bottomColor)
+    {
+        this.bottomColor = bottomColor;
+    }
+
+    public PatternEnum getBottomPattern()
+    {
+        return bottomPattern;
+    }
+
+    public void setBottomPattern(PatternEnum bottomPattern)
+    {
+        this.bottomPattern = bottomPattern;
+    }
+
+    public SizeEnum getBottomSize()
+    {
+        return bottomSize;
+    }
+
+    public void setBottomSize(SizeEnum bottomSize)
+    {
+        this.bottomSize = bottomSize;
+    }
+
+
 }

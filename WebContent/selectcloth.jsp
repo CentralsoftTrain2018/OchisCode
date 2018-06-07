@@ -6,7 +6,6 @@
 <%@ page import="domain.PatternEnum" %>
 <%@ page import="domain.CategoryEnum" %>
 <%@ page import="domain.SizeEnum" %>
-<%@ page import="java.lang.String" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -46,20 +45,20 @@
 
 <!-- 上 -->
 <div class="relative">
-<img src="./images/白.png" width="75" height="85"/>
-<img src="./images/無地.png" class="absolute" width="75" height="85"/>
-<img src="./images/Tシャツ.png"class="absolute"width="75" height="85"/>
+<img src="./images/<%=bean.getTopColor(  ) %>.png" width="<%=bean.getTopSize(  ).getWidth(  ) %>" height="<%=bean.getTopSize(  ).getHeight(  ) %>"/>
+<img src="./images/<%=bean.getTopPattern(  ) %>.png" class="absolute" width="<%=bean.getTopSize(  ).getWidth(  ) %>" height="<%=bean.getTopSize(  ).getHeight(  ) %>"/>
+<img src="./images/<%=bean.getTopCategory(  ) %>.png"class="absolute"width="<%=bean.getTopSize(  ).getWidth(  ) %>" height="<%=bean.getTopSize(  ).getHeight(  ) %>"/>
 </div>
 
 <!-- 下 -->
 <div class="relative">
-<img src="./images/黒.png" width="75" height="85"/>
-<img src="./images/水玉.png" class="absolute" width="75" height="85"/>
-<img src="./images/半ズボン.png" class="absolute" width="75" height="85"/>
+<img src="./images/<%=bean.getBottomColor(  ) %>.png" width="<%=bean.getBottomSize(  ).getWidth(  ) %>" height="<%=bean.getBottomSize(  ).getHeight(  ) %>"/>
+<img src="./images/<%=bean.getBottomPattern(  ) %>.png" class="absolute" width="<%=bean.getBottomSize(  ).getWidth(  ) %>" height="<%=bean.getBottomSize(  ).getHeight(  ) %>"/>
+<img src="./images/<%=bean.getBottomCategory(  ) %>.png"class="absolute"width="<%=bean.getBottomSize(  ).getWidth(  ) %>" height="<%=bean.getBottomSize(  ).getHeight(  ) %>"/>
 </div>
 
 <!-- 変更する服の情報を入力 -->
-<form  method="POST" action=SelectClothServlet>
+<form  method="POST" action=ChangeSelectClothServlet>
 <!-- 色プルダウン -->
 <select name ="color">
 <%for(ColorEnum ce :ColorEnum.values()){ %>
