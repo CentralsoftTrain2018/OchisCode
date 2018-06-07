@@ -1,5 +1,8 @@
 package bean;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import domain.CategoryEnum;
 import domain.ColorEnum;
 import domain.PatternEnum;
@@ -16,6 +19,10 @@ public class SelectBean
     private ColorEnum bottomColor;
     private PatternEnum bottomPattern;
     private SizeEnum bottomSize;
+
+    private List<SelectLineBean> Userlist =new ArrayList<>();
+    private List<SelectLineBean> Salelist =new ArrayList<>();
+
 
     public SelectBean()
     {
@@ -101,6 +108,28 @@ public class SelectBean
     {
         this.bottomSize = bottomSize;
     }
+
+    public List<SelectLineBean> getUserlist()
+    {
+        return Userlist;
+    }
+
+    public void setUserlist(List<SelectLineBean> userlist)
+    {
+        Userlist = userlist;
+    }
+
+    public List<SelectLineBean> getSalelist()
+    {
+        return Salelist;
+    }
+
+    public void setSalelist(List<SelectLineBean> salelist)
+    {
+        Salelist = salelist;
+    }
+
+
 
 
 }
