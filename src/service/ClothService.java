@@ -65,7 +65,7 @@ public class ClothService
              )
         {
             UserClothDao ucdao = new UserClothDao( con );
-            UserClothVo user = new UserClothVo( category,  color,  pattern,  size);
+            UserClothVo user = new UserClothVo( id, category,  color,  pattern,  size);
             ucdao.doRegist(id,user);
         }
         catch(SQLException | ClassNotFoundException e)
