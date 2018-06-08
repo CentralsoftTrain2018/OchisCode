@@ -14,6 +14,7 @@ import domain.CategoryEnum;
 import domain.ColorEnum;
 import domain.PatternEnum;
 import domain.SizeEnum;
+import service.ClothService;
 
 /**
  * Servlet implementation class RegistServlet
@@ -40,6 +41,7 @@ public class SelectClothServlet extends HttpServlet
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         SelectBean bean = new SelectBean();
+        ClothService cserv =new ClothService();
         //デフォルトの服をセット(上)
         bean.setTopCategory( CategoryEnum.Tシャツ );
         bean.setTopColor( ColorEnum.白 );
@@ -50,6 +52,10 @@ public class SelectClothServlet extends HttpServlet
         bean.setBottomColor( ColorEnum.黒 );
         bean.setBottomPattern( PatternEnum.無地 );
         bean.setBottomSize( SizeEnum.M );
+
+        bean.setUscbean(cserv.userSaleCloth(1));
+
+
 
         request.setAttribute( "bean", bean );
         RequestDispatcher disp = request.getRequestDispatcher( "/selectcloth.jsp" );
