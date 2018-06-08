@@ -79,7 +79,7 @@ public class UserSaleClothLineBean
         this.size = size;
     }
     public String toString() {
-        return   color + "-" + pattern + "-" + category + "-"+size+"\n";
+        return   color + "-" + pattern + "-" + category + "-"+size;
     }
 
 }

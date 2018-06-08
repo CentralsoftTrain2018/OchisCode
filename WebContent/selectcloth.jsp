@@ -109,13 +109,13 @@
 <br>
 <form  method="POST" action="ChangeUserSaleClothServlet">
 <!-- 持ち服と販売服を合わせたプルダウン(上下は分ける) -->
-<select name ="topslist">
+<select name ="topcloth">
 
 <%for(bean.UserSaleClothLineBean topcloth:bean.getUscbean().getTopclothlist()){ %>
 <option value="<%=topcloth.toString() %>"><%=topcloth %></option>
 <%} %>
 </select>
-<select name ="bottomlist">
+<select name ="bottomcloth">
 
 <%for(bean.UserSaleClothLineBean bottomcloth:bean.getUscbean().getBottomclothlist()){ %>
 <option value="<%=bottomcloth.toString() %>"><%=bottomcloth %></option>
