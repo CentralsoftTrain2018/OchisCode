@@ -23,7 +23,7 @@ import domain.SizeEnum;
     /**
      * Servlet implementation class ChangeSelectClothServlet
      */
-    @WebServlet("/ChangeSelectClothServlet")
+    @WebServlet("/ChangeUserSaleClothServlet")
     public class ChangeUserSaleClothServlet extends HttpServlet
     {
         private static final long serialVersionUID = 1L;

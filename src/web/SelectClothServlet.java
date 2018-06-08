@@ -55,8 +55,6 @@ public class SelectClothServlet extends HttpServlet
 
         bean.setUscbean(cserv.userSaleCloth(1));
 
-
-
         request.setAttribute( "bean", bean );
         RequestDispatcher disp = request.getRequestDispatcher( "/selectcloth.jsp" );
         disp.forward( request, response );

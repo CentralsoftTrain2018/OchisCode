@@ -18,9 +18,9 @@ public class Dao
         //TODO サーバー上での動作用に変更されているのでローカルでの使用時はユーザー名パスをrootに変更
         //接続文字列の構築
         /* ユーザ名 */
-        String user = "root";
+        String user = "user";
         /* パスワード */
-        String pass = "root";
+        String pass = "user";
 
         /* サーバ名 */
         String servername = "localhost:3306";

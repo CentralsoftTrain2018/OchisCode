@@ -19,9 +19,6 @@ public class SelectBean
 
     private UserSaleClothBean uscbean;
 
-
-
-
     public SelectBean()
     {
 
@@ -108,17 +105,12 @@ public class SelectBean
     }
 
     public UserSaleClothBean getUscbean()
-       {
-           return uscbean;
-       }
+    {
+        return uscbean;
+    }
 
-       public void setUscbean(UserSaleClothBean uscbean)
-       {
-           this.uscbean = uscbean;
-       }
-
-
-
-
-
+    public void setUscbean(UserSaleClothBean uscbean)
+    {
+        this.uscbean = uscbean;
+    }
 }
