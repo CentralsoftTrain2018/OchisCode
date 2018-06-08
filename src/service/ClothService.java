@@ -10,15 +10,19 @@ import bean.LineRecomClothBean;
 import bean.ListOutRecomClothBean;
 import bean.ListOutUserClothBean;
 import bean.UserClothLineBean;
+import bean.UserSaleClothBean;
+import bean.UserSaleClothLineBean;
 import dao.Dao;
 import dao.RecomClothDao;
 import dao.UserClothDao;
+import dao.UserSaleClothDao;
 import domain.CategoryEnum;
 import domain.ColorEnum;
 import domain.PatternEnum;
 import domain.SizeEnum;
 import vo.RecomClothVo;
 import vo.UserClothVo;
+import vo.UserSaleClothVo;
 
 public class ClothService
 {
@@ -143,5 +147,96 @@ public class ClothService
 
     }
 
-    }
+    public UserSaleClothBean  userSaleCloth(int userId)
+    {
+        UserSaleClothLineBean bean;
+        UserSaleClothBean listbean;
+        Collection<UserSaleClothVo> list;
+        List<UserSaleClothLineBean> clothlist;
+        try (
+                Connection con = Dao.getConnection();)
+        {
+            //持ち服上のみ取得
+            UserSaleClothDao uscdao = new UserSaleClothDao( con );
+            //
+             list = uscdao.getTopUserCloth( userId );
+            listbean = new UserSaleClothBean();
 
+            clothlist = new ArrayList<>();
+            for (UserSaleClothVo uscvo : list)
+            {
+                bean = new UserSaleClothLineBean();
+
+                bean.setCategory( uscvo.getCategory() );
+                bean.setColor( uscvo.getColor() );
+                bean.setPattern( uscvo.getPattern() );
+                bean.setSize( uscvo.getSize() );
+                clothlist.add( bean );
+            }
+            listbean.setTopclothlist( clothlist );
+
+
+            //販売服上のみ取得
+             list = uscdao.getTopSaleCloth(  );
+            //listbean = new UserSaleClothBean();
+
+             //clothlist = new ArrayList<>();
+            for (UserSaleClothVo uscvo : list)
+            {
+                bean = new UserSaleClothLineBean();
+
+                bean.setCategory( uscvo.getCategory() );
+                bean.setColor( uscvo.getColor() );
+                bean.setPattern( uscvo.getPattern() );
+                bean.setSize( uscvo.getSize() );
+                clothlist.add( bean );
+            }
+            listbean.setTopclothlist( clothlist );
+
+
+            //持ち服下のみ取得
+            list = uscdao.getBottomUserCloth( userId );
+            //listbean = new UserSaleClothBean();
+
+            clothlist = new ArrayList<>();
+            for (UserSaleClothVo uscvo : list)
+            {
+                bean = new UserSaleClothLineBean();
+
+                bean.setCategory( uscvo.getCategory() );
+                bean.setColor( uscvo.getColor() );
+                bean.setPattern( uscvo.getPattern() );
+                bean.setSize( uscvo.getSize() );
+                clothlist.add( bean );
+            }
+            listbean.setBottomclothlist( clothlist );
+
+
+            //販売服下のみ取得
+             list = uscdao.getBottomSaleCloth(  );
+            //listbean = new UserSaleClothBean();
+
+           //  clothlist = new ArrayList<>();
+            for (UserSaleClothVo uscvo : list)
+            {
+                bean = new UserSaleClothLineBean();
+
+                bean.setCategory( uscvo.getCategory() );
+                bean.setColor( uscvo.getColor() );
+                bean.setPattern( uscvo.getPattern() );
+                bean.setSize( uscvo.getSize() );
+                clothlist.add( bean );
+            }
+            listbean.setBottomclothlist( clothlist );
+
+            System.out.println(listbean);
+            return listbean;//
+
+        } catch (ClassNotFoundException | SQLException e)
+        {
+            e.printStackTrace();
+            throw new RuntimeException( e );
+        }
+
+    }
+}

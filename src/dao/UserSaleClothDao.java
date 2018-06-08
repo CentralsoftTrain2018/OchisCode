@@ -13,9 +13,9 @@ import domain.PatternEnum;
 import domain.SizeEnum;
 import vo.UserSaleClothVo;
 
-public class UserSalesDao extends Dao
+public class UserSaleClothDao extends Dao
 {
-    public UserSalesDao(Connection con)
+    public UserSaleClothDao(Connection con)
     {
         super( con );
     }
@@ -29,7 +29,7 @@ public class UserSalesDao extends Dao
                     +"   from   "
                     +"   sale_cloth "
                     +" where "
-                    +" jouge=\"上\"";
+                    +" jouge=\"上\" ";
 
     private static final String BOTTOMSALECLOTHLIST_SQL =
             "select "
@@ -53,7 +53,7 @@ public class UserSalesDao extends Dao
             + " where"
             + " user_cloth.userid = ? "
             + " AND"
-            + " jouge =\"上\"";
+            + " jouge =\"上\" ";
 
     private static final String BOTTOMLISTUSERCLOTHES_SQL = "select"
             + "   category "
@@ -110,7 +110,7 @@ public class UserSalesDao extends Dao
 
         /* Statementの作成 */
         try(
-                PreparedStatement stmt = con.prepareStatement(TOPSALECLOTHLIST_SQL);
+                PreparedStatement stmt = con.prepareStatement(BOTTOMSALECLOTHLIST_SQL);
                 )
         {
             rset = stmt.executeQuery();
@@ -179,7 +179,7 @@ public class UserSalesDao extends Dao
 
         /* Statementの作成 */
         try(
-                PreparedStatement stmt = con.prepareStatement( TOPLISTUSERCLOTHES_SQL);
+                PreparedStatement stmt = con.prepareStatement( BOTTOMLISTUSERCLOTHES_SQL);
                 )
         {
             stmt.setInt( 1, id );
