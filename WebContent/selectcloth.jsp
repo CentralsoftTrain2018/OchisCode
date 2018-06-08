@@ -105,7 +105,9 @@
 <input type="hidden" name="bottomsize" value="<%= bean.getBottomSize().name()%>">
 
 <input type="submit" value="変更">
-
+</form>
+<br>
+<form action="">
 <!-- 持ち服と販売服を合わせたプルダウン(上下は分ける) -->
 <select name ="topslist">
 <%//for(:){ %>
@@ -117,6 +119,7 @@
 <option value="<%="a" %>"><%="---bottom一覧---" %></option>
 <%//} %>
 </select>
+<input type="submit" value="変更">
 </form>
 
 </body>

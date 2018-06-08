@@ -62,6 +62,7 @@ public class ChangeSelectClothServlet extends HttpServlet
             bean.setBottomPattern( PatternEnum.valueOf( request.getParameter( "bottompattern" ) ) );
             bean.setBottomSize( SizeEnum.valueOf( request.getParameter( "bottomsize" ) ) );
         }
+
         //下の服を変更
         else if (CategoryEnum.valueOf( categoryStr ).getJouge() == JougeEnum.下)
         {
