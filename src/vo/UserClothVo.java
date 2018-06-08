@@ -5,33 +5,16 @@ import domain.ColorEnum;
 import domain.PatternEnum;
 import domain.SizeEnum;
 
-public class UserClothVo
+public class UserClothVo extends ClothVo
 {
-    private int clothid;
-    private CategoryEnum category;
-    private ColorEnum color;
-    private PatternEnum pattern;
-    private SizeEnum size;
+    protected int clothid;
 
     //コンストラクタ
     public UserClothVo(int clothid, CategoryEnum category, ColorEnum color, PatternEnum pattern, SizeEnum size)
     {
+        super(category, color, pattern, size);
         this.clothid = clothid;
-        this.category = category;
-        this.color = color;
-        this.pattern = pattern;
-        this.size = size;
     }
-
-    public UserClothVo(CategoryEnum category, ColorEnum color, PatternEnum pattern, SizeEnum size)
-    {
-        this.category = category;
-        this.color = color;
-        this.pattern = pattern;
-        this.size = size;
-    }
-
-
 
     public int getClothid() {
         return clothid;
@@ -41,48 +24,6 @@ public class UserClothVo
 
     public void setClothid(int clothid) {
         this.clothid = clothid;
-    }
-
-
-
-    public CategoryEnum getCategory()
-    {
-        return category;
-    }
-
-    public void setCategory(CategoryEnum category)
-    {
-        this.category = category;
-    }
-
-    public ColorEnum getColor()
-    {
-        return color;
-    }
-
-    public void setColor(ColorEnum color)
-    {
-        this.color = color;
-    }
-
-    public PatternEnum getPattern()
-    {
-        return pattern;
-    }
-
-    public void setPattern(PatternEnum pattern)
-    {
-        this.pattern = pattern;
-    }
-
-    public SizeEnum getSize()
-    {
-        return size;
-    }
-
-    public void setSize(SizeEnum size)
-    {
-        this.size = size;
     }
 
     @Override

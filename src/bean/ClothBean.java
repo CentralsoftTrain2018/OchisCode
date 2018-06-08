@@ -8,6 +8,7 @@ public class ClothBean {
 
     private ListOutUserClothBean usercloth;
     private ListOutRecomClothBean recomcloth;
+
     public ListOutUserClothBean getUsercloth() {
         return usercloth;
     }
