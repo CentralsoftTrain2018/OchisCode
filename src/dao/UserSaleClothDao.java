@@ -13,9 +13,9 @@ import domain.PatternEnum;
 import domain.SizeEnum;
 import vo.UserSaleClothVo;
 
-public class UserSalesDao extends Dao
+public class UserSaleClothDao extends Dao
 {
-    public UserSalesDao(Connection con)
+    public UserSaleClothDao(Connection con)
     {
         super( con );
     }
