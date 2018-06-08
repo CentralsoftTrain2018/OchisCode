@@ -17,6 +17,9 @@ public class SelectBean
     private PatternEnum bottomPattern;
     private SizeEnum bottomSize;
 
+    private UserSaleClothBean uscbean;
+
+
 
 
     public SelectBean()
@@ -104,7 +107,15 @@ public class SelectBean
         this.bottomSize = bottomSize;
     }
 
+    public UserSaleClothBean getUscbean()
+       {
+           return uscbean;
+       }
 
+       public void setUscbean(UserSaleClothBean uscbean)
+       {
+           this.uscbean = uscbean;
+       }
 
 
 

@@ -178,9 +178,9 @@ public class ClothService
 
             //販売服上のみ取得
              list = uscdao.getTopSaleCloth(  );
-            listbean = new UserSaleClothBean();
+            //listbean = new UserSaleClothBean();
 
-             clothlist = new ArrayList<>();
+             //clothlist = new ArrayList<>();
             for (UserSaleClothVo uscvo : list)
             {
                 bean = new UserSaleClothLineBean();
@@ -196,7 +196,7 @@ public class ClothService
 
             //持ち服下のみ取得
             list = uscdao.getBottomUserCloth( userId );
-            listbean = new UserSaleClothBean();
+            //listbean = new UserSaleClothBean();
 
             clothlist = new ArrayList<>();
             for (UserSaleClothVo uscvo : list)
@@ -214,9 +214,9 @@ public class ClothService
 
             //販売服下のみ取得
              list = uscdao.getBottomSaleCloth(  );
-            listbean = new UserSaleClothBean();
+            //listbean = new UserSaleClothBean();
 
-             clothlist = new ArrayList<>();
+           //  clothlist = new ArrayList<>();
             for (UserSaleClothVo uscvo : list)
             {
                 bean = new UserSaleClothLineBean();
@@ -229,7 +229,7 @@ public class ClothService
             }
             listbean.setBottomclothlist( clothlist );
 
-
+            System.out.println(listbean);
             return listbean;//
 
         } catch (ClassNotFoundException | SQLException e)

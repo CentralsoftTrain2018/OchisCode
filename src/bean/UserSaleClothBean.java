@@ -24,5 +24,10 @@ public class UserSaleClothBean
     {
         this.bottomclothlist = bottomclothlist;
     }
+    @Override
+    public String toString()
+    {
+        return "UserSaleClothBean [topclothlist=" + topclothlist + ", bottomclothlist=" + bottomclothlist + "]";
+    }
 
 }
