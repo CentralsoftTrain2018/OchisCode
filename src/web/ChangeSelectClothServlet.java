@@ -15,6 +15,7 @@ import domain.ColorEnum;
 import domain.JougeEnum;
 import domain.PatternEnum;
 import domain.SizeEnum;
+import service.ClothService;
 
 /**
  * Servlet implementation class ChangeSelectClothServlet
@@ -75,6 +76,9 @@ public class ChangeSelectClothServlet extends HttpServlet
             bean.setBottomPattern( PatternEnum.valueOf( patternStr ) );
             bean.setBottomSize( SizeEnum.valueOf( sizeStr ) );
         }
+
+        ClothService cserv =new ClothService();
+        bean.setUscbean(cserv.userSaleCloth(1));
         request.setAttribute( "bean", bean );
 
         RequestDispatcher disp = request.getRequestDispatcher( "/selectcloth.jsp" );
