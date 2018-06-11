@@ -70,13 +70,14 @@ public class RecomClothDao
             return list;
     }
 
+    //ユーザーの全持ち服を取得し、それぞれの持ち服に対するお勧め服を取得する
     public List<RecomClothVo> getRecomClothList(int userid) throws SQLException {
         PreparedStatement stmt = null;
         ResultSet userClothSet = null;
 
         List<RecomClothVo> recomClothList = new ArrayList<RecomClothVo>();
 
-        /* ユーザーの持ち服にお勧めできる服のデザインを取得 */
+        /* ユーザーの持ち服をすべて取得 */
         stmt = connection.prepareStatement(
                 "  select"
                         + "    clothid"
@@ -88,6 +89,7 @@ public class RecomClothDao
 
         userClothSet = stmt.executeQuery();
 
+        //持ち服一つに対するお勧め服を取得(全持ち服分繰り返す)
         while (userClothSet.next()) {
             List<RecomClothVo> recomCloth = getRecomCloth(userClothSet.getInt(1));
             recomClothList.addAll(recomCloth);
@@ -98,10 +100,12 @@ public class RecomClothDao
         return recomClothList;
     }
 
+    //持ち服を指定して、お勧めの服を取得する
     public List<RecomClothVo> getRecomCloth(int clothid) throws SQLException {
         List<RecomClothVo> recomClothList = new ArrayList<RecomClothVo>();
         PreparedStatement stmt = connection.prepareStatement(
                 "  select"
+                //指定した持ち服の色に対するお勧めの色の服を取得
                         + "  sale_cloth.*"
                         + "  from"
                         + "   sale_cloth,"
@@ -111,6 +115,7 @@ public class RecomClothDao
                         + "  user_cloth.clothid = ? and"
                         + "  user_cloth.color = recommend.color and"
                         + "  sale_cloth.color = recommend.rec_color and"
+                //持ち服の柄に対するお勧めの柄の服を取得
                         + "  sale_cloth.clothid in "
                         + "  (select"
                         + "  sale_cloth.clothid"
@@ -123,6 +128,7 @@ public class RecomClothDao
                         + "  user_cloth.pattern = recommend.pattern and"
                         + "  sale_cloth.pattern = recommend.rec_pattern)"
                         + " and"
+               //持ち服のカテゴリーに対するお勧めのカテゴリーの服を取得
                         + "  sale_cloth.clothid in "
                         + "  (select"
                         + "  sale_cloth.clothid"
@@ -140,7 +146,7 @@ public class RecomClothDao
         stmt.setInt(2, clothid);
         stmt.setInt(3, clothid);
 
-        /* ｓｑｌ実行 */
+        /* SQL実行 */
         ResultSet recomClothSet = stmt.executeQuery();
 
         while (recomClothSet.next()) {
