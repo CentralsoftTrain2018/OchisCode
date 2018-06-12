@@ -17,6 +17,13 @@ public class UserClothVo extends ClothVo
         this.userid = userid;
     }
 
+    public UserClothVo(int clothid, CategoryEnum category, ColorEnum color, PatternEnum pattern, SizeEnum size)
+    {
+        super(category, color, pattern, size);
+        this.clothid = clothid;
+    }
+
+
 
 
     public String getUserid() {

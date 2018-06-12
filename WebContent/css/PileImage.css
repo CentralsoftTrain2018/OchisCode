@@ -1,0 +1,20 @@
+@charset "UTF-8";
+/*画像を重ねて表示する
+  作成：功刀
+*/
+
+/*一番下に表示する画像を中央に移動*/
+.relative {
+  margin-top:10;
+    position: relative;
+    text-align:center;
+}
+/*上に重ねる画像を一番下の画像の真上に配置*/
+.absolute {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    margin: auto;
+    }

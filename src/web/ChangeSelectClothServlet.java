@@ -79,9 +79,10 @@ public class ChangeSelectClothServlet extends HttpServlet
 
         ClothService cserv =new ClothService();
         bean.setUscbean(cserv.userSaleCloth(1));
+
         request.setAttribute( "bean", bean );
 
-        RequestDispatcher disp = request.getRequestDispatcher( "/selectcloth.jsp" );
+        RequestDispatcher disp = request.getRequestDispatcher( "/coordinate.jsp" );
         disp.forward( request, response );
     }
 

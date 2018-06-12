@@ -19,17 +19,17 @@ import service.ClothService;
 /**
  * Servlet implementation class RegistServlet
  */
-@WebServlet("/SelectClothServlet")
+@WebServlet("/CoordinateClothServlet")
 
 //服のシミュレーション画面
-public class SelectClothServlet extends HttpServlet
+public class CoordinateClothServlet extends HttpServlet
 {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SelectClothServlet()
+    public CoordinateClothServlet()
     {
         super();
     }
@@ -56,7 +56,7 @@ public class SelectClothServlet extends HttpServlet
         bean.setUscbean(cserv.userSaleCloth(1));
 
         request.setAttribute( "bean", bean );
-        RequestDispatcher disp = request.getRequestDispatcher( "/selectcloth.jsp" );
+        RequestDispatcher disp = request.getRequestDispatcher( "/coordinate.jsp" );
         disp.forward( request, response );
     }
 

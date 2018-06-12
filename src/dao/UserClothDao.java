@@ -67,7 +67,7 @@ public class UserClothDao extends Dao
             while (rset.next())
             {
                 UserClothVo user = new UserClothVo(
-                        rset.getString(1),
+                        rset.getInt(1),
                         CategoryEnum.valueOf( rset.getString( 2 ) ),
                         ColorEnum.valueOf( rset.getString( 3 ) ),
                         PatternEnum.valueOf( rset.getString( 4 ) ),

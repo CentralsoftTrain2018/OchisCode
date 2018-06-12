@@ -10,26 +10,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>２Dモデルの画面</title>
+<title>コーデ画面</title>
 
 </head>
+<!-- css導入　作成:功刀 -->
+<!-- cssファイル読み込み -->
+<link rel="stylesheet" type="text/css" href="css/PileImage.css">
 
-<style>
-.relative {
-    position: relative;
-}
-.absolute {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    }
-</style>
 <body>
+
 コーディネイト画面
 
 <!-- 画面遷移ボタン -->
 <form  method="POST" action="ListOutRecomClothServlet">
-
  <input type="submit" value="おすすめ画面へ">
 </form>
 <form  method="POST" action="ListOutUserClotheServlet">
@@ -38,24 +31,26 @@
 
 <!-- 画像表示部分 -->
 <!-- 越智くんの顔 -->
+
 <div class="relative">
-<img src="./images/白.png" width="60" height="70"/>
-<img src="./images/ochi's.png" class="absolute"width="60" height="70"/>
+<img src="./images/白.png" width="178" height="218"  />
+<img src="./images/ochi's.png" class="absolute"width="178" height="218"/>
 </div>
 
 <!-- 上 -->
 <div class="relative">
-<img src="./images/<%=bean.getTopColor(  ).name() %>.png" width="<%=bean.getTopSize(  ).getWidth(  ) %>" height="<%=bean.getTopSize(  ).getHeight(  ) %>"/>
+<img src="./images/<%=bean.getTopColor(  ).name() %>.png" width="<%=bean.getTopSize(  ).getWidth(  ) %>" height="<%=bean.getTopSize(  ).getHeight(  ) %>" />
 <img src="./images/<%=bean.getTopPattern(  ).name() %>.png" class="absolute" width="<%=bean.getTopSize(  ).getWidth(  ) %>" height="<%=bean.getTopSize(  ).getHeight(  ) %>"/>
 <img src="./images/<%=bean.getTopCategory(  ).name() %>.png"class="absolute"width="<%=bean.getTopSize(  ).getWidth(  ) %>" height="<%=bean.getTopSize(  ).getHeight(  ) %>"/>
 </div>
 
 <!-- 下 -->
 <div class="relative">
-<img src="./images/<%=bean.getBottomColor().name() %>.png" width="<%=bean.getBottomSize().getWidth() %>" height="<%=bean.getBottomSize().getHeight(  ) %>"/>
+<img src="./images/<%=bean.getBottomColor().name() %>.png" width="<%=bean.getBottomSize().getWidth() %>" height="<%=bean.getBottomSize().getHeight(  ) %>" />
 <img src="./images/<%=bean.getBottomPattern(  ).name() %>.png" class="absolute" width="<%=bean.getBottomSize(  ).getWidth(  ) %>" height="<%=bean.getBottomSize(  ).getHeight(  ) %>"/>
 <img src="./images/<%=bean.getBottomCategory(  ).name() %>.png"class="absolute"width="<%=bean.getBottomSize(  ).getWidth(  ) %>" height="<%=bean.getBottomSize(  ).getHeight(  ) %>"/>
 </div>
+
 
 <!-- 変更する服の情報を入力 -->
 <form  method="POST" action=ChangeSelectClothServlet>
