@@ -18,15 +18,15 @@ import service.ClothService;
  * Servlet implementation class RegistServlet
  */
 //持ち服を基に一覧表示
-@WebServlet("/CoordinateSaleClothServlet")
-public class CoordinateSaleClothServlet extends HttpServlet
+@WebServlet("/SaleClothDisplayServlet")
+public class SaleClothDisplayServlet extends HttpServlet
 {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CoordinateSaleClothServlet()
+    public SaleClothDisplayServlet()
     {
         super();
     }
