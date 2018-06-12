@@ -48,8 +48,7 @@ public class ListOutSaleClothServlet extends HttpServlet
         ClothService cs = new ClothService();
 
         ListOutUserClothBean ucbean = cs.userCloth("user");
-        ListOutRecomClothBean rcbean = cs.getRecommendCloth("user");;
-
+        ListOutRecomClothBean rcbean = cs.getRecommendCloth("user");
         ClothBean bean = new ClothBean();
         bean.setUsercloth(ucbean);
         bean.setRecomcloth(rcbean);
