@@ -17,7 +17,7 @@
   <div class="container">
     <div class="header">
       ホーム画面
-      <form method="POST" action="CoordinateClothServlet">
+      <form method="POST" action="CoordinateServlet">
         <input type="submit" value="コーデ画面へ">
       </form>
       <form method="POST" action="ListOutUserClotheServlet">
@@ -31,7 +31,7 @@
       <!-- 右側プルダウン、画像表示部分 -->
       <div class="contents">
         <!-- プルダウン、ボタン -->
-        <form method="POST" action="SelectedRecomClothServlet">
+        <form method="POST" action="CoordinateSaleClothServlet">
           <select name="usercloth">
             <%
               for (bean.UserClothLineBean str : bean.getUsercloth().getList())
