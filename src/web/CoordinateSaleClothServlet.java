@@ -46,9 +46,13 @@ public class CoordinateSaleClothServlet extends HttpServlet
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         int clothid = Integer.parseInt(request.getParameter("usercloth"));
+        String str = request.getParameter("narrow");
+        String[] minmaxStr = str.split("-");
+        int min = Integer.parseInt(minmaxStr[0]);
+        int max = Integer.parseInt(minmaxStr[1]);
         ClothService cs = new ClothService();
         ListOutUserClothBean ucbean = cs.userCloth("user");
-        ListOutRecomClothBean rcbean = cs.getSelectedRecommendCloth(clothid);;
+        ListOutRecomClothBean rcbean = cs.getSelectedRecommendCloth(clothid, min, max);
 
         ClothBean bean = new ClothBean();
         bean.setUsercloth(ucbean);
