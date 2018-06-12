@@ -57,7 +57,7 @@ public class SaleClothDisplayServlet extends HttpServlet
         SaleClothDisplayBean bean = new SaleClothDisplayBean();
         bean.setUsercloth(ucbean);
         bean.setRecomcloth(rcbean);
-
+        
         //jspに遷移
         request.setAttribute( "bean", bean );
         RequestDispatcher disp = request.getRequestDispatcher( "/listoutsalecloth.jsp" );
