@@ -4,7 +4,7 @@ import domain.CategoryEnum;
 import domain.ColorEnum;
 import domain.PatternEnum;
 import domain.SizeEnum;
-
+//
 /*服のBean
  *持ち服、販売服はこれを継承して使用する
  *作成：功刀

@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
-<jsp:useBean id="bean" class="bean.ClothBean" scope="request" />
+<jsp:useBean id="bean" class="bean.SaleClothDisplayBean" scope="request" />
 <%@ page import="java.lang.String"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-W3CDTD HTML 4.01 TransitionalEN" "http:www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -38,11 +38,11 @@
               <select name="usercloth">
                 <!--
                 <%
-                  /*for (bean.UserClothLineBean str : bean.getUsercloth().getList()) {*/
+                  for (bean.UserClothLineBean str : bean.getUsercloth().getList()) {
                 %>
-                <option value="<%//str.getClothid()%>"><%//str%></option>
+                <option value="<%=str.getClothid()%>"><%=str%></option>
                 <%
-                  //}
+                  }
                 %>
                  -->
               </select> <select name="narrow">
@@ -54,23 +54,23 @@
           <div class="contents">
 
         <%
-          //for (bean.LineRecomClothBean record : bean.getRecomcloth().getList())
-          //{
+          for (bean.LineRecomClothBean record : bean.getRecomcloth().getList())
+          {
         %>
         <div class="item">
           <div class="relative">
-            <img src="./images/<%//record.getColor().name()%>.png" width=175
+            <img src="./images/<%=record.getColor().name()%>.png" width=175
               height=147 /> <img
-              src="./images/<%//record.getPattern().name()%>.png" width=175
+              src="./images/<%=record.getPattern().name()%>.png" width=175
               height=147 class=absolute /> <img
-              src="./images/<%//record.getCategory().name()%>.png" width=175
+              src="./images/<%=record.getCategory().name()%>.png" width=175
               height=147 class=absolute />
           </div>
           <br>
-<%//record.toString() %>
+<%=record.toString() %>
         </div>
         <%
-          //}
+          }
         %>
 
       </div>

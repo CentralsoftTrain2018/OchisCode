@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bean.ClothBean;
 import bean.ListOutRecomClothBean;
 import bean.ListOutUserClothBean;
+import bean.SaleClothDisplayBean;
 import service.ClothService;
 
 /**
@@ -54,9 +54,10 @@ public class SaleClothDisplayServlet extends HttpServlet
         ListOutUserClothBean ucbean = cs.userCloth("user");
         ListOutRecomClothBean rcbean = cs.getSelectedRecommendCloth(clothid, min, max);
 
-        ClothBean bean = new ClothBean();
-        //bean.setUsercloth(ucbean);
-        //bean.setRecomcloth(rcbean);
+
+        SaleClothDisplayBean bean = new SaleClothDisplayBean();
+        bean.setUsercloth(ucbean);
+        bean.setRecomcloth(rcbean);
 
         //jspに遷移
         request.setAttribute( "bean", bean );
