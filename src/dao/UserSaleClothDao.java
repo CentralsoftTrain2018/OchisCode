@@ -162,7 +162,6 @@ public class UserSaleClothDao extends Dao
                         );
                 list.add(recomvo);
             }
-
         }
         catch (SQLException e)
         {
@@ -170,7 +169,7 @@ public class UserSaleClothDao extends Dao
         }
         return list;
     }
-    //持ち服一覧上を取得
+    //持ち服一覧下を取得
     public List<UserSaleClothVo>getBottomUserCloth(int id)throws SQLException
     {
         List<UserSaleClothVo> list = new ArrayList<>();

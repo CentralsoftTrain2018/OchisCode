@@ -1,10 +1,7 @@
 
+package web;
 
-
-
-    package web;
-
-    import java.io.IOException;
+import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,76 +17,68 @@ import domain.PatternEnum;
 import domain.SizeEnum;
 import service.ClothService;
 
+/**
+ * Servlet implementation class ChangeSelectClothServlet
+ */
+@WebServlet("/ChangeUserSaleClothServlet")
+public class ChangeUserSaleClothServlet extends HttpServlet
+{
+    private static final long serialVersionUID = 1L;
+
     /**
-     * Servlet implementation class ChangeSelectClothServlet
+     * @see HttpServlet#HttpServlet()
      */
-    @WebServlet("/ChangeUserSaleClothServlet")
-    public class ChangeUserSaleClothServlet extends HttpServlet
+    public ChangeUserSaleClothServlet()
     {
-        private static final long serialVersionUID = 1L;
-
-
-        /**
-         * @see HttpServlet#HttpServlet()
-         */
-        public ChangeUserSaleClothServlet()
-        {
-            super();
-        }
-
-        /**
-         * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-         */
-
-        //シミュレーション画面の服の変更
-        protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-        {
-            //プルダウンの値を取得(文字化け対策に文字コード変更)
-            request.setCharacterEncoding( "utf-8" );
-
-          String topclothstr=request.getParameter("topcloth");
-          String bottomclothstr=request.getParameter("bottomcloth");
-
-            SelectBean bean = new SelectBean();
-
-            String[] topcloth=topclothstr.split("-");
-            String[] bottomcloth=bottomclothstr.split("-");
-            ClothService cserv =new ClothService();
-
-
-            //color + "-" + pattern + "-" + category + "-"+size+"\";
-
-            //プルダウンで選択された上下に応じてbeanにセットする値を変更
-            //上の服を変更
-
-                bean.setTopCategory( CategoryEnum.valueOf( topcloth[2] ) );
-                bean.setTopColor( ColorEnum.valueOf( topcloth[0] ) );
-                bean.setTopPattern( PatternEnum.valueOf( topcloth[1] ) );
-                bean.setTopSize( SizeEnum.valueOf( topcloth[3]  ) );
-                bean.setBottomCategory( CategoryEnum.valueOf( bottomcloth[2] ));
-                bean.setBottomColor( ColorEnum.valueOf( bottomcloth[0] ) );
-                bean.setBottomPattern( PatternEnum.valueOf( bottomcloth[1] ) );
-                bean.setBottomSize( SizeEnum.valueOf( bottomcloth[3]  ) );
-
-                bean.setUscbean(cserv.userSaleCloth(1));
-            request.setAttribute( "bean", bean );
-
-            RequestDispatcher disp = request.getRequestDispatcher( "/selectcloth.jsp" );
-            disp.forward( request, response );
-        }
-
-        /**
-         * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-         */
-        protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-        {
-            doGet( request, response );
-        }
-
+        super();
     }
 
+    /**
+     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+     */
 
+    //シミュレーション画面の服の変更
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
+        //プルダウンの値を取得(文字化け対策に文字コード変更)
+        request.setCharacterEncoding( "utf-8" );
 
+        String topclothstr = request.getParameter( "topcloth" );
+        String bottomclothstr = request.getParameter( "bottomcloth" );
 
+        SelectBean bean = new SelectBean();
 
+        String[] topcloth = topclothstr.split( "-" );
+        String[] bottomcloth = bottomclothstr.split( "-" );
+        ClothService cserv = new ClothService();
+        System.out.println( bottomcloth[2] );
+        //color + "-" + pattern + "-" + category + "-"+size+"\";
 
+        //プルダウンで選択された上下に応じてbeanにセットする値を変更
+        //上の服を変更
+
+        bean.setTopCategory( CategoryEnum.valueOf( topcloth[2] ) );
+        bean.setTopColor( ColorEnum.valueOf( topcloth[0] ) );
+        bean.setTopPattern( PatternEnum.valueOf( topcloth[1] ) );
+        bean.setTopSize( SizeEnum.valueOf( topcloth[3] ) );
+        bean.setBottomCategory( CategoryEnum.valueOf( bottomcloth[2] ) );
+        bean.setBottomColor( ColorEnum.valueOf( bottomcloth[0] ) );
+        bean.setBottomPattern( PatternEnum.valueOf( bottomcloth[1] ) );
+        bean.setBottomSize( SizeEnum.valueOf( bottomcloth[3] ) );
+
+        bean.setUscbean( cserv.userSaleCloth( 1 ) );
+        request.setAttribute( "bean", bean );
+
+        RequestDispatcher disp = request.getRequestDispatcher( "/selectcloth.jsp" );
+        disp.forward( request, response );
+    }
+
+    /**
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+     */
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
+        doGet( request, response );
+    }
+
+}
