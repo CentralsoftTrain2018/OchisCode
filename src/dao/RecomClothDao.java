@@ -71,7 +71,7 @@ public class RecomClothDao
     }
 
     //ユーザーの全持ち服を取得し、それぞれの持ち服に対するお勧め服を取得する
-    public List<RecomClothVo> getRecomClothList(int userid) throws SQLException {
+    public List<RecomClothVo> getRecomClothList(String userid) throws SQLException {
         PreparedStatement stmt = null;
         ResultSet userClothSet = null;
 
@@ -85,7 +85,7 @@ public class RecomClothDao
                         + "   user_cloth"
                         + " where"
                         + "   userid = ?");
-        stmt.setInt(1, userid);
+        stmt.setString(1, userid);
 
         userClothSet = stmt.executeQuery();
 

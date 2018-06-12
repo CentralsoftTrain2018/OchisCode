@@ -27,7 +27,7 @@ import vo.UserSaleClothVo;
 public class ClothService
 {
     //持ち服一覧
-    public ListOutUserClothBean userCloth(int userId)
+    public ListOutUserClothBean userCloth(String userId)
     {
         UserClothLineBean bean;
         ListOutUserClothBean listbean;
@@ -62,7 +62,7 @@ public class ClothService
     }
 
     //持ち服登録
-    public void registcloth(int id, SizeEnum size,ColorEnum color,PatternEnum pattern, CategoryEnum category )
+    public void registcloth(String id, SizeEnum size,ColorEnum color,PatternEnum pattern, CategoryEnum category )
     {
         try (
                 Connection con = Dao.getConnection();
@@ -70,7 +70,7 @@ public class ClothService
         {
             UserClothDao ucdao = new UserClothDao( con );
             UserClothVo user = new UserClothVo( id, category,  color,  pattern,  size);
-            ucdao.doRegist(id,user);
+            ucdao.doRegist(user);
         }
         catch(SQLException | ClassNotFoundException e)
         {
@@ -80,7 +80,7 @@ public class ClothService
 
 
 
-    public ListOutRecomClothBean getRecommendCloth(int userid) {
+    public ListOutRecomClothBean getRecommendCloth(String userid) {
         try
         (
             Connection con = Dao.getConnection();

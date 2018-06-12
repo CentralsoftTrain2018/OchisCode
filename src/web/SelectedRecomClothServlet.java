@@ -47,7 +47,7 @@ public class SelectedRecomClothServlet extends HttpServlet
     {
         int clothid = Integer.parseInt(request.getParameter("usercloth"));
         ClothService cs = new ClothService();
-        ListOutUserClothBean ucbean = cs.userCloth(1);
+        ListOutUserClothBean ucbean = cs.userCloth("user");
         ListOutRecomClothBean rcbean = cs.getSelectedRecommendCloth(clothid);;
 
         ClothBean bean = new ClothBean();
