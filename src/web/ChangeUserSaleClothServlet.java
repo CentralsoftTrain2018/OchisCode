@@ -37,7 +37,7 @@ public class ChangeUserSaleClothServlet extends HttpServlet
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
 
-    //シミュレーション画面の服の変更
+    //シミュレーション画面の服の変更(持ち服から)
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         //プルダウンの値を取得(文字化け対策に文字コード変更)
@@ -55,7 +55,6 @@ public class ChangeUserSaleClothServlet extends HttpServlet
         //color + "-" + pattern + "-" + category + "-"+size+"\";
 
         //プルダウンで選択された上下に応じてbeanにセットする値を変更
-        //上の服を変更
 
         bean.setTopCategory( CategoryEnum.valueOf( topcloth[2] ) );
         bean.setTopColor( ColorEnum.valueOf( topcloth[0] ) );
@@ -65,7 +64,7 @@ public class ChangeUserSaleClothServlet extends HttpServlet
         bean.setBottomColor( ColorEnum.valueOf( bottomcloth[0] ) );
         bean.setBottomPattern( PatternEnum.valueOf( bottomcloth[1] ) );
         bean.setBottomSize( SizeEnum.valueOf( bottomcloth[3] ) );
-
+        //TODO 持ち服を上下に分けて取得
         bean.setUscbean( cserv.userSaleCloth( "user" ) );
         request.setAttribute( "bean", bean );
 

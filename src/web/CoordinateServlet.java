@@ -52,7 +52,7 @@ public class CoordinateServlet extends HttpServlet
         bean.setBottomColor( ColorEnum.黒 );
         bean.setBottomPattern( PatternEnum.無地 );
         bean.setBottomSize( SizeEnum.M );
-
+        //TODO 持ち服を上下に分けて取得
         bean.setUscbean(cserv.userSaleCloth("user"));
 
         request.setAttribute( "bean", bean );

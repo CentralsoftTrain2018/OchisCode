@@ -77,6 +77,7 @@ public class ClothService
         }
     }
 
+    //
     public ListOutRecomClothBean getRecommendCloth(String userid)
     {
         try (
@@ -143,7 +144,8 @@ public class ClothService
 
     }
 
-    public UserSaleClothBean userSaleCloth(String userId)
+
+   public UserSaleClothBean userSaleCloth(String userId)
     {
         UserSaleClothLineBean bean;
         UserSaleClothBean listbean;
@@ -223,4 +225,5 @@ public class ClothService
         }
 
     }
+
 }
