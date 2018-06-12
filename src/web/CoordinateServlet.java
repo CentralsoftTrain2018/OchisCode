@@ -19,17 +19,17 @@ import service.ClothService;
 /**
  * Servlet implementation class RegistServlet
  */
-@WebServlet("/CoordinateClothServlet")
+@WebServlet("/CoordinateServlet")
 
 //服のシミュレーション画面
-public class CoordinateClothServlet extends HttpServlet
+public class CoordinateServlet extends HttpServlet
 {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CoordinateClothServlet()
+    public CoordinateServlet()
     {
         super();
     }

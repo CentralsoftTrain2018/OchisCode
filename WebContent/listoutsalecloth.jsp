@@ -30,6 +30,8 @@
 
       <!-- 右側プルダウン、画像表示部分 -->
       <div class="contents">
+        <div class="container">
+          <div class="header">
         <!-- プルダウン、ボタン -->
         <form method="POST" action="CoordinateSaleClothServlet">
           <select name="usercloth">
@@ -46,6 +48,8 @@
           </select> <input type="submit" value="オススメ服表示">
         </form>
         <br>
+          </div>
+          <div class="contents">
         <%
           for (bean.LineRecomClothBean record : bean.getRecomcloth().getList())
           {
@@ -67,6 +71,8 @@
         %>
 
       </div>
+    </div>
+  </div>
     </div>
   </div>
 </body>
