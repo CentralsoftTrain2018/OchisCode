@@ -1,8 +1,8 @@
 package bean;
 
-public class ClothBean {
+public class SaleClothDisplayBean {
 
-    public ClothBean() {
+    public SaleClothDisplayBean() {
 
     }
 
