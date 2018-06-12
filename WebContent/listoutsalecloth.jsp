@@ -2,7 +2,7 @@
   pageEncoding="UTF-8"%>
 <jsp:useBean id="bean" class="bean.SaleClothDisplayBean" scope="request" />
 <%@ page import="java.lang.String"%>
-<!DOCTYPE html PUBLIC "-W3CDTD HTML 4.01 TransitionalEN" "http:www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -36,7 +36,6 @@
             <!-- プルダウン、ボタン -->
             <form method="POST" action="SaleClothDisplayServlet">
               <select name="usercloth">
-                <!--
                 <%
                   for (bean.UserClothLineBean str : bean.getUsercloth().getList()) {
                 %>
@@ -44,7 +43,6 @@
                 <%
                   }
                 %>
-                 -->
               </select> <select name="narrow">
                 <option value="0-3000">0-3000</option>
                 <option value="3001-5000">3001-5000</option>
@@ -67,7 +65,7 @@
               height=147 class=absolute />
           </div>
           <br>
-<%=record.toString() %>
+<a href="<%= record.getUrl() %>"><%=record.toString() %></a>
         </div>
         <%
           }

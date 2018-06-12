@@ -10,6 +10,7 @@ public class LineRecomClothBean
     private ColorEnum color;
     private PatternEnum pattern;
     private int price;
+    private String url;
 
     public LineRecomClothBean()
     {
@@ -54,6 +55,17 @@ public class LineRecomClothBean
     public void setPrice(int price)
     {
         this.price = price;
+    }
+
+
+    public String getUrl()
+    {
+        return url;
+    }
+
+    public void setUrl(String url)
+    {
+        this.url = url;
     }
 
     public String toString() {

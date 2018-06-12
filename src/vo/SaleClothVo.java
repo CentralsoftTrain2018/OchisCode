@@ -9,7 +9,8 @@ public class SaleClothVo extends ClothVo
 {
     private int Price;
     private String Url;
-   public SaleClothVo(CategoryEnum category, ColorEnum color, PatternEnum pattern, SizeEnum size,int Price,String Url) {
+   public SaleClothVo(CategoryEnum category, ColorEnum color, PatternEnum pattern, SizeEnum size,int Price//,String Url
+           ) {
         super(category, color, pattern, size);
 
         this.Price=Price;
