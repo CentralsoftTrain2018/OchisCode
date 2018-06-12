@@ -140,6 +140,7 @@ public class SaleClothDao
                         + "  user_cloth.clothid = ? and"
                         + "  user_cloth.category = recommend.category and"
                         + "  sale_cloth.category = recommend.rec_category) and"
+               //金額によって絞込みを行う
                         + " price between 3000 and 5000");
 
         //持ち服の指定
