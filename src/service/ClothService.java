@@ -128,6 +128,7 @@ public class ClothService
                 linercbean.setColor( rcvo.getColor() );
                 linercbean.setPattern( rcvo.getPattern() );
                 linercbean.setCategory( rcvo.getCategory() );
+                linercbean.setPrice(rcvo.getPrice());//金額の取得
 
                 rcbeanlist.add( linercbean );
             }

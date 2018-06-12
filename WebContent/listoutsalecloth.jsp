@@ -36,7 +36,6 @@
             <!-- プルダウン、ボタン -->
             <form method="POST" action="SaleClothDisplayServlet">
               <select name="usercloth">
-                <!--
                 <%
                   for (bean.UserClothLineBean str : bean.getUsercloth().getList()) {
                 %>
@@ -44,7 +43,6 @@
                 <%
                   }
                 %>
-                 -->
               </select> <select name="narrow">
                 <option value="0-3000">0-3000</option>
                 <option value="3001-5000">3001-5000</option>
