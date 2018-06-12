@@ -38,18 +38,18 @@ public class RegistUserClothServlet extends HttpServlet
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        request.setCharacterEncoding("utf-8");
+        request.setCharacterEncoding( "utf-8" );
         //値の取り出し
-        String color = request.getParameter("color");
-        String pattern = request.getParameter("pattern");
-        String category = request.getParameter("category");
-        String size = request.getParameter("size");
+        String color = request.getParameter( "color" );
+        String pattern = request.getParameter( "pattern" );
+        String category = request.getParameter( "category" );
+        String size = request.getParameter( "size" );
         //TODO コネクションから取得
-        int id=1;
+        int id = 1;
         ClothService cloth = new ClothService();
 
-        cloth.registcloth(id, SizeEnum.valueOf(size),ColorEnum.valueOf(color),
-                PatternEnum.valueOf(pattern),CategoryEnum.valueOf(category));
+        cloth.registcloth( id, SizeEnum.valueOf( size ), ColorEnum.valueOf( color ),
+                PatternEnum.valueOf( pattern ), CategoryEnum.valueOf( category ) );
 
         RequestDispatcher disp = request.getRequestDispatcher( "/ListOutUserClotheServlet" );
         disp.forward( request, response );

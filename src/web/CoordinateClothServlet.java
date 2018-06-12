@@ -19,7 +19,7 @@ import service.ClothService;
 /**
  * Servlet implementation class RegistServlet
  */
-@WebServlet("/SelectClothServlet")
+@WebServlet("/CoordinateClothServlet")
 
 //服のシミュレーション画面
 public class CoordinateClothServlet extends HttpServlet

@@ -18,7 +18,7 @@ import service.ClothService;
  * Servlet implementation class RegistServlet
  */
 //持ち服を基に一覧表示
-@WebServlet("/SelectedRecomClothServlet")
+@WebServlet("/CoordinateSaleClothServlet")
 public class CoordinateSaleClothServlet extends HttpServlet
 {
     private static final long serialVersionUID = 1L;
