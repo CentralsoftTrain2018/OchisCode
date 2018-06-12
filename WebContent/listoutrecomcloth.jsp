@@ -25,10 +25,26 @@
       </form>
     </div>
     <div class="verticalContainer">
+      <!-- 左側モデル表示部分 -->
       <div class="model"></div>
-      <!--  -->
-      <div class="contents">
 
+      <!-- 右側プルダウン、画像表示部分 -->
+      <div class="contents">
+        <!-- プルダウン、ボタン -->
+        <form method="POST" action="SelectedRecomClothServlet">
+          <select name="usercloth">
+            <%
+              for (bean.UserClothLineBean str : bean.getUsercloth().getList())
+              {
+            %>
+            <option value="<%=str.getClothid()%>"><%=str%></option>
+            <%
+              }
+            %>
+          </select> <select name="narrow">
+            <option value="テスト">絞込み</option>
+          </select> <input type="submit" value="オススメ服表示">
+        </form>
         <%
           for (bean.LineRecomClothBean record : bean.getRecomcloth().getList())
           {
@@ -43,24 +59,10 @@
               height=147 class=absolute />
           </div>
         </div>
-
         <%
           }
         %>
 
-        <form method="POST" action="SelectedRecomClothServlet">
-          <select name="usercloth">
-            <%
-              for (bean.UserClothLineBean str : bean.getUsercloth().getList())
-              {
-            %>
-            <option value="<%=str.getClothid()%>"><%=str%></option>
-            <%
-              }
-            %>
-
-          </select> <input type="submit" value="オススメ服表示">
-        </form>
       </div>
     </div>
   </div>
