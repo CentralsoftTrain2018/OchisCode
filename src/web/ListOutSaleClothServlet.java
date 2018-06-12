@@ -64,7 +64,7 @@ public class ListOutSaleClothServlet extends HttpServlet
 
         //jspに遷移
         request.setAttribute( "bean", bean );
-        RequestDispatcher disp = request.getRequestDispatcher( "/listoutsalecloth.jsp" );
+        RequestDispatcher disp = request.getRequestDispatcher( "/saleclothdisplay.jsp" );
         disp.forward( request, response );
         doGet( request, response );
     }
