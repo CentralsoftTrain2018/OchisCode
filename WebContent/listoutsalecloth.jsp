@@ -58,6 +58,8 @@
               src="./images/<%=record.getCategory().name()%>.png" width=175
               height=147 class=absolute />
           </div>
+          <br>
+<%=record.toString() %>
         </div>
         <%
           }

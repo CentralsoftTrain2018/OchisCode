@@ -46,6 +46,7 @@
 <% out.println("<img src=./images/"+ color +".png width=50 height=50/ class=absolute>");%>
 <% out.println("<img src=./images/"+ pat +".png width=50 height=50/ class=absolute>");%>
 <% out.println("<img src=./images/"+ cate +".png width=50 height=50/ class=absolute>");%>
+
 <%out.println("</div>");%>
 <%out.println("</td>"); %>
 <%} %>
