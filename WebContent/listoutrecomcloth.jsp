@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+  pageEncoding="UTF-8"%>
 <jsp:useBean id="bean" class="bean.ClothBean" scope="request" />
-<%@ page import="java.lang.String" %>
+<%@ page import="java.lang.String"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,69 +9,61 @@
 <title>おすすめ画面</title>
 </head>
 
-<style>
-.relative {
-    position: relative;
-}
-.absolute {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-}
-</style>
-
+<!-- cssファイル読み込み -->
+<link rel="stylesheet" type="text/css" href="css/PileImage.css">
+<link rel="stylesheet" type="text/css" href="css/Header.css">
+<link rel="stylesheet" type="text/css" href="css/TwoColumn.css">
 <body>
+  <div class="container">
+    <div class="header">
+      ホーム画面
+      <form method="POST" action="CoordinateClothServlet">
+        <input type="submit" value="コーデ画面へ">
+      </form>
+      <form method="POST" action="ListOutUserClotheServlet">
+        <input type="submit" value="所有服一覧へ">
+      </form>
+    </div>
+    <div class="verticalContainer">
+      <div class="model"></div>
+      <!--  -->
+      <div class="contents">
 
-ホーム画面
-<form  method="POST" action="CoordinateClothServlet">
- <input type="submit" value="コーデ画面へ">
-</form>
-<form  method="POST" action="ListOutUserClotheServlet">
- <input type="submit" value="所有服一覧へ">
-</form>
-<br>
-<br>
+        <%
+          for (bean.LineRecomClothBean record : bean.getRecomcloth().getList())
+          {
+        %>
+        <div class="item">
+          <div class="relative">
+            <img src="./images/<%=record.getColor().name()%>.png" width=175
+              height=147 /> <img
+              src="./images/<%=record.getPattern().name()%>.png" width=175
+              height=147 class=absolute /> <img
+              src="./images/<%=record.getCategory().name()%>.png" width=175
+              height=147 class=absolute />
+          </div>
+        </div>
 
-<!--  -->
-<table>
-<tr>
-<%int i=0;%>
-<%for( bean.LineRecomClothBean record:bean.getRecomcloth().getList() ){
-  out.println("<td>");
-  out.println("<div class="+"relative"+">");%>
-  <%String color = record.getColor().name();%>
-  <%String cate = record.getCategory().name();%>
-  <%String pat = record.getPattern().name();%>
-<% out.println("<img src=./images/"+ color +".png width=175 height=147/>");%>
-<% out.println("<img src=./images/"+ pat +".png width=175 height=147/ class=absolute>");%>
-<% out.println("<img src=./images/"+ cate +".png width=175 height=147/ class=absolute>");%>
-<%out.println("</div>");%>
-<%out.println("</td>"); %>
-<%i++; %>
-  <%if(i%3==2)
-  {
-  out.println("</tr> <tr>");
-  }%>
-<%} %>
-</tr>
-</table>
+        <%
+          }
+        %>
 
-<form  method="POST" action="SelectedRecomClothServlet">
-<select name ="usercloth">
+        <form method="POST" action="SelectedRecomClothServlet">
+          <select name="usercloth">
+            <%
+              for (bean.UserClothLineBean str : bean.getUsercloth().getList())
+              {
+            %>
+            <option value="<%=str.getClothid()%>"><%=str%></option>
+            <%
+              }
+            %>
 
-<!-- Beanが複数使用されていたためコメントアウト -->
-<%for( bean.UserClothLineBean str : bean.getUsercloth().getList()){ %>
-<% out.print("<option value=");
-out.print(str.getClothid());
-out.print(">");
-out.print(str);
-out.println("</option>");%>
-<%} %>
-<!-- コメントアウトここまで -->
-
-</select>
-<input type="submit" value="オススメ服表示">
-</form>
+          </select> <input type="submit" value="オススメ服表示">
+        </form>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
