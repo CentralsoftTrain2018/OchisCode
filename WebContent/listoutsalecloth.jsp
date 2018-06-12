@@ -30,40 +30,44 @@
 
       <!-- 右側プルダウン、画像表示部分 -->
       <div class="contents">
-        <!-- プルダウン、ボタン -->
-        <form method="POST" action="CoordinateSaleClothServlet">
-          <select name="usercloth">
+        <div class="container">
+          <div class="header">
+            <!-- プルダウン、ボタン -->
+            <form method="POST" action="CoordinateSaleClothServlet">
+              <select name="usercloth">
+                <%
+                  for (bean.UserClothLineBean str : bean.getUsercloth().getList())
+                  {
+                %>
+                <option value="<%=str.getClothid()%>"><%=str%></option>
+                <%
+                  }
+                %>
+              </select> <select name="narrow">
+                <option value="テスト">絞込み</option>
+              </select> <input type="submit" value="オススメ服表示">
+            </form>
+          </div>
+          <div class="contents">
             <%
-              for (bean.UserClothLineBean str : bean.getUsercloth().getList())
+              for (bean.LineRecomClothBean record : bean.getRecomcloth().getList())
               {
             %>
-            <option value="<%=str.getClothid()%>"><%=str%></option>
+            <div class="item">
+              <div class="relative">
+                <img src="./images/<%=record.getColor().name()%>.png" width=175
+                  height=147 /> <img
+                  src="./images/<%=record.getPattern().name()%>.png" width=175
+                  height=147 class=absolute /> <img
+                  src="./images/<%=record.getCategory().name()%>.png" width=175
+                  height=147 class=absolute />
+              </div>
+            </div>
             <%
               }
             %>
-          </select> <select name="narrow">
-            <option value="テスト">絞込み</option>
-          </select> <input type="submit" value="オススメ服表示">
-        </form>
-        <br>
-        <%
-          for (bean.LineRecomClothBean record : bean.getRecomcloth().getList())
-          {
-        %>
-        <div class="item">
-          <div class="relative">
-            <img src="./images/<%=record.getColor().name()%>.png" width=175
-              height=147 /> <img
-              src="./images/<%=record.getPattern().name()%>.png" width=175
-              height=147 class=absolute /> <img
-              src="./images/<%=record.getCategory().name()%>.png" width=175
-              height=147 class=absolute />
           </div>
         </div>
-        <%
-          }
-        %>
-
       </div>
     </div>
   </div>
