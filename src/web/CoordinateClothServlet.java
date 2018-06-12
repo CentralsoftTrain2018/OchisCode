@@ -22,14 +22,14 @@ import service.ClothService;
 @WebServlet("/SelectClothServlet")
 
 //服のシミュレーション画面
-public class SelectClothServlet extends HttpServlet
+public class CoordinateClothServlet extends HttpServlet
 {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SelectClothServlet()
+    public CoordinateClothServlet()
     {
         super();
     }

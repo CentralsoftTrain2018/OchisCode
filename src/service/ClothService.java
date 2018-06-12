@@ -13,14 +13,14 @@ import bean.UserClothLineBean;
 import bean.UserSaleClothBean;
 import bean.UserSaleClothLineBean;
 import dao.Dao;
-import dao.RecomClothDao;
+import dao.SaleClothDao;
 import dao.UserClothDao;
 import dao.UserSaleClothDao;
 import domain.CategoryEnum;
 import domain.ColorEnum;
 import domain.PatternEnum;
 import domain.SizeEnum;
-import vo.RecomClothVo;
+import vo.SaleClothVo;
 import vo.UserClothVo;
 import vo.UserSaleClothVo;
 
@@ -81,12 +81,12 @@ public class ClothService
         try (
                 Connection con = Dao.getConnection();)
         {
-            RecomClothDao rcdao = new RecomClothDao( con );
-            List<RecomClothVo> rcvolist = rcdao.getRecomClothList( userid );
+            SaleClothDao rcdao = new SaleClothDao( con );
+            List<SaleClothVo> rcvolist = rcdao.getRecomClothList( userid );
 
             ListOutRecomClothBean listoutrcbean = new ListOutRecomClothBean();
             List<LineRecomClothBean> rcbeanlist = new ArrayList<LineRecomClothBean>();
-            for (RecomClothVo rcvo : rcvolist)
+            for (SaleClothVo rcvo : rcvolist)
             {
                 LineRecomClothBean linercbean = new LineRecomClothBean();
                 linercbean.setColor( rcvo.getColor() );
@@ -114,12 +114,12 @@ public class ClothService
         try (
                 Connection con = Dao.getConnection();)
         {
-            RecomClothDao rcdao = new RecomClothDao( con );
-            List<RecomClothVo> rcvolist = rcdao.getRecomCloth( clothid );
+            SaleClothDao rcdao = new SaleClothDao( con );
+            List<SaleClothVo> rcvolist = rcdao.getRecomCloth( clothid );
 
             ListOutRecomClothBean listoutrcbean = new ListOutRecomClothBean();
             List<LineRecomClothBean> rcbeanlist = new ArrayList<LineRecomClothBean>();
-            for (RecomClothVo rcvo : rcvolist)
+            for (SaleClothVo rcvo : rcvolist)
             {
                 LineRecomClothBean linercbean = new LineRecomClothBean();
                 linercbean.setColor( rcvo.getColor() );

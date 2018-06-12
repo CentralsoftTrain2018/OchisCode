@@ -19,14 +19,14 @@ import service.ClothService;
  */
 //持ち服を基に一覧表示
 @WebServlet("/SelectedRecomClothServlet")
-public class SelectedRecomClothServlet extends HttpServlet
+public class CoordinateSaleClothServlet extends HttpServlet
 {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SelectedRecomClothServlet()
+    public CoordinateSaleClothServlet()
     {
         super();
     }

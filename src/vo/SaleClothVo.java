@@ -5,9 +5,9 @@ import domain.ColorEnum;
 import domain.PatternEnum;
 import domain.SizeEnum;
 
-public class RecomClothVo extends ClothVo
+public class SaleClothVo extends ClothVo
 {
-   public RecomClothVo(CategoryEnum category, ColorEnum color, PatternEnum pattern, SizeEnum size) {
+   public SaleClothVo(CategoryEnum category, ColorEnum color, PatternEnum pattern, SizeEnum size) {
         super(category, color, pattern, size);
     }
 
