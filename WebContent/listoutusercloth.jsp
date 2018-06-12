@@ -24,10 +24,10 @@
 <body>
 
 所有服一覧
-<form method="POST" action="CoordinateClothServlet">
+<form method="POST" action="CoordinateServlet">
  <input type="submit" value="コーデ画面へ">
 </form>
-<form method="POST" action="ListOutRecomClothServlet">
+<form method="POST" action="ListOutSaleClothServlet">
  <input type="submit" value="おすすめ画面へ">
 </form>
 

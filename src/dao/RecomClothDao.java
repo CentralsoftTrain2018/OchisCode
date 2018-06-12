@@ -11,7 +11,7 @@ import domain.CategoryEnum;
 import domain.ColorEnum;
 import domain.PatternEnum;
 import domain.SizeEnum;
-import vo.SaleClothVo;
+import vo.RecomClothVo;
 
 public class RecomClothDao
 {
@@ -30,7 +30,6 @@ public class RecomClothDao
                     + "  ,color "
                     + "  ,pattern "
                     + "  ,category "
-                    + "  ,price "
                     + "from   "
                     + "   sale_cloth "
                     + "Join "
@@ -47,9 +46,9 @@ public class RecomClothDao
                     + " sale_cloth.patternid = pattern.patternid";
 
     //販売服をすべて
-    public List<SaleClothVo> getRecomCloth()throws SQLException
+    public List<RecomClothVo> getRecomCloth()throws SQLException
     {
-        List<SaleClothVo> list = new ArrayList<>();
+        List<RecomClothVo> list = new ArrayList<>();
         PreparedStatement stmt = null;
         ResultSet rset = null;
 
@@ -60,12 +59,11 @@ public class RecomClothDao
 
             while(rset.next())
             {
-                SaleClothVo recomvo = new SaleClothVo(
+                RecomClothVo recomvo = new RecomClothVo(
                         CategoryEnum.valueOf(rset.getString(1)),
                         ColorEnum.valueOf(rset.getString(2)),
                         PatternEnum.valueOf(rset.getString(3)),
-                        SizeEnum.valueOf(rset.getString(4)),
-                        rset.getInt(5)
+                        SizeEnum.valueOf(rset.getString(4))
                         );
                 list.add(recomvo);
             }
@@ -73,11 +71,11 @@ public class RecomClothDao
     }
 
     //ユーザーの全持ち服を取得し、それぞれの持ち服に対するお勧め服を取得する
-    public List<SaleClothVo> getRecomClothList(String userid) throws SQLException {
+    public List<RecomClothVo> getRecomClothList(int userid) throws SQLException {
         PreparedStatement stmt = null;
         ResultSet userClothSet = null;
 
-        List<SaleClothVo> recomClothList = new ArrayList<SaleClothVo>();
+        List<RecomClothVo> recomClothList = new ArrayList<RecomClothVo>();
 
         /* ユーザーの持ち服をすべて取得 */
         stmt = connection.prepareStatement(
@@ -87,13 +85,13 @@ public class RecomClothDao
                         + "   user_cloth"
                         + " where"
                         + "   userid = ?");
-        stmt.setString(1, userid);
+        stmt.setInt(1, userid);
 
         userClothSet = stmt.executeQuery();
 
         //持ち服一つに対するお勧め服を取得(全持ち服分繰り返す)
         while (userClothSet.next()) {
-            List<SaleClothVo> recomCloth = getRecomCloth(userClothSet.getInt(1));
+            List<RecomClothVo> recomCloth = getRecomCloth(userClothSet.getInt(1));
             recomClothList.addAll(recomCloth);
         }
 
@@ -103,8 +101,8 @@ public class RecomClothDao
     }
 
     //持ち服を指定して、お勧めの服を取得する
-    public List<SaleClothVo> getRecomCloth(int clothid) throws SQLException {
-        List<SaleClothVo> recomClothList = new ArrayList<SaleClothVo>();
+    public List<RecomClothVo> getRecomCloth(int clothid) throws SQLException {
+        List<RecomClothVo> recomClothList = new ArrayList<RecomClothVo>();
         PreparedStatement stmt = connection.prepareStatement(
                 "  select"
                 //指定した持ち服の色に対するお勧めの色の服を取得
@@ -152,12 +150,11 @@ public class RecomClothDao
         ResultSet recomClothSet = stmt.executeQuery();
 
         while (recomClothSet.next()) {
-            SaleClothVo recomCloth = new SaleClothVo(
+            RecomClothVo recomCloth = new RecomClothVo(
                     CategoryEnum.valueOf(recomClothSet.getString(6)),
                     ColorEnum.valueOf(recomClothSet.getString(4)),
                     PatternEnum.valueOf(recomClothSet.getString(5)),
-                    SizeEnum.valueOf(recomClothSet.getString(2)),
-                    recomClothSet.getInt(3));
+                    SizeEnum.valueOf(recomClothSet.getString(2)));
 
             recomClothList.add(recomCloth);
         }
