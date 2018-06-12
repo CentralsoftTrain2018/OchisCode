@@ -22,7 +22,7 @@
 コーディネイト画面
 
 <!-- 画面遷移ボタン -->
-<form  method="POST" action="ListOutRecomClothServlet">
+<form  method="POST" action="ListOutSaleClothServlet">
  <input type="submit" value="おすすめ画面へ">
 </form>
 <form  method="POST" action="ListOutUserClotheServlet">
@@ -53,7 +53,7 @@
 
 
 <!-- 変更する服の情報を入力 -->
-<form  method="POST" action=ChangeSelectClothServlet>
+<form  method="POST" action=ChangeCoordinateClothServlet>
 <!-- 色プルダウン -->
 <select name ="color">
 <%for(ColorEnum ce :ColorEnum.values()){ %>

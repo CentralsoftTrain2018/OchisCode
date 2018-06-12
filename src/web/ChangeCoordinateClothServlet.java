@@ -20,15 +20,15 @@ import service.ClothService;
 /**
  * Servlet implementation class ChangeSelectClothServlet
  */
-@WebServlet("/ChangeSelectClothServlet")
-public class ChangeSelectClothServlet extends HttpServlet
+@WebServlet("/ChangeCoordinateClothServlet")
+public class ChangeCoordinateClothServlet extends HttpServlet
 {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ChangeSelectClothServlet()
+    public ChangeCoordinateClothServlet()
     {
         super();
     }

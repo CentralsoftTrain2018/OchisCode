@@ -18,7 +18,7 @@ import service.ClothService;
  * Servlet implementation class RegistServlet
  */
 //持ち服を基に一覧表示
-@WebServlet("/SelectedRecomClothServlet")
+@WebServlet("/CoordinateSaleClothServlet")
 public class CoordinateSaleClothServlet extends HttpServlet
 {
     private static final long serialVersionUID = 1L;
@@ -56,7 +56,7 @@ public class CoordinateSaleClothServlet extends HttpServlet
 
         //jspに遷移
         request.setAttribute( "bean", bean );
-        RequestDispatcher disp = request.getRequestDispatcher( "/listoutrecomcloth.jsp" );
+        RequestDispatcher disp = request.getRequestDispatcher( "/listoutsalecloth.jsp" );
         disp.forward( request, response );
         doGet( request, response );
     }

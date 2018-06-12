@@ -18,15 +18,15 @@ import service.ClothService;
  * Servlet implementation class RegistServlet
  */
 //持ち服を基に一覧表示
-@WebServlet("/ListOutRecomClothServlet")
-public class ListOutRecomClothServlet extends HttpServlet
+@WebServlet("/ListOutSaleClothServlet")
+public class ListOutSaleClothServlet extends HttpServlet
 {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ListOutRecomClothServlet()
+    public ListOutSaleClothServlet()
     {
         super();
     }
@@ -64,7 +64,7 @@ public class ListOutRecomClothServlet extends HttpServlet
 
         //jspに遷移
         request.setAttribute( "bean", bean );
-        RequestDispatcher disp = request.getRequestDispatcher( "/listoutrecomcloth.jsp" );
+        RequestDispatcher disp = request.getRequestDispatcher( "/listoutsalecloth.jsp" );
         disp.forward( request, response );
         doGet( request, response );
     }

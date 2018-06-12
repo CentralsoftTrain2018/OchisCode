@@ -19,7 +19,7 @@ import service.ClothService;
 /**
  * Servlet implementation class RegistServlet
  */
-@WebServlet("/SelectClothServlet")
+@WebServlet("/CoordinateClothServlet")
 
 //服のシミュレーション画面
 public class CoordinateClothServlet extends HttpServlet
@@ -56,7 +56,7 @@ public class CoordinateClothServlet extends HttpServlet
         bean.setUscbean(cserv.userSaleCloth(1));
 
         request.setAttribute( "bean", bean );
-        RequestDispatcher disp = request.getRequestDispatcher( "/coordinate.jsp" );
+        RequestDispatcher disp = request.getRequestDispatcher( "/coordinatecloth.jsp" );
         disp.forward( request, response );
     }
 

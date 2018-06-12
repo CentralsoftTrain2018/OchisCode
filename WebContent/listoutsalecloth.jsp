@@ -23,7 +23,7 @@
 <body>
 
 ホーム画面
-<form  method="POST" action="SelectClothServlet">
+<form  method="POST" action="CoordinateClothServlet">
  <input type="submit" value="コーデ画面へ">
 </form>
 <form  method="POST" action="ListOutUserClotheServlet">
@@ -56,7 +56,7 @@
 </tr>
 </table>
 
-<form  method="POST" action="SelectedRecomClothServlet">
+<form  method="POST" action="CoordinateSaleClothServlet">
 <select name ="usercloth">
 
 <!-- Beanが複数使用されていたためコメントアウト -->
