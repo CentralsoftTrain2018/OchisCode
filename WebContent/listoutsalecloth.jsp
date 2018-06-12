@@ -32,24 +32,25 @@
       <div class="contents">
         <div class="container">
           <div class="header">
-        <!-- プルダウン、ボタン -->
-        <form method="POST" action="CoordinateSaleClothServlet">
-          <select name="usercloth">
-            <%
-              for (bean.UserClothLineBean str : bean.getUsercloth().getList())
-              {
-            %>
-            <option value="<%=str.getClothid()%>"><%=str%></option>
-            <%
-              }
-            %>
-          </select> <select name="narrow">
-            <option value="テスト">絞込み</option>
-          </select> <input type="submit" value="オススメ服表示">
-        </form>
-        <br>
+
+            <!-- プルダウン、ボタン -->
+            <form method="POST" action="SaleClothDisplayServlet">
+              <select name="usercloth">
+                <%
+                  for (bean.UserClothLineBean str : bean.getUsercloth().getList()) {
+                %>
+                <option value="<%=str.getClothid()%>"><%=str%></option>
+                <%
+                  }
+                %>
+              </select> <select name="narrow">
+                <option value="0-3000">0-3000</option>
+                <option value="3001-5000">3001-5000</option>
+              </select><input type="submit" value="オススメ服表示">
+            </form>
           </div>
           <div class="contents">
+
         <%
           for (bean.LineRecomClothBean record : bean.getRecomcloth().getList())
           {

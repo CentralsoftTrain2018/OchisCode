@@ -46,14 +46,18 @@ public class SaleClothDisplayServlet extends HttpServlet
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         int clothid = Integer.parseInt(request.getParameter("usercloth"));
+        String str = request.getParameter("narrow");
+        String[] minmax = str.split("-");
+        int min = Integer.parseInt(minmax[0]);
+        int max = Integer.parseInt(minmax[1]);
         ClothService cs = new ClothService();
         ListOutUserClothBean ucbean = cs.userCloth("user");
-        ListOutRecomClothBean rcbean = cs.getSelectedRecommendCloth(clothid);
+        ListOutRecomClothBean rcbean = cs.getSelectedRecommendCloth(clothid, min, max);
 
         ClothBean bean = new ClothBean();
         bean.setUsercloth(ucbean);
         bean.setRecomcloth(rcbean);
-
+        
         //jspに遷移
         request.setAttribute( "bean", bean );
         RequestDispatcher disp = request.getRequestDispatcher( "/listoutsalecloth.jsp" );
