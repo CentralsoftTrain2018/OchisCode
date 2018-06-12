@@ -56,7 +56,7 @@ public class CoordinateClothServlet extends HttpServlet
         bean.setUscbean(cserv.userSaleCloth("user"));
 
         request.setAttribute( "bean", bean );
-        RequestDispatcher disp = request.getRequestDispatcher( "/coordinate.jsp" );
+        RequestDispatcher disp = request.getRequestDispatcher( "/coordinatecloth.jsp" );
         disp.forward( request, response );
     }
 

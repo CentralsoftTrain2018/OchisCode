@@ -23,7 +23,7 @@
     コーディネイト画面
     <div class="header">
       <!-- 画面遷移ボタン -->
-      <form method="POST" action="ListOutRecomClothServlet">
+      <form method="POST" action="ListOutSaleClothServlet">
         <input type="submit" value="おすすめ画面へ">
       </form>
       <form method="POST" action="ListOutUserClotheServlet">
@@ -41,6 +41,7 @@
             height="218" />
         </div>
 
+
         <!-- 上 -->
         <div class="relative">
           <img src="./images/<%=bean.getTopColor().name()%>.png"
@@ -53,6 +54,7 @@
             class="absolute" width="<%=bean.getTopSize().getWidth()%>"
             height="<%=bean.getTopSize().getHeight()%>" />
         </div>
+
 
         <!-- 下 -->
         <div class="relative">
@@ -69,7 +71,7 @@
       </div>
       <div class="contents">
         <!-- 変更する服の情報を入力 -->
-        <form method="POST" action=ChangeSelectClothServlet>
+        <form method="POST" action=ChangeCoordinateClothServlet>
           <!-- 色プルダウン -->
           <select name="color">
             <%
@@ -148,6 +150,7 @@
           <!-- 持ち服と販売服を合わせたプルダウン(上下は分ける) -->
           <select name="topcloth">
 
+
             <%
               for (bean.UserSaleClothLineBean topcloth : bean.getUscbean().getTopclothlist())
               {
@@ -157,6 +160,7 @@
               }
             %>
           </select> <select name="bottomcloth">
+
 
             <%
               for (bean.UserSaleClothLineBean bottomcloth : bean.getUscbean().getBottomclothlist())
