@@ -45,6 +45,7 @@
             <option value="テスト">絞込み</option>
           </select> <input type="submit" value="オススメ服表示">
         </form>
+        <br>
         <%
           for (bean.LineRecomClothBean record : bean.getRecomcloth().getList())
           {

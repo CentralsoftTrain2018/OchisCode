@@ -13,6 +13,7 @@
 /*ヘッダー部分*/
 .header{
     height: 80px;
+    display: flex;
 }
 /*その他*/
 .contents{
