@@ -45,7 +45,9 @@ public class RegistUserClothServlet extends HttpServlet
         String category = request.getParameter( "category" );
         String size = request.getParameter( "size" );
         //TODO コネクションから取得
-        int id = 1;
+
+        String id="user";
+
         ClothService cloth = new ClothService();
 
         cloth.registcloth( id, SizeEnum.valueOf( size ), ColorEnum.valueOf( color ),

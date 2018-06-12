@@ -8,13 +8,35 @@ import domain.SizeEnum;
 public class UserClothVo extends ClothVo
 {
     protected int clothid;
+    protected String userid;
 
     //コンストラクタ
+    public UserClothVo(String userid, CategoryEnum category, ColorEnum color, PatternEnum pattern, SizeEnum size)
+    {
+        super(category, color, pattern, size);
+        this.userid = userid;
+    }
+
     public UserClothVo(int clothid, CategoryEnum category, ColorEnum color, PatternEnum pattern, SizeEnum size)
     {
         super(category, color, pattern, size);
         this.clothid = clothid;
     }
+
+
+
+
+    public String getUserid() {
+        return userid;
+    }
+
+
+
+    public void setUserid(String userid) {
+        this.userid = userid;
+    }
+
+
 
     public int getClothid() {
         return clothid;

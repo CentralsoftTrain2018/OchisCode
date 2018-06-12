@@ -9,6 +9,7 @@ public class UserClothLineBean
 {
 
     private int clothid;
+    private String userid;
     private SizeEnum size;
     private CategoryEnum category;
     private ColorEnum color;
