@@ -33,8 +33,8 @@
 <!-- 越智くんの顔 -->
 
 <div class="relative">
-<img src="./images/白.png" width="60" height="70"  />
-<img src="./images/ochi's.png" class="absolute"width="60" height="70"/>
+<img src="./images/白.png" width="178" height="218"  />
+<img src="./images/ochi's.png" class="absolute"width="178" height="218"/>
 </div>
 
 <!-- 上 -->

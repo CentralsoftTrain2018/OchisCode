@@ -5,6 +5,7 @@
 
 /*一番下に表示する画像を中央に移動*/
 .relative {
+  margin-top:10;
     position: relative;
     text-align:center;
 }

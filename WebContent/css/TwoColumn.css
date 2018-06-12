@@ -1,0 +1,16 @@
+@charset "UTF-8";
+/*画面を縦で2カラムに分ける
+* 作成：功刀
+*/
+/*縦2分割にしたい範囲*/
+.container{
+    display: flex;
+}
+/*2分割にした左側*/
+.left{
+    width: 300px;
+}
+/*右側*/
+.contents{
+    flex: 1;
+}

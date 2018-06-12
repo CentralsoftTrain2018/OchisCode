@@ -82,7 +82,7 @@ public class ChangeSelectClothServlet extends HttpServlet
 
         request.setAttribute( "bean", bean );
 
-        RequestDispatcher disp = request.getRequestDispatcher( "/selectcloth.jsp" );
+        RequestDispatcher disp = request.getRequestDispatcher( "/coordinate.jsp" );
         disp.forward( request, response );
     }
 
