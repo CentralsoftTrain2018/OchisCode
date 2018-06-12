@@ -5,7 +5,7 @@ import domain.ColorEnum;
 import domain.PatternEnum;
 import domain.SizeEnum;
 
-public class SelectBean
+public class CoordinateBean
 {
     private CategoryEnum topCategory;
     private ColorEnum topColor;
@@ -19,7 +19,7 @@ public class SelectBean
 
     private UserSaleClothBean uscbean;
 
-    public SelectBean()
+    public CoordinateBean()
     {
 
     }

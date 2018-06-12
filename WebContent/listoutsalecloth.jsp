@@ -37,7 +37,8 @@
             <form method="POST" action="SaleClothDisplayServlet">
               <select name="usercloth">
                 <%
-                  for (bean.UserClothLineBean str : bean.getUsercloth().getList()) {
+                  for (bean.UserClothLineBean str : bean.getUsercloth().getList())
+                  {
                 %>
                 <option value="<%=str.getClothid()%>"><%=str%></option>
                 <%
@@ -51,29 +52,28 @@
           </div>
           <div class="contents">
 
-        <%
-          for (bean.LineRecomClothBean record : bean.getRecomcloth().getList())
-          {
-        %>
-        <div class="item">
-          <div class="relative">
-            <img src="./images/<%=record.getColor().name()%>.png" width=175
-              height=147 /> <img
-              src="./images/<%=record.getPattern().name()%>.png" width=175
-              height=147 class=absolute /> <img
-              src="./images/<%=record.getCategory().name()%>.png" width=175
-              height=147 class=absolute />
-          </div>
-          <br>
-<a href="<%= record.getUrl() %>"><%=record.toString() %></a>
-        </div>
-        <%
-          }
-        %>
+            <%
+              for (bean.LineRecomClothBean record : bean.getRecomcloth().getList())
+              {
+            %>
+            <div class="item">
+              <div class="relative">
+                <img src="./images/<%=record.getColor().name()%>.png" width=175
+                  height=147 /> <img
+                  src="./images/<%=record.getPattern().name()%>.png" width=175
+                  height=147 class=absolute /> <img
+                  src="./images/<%=record.getCategory().name()%>.png" width=175
+                  height=147 class=absolute />
+              </div>
+              <br> <a href="<%= record.getUrl() %>"><%=record.toString()%></a>
+            </div>
+            <%
+              }
+            %>
 
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
     </div>
   </div>
 </body>

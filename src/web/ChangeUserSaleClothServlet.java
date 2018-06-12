@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bean.SelectBean;
+import bean.CoordinateBean;
 import domain.CategoryEnum;
 import domain.ColorEnum;
 import domain.PatternEnum;
@@ -46,7 +46,7 @@ public class ChangeUserSaleClothServlet extends HttpServlet
         String topclothstr = request.getParameter( "topcloth" );
         String bottomclothstr = request.getParameter( "bottomcloth" );
 
-        SelectBean bean = new SelectBean();
+        CoordinateBean bean = new CoordinateBean();
 
         String[] topcloth = topclothstr.split( "-" );
         String[] bottomcloth = bottomclothstr.split( "-" );
