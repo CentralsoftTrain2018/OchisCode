@@ -29,6 +29,34 @@
 <form  method="POST" action="ListOutUserClotheServlet">
  <input type="submit" value="所有服一覧へ">
 </form>
+
+<br>
+
+<form  method="POST" action="SelectedRecomClothServlet">
+<select name ="usercloth">
+
+<!-- Beanが複数使用されていたためコメントアウト -->
+<%for( bean.UserClothLineBean str : bean.getUsercloth().getList()){ %>
+<% out.print("<option value=");
+out.print(str.getClothid());
+out.print(">");
+out.print(str);
+out.println("</option>");%>
+<%} %>
+<!-- コメントアウトここまで -->
+
+</select>
+
+<select name ="narrow">
+<% out.print("<option value=");
+out.print("テスト");
+out.print(">");
+out.print("絞込み");
+out.println("</option>");%>
+</select>
+<input type="submit" value="オススメ服表示">
+</form>
+
 <br>
 <br>
 
@@ -56,22 +84,7 @@
 </tr>
 </table>
 
-<form  method="POST" action="SelectedRecomClothServlet">
-<select name ="usercloth">
 
-<!-- Beanが複数使用されていたためコメントアウト -->
-<%for( bean.UserClothLineBean str : bean.getUsercloth().getList()){ %>
-<% out.print("<option value=");
-out.print(str.getClothid());
-out.print(">");
-out.print(str);
-out.println("</option>");%>
-<%} %>
-<!-- コメントアウトここまで -->
-
-</select>
-<input type="submit" value="オススメ服表示">
-</form>
 </body>
 
 </html>
