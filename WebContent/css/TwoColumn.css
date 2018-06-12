@@ -3,11 +3,11 @@
 * 作成：功刀
 */
 /*縦2分割にしたい範囲*/
-.container{
+.verticalContainer{
     display: flex;
 }
 /*2分割にした左側*/
-.left{
+.model{
     width: 300px;
 }
 /*右側*/

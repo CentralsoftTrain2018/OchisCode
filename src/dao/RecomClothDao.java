@@ -13,11 +13,11 @@ import domain.PatternEnum;
 import domain.SizeEnum;
 import vo.SaleClothVo;
 
-public class SaleClothDao
+public class RecomClothDao
 {
     private Connection connection;
 
-    public SaleClothDao(Connection connection)
+    public RecomClothDao(Connection connection)
     {
         super();
         this.connection = connection;

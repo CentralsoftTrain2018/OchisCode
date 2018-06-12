@@ -53,7 +53,7 @@ public class CoordinateClothServlet extends HttpServlet
         bean.setBottomPattern( PatternEnum.無地 );
         bean.setBottomSize( SizeEnum.M );
 
-        bean.setUscbean(cserv.userSaleCloth(1));
+        bean.setUscbean(cserv.userSaleCloth("user"));
 
         request.setAttribute( "bean", bean );
         RequestDispatcher disp = request.getRequestDispatcher( "/coordinatecloth.jsp" );

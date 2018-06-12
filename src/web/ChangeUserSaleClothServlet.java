@@ -66,7 +66,7 @@ public class ChangeUserSaleClothServlet extends HttpServlet
         bean.setBottomPattern( PatternEnum.valueOf( bottomcloth[1] ) );
         bean.setBottomSize( SizeEnum.valueOf( bottomcloth[3] ) );
 
-        bean.setUscbean( cserv.userSaleCloth( 1 ) );
+        bean.setUscbean( cserv.userSaleCloth( "user" ) );
         request.setAttribute( "bean", bean );
 
         RequestDispatcher disp = request.getRequestDispatcher( "/coordinate.jsp" );

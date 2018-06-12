@@ -18,15 +18,15 @@ import service.ClothService;
  * Servlet implementation class RegistServlet
  */
 //持ち服を基に一覧表示
-@WebServlet("/CoordinateSaleClothServlet")
-public class CoordinateSaleClothServlet extends HttpServlet
+@WebServlet("/ListOutRecomClothServlet")
+public class ListOutRecomClothServlet extends HttpServlet
 {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CoordinateSaleClothServlet()
+    public ListOutRecomClothServlet()
     {
         super();
     }
@@ -45,21 +45,28 @@ public class CoordinateSaleClothServlet extends HttpServlet
     //オススメ一覧表示
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        int clothid = Integer.parseInt(request.getParameter("usercloth"));
         ClothService cs = new ClothService();
+
         ListOutUserClothBean ucbean = cs.userCloth("user");
-        ListOutRecomClothBean rcbean = cs.getSelectedRecommendCloth(clothid);;
+        ListOutRecomClothBean rcbean = cs.getRecommendCloth("user");;
 
         ClothBean bean = new ClothBean();
         bean.setUsercloth(ucbean);
         bean.setRecomcloth(rcbean);
 
+        //ListOutRecomClothBean bean =cs.UserCloth();
+
+        //持ち服の表示
+        //TODO 持ち服情報を取っているが、beanにまとめて次のページに送れていない。
+//        ClothService cserv = new ClothService();
+//        cserv.userCloth( 1 );//userId=1の持ち服情報のbeanが帰ってくる。
+//        //bean2= cserv.UserCloth();
+
         //jspに遷移
         request.setAttribute( "bean", bean );
-        RequestDispatcher disp = request.getRequestDispatcher( "/listoutsalecloth.jsp" );
+        RequestDispatcher disp = request.getRequestDispatcher( "/listoutrecomcloth.jsp" );
         disp.forward( request, response );
         doGet( request, response );
     }
 
 }
-

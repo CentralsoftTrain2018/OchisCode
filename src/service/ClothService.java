@@ -27,7 +27,7 @@ import vo.UserSaleClothVo;
 public class ClothService
 {
     //持ち服一覧
-    public ListOutUserClothBean userCloth(int userId)
+    public ListOutUserClothBean userCloth(String userId)
     {
         UserClothLineBean bean;
         ListOutUserClothBean listbean;
@@ -62,21 +62,22 @@ public class ClothService
     }
 
     //持ち服登録
-    public void registcloth(int id, SizeEnum size, ColorEnum color, PatternEnum pattern, CategoryEnum category)
+    public void registcloth(String id, SizeEnum size,ColorEnum color,PatternEnum pattern, CategoryEnum category )
     {
         try (
                 Connection con = Dao.getConnection();)
         {
             UserClothDao ucdao = new UserClothDao( con );
-            UserClothVo user = new UserClothVo( id, category, color, pattern, size );
-            ucdao.doRegist( id, user );
-        } catch (SQLException | ClassNotFoundException e)
+            UserClothVo user = new UserClothVo( id, category,  color,  pattern,  size);
+            ucdao.doRegist(user);
+        }
+        catch(SQLException | ClassNotFoundException e)
         {
-            throw new RuntimeException( e );
+            throw new RuntimeException(e);
         }
     }
 
-    public ListOutRecomClothBean getRecommendCloth(int userid)
+    public ListOutRecomClothBean getRecommendCloth(String userid)
     {
         try (
                 Connection con = Dao.getConnection();)
@@ -142,7 +143,7 @@ public class ClothService
 
     }
 
-    public UserSaleClothBean userSaleCloth(int userId)
+    public UserSaleClothBean userSaleCloth(String userId)
     {
         UserSaleClothLineBean bean;
         UserSaleClothBean listbean;
