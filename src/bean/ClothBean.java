@@ -11,10 +11,10 @@ import domain.SizeEnum;
  */
 
 public class ClothBean {
-    private SizeEnum size;
-    private CategoryEnum category;
-    private ColorEnum color;
-    private PatternEnum pattern;
+    protected SizeEnum size;
+    protected CategoryEnum category;
+    protected ColorEnum color;
+    protected PatternEnum pattern;
 
     public ClothBean() {
 

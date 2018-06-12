@@ -1,5 +1,8 @@
 package bean;
 
+/* 販売服のBean
+ * 作成：功刀
+ */
 public class SaleClothBean extends ClothBean
 {
     private int price;
@@ -28,6 +31,8 @@ public class SaleClothBean extends ClothBean
     {
         URL = uRL;
     }
-    
-    
+
+    public String toString() {
+        return "金額:"+price+"　"+color + "　" + pattern + "　" + category ;
+    }
 }

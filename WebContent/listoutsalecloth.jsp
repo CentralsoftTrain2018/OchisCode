@@ -32,43 +32,50 @@
       <div class="contents">
         <div class="container">
           <div class="header">
+
             <!-- プルダウン、ボタン -->
             <form method="POST" action="SaleClothDisplayServlet">
               <select name="usercloth">
+                <!--
                 <%
-                  for (bean.UserClothLineBean str : bean.getUsercloth().getList())
-                  {
+                  /*for (bean.UserClothLineBean str : bean.getUsercloth().getList()) {*/
                 %>
-                <option value="<%=str.getClothid()%>"><%=str%></option>
+                <option value="<%//str.getClothid()%>"><%//str%></option>
                 <%
-                  }
+                  //}
                 %>
+                 -->
               </select> <select name="narrow">
-                <option value="テスト">絞込み</option>
-              </select> <input type="submit" value="オススメ服表示">
+                <option value="0-3000">0-3000</option>
+                <option value="3001-5000">3001-5000</option>
+              </select><input type="submit" value="オススメ服表示">
             </form>
           </div>
           <div class="contents">
-            <%
-              for (bean.LineRecomClothBean record : bean.getRecomcloth().getList())
-              {
-            %>
-            <div class="item">
-              <div class="relative">
-                <img src="./images/<%=record.getColor().name()%>.png" width=175
-                  height=147 /> <img
-                  src="./images/<%=record.getPattern().name()%>.png" width=175
-                  height=147 class=absolute /> <img
-                  src="./images/<%=record.getCategory().name()%>.png" width=175
-                  height=147 class=absolute />
-              </div>
-            </div>
-            <%
-              }
-            %>
+
+        <%
+          //for (bean.LineRecomClothBean record : bean.getRecomcloth().getList())
+          //{
+        %>
+        <div class="item">
+          <div class="relative">
+            <img src="./images/<%//record.getColor().name()%>.png" width=175
+              height=147 /> <img
+              src="./images/<%//record.getPattern().name()%>.png" width=175
+              height=147 class=absolute /> <img
+              src="./images/<%//record.getCategory().name()%>.png" width=175
+              height=147 class=absolute />
           </div>
+          <br>
+<%//record.toString() %>
         </div>
+        <%
+          //}
+        %>
+
       </div>
+    </div>
+  </div>
     </div>
   </div>
 </body>
