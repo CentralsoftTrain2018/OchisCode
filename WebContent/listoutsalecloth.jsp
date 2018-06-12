@@ -32,6 +32,7 @@
       <div class="contents">
         <div class="container">
           <div class="header">
+
             <!-- プルダウン、ボタン -->
             <form method="POST" action="SaleClothDisplayServlet">
               <select name="usercloth">
@@ -49,25 +50,30 @@
             </form>
           </div>
           <div class="contents">
-            <%
-              for (bean.LineRecomClothBean record : bean.getRecomcloth().getList()) {
-            %>
-            <div class="item">
-              <div class="relative">
-                <img src="./images/<%=record.getColor().name()%>.png" width=175
-                  height=147 /> <img
-                  src="./images/<%=record.getPattern().name()%>.png" width=175
-                  height=147 class=absolute /> <img
-                  src="./images/<%=record.getCategory().name()%>.png" width=175
-                  height=147 class=absolute />
-              </div>
-            </div>
-            <%
-              }
-            %>
+
+        <%
+          for (bean.LineRecomClothBean record : bean.getRecomcloth().getList())
+          {
+        %>
+        <div class="item">
+          <div class="relative">
+            <img src="./images/<%=record.getColor().name()%>.png" width=175
+              height=147 /> <img
+              src="./images/<%=record.getPattern().name()%>.png" width=175
+              height=147 class=absolute /> <img
+              src="./images/<%=record.getCategory().name()%>.png" width=175
+              height=147 class=absolute />
           </div>
+          <br>
+<%=record.toString() %>
         </div>
+        <%
+          }
+        %>
+
       </div>
+    </div>
+  </div>
     </div>
   </div>
 </body>

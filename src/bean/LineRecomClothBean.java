@@ -9,6 +9,7 @@ public class LineRecomClothBean
     private CategoryEnum category;
     private ColorEnum color;
     private PatternEnum pattern;
+    private int price;
 
     public LineRecomClothBean()
     {
@@ -44,8 +45,19 @@ public class LineRecomClothBean
         this.pattern = pattern;
     }
 
+
+    public int getPrice()
+    {
+        return price;
+    }
+
+    public void setPrice(int price)
+    {
+        this.price = price;
+    }
+
     public String toString() {
-        return "色：" + color + "　柄：" + pattern + "　カテゴリー：" + category + "\n";
+        return  "金額:"+price+"　"+color + "　" + pattern + "　" + category ;
     }
 
 }
