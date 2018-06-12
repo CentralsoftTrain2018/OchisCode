@@ -48,7 +48,7 @@ public class SaleClothDisplayServlet extends HttpServlet
         int clothid = Integer.parseInt(request.getParameter("usercloth"));
         ClothService cs = new ClothService();
         ListOutUserClothBean ucbean = cs.userCloth("user");
-        ListOutRecomClothBean rcbean = cs.getSelectedRecommendCloth(clothid);;
+        ListOutRecomClothBean rcbean = cs.getSelectedRecommendCloth(clothid);
 
         ClothBean bean = new ClothBean();
         bean.setUsercloth(ucbean);

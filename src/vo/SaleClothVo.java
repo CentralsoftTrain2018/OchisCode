@@ -8,9 +8,12 @@ import domain.SizeEnum;
 public class SaleClothVo extends ClothVo
 {
     private int Price;
-   public SaleClothVo(CategoryEnum category, ColorEnum color, PatternEnum pattern, SizeEnum size,int Price) {
+    private String Url;
+   public SaleClothVo(CategoryEnum category, ColorEnum color, PatternEnum pattern, SizeEnum size,int Price,String Url) {
         super(category, color, pattern, size);
+
         this.Price=Price;
+        this.Url=Url;
     }
 
     public int getPrice()
