@@ -143,7 +143,7 @@ public class ClothService
 
     }
 
-    public UserSaleClothBean userSaleCloth(int userId)
+    public UserSaleClothBean userSaleCloth(String userId)
     {
         UserSaleClothLineBean bean;
         UserSaleClothBean listbean;

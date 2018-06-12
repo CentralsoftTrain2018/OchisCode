@@ -137,7 +137,7 @@ public class UserSaleClothDao extends Dao
 
 
     //持ち服一覧上を取得
-    public List<UserSaleClothVo>getTopUserCloth(int id)throws SQLException
+    public List<UserSaleClothVo>getTopUserCloth(String id)throws SQLException
     {
         List<UserSaleClothVo> list = new ArrayList<>();
 
@@ -148,7 +148,7 @@ public class UserSaleClothDao extends Dao
                 PreparedStatement stmt = con.prepareStatement( TOPLISTUSERCLOTHES_SQL);
                 )
         {
-            stmt.setInt( 1, id );
+            stmt.setString( 1, id );
             rset = stmt.executeQuery();
 
             while(rset.next())
@@ -170,7 +170,7 @@ public class UserSaleClothDao extends Dao
         return list;
     }
     //持ち服一覧下を取得
-    public List<UserSaleClothVo>getBottomUserCloth(int id)throws SQLException
+    public List<UserSaleClothVo>getBottomUserCloth(String id)throws SQLException
     {
         List<UserSaleClothVo> list = new ArrayList<>();
 
@@ -181,7 +181,7 @@ public class UserSaleClothDao extends Dao
                 PreparedStatement stmt = con.prepareStatement( BOTTOMLISTUSERCLOTHES_SQL);
                 )
         {
-            stmt.setInt( 1, id );
+            stmt.setString( 1, id );
             rset = stmt.executeQuery();
 
             while(rset.next())

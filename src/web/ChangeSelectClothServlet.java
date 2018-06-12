@@ -78,7 +78,7 @@ public class ChangeSelectClothServlet extends HttpServlet
         }
 
         ClothService cserv =new ClothService();
-        bean.setUscbean(cserv.userSaleCloth(1));
+        bean.setUscbean(cserv.userSaleCloth("user"));
 
         request.setAttribute( "bean", bean );
 
