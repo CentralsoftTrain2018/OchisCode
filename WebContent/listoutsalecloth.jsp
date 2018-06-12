@@ -33,7 +33,7 @@
         <div class="container">
           <div class="header">
             <!-- プルダウン、ボタン -->
-            <form method="POST" action="CoordinateSaleClothServlet">
+            <form method="POST" action="SaleClothDisplayServlet">
               <select name="usercloth">
                 <%
                   for (bean.UserClothLineBean str : bean.getUsercloth().getList()) {
