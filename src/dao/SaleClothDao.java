@@ -156,6 +156,7 @@ public class SaleClothDao
         stmt.setInt(4, min);
         stmt.setInt(5, max);
 
+        //
         /* SQL実行 */
         ResultSet recomClothSet = stmt.executeQuery();
 
