@@ -20,6 +20,9 @@ public class SaveCodeVo
     private SizeEnum topssize;
     private SizeEnum botomssize;
 
+    public SaveCodeVo() {
+
+    }
 
     public SaveCodeVo(int codenum,
             String userid,

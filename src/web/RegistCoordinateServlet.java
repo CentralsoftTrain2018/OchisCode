@@ -15,6 +15,7 @@ import domain.ColorEnum;
 import domain.PatternEnum;
 import domain.SizeEnum;
 import service.ClothService;
+import service.CodeService;
 
 /**
  * Servlet implementation class RegistCoordinateServlet
@@ -48,6 +49,9 @@ public class RegistCoordinateServlet extends HttpServlet {
         bean.setBottomColor( ColorEnum.valueOf( request.getParameter( "bottomcolor" ) ) );
         bean.setBottomPattern( PatternEnum.valueOf( request.getParameter( "bottompattern" ) ) );
         bean.setBottomSize( SizeEnum.valueOf( request.getParameter( "bottomsize" ) ) );
+
+        CodeService codeserv = new CodeService();
+
 
         ClothService cserv =new ClothService();
         bean.setUscbean(cserv.userSaleCloth("user"));
