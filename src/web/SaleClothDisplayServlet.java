@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bean.ListSaleClothBean;
 import bean.ListOutUserClothBean;
+import bean.ListSaleClothBean;
 import bean.SaleClothDisplayBean;
 import service.ClothService;
 
@@ -48,12 +48,13 @@ public class SaleClothDisplayServlet extends HttpServlet
         int clothid = Integer.parseInt(request.getParameter("usercloth"));
         String str = request.getParameter("narrow");
         String[] minmax = str.split("-");
+        String orderStr=request.getParameter("sort");
         int min = Integer.parseInt(minmax[0]);
         int max = Integer.parseInt(minmax[1]);
         ClothService cs = new ClothService();
         ListOutUserClothBean ucbean = cs.userCloth("user");
-        ListSaleClothBean rcbean = cs.getSelectedSaleCloth(clothid, min, max);
 
+        ListSaleClothBean rcbean = cs.getSelectedSaleCloth(clothid, min, max ,orderStr);
 
         SaleClothDisplayBean bean = new SaleClothDisplayBean();
         bean.setUserCloth(ucbean);

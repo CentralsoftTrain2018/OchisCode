@@ -60,27 +60,28 @@ public class ClothService
     }
 
     //持ち服登録
-    public void registCloth(String id, SizeEnum size, ColorEnum color, PatternEnum pattern, CategoryEnum category)
+    public void registCloth(String id, SizeEnum size,ColorEnum color,PatternEnum pattern, CategoryEnum category )
     {
         try (
                 Connection con = Dao.getConnection();)
         {
             UserClothDao ucdao = new UserClothDao( con );
-            UserClothVo user = new UserClothVo( id, category, color, pattern, size );
-            ucdao.doRegist( user );
+            UserClothVo user = new UserClothVo( id, category,  color,  pattern,  size);
+            ucdao.doRegist(user);
         } catch (SQLException | ClassNotFoundException e)
         {
-            throw new RuntimeException( e );
+            throw new RuntimeException(e);
         }
     }
 
-    public ListSaleClothBean getSaleCloth(String userid, int min, int max)
+
+    public ListSaleClothBean getSaleCloth(String userid, int min, int max,String order)
     {
         try (
                 Connection con = Dao.getConnection();)
         {
             SaleClothDao rcdao = new SaleClothDao( con );
-            List<SaleClothVo> rcvolist = rcdao.getSaleClothList( userid, min, max );
+            List<SaleClothVo> rcvolist = rcdao.getSaleClothList( userid, min, max, order );
 
             ListSaleClothBean listoutrcbean = new ListSaleClothBean();
             List<SaleClothBean> rcbeanlist = new ArrayList<SaleClothBean>();
@@ -90,8 +91,8 @@ public class ClothService
                 linercbean.setColor( rcvo.getColor() );
                 linercbean.setPattern( rcvo.getPattern() );
                 linercbean.setCategory( rcvo.getCategory() );
-                linercbean.setPrice( rcvo.getPrice() );//金額の取得
-                linercbean.setURL( rcvo.getUrl() );//URLの取得
+                linercbean.setPrice(rcvo.getPrice());//金額の取得
+                linercbean.setURL(rcvo.getUrl());//URLの取得
 
                 rcbeanlist.add( linercbean );
             }
@@ -109,13 +110,13 @@ public class ClothService
 
     }
 
-    public ListSaleClothBean getSelectedSaleCloth(int clothid, int min, int max)
+    public ListSaleClothBean getSelectedSaleCloth(int clothid, int min, int max,String order)
     {
         try (
                 Connection con = Dao.getConnection();)
         {
             SaleClothDao rcdao = new SaleClothDao( con );
-            List<SaleClothVo> rcvolist = rcdao.getRecomCloth( clothid, min, max );
+            List<SaleClothVo> rcvolist = rcdao.getRecomCloth( clothid, min, max,order );
 
             ListSaleClothBean listoutrcbean = new ListSaleClothBean();
             List<SaleClothBean> rcbeanlist = new ArrayList<SaleClothBean>();
@@ -125,8 +126,8 @@ public class ClothService
                 linercbean.setColor( rcvo.getColor() );
                 linercbean.setPattern( rcvo.getPattern() );
                 linercbean.setCategory( rcvo.getCategory() );
-                linercbean.setPrice( rcvo.getPrice() );//金額の取得
-                linercbean.setURL( rcvo.getUrl() );//URLの取得
+                linercbean.setPrice(rcvo.getPrice());//金額の取得
+                linercbean.setURL(rcvo.getUrl());//URLの取得
 
                 rcbeanlist.add( linercbean );
             }
@@ -146,7 +147,7 @@ public class ClothService
 
     //持ち服を上下に分けて取得
     //更新：功刀
-    public UserSaleClothBean userSaleCloth(String userId)
+   public UserSaleClothBean userSaleCloth(String userId)
     {
         UserClothBean bean;
         UserSaleClothBean listbean;
@@ -165,7 +166,7 @@ public class ClothService
             {
                 bean = new UserClothBean();
                 if (uvo.getCategory().getJouge() == JougeEnum.上)
-                {
+            {
                     bean.setClothid( uvo.getClothid() );
                     bean.setCategory( uvo.getCategory() );
                     bean.setColor( uvo.getColor() );
@@ -173,14 +174,14 @@ public class ClothService
                     bean.setSize( uvo.getSize() );
                     topClothList.add( bean );
                 } else
-                {
+            {
                     bean.setClothid( uvo.getClothid() );
                     bean.setCategory( uvo.getCategory() );
                     bean.setColor( uvo.getColor() );
                     bean.setPattern( uvo.getPattern() );
                     bean.setSize( uvo.getSize() );
                     bottomClothList.add( bean );
-                }
+            }
             }
             listbean.setBottomclothlist( bottomClothList );
             listbean.setTopclothlist( topClothList );
