@@ -32,7 +32,7 @@ public class RegistUserServlet extends HttpServlet
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         System.out.println( "登録サーブレット" );
-        RequestDispatcher disp = request.getRequestDispatcher( "/registuser.jsp" );
+        RequestDispatcher disp = request.getRequestDispatcher( "/login.html" );
         disp.forward( request, response );
     }
 
