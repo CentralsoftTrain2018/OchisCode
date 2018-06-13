@@ -91,12 +91,15 @@
             %>
             <div class="item">
               <div class="relative">
+               <form method = "POST" action = "SaleClothDisplayServlet">
                 <img src="./images/<%=record.getColor().name()%>.png" width=175
                   height=147 /> <img
                   src="./images/<%=record.getPattern().name()%>.png" width=175
-                  height=147 class=absolute /> <img
+                  height=147 class=absolute />
+                  <input type = "image"
                   src="./images/<%=record.getCategory().name()%>.png" width=175
                   height=147 class=absolute />
+               </form>
               </div>
               <br> <a href="<%=record.getURL()%>"><%=record.toString()%></a>
             </div>
