@@ -45,8 +45,9 @@
                   }
                 %>
               </select> <select name="narrow">
-                <option value="0-3000">0-3000</option>
-                <option value="3001-5000">3001-5000</option>
+                <option value="0-5000">0-5000</option>
+                <option value="5001-10000">5001-10000</option>
+                <option value="10001-15000">10001-15000</option>
               </select><input type="submit" value="オススメ服表示">
             </form>
           </div>
