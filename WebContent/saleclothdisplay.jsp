@@ -70,9 +70,10 @@
                   }
                 %>
               </select> <select name="narrow">
-                <option value="0-5000">0-5000</option>
-                <option value="5001-10000">5001-10000</option>
-                <option value="10001-15000">10001-15000</option>
+                <option value=" price > 0 and price < 5001">0-5000</option>
+                <option value=" price > 5000 and price < 10001">5001-10000</option>
+                <option value=" price > 10000 and price < 15001">10001-15000</option>
+                <option value=" price > 15000">15001-</option>
               </select>
               <select name="sort">
                <option value="clothid降順">新着順</option>
