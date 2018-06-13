@@ -215,13 +215,13 @@
             type="submit" value="変更">
         </form>
 
-  <form method="POST" action="ChangeCoordinateClothServlet">
+  <form method="POST" action="ChangeSelectCodeServlet">
   <ul class="scrollsize">
   <%
         for(int i=0;i<10;i++)
         {
         %>
-            <li><input type="submit" value="コーディネート"></li>
+            <li><input type="submit" name="cloth" value="白-無地-Tシャツ-M-黒-水玉-半ズボン-M"></li>
 
     <%
         }

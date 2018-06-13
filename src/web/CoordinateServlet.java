@@ -54,6 +54,7 @@ public class CoordinateServlet extends HttpServlet
         bean.setBottomSize( SizeEnum.M );
         //TODO 持ち服を上下に分けて取得
         bean.setUscbean(cserv.userSaleCloth("user"));
+        //コーデ情報を取得
 
         request.setAttribute( "bean", bean );
         RequestDispatcher disp = request.getRequestDispatcher( "/coordinatedisplay.jsp" );
