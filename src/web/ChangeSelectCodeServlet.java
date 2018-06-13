@@ -34,7 +34,7 @@ public class ChangeSelectCodeServlet extends HttpServlet
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
-
+    //作成高田
     //コーデを選択して、コーデ画面の服の変更
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {

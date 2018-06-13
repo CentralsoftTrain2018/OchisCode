@@ -59,7 +59,7 @@ public class CoordinateServlet extends HttpServlet
         bean.setUscbean(cserv.userSaleCloth("user"));
         //コーデ情報を取得
 
-        bean.setList(codeserv.coordinateDisplay());
+      //  bean.setList(codeserv.coordinateDisplay());
 
         request.setAttribute( "bean", bean );
         RequestDispatcher disp = request.getRequestDispatcher( "/coordinatedisplay.jsp" );
