@@ -1,5 +1,8 @@
 package bean;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import domain.CategoryEnum;
 import domain.ColorEnum;
 import domain.PatternEnum;
@@ -19,6 +22,16 @@ public class CoordinateDisplayBean
     private ColorEnum bottomColor;
     private PatternEnum bottomPattern;
     private SizeEnum bottomSize;
+
+    private  List<CoordinateBean> list =new ArrayList<CoordinateBean>();
+
+    public List<CoordinateBean> getList() {
+        return list;
+    }
+
+    public void setList(List<CoordinateBean> list) {
+        this.list = list;
+    }
 
     private UserSaleClothBean uscbean;
 

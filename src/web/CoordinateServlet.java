@@ -15,6 +15,7 @@ import domain.ColorEnum;
 import domain.PatternEnum;
 import domain.SizeEnum;
 import service.ClothService;
+import service.CodeService;
 
 /**
  * Servlet implementation class RegistServlet
@@ -42,6 +43,8 @@ public class CoordinateServlet extends HttpServlet
     {
         CoordinateDisplayBean bean = new CoordinateDisplayBean();
         ClothService cserv =new ClothService();
+        CodeService codeserv = new CodeService();
+
         //デフォルトの服をセット(上)
         bean.setTopCategory( CategoryEnum.Tシャツ );
         bean.setTopColor( ColorEnum.白 );
@@ -54,6 +57,9 @@ public class CoordinateServlet extends HttpServlet
         bean.setBottomSize( SizeEnum.M );
         //TODO 持ち服を上下に分けて取得
         bean.setUscbean(cserv.userSaleCloth("user"));
+        //コーデ情報を取得
+
+      //  bean.setList(codeserv.coordinateDisplay());
 
         request.setAttribute( "bean", bean );
         RequestDispatcher disp = request.getRequestDispatcher( "/coordinatedisplay.jsp" );

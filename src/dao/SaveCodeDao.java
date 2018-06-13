@@ -77,7 +77,7 @@ public class SaveCodeDao extends Dao{
 
             while(rset.next())
             {
-                SaveCodeVo recomvo = new SaveCodeVo(
+                SaveCodeVo scvo = new SaveCodeVo(
                         rset.getInt(1),
                         rset.getString(2),
                         ColorEnum.valueOf(rset.getString(3)),
@@ -89,7 +89,7 @@ public class SaveCodeDao extends Dao{
                         SizeEnum.valueOf(rset.getString(9)),
                         SizeEnum.valueOf(rset.getString(10))
                         );
-                list.add(recomvo);
+                list.add(scvo);
             }
 
             return list;
