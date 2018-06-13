@@ -1,0 +1,15 @@
+@charset "UTF-8";
+/*作成高田*/
+/*スクロール*/
+.scrollsize {
+  padding: 0;
+  width: 150px;
+  height: 100px;
+  overflow-y: scroll;
+  border: 1px solid #400040
+}
+.sample1-li {
+  list-style: none!important;
+  padding: 4px
+}
+

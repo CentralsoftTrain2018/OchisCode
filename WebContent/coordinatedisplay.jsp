@@ -19,6 +19,7 @@
 <link rel="stylesheet" type="text/css" href="css/PileImage.css">
 <link rel="stylesheet" type="text/css" href="css/Header.css">
 <link rel="stylesheet" type="text/css" href="css/TwoColumn.css">
+<link rel="stylesheet" type="text/css" href="css/Scroll.css">
 
 <body>
   <div class="container">
@@ -213,6 +214,22 @@
             value="<%= bean.getBottomSize().name()%>"> <input
             type="submit" value="変更">
         </form>
+
+  <form method="POST" action="ChangeCoordinateClothServlet">
+  <ul class="scrollsize">
+  <%
+        for(int i=0;i<10;i++)
+        {
+        %>
+            <li><input type="submit" value="コーディネート"></li>
+
+    <%
+        }
+         %>
+         </ul>
+        </form>
+
+
       </div>
     </div>
   </div>
