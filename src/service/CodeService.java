@@ -23,14 +23,14 @@ public class CodeService {
             savecode.setUserid(userid);
             savecode.setTopscolor(bean.getTopColor());
             savecode.setTopscategory(bean.getTopCategory());
-            savecode.setTopspttern(bean.getTopPattern());
+            savecode.setTopspattern(bean.getTopPattern());
             savecode.setTopssize(bean.getTopSize());
-            savecode.setBotomsscolor(bean.getBottomColor());
-            savecode.setBotomscategory(bean.getTopCategory());
-            savecode.setBotomspttern(bean.getTopPattern());
-            savecode.setBotomssize(bean.getTopSize());
+            savecode.setBottomscolor(bean.getBottomColor());
+            savecode.setBottomscategory(bean.getBottomCategory());
+            savecode.setBottomspattern(bean.getBottomPattern());
+            savecode.setBottomssize(bean.getBottomSize());
 
-            //savecodedao.doRegist(savecode);
+            savecodedao.registCode(savecode);
 
         } catch (SQLException | ClassNotFoundException e)
         {

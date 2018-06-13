@@ -45,7 +45,7 @@ public class UserClothDao extends Dao
                     + "  ,jouge"
                     + " ) "
                     + " values("
-                    +  "	?,"
+                    + "	   ?,"
                     + "    ?, "
                     + "    ?, "
                     + "    ?, "

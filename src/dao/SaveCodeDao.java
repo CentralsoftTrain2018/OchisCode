@@ -37,6 +37,32 @@ public class SaveCodeDao extends Dao{
                     + "from"
                     + " save_code";
 
+    private static final String RegistCoordinate_SQL =
+            "insert "
+                    + "into save_code( "
+                    + "  userid"
+                    + "  ,tops_color"
+                    + "  ,bottoms_color"
+                    + "  ,tops_pattern"
+                    + "  ,bottoms_pattern"
+                    + "  ,tops_category"
+                    + "  ,bottoms_category"
+                    + "  ,tops_size"
+                    + "  ,bottoms_size"
+                    + " ) "
+                    + " values("
+                    + "	   ?, "
+                    + "    ?, "
+                    + "    ?, "
+                    + "    ?, "
+                    + "    ?, "
+                    + "    ?, "
+                    + "    ?, "
+                    + "    ?, "
+                    + "    ? "
+                    +")";
+
+
     //コーデの服情報の取り出し
     public List<SaveCodeVo> getRecomCloth()throws SQLException
     {
@@ -67,5 +93,25 @@ public class SaveCodeDao extends Dao{
             }
 
             return list;
+    }
+
+    public void registCode(SaveCodeVo savecode) throws SQLException {
+        PreparedStatement stmt = null;
+
+        /* Statementの作成 */
+        stmt = con.prepareStatement(RegistCoordinate_SQL);
+        stmt.setString(1, savecode.getUserid());
+        stmt.setString(2, savecode.getTopscolor().name());
+        stmt.setString(3, savecode.getBottomscolor().name());
+        stmt.setString(4, savecode.getTopspattern().name());
+        stmt.setString(5, savecode.getBottomspattern().name());
+        stmt.setString(6, savecode.getTopscategory().name());
+        stmt.setString(7, savecode.getBottomscategory().name());
+        stmt.setString(8, savecode.getTopssize().name());
+        stmt.setString(9, savecode.getBottomssize().name());
+
+        System.out.println("確認");
+        int i =stmt.executeUpdate();
+        System.out.println("確認1");
     }
 }
