@@ -1,6 +1,14 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import vo.SaleClothVo;
+import vo.SaveCodeVo;
 
 public class SaveCodeDao extends Dao{
 
@@ -25,4 +33,19 @@ public class SaveCodeDao extends Dao{
                     + " ,botoms_size"
                     + "from"
                     + " save_code";
+
+    //コーデの服情報の取り出し
+    public List<SaleClothVo> getRecomCloth()throws SQLException
+    {
+        List<SaveCodeVo> list = new ArrayList<>();
+        PreparedStatement stmt = null;
+        ResultSet rset = null;
+
+            /* Statementの作成 */
+            stmt = con.prepareStatement(CoordinateOut_SQL);
+
+            rset = stmt.executeQuery();
+
+            return null;
+    }
 }
