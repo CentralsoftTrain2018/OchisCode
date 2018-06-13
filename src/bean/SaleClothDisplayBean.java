@@ -6,20 +6,20 @@ public class SaleClothDisplayBean {
     public SaleClothDisplayBean() {
     }
 
-    private ListOutUserClothBean userCloth;
-    private ListSaleClothBean saleCloth;
+    private ListOutUserClothBean userClothList;
+    private ListSaleClothBean saleClothList;
 
     public ListOutUserClothBean getUserCloth() {
-        return userCloth;
+        return userClothList;
     }
     public void setUserCloth(ListOutUserClothBean usercloth) {
-        this.userCloth = usercloth;
+        this.userClothList = usercloth;
     }
-    public ListSaleClothBean getSalCloth() {
-        return saleCloth;
+    public ListSaleClothBean getSaleCloth() {
+        return saleClothList;
     }
     public void setSaleCloth(ListSaleClothBean recomcloth) {
-        this.saleCloth = recomcloth;
+        this.saleClothList = recomcloth;
     }
 
 

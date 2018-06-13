@@ -5,22 +5,22 @@ import java.util.List;
 
 public class UserSaleClothBean
 {
-     private List<UserSaleClothLineBean> topclothlist = new ArrayList<>();
-     private List<UserSaleClothLineBean> bottomclothlist = new ArrayList<>();
+     private List<UserClothBean> topclothlist = new ArrayList<>();
+     private List<UserClothBean> bottomclothlist = new ArrayList<>();
 
-    public List<UserSaleClothLineBean> getTopclothlist()
+    public List<UserClothBean> getTopclothlist()
     {
         return topclothlist;
     }
-    public void setTopclothlist(List<UserSaleClothLineBean> topclothlist)
+    public void setTopclothlist(List<UserClothBean> topclothlist)
     {
         this.topclothlist = topclothlist;
     }
-    public List<UserSaleClothLineBean> getBottomclothlist()
+    public List<UserClothBean> getBottomclothlist()
     {
         return bottomclothlist;
     }
-    public void setBottomclothlist(List<UserSaleClothLineBean> bottomclothlist)
+    public void setBottomclothlist(List<UserClothBean> bottomclothlist)
     {
         this.bottomclothlist = bottomclothlist;
     }
