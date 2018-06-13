@@ -50,7 +50,7 @@ public class RegistUserClothServlet extends HttpServlet
 
         ClothService cloth = new ClothService();
 
-        cloth.registcloth( id, SizeEnum.valueOf( size ), ColorEnum.valueOf( color ),
+        cloth.registCloth( id, SizeEnum.valueOf( size ), ColorEnum.valueOf( color ),
                 PatternEnum.valueOf( pattern ), CategoryEnum.valueOf( category ) );
 
         RequestDispatcher disp = request.getRequestDispatcher( "/ListOutUserClotheServlet" );

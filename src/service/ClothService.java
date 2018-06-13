@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import bean.LineRecomClothBean;
-import bean.ListOutRecomClothBean;
+import bean.ListOutSaleClothBean;
 import bean.ListOutUserClothBean;
+import bean.SaleClothBean;
 import bean.UserClothBean;
 import bean.UserSaleClothBean;
 import bean.UserSaleClothLineBean;
@@ -62,7 +62,7 @@ public class ClothService
     }
 
     //持ち服登録
-    public void registcloth(String id, SizeEnum size,ColorEnum color,PatternEnum pattern, CategoryEnum category )
+    public void registCloth(String id, SizeEnum size,ColorEnum color,PatternEnum pattern, CategoryEnum category )
     {
         try (
                 Connection con = Dao.getConnection();)
@@ -78,7 +78,7 @@ public class ClothService
     }
 
 
-    public ListOutRecomClothBean getRecommendCloth(String userid, int min, int max)
+    public ListOutSaleClothBean getRecommendCloth(String userid, int min, int max)
     {
         try (
                 Connection con = Dao.getConnection();)
@@ -86,16 +86,16 @@ public class ClothService
             SaleClothDao rcdao = new SaleClothDao( con );
             List<SaleClothVo> rcvolist = rcdao.getRecomClothList( userid, min, max );
 
-            ListOutRecomClothBean listoutrcbean = new ListOutRecomClothBean();
-            List<LineRecomClothBean> rcbeanlist = new ArrayList<LineRecomClothBean>();
+            ListOutSaleClothBean listoutrcbean = new ListOutSaleClothBean();
+            List<SaleClothBean> rcbeanlist = new ArrayList<SaleClothBean>();
             for (SaleClothVo rcvo : rcvolist)
             {
-                LineRecomClothBean linercbean = new LineRecomClothBean();
+                SaleClothBean linercbean = new SaleClothBean();
                 linercbean.setColor( rcvo.getColor() );
                 linercbean.setPattern( rcvo.getPattern() );
                 linercbean.setCategory( rcvo.getCategory() );
                 linercbean.setPrice(rcvo.getPrice());//金額の取得
-                linercbean.setUrl(rcvo.getUrl());//URLの取得
+                linercbean.setURL(rcvo.getUrl());//URLの取得
 
                 rcbeanlist.add( linercbean );
             }
@@ -113,7 +113,7 @@ public class ClothService
 
     }
 
-    public ListOutRecomClothBean getSelectedRecommendCloth(int clothid, int min, int max)
+    public ListOutSaleClothBean getSelectedRecommendCloth(int clothid, int min, int max)
     {
         try (
                 Connection con = Dao.getConnection();)
@@ -121,16 +121,16 @@ public class ClothService
             SaleClothDao rcdao = new SaleClothDao( con );
             List<SaleClothVo> rcvolist = rcdao.getRecomCloth( clothid, min, max );
 
-            ListOutRecomClothBean listoutrcbean = new ListOutRecomClothBean();
-            List<LineRecomClothBean> rcbeanlist = new ArrayList<LineRecomClothBean>();
+            ListOutSaleClothBean listoutrcbean = new ListOutSaleClothBean();
+            List<SaleClothBean> rcbeanlist = new ArrayList<SaleClothBean>();
             for (SaleClothVo rcvo : rcvolist)
             {
-                LineRecomClothBean linercbean = new LineRecomClothBean();
+                SaleClothBean linercbean = new SaleClothBean();
                 linercbean.setColor( rcvo.getColor() );
                 linercbean.setPattern( rcvo.getPattern() );
                 linercbean.setCategory( rcvo.getCategory() );
                 linercbean.setPrice(rcvo.getPrice());//金額の取得
-                linercbean.setUrl(rcvo.getUrl());//URLの取得
+                linercbean.setURL(rcvo.getUrl());//URLの取得
 
                 rcbeanlist.add( linercbean );
             }

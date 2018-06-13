@@ -3,21 +3,21 @@ package bean;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListOutRecomClothBean
+public class ListOutSaleClothBean
 {
-    private List<LineRecomClothBean> list =new ArrayList<>();
+    private List<SaleClothBean> list =new ArrayList<>();
     private List<String> userClothList = new ArrayList<>();
 
-    public ListOutRecomClothBean()
+    public ListOutSaleClothBean()
     {
     }
 
-    public List<LineRecomClothBean> getList()
+    public List<SaleClothBean> getList()
     {
         return list;
     }
 
-    public void setList(List<LineRecomClothBean> list)
+    public void setList(List<SaleClothBean> list)
     {
         this.list = list;
     }
