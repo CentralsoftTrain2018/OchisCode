@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="bean.UserClothLineBean" %>
+<%@ page import="bean.UserClothBean" %>
 <jsp:useBean id="bean" class="bean.ListOutUserClothBean" scope="request" />
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -32,7 +32,7 @@
 </form>
 
 <br><br>
-<%for(UserClothLineBean record : bean.getList()) {%>
+<%for(UserClothBean record : bean.getList()) {%>
 <% out.println("<td>");%>
 <%=record.toString() %>
 <br><br>
