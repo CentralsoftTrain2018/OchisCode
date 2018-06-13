@@ -1,31 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
 <%@ page import="domain.SizeEnum"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <title>ユーザー登録</title>
 </head>
 <body>
   <form method="POST" action="RegistUserServlet">
-    登録情報を入力してください。 <br>
+    登録情報を入力してください <br>
     <table>
       <tr>
         <td>ユーザーID</td>
-        <td><input name="userid" type="text"></td>
+        <td><input name="userid" type="text" required="required"></td>
       </tr>
       <tr>
         <td>パスワード(半角英数字)</td>
-        <td><input name="password" type="password"></td>
+        <td><input name="password" type="password" required="required"></td>
       </tr>
       <tr>
         <td>身長(半角数字)</td>
-        <td><input name="userheight" type="text"></td>
+        <td><input name="userheight" type="number" required="required"></td>
       </tr>
       <tr>
         <td>服のサイズ</td>
-        <td><select name="size">
+        <td><select name="size" required="required">
             <%
               for (SizeEnum se : SizeEnum.values())
               {
@@ -38,7 +38,7 @@
       </tr>
       <tr>
         <td>予算(半角数字)</td>
-        <td><input name="budget" type="text"></td>
+        <td><input name="budget" type="number" required="required"></td>
       </tr>
       <tr>
         <td>性別</td>
