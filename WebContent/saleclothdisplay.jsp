@@ -24,9 +24,33 @@
         <input type="submit" value="所有服一覧へ">
       </form>
     </div>
+
     <div class="verticalContainer">
       <!-- 左側モデル表示部分 -->
-      <div class="model"></div>
+
+      <div class="model">
+        <!-- 画像表示部分 -->
+        <!-- 越智くんの顔 -->
+        <div class="relative">
+          <img src="./images/白.png" width="178" height="218" /> <img
+            src="./images/ochi's.png" class="absolute" width="178"
+            height="218" />
+        </div>
+
+        <div class="relative">
+          <!-- 上服 -->
+          <img src="./images/白.png" width="178" height="218" />
+          <img src="./images/無地.png" class="absolute" width="178" height="218" /> <img
+            src="./images/Tシャツ.png" class="absolute" width="178" height="218" />
+        </div>
+
+        <div class="relative">
+          <!-- 下服 -->
+          <img src="./images/白.png" width="178" height="218" />
+          <img src="./images/水玉.png" class="absolute" width="178" height="218" /> <img
+            src="./images/半ズボン.png" class="absolute" width="178" height="218" />
+        </div>
+      </div>
 
       <!-- 右側プルダウン、画像表示部分 -->
       <div class="contents">
@@ -37,8 +61,7 @@
             <form method="POST" action="SaleClothDisplayServlet">
               <select name="usercloth">
                 <%
-                  for (bean.UserClothBean str : bean.getUsercloth().getList())
-                  {
+                  for (bean.UserClothBean str : bean.getUsercloth().getList()) {
                 %>
                 <option value="<%=str.getClothid()%>"><%=str%></option>
                 <%
@@ -54,8 +77,7 @@
           <div class="contents">
 
             <%
-              for (bean.SaleClothBean record : bean.getRecomcloth().getList())
-              {
+              for (bean.SaleClothBean record : bean.getRecomcloth().getList()) {
             %>
             <div class="item">
               <div class="relative">
@@ -66,7 +88,7 @@
                   src="./images/<%=record.getCategory().name()%>.png" width=175
                   height=147 class=absolute />
               </div>
-              <br> <a href="<%= record.getURL() %>"><%=record.toString()%></a>
+              <br> <a href="<%=record.getURL()%>"><%=record.toString()%></a>
             </div>
             <%
               }
