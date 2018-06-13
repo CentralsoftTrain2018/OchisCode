@@ -11,4 +11,10 @@ public class SaveCodeDao {
         super();
         this.connection = connection;
     }
+
+    //作成者<野間>
+    //登録したコーデの服情報を全て取り出す
+    private static final String CoordinateOut_SQL =
+            "select "
+                    +"";
 }
