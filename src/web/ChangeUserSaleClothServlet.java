@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bean.CoordinateBean;
+import bean.CoordinateDisplayBean;
 import domain.CategoryEnum;
 import domain.ColorEnum;
 import domain.PatternEnum;
@@ -47,7 +47,7 @@ public class ChangeUserSaleClothServlet extends HttpServlet
         String topclothstr = request.getParameter( "topcloth" );
         String bottomclothstr = request.getParameter( "bottomcloth" );
 
-        CoordinateBean bean = new CoordinateBean();
+        CoordinateDisplayBean bean = new CoordinateDisplayBean();
 
         //モデル変更用の値を一時的に前のモデルのデータをセット
         String[] topcloth = { request.getParameter( "topcolor" ),
@@ -86,7 +86,7 @@ public class ChangeUserSaleClothServlet extends HttpServlet
         bean.setUscbean( cserv.userSaleCloth( "user" ) );
         request.setAttribute( "bean", bean );
 
-        RequestDispatcher disp = request.getRequestDispatcher( "/coordinate.jsp" );
+        RequestDispatcher disp = request.getRequestDispatcher( "/coordinatedisplay.jsp" );
         disp.forward( request, response );
     }
 

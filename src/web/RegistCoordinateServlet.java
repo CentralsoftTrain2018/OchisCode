@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bean.CoordinateBean;
+import bean.CoordinateDisplayBean;
 import domain.CategoryEnum;
 import domain.ColorEnum;
 import domain.PatternEnum;
@@ -38,7 +38,7 @@ public class RegistCoordinateServlet extends HttpServlet {
         //プルダウンの値を取得(文字化け対策に文字コード変更)
         request.setCharacterEncoding( "utf-8" );
 
-        CoordinateBean bean = new CoordinateBean();
+        CoordinateDisplayBean bean = new CoordinateDisplayBean();
 
         bean.setTopCategory( CategoryEnum.valueOf( request.getParameter( "topcategory" ) ) );
         bean.setTopColor( ColorEnum.valueOf( request.getParameter( "topcolor" ) ) );

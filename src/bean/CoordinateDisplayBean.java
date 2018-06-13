@@ -6,7 +6,7 @@ import domain.PatternEnum;
 import domain.SizeEnum;
 
 //コーディネイト画面用Bean
-public class CoordinateBean
+public class CoordinateDisplayBean
 {
     //上の服の情報
     private CategoryEnum topCategory;
@@ -22,7 +22,7 @@ public class CoordinateBean
 
     private UserSaleClothBean uscbean;
 
-    public CoordinateBean()
+    public CoordinateDisplayBean()
     {
 
     }

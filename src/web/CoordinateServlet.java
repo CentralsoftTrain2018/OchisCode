@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bean.CoordinateBean;
+import bean.CoordinateDisplayBean;
 import domain.CategoryEnum;
 import domain.ColorEnum;
 import domain.PatternEnum;
@@ -40,7 +40,7 @@ public class CoordinateServlet extends HttpServlet
     //シミュレーション部分(初回表示)
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        CoordinateBean bean = new CoordinateBean();
+        CoordinateDisplayBean bean = new CoordinateDisplayBean();
         ClothService cserv =new ClothService();
         //デフォルトの服をセット(上)
         bean.setTopCategory( CategoryEnum.Tシャツ );
@@ -56,7 +56,7 @@ public class CoordinateServlet extends HttpServlet
         bean.setUscbean(cserv.userSaleCloth("user"));
 
         request.setAttribute( "bean", bean );
-        RequestDispatcher disp = request.getRequestDispatcher( "/coordinate.jsp" );
+        RequestDispatcher disp = request.getRequestDispatcher( "/coordinatedisplay.jsp" );
         disp.forward( request, response );
     }
 
