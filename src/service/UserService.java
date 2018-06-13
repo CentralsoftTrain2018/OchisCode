@@ -4,8 +4,10 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import dao.Dao;
+import dao.UserDao;
 import domain.SexEnum;
 import domain.SizeEnum;
+import vo.UserVo;
 
 //ユーザー情報関係のサービス
 //作成：功刀
@@ -17,8 +19,11 @@ public class UserService
         try (
                 Connection con = Dao.getConnection();)
         {
-            //TODO 処理を追加
-            System.out.println( userId +"-"+ password +"-"+ userHeight +"-"+size+"-"+budget+"-"+sex );
+            UserVo userVo =new UserVo(userId, password, userHeight, size, budget, sex);
+            UserDao userDao =new UserDao(con);
+            System.out.println( "サービス：登録開始" );
+            userDao.put(userVo);
+            System.out.println( "サービス：登録完了" );
         } catch (ClassNotFoundException | SQLException e)
         {
             e.printStackTrace();

@@ -3,16 +3,17 @@ package service;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import bean.CoordinateBean;
+import bean.CoordinateDisplayBean;
 import dao.Dao;
 import dao.SaveCodeDao;
 import vo.SaveCodeVo;
 
 //コーデ(取り出し・登録)のService
+
 //作成者<野間>
 public class CodeService {
 
-    public void registCoordinate(String userid, CoordinateBean bean) {
+    public void registCoordinate(String userid, CoordinateDisplayBean bean) {
         try (
                 Connection con = Dao.getConnection();)
         {

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bean.CoordinateBean;
+import bean.CoordinateDisplayBean;
 import domain.CategoryEnum;
 import domain.ColorEnum;
 import domain.JougeEnum;
@@ -48,7 +48,7 @@ public class ChangeCoordinateClothServlet extends HttpServlet
         String categoryStr = request.getParameter( "category" );
         String sizeStr = request.getParameter( "size" );
 
-        CoordinateBean bean = new CoordinateBean();
+        CoordinateDisplayBean bean = new CoordinateDisplayBean();
 
         //プルダウンで選択された上下に応じてbeanにセットする値を変更
         //上の服を変更
@@ -82,7 +82,7 @@ public class ChangeCoordinateClothServlet extends HttpServlet
 
         request.setAttribute( "bean", bean );
 
-        RequestDispatcher disp = request.getRequestDispatcher( "/coordinate.jsp" );
+        RequestDispatcher disp = request.getRequestDispatcher( "/coordinatedisplay.jsp" );
         disp.forward( request, response );
     }
 
