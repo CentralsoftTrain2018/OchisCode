@@ -37,8 +37,8 @@
             <form method="POST" action="SaleClothDisplayServlet">
               <select name="usercloth">
                 <%
-                  for (bean.UserClothBean str : bean.getUsercloth().getList())
-                  {
+                	for (bean.UserClothBean str : bean.getUserCloth().getList())
+                                  {
                 %>
                 <option value="<%=str.getClothid()%>"><%=str%></option>
                 <%
@@ -54,11 +54,11 @@
           <div class="contents">
 
             <%
-              for (bean.SaleClothBean record : bean.getRecomcloth().getList())
-              {
+            	for (bean.SaleClothBean record : bean.getSalCloth().getList())
+                          {
             %>
             <div class="item">
-              <div class="relative">
+              <div class="relative"> 
                 <img src="./images/<%=record.getColor().name()%>.png" width=175
                   height=147 /> <img
                   src="./images/<%=record.getPattern().name()%>.png" width=175

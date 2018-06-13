@@ -5,6 +5,7 @@ import domain.ColorEnum;
 import domain.PatternEnum;
 import domain.SizeEnum;
 
+//TODO 削除
 public class UserSaleClothLineBean
 {
        private CategoryEnum category;

@@ -56,8 +56,8 @@ public class SaleClothDisplayServlet extends HttpServlet
 
 
         SaleClothDisplayBean bean = new SaleClothDisplayBean();
-        bean.setUsercloth(ucbean);
-        bean.setRecomcloth(rcbean);
+        bean.setUserCloth(ucbean);
+        bean.setSaleCloth(rcbean);
 
         //jspに遷移
         request.setAttribute( "bean", bean );
