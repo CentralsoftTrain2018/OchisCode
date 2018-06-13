@@ -13,7 +13,7 @@ public class SaveCodeDao extends Dao{
     //登録したコーデの服情報を全て取り出す
     private static final String CoordinateOut_SQL =
             "select "
-                    +" ,code_number"
+                    +" code_number"
                     + " ,userid"
                     + " ,tops_color"
                     + " ,bottoms_color"
@@ -21,6 +21,8 @@ public class SaveCodeDao extends Dao{
                     + " ,botoms_pattern"
                     + " ,tops_category"
                     + " ,botoms_category"
+                    + " ,tops_size"
+                    + " ,botoms_size"
                     + "from"
                     + " save_code";
 }
