@@ -9,7 +9,7 @@ public class SaleClothVo extends ClothVo
 {
     private int Price;
     private String Url;
-   public SaleClothVo(CategoryEnum category, ColorEnum color, PatternEnum pattern, SizeEnum size,int Price//,String Url
+   public SaleClothVo(CategoryEnum category, ColorEnum color, PatternEnum pattern, SizeEnum size,int Price,String Url
            ) {
         super(category, color, pattern, size);
 
@@ -28,6 +28,16 @@ public void setPrice(int price)
     Price = price;
 }
 
+
+    public String getUrl()
+{
+    return Url;
+}
+
+public void setUrl(String url)
+{
+    Url = url;
+}
 
     public String toString() {
         return "色：" + color + "　柄：" + pattern + "　カテゴリー：" + category + "\n";

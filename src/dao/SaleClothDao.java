@@ -66,8 +66,8 @@ public class SaleClothDao
                         ColorEnum.valueOf(rset.getString(2)),
                         PatternEnum.valueOf(rset.getString(3)),
                         SizeEnum.valueOf(rset.getString(4)),
-                        rset.getInt(5)
-                        //rset.getString(6)
+                        rset.getInt(5),
+                       rset.getString(6)
 
                         );
                 list.add(recomvo);
@@ -165,8 +165,8 @@ public class SaleClothDao
                     ColorEnum.valueOf(recomClothSet.getString(4)),
                     PatternEnum.valueOf(recomClothSet.getString(5)),
                     SizeEnum.valueOf(recomClothSet.getString(2)),
-                    recomClothSet.getInt(3));
-                  //  recomClothSet.getString(8));
+                    recomClothSet.getInt(3),
+                    recomClothSet.getString(8));
 
             recomClothList.add(recomCloth);
         }

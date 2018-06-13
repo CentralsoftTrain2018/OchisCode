@@ -95,6 +95,7 @@ public class ClothService
                 linercbean.setPattern( rcvo.getPattern() );
                 linercbean.setCategory( rcvo.getCategory() );
                 linercbean.setPrice(rcvo.getPrice());//金額の取得
+                linercbean.setUrl(rcvo.getUrl());//URLの取得
 
                 rcbeanlist.add( linercbean );
             }
@@ -129,6 +130,7 @@ public class ClothService
                 linercbean.setPattern( rcvo.getPattern() );
                 linercbean.setCategory( rcvo.getCategory() );
                 linercbean.setPrice(rcvo.getPrice());//金額の取得
+                linercbean.setUrl(rcvo.getUrl());//URLの取得
 
                 rcbeanlist.add( linercbean );
             }
