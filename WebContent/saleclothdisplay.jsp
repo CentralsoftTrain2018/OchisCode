@@ -37,7 +37,7 @@
             <form method="POST" action="SaleClothDisplayServlet">
               <select name="usercloth">
                 <%
-                  for (bean.UserClothLineBean str : bean.getUsercloth().getList())
+                  for (bean.UserClothBean str : bean.getUsercloth().getList())
                   {
                 %>
                 <option value="<%=str.getClothid()%>"><%=str%></option>
