@@ -70,6 +70,15 @@
             class="absolute" width="<%=bean.getBottomSize().getWidth()%>"
             height="<%=bean.getBottomSize().getHeight()%>" />
         </div>
+        <div class = "relative">
+        <!-- 表示している服の情報をサーブレットに受け渡し -->
+        <form>
+          <input type="hidden" name="coordinate"
+            value="<%=bean%>">
+          <input
+            type="submit" value="コーデ登録">
+        </form>
+        </div>
       </div>
       <div class="contents">
         <!-- 変更する服の情報を入力 -->
@@ -130,7 +139,7 @@
 
           <!-- 表示している服の情報をサーブレットに受け渡し -->
           <input type="hidden" name="topcolor"
-            value="<%=bean.getTopColor().name()%>"> <input
+            value="<%=bean%>"> <input
             type="hidden" name="toppattern"
             value="<%=bean.getTopPattern().name()%>"> <input
             type="hidden" name="topcategory"
