@@ -86,7 +86,7 @@
           <div class="contents">
 
             <%
-            	for (bean.SaleClothBean record : bean.getSaleCloth().getList()){
+              for (bean.SaleClothBean record : bean.getSaleCloth().getList()){
             %>
             <div class="item">
               <div class="relative">
