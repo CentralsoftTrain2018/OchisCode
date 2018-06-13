@@ -76,7 +76,7 @@ public class SaleClothDao
     }
 
     //ユーザーの全持ち服を取得し、それぞれの持ち服に対するお勧め服を取得する
-    public List<SaleClothVo> getSaleClothList(String userid, int min, int max) throws SQLException {
+    public List<SaleClothVo> getSaleClothList(String userid, int min, int max,String order) throws SQLException {
         PreparedStatement stmt = null;
         ResultSet userClothSet = null;
 
@@ -96,7 +96,7 @@ public class SaleClothDao
 
         //持ち服一つに対するお勧め服を取得(全持ち服分繰り返す)
         while (userClothSet.next()) {
-            List<SaleClothVo> recomCloth = getRecomCloth(userClothSet.getInt(1), min, max);
+            List<SaleClothVo> recomCloth = getRecomCloth(userClothSet.getInt(1), min, max,order);
             recomClothList.addAll(recomCloth);
         }
 
@@ -106,7 +106,7 @@ public class SaleClothDao
     }
 
     //持ち服を指定して、お勧めの服を取得する
-    public List<SaleClothVo> getRecomCloth(int clothid, int min, int max) throws SQLException {
+    public List<SaleClothVo> getRecomCloth(int clothid, int min, int max,String order ) throws SQLException {
         List<SaleClothVo> recomClothList = new ArrayList<SaleClothVo>();
         PreparedStatement stmt = connection.prepareStatement(
                 "  select"
@@ -146,7 +146,11 @@ public class SaleClothDao
                         + "  user_cloth.category = recommend.category and"
                         + "  sale_cloth.category = recommend.rec_category) and"
                //金額によって絞込みを行う
-                        + " price between ? and ?");
+                        + " price between ? and ?"
+               //並び替え
+                        + " order by "
+                        + order
+                );
 
         //持ち服の指定
         stmt.setInt(1, clothid);
@@ -156,7 +160,9 @@ public class SaleClothDao
         stmt.setInt(4, min);
         stmt.setInt(5, max);
 
-        //
+        //並び替えの指定　新古と金額の昇順降順
+        //stmt.setString(6, order);
+
         /* SQL実行 */
         ResultSet recomClothSet = stmt.executeQuery();
 

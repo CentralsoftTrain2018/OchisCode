@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bean.ListSaleClothBean;
 import bean.ListOutUserClothBean;
+import bean.ListSaleClothBean;
 import bean.SaleClothDisplayBean;
 import service.ClothService;
 
@@ -46,10 +46,9 @@ public class ListOutSaleClothServlet extends HttpServlet
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         ClothService cs = new ClothService();
-
+        String order="clothid DESC";//並び替えのプルダウン初期値→新着順
         ListOutUserClothBean ucbean = cs.userCloth("user");
-        ListSaleClothBean rcbean = cs.getSaleCloth("user", 0, 3000);
-
+        ListSaleClothBean rcbean = cs.getSaleCloth("user", 0, 3000,order);
         SaleClothDisplayBean bean = new SaleClothDisplayBean();
         bean.setUserCloth(ucbean);
         bean.setSaleCloth(rcbean);
