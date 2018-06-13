@@ -5,13 +5,16 @@ import domain.ColorEnum;
 import domain.PatternEnum;
 import domain.SizeEnum;
 
+//コーディネイト画面用Bean
 public class CoordinateBean
 {
+    //上の服の情報
     private CategoryEnum topCategory;
     private ColorEnum topColor;
     private PatternEnum topPattern;
     private SizeEnum topSize;
 
+    //下の服の情報
     private CategoryEnum bottomCategory;
     private ColorEnum bottomColor;
     private PatternEnum bottomPattern;

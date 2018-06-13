@@ -78,7 +78,6 @@ public class ChangeCoordinateClothServlet extends HttpServlet
         }
 
         ClothService cserv =new ClothService();
-        //TODO 持ち服を上下に分けて取得
         bean.setUscbean(cserv.userSaleCloth("user"));
 
         request.setAttribute( "bean", bean );

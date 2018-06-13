@@ -44,8 +44,8 @@ public class RegistUserClothServlet extends HttpServlet
         String pattern = request.getParameter( "pattern" );
         String category = request.getParameter( "category" );
         String size = request.getParameter( "size" );
-        //TODO コネクションから取得
 
+        //TODO コネクションからID取得
         String id="user";
 
         ClothService cloth = new ClothService();
