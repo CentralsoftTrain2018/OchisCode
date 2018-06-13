@@ -64,7 +64,7 @@ public class SaveCodeDao extends Dao{
 
 
     //コーデの服情報の取り出し
-    public List<SaveCodeVo> getRecomCloth()throws SQLException
+    public List<SaveCodeVo> getCodeCloth()throws SQLException
     {
         List<SaveCodeVo> list = new ArrayList<>();
         PreparedStatement stmt = null;
