@@ -9,7 +9,7 @@ import java.util.List;
 import bean.LineRecomClothBean;
 import bean.ListOutRecomClothBean;
 import bean.ListOutUserClothBean;
-import bean.UserClothLineBean;
+import bean.UserClothBean;
 import bean.UserSaleClothBean;
 import bean.UserSaleClothLineBean;
 import dao.Dao;
@@ -29,7 +29,7 @@ public class ClothService
     //持ち服一覧
     public ListOutUserClothBean userCloth(String userId)
     {
-        UserClothLineBean bean;
+        UserClothBean bean;
         ListOutUserClothBean listbean;
         try (
                 Connection con = Dao.getConnection();)
@@ -39,10 +39,10 @@ public class ClothService
             Collection<UserClothVo> list = ucdao.getAllUserCloth( userId );
             listbean = new ListOutUserClothBean();
 
-            List<UserClothLineBean> clothlist = new ArrayList<UserClothLineBean>();
+            List<UserClothBean> clothlist = new ArrayList<UserClothBean>();
             for (UserClothVo uvo : list)
             {
-                bean = new UserClothLineBean();
+                bean = new UserClothBean();
                 bean.setClothid( uvo.getClothid() );
                 bean.setCategory( uvo.getCategory() );
                 bean.setColor( uvo.getColor() );

@@ -7,19 +7,19 @@ import java.util.List;
 public class ListOutUserClothBean
 {
 
-       private  List<UserClothLineBean> list =new ArrayList<UserClothLineBean>();
+       private  List<UserClothBean> list =new ArrayList<UserClothBean>();
 
         public ListOutUserClothBean()
         {
 
         }
 
-        public List<UserClothLineBean> getList()
+        public List<UserClothBean> getList()
         {
             return list;
         }
 
-        public void setList(List<UserClothLineBean> list)
+        public void setList(List<UserClothBean> list)
         {
             this.list = list;
         }

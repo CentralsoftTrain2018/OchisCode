@@ -64,7 +64,7 @@ public class ChangeUserSaleClothServlet extends HttpServlet
         bean.setBottomColor( ColorEnum.valueOf( bottomcloth[0] ) );
         bean.setBottomPattern( PatternEnum.valueOf( bottomcloth[1] ) );
         bean.setBottomSize( SizeEnum.valueOf( bottomcloth[3] ) );
-        //TODO 持ち服を上下に分けて取得
+
         bean.setUscbean( cserv.userSaleCloth( "user" ) );
         request.setAttribute( "bean", bean );
 

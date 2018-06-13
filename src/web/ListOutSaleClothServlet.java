@@ -68,5 +68,4 @@ public class ListOutSaleClothServlet extends HttpServlet
         disp.forward( request, response );
         doGet( request, response );
     }
-
 }
