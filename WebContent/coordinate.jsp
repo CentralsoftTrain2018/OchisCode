@@ -152,7 +152,7 @@
 
 
             <%
-              for (bean.UserSaleClothLineBean topcloth : bean.getUscbean().getTopclothlist())
+              for (bean.UserClothBean topcloth : bean.getUscbean().getTopclothlist())
               {
             %>
             <option value="<%=topcloth.toString()%>"><%=topcloth%></option>
@@ -163,7 +163,7 @@
 
 
             <%
-              for (bean.UserSaleClothLineBean bottomcloth : bean.getUscbean().getBottomclothlist())
+              for (bean.UserClothBean bottomcloth : bean.getUscbean().getBottomclothlist())
               {
             %>
             <option value="<%=bottomcloth.toString()%>"><%=bottomcloth%></option>
