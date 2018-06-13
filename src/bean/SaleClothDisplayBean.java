@@ -15,7 +15,7 @@ public class SaleClothDisplayBean {
     public void setUserCloth(ListOutUserClothBean usercloth) {
         this.userCloth = usercloth;
     }
-    public ListSaleClothBean getSalCloth() {
+    public ListSaleClothBean getSaleCloth() {
         return saleCloth;
     }
     public void setSaleCloth(ListSaleClothBean recomcloth) {
