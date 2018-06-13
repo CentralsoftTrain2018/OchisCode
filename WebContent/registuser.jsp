@@ -9,7 +9,7 @@
 </head>
 <body>
   <form method="POST" action="RegistUserServlet">
-    登録情報を入力してください。<br> <br>
+    登録情報を入力してください。 <br>
     <table>
       <tr>
         <td>ユーザーID</td>
