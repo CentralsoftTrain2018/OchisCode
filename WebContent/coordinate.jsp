@@ -71,11 +71,24 @@
             height="<%=bean.getBottomSize().getHeight()%>" />
         </div>
         <div class = "relative">
+        <form method="POST" action="RegistCoordinateServlet">
         <!-- 表示している服の情報をサーブレットに受け渡し -->
-        <form>
-          <input type="hidden" name="coordinate"
-            value="<%=bean%>">
-          <input
+          <input type="hidden" name="topcolor"
+            value="<%=bean.getTopColor().name()%>"> <input
+            type="hidden" name="toppattern"
+            value="<%=bean.getTopPattern().name()%>"> <input
+            type="hidden" name="topcategory"
+            value="<%= bean.getTopCategory().name()%>"> <input
+            type="hidden" name="topsize"
+            value="<%= bean.getTopSize().name()%>"> <input
+            type="hidden" name="bottomcolor"
+            value="<%=bean.getBottomColor().name()%>"> <input
+            type="hidden" name="bottompattern"
+            value="<%=bean.getBottomPattern().name()%>"> <input
+            type="hidden" name="bottomcategory"
+            value="<%= bean.getBottomCategory().name()%>"> <input
+            type="hidden" name="bottomsize"
+            value="<%= bean.getBottomSize().name()%>"> <input
             type="submit" value="コーデ登録">
         </form>
         </div>
