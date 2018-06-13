@@ -7,7 +7,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import vo.SaleClothVo;
+import domain.CategoryEnum;
+import domain.ColorEnum;
+import domain.PatternEnum;
+import domain.SizeEnum;
 import vo.SaveCodeVo;
 
 public class SaveCodeDao extends Dao{
@@ -35,7 +38,7 @@ public class SaveCodeDao extends Dao{
                     + " save_code";
 
     //コーデの服情報の取り出し
-    public List<SaleClothVo> getRecomCloth()throws SQLException
+    public List<SaveCodeVo> getRecomCloth()throws SQLException
     {
         List<SaveCodeVo> list = new ArrayList<>();
         PreparedStatement stmt = null;
@@ -46,6 +49,23 @@ public class SaveCodeDao extends Dao{
 
             rset = stmt.executeQuery();
 
-            return null;
+            while(rset.next())
+            {
+                SaveCodeVo recomvo = new SaveCodeVo(
+                        rset.getInt(1),
+                        rset.getString(2),
+                        ColorEnum.valueOf(rset.getString(3)),
+                        ColorEnum.valueOf(rset.getString(4)),
+                        CategoryEnum.valueOf(rset.getString(5)),
+                        CategoryEnum.valueOf(rset.getString(6)),
+                        PatternEnum.valueOf(rset.getString(7)),
+                        PatternEnum.valueOf(rset.getString(8)),
+                        SizeEnum.valueOf(rset.getString(9)),
+                        SizeEnum.valueOf(rset.getString(10))
+                        );
+                list.add(recomvo);
+            }
+
+            return list;
     }
 }
