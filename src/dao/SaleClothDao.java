@@ -13,14 +13,12 @@ import domain.PatternEnum;
 import domain.SizeEnum;
 import vo.SaleClothVo;
 
-public class SaleClothDao
+public class SaleClothDao extends Dao
 {
-    private Connection connection;
 
-    public SaleClothDao(Connection connection)
+    public SaleClothDao(Connection con)
     {
-        super();
-        this.connection = connection;
+        super(con);
     }
 
     //販売服の情報全てを取り出す
@@ -55,7 +53,7 @@ public class SaleClothDao
         ResultSet rset = null;
 
             /* Statementの作成 */
-            stmt = this.connection.prepareStatement(SALECLOTHLIST_SQL);
+            stmt = con.prepareStatement(SALECLOTHLIST_SQL);
 
             rset = stmt.executeQuery();
 
@@ -83,7 +81,7 @@ public class SaleClothDao
         List<SaleClothVo> recomClothList = new ArrayList<SaleClothVo>();
 
         /* ユーザーの持ち服をすべて取得 */
-        stmt = connection.prepareStatement(
+        stmt = con.prepareStatement(
                 "  select"
                         + "    clothid"
                         + " from "
@@ -108,7 +106,7 @@ public class SaleClothDao
     //持ち服を指定して、お勧めの服を取得する
     public List<SaleClothVo> getRecomCloth(int clothid, String minmax,String order ) throws SQLException {
         List<SaleClothVo> recomClothList = new ArrayList<SaleClothVo>();
-        PreparedStatement stmt = connection.prepareStatement(
+        PreparedStatement stmt = con.prepareStatement(
                 "  select"
                 //指定した持ち服の色に対するお勧めの色の服を取得
                         + "  sale_cloth.*"

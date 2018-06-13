@@ -2,13 +2,10 @@ package dao;
 
 import java.sql.Connection;
 
-public class SaveCodeDao {
+public class SaveCodeDao extends Dao{
 
-    private Connection connection;
-
-    public SaveCodeDao(Connection connection)
+    public SaveCodeDao(Connection con)
     {
-        super();
-        this.connection = connection;
+        super(con);
     }
 }
