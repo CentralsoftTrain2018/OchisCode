@@ -13,7 +13,7 @@
     <table>
       <tr>
         <td>ユーザーID</td>
-        <td><input name="id" type="text"></td>
+        <td><input name="userid" type="text"></td>
       </tr>
       <tr>
         <td>パスワード(半角英数字)</td>

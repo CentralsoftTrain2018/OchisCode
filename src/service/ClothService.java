@@ -109,7 +109,6 @@ public class ClothService
 
     }
 
-
     public ListSaleClothBean getSelectedSaleCloth(int clothid, String minmax, String order)
     {
         try (
