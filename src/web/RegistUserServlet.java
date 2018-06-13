@@ -56,7 +56,7 @@ public class RegistUserServlet extends HttpServlet
         UserService userv =new UserService();
         userv.registUser( userIdStr, passwordStr, userHeight, size, budget, sex );
 
-
+        System.out.println( "サーブレット：登録完了" );
         RequestDispatcher disp = request.getRequestDispatcher( "/login.html" );
         disp.forward( request, response );
     }
