@@ -52,7 +52,7 @@ public class SaleClothDisplayServlet extends HttpServlet
         int max = Integer.parseInt(minmax[1]);
         ClothService cs = new ClothService();
         ListOutUserClothBean ucbean = cs.userCloth("user");
-        ListOutSaleClothBean rcbean = cs.getSelectedRecommendCloth(clothid, min, max);
+        ListOutSaleClothBean rcbean = cs.getSelectedSaleCloth(clothid, min, max);
 
 
         SaleClothDisplayBean bean = new SaleClothDisplayBean();

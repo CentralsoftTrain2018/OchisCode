@@ -78,13 +78,13 @@ public class ClothService
     }
 
 
-    public ListOutSaleClothBean getRecommendCloth(String userid, int min, int max)
+    public ListOutSaleClothBean getSaleCloth(String userid, int min, int max)
     {
         try (
                 Connection con = Dao.getConnection();)
         {
             SaleClothDao rcdao = new SaleClothDao( con );
-            List<SaleClothVo> rcvolist = rcdao.getRecomClothList( userid, min, max );
+            List<SaleClothVo> rcvolist = rcdao.getSaleClothList( userid, min, max );
 
             ListOutSaleClothBean listoutrcbean = new ListOutSaleClothBean();
             List<SaleClothBean> rcbeanlist = new ArrayList<SaleClothBean>();
@@ -113,7 +113,7 @@ public class ClothService
 
     }
 
-    public ListOutSaleClothBean getSelectedRecommendCloth(int clothid, int min, int max)
+    public ListOutSaleClothBean getSelectedSaleCloth(int clothid, int min, int max)
     {
         try (
                 Connection con = Dao.getConnection();)

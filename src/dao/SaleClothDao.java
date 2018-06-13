@@ -76,7 +76,7 @@ public class SaleClothDao
     }
 
     //ユーザーの全持ち服を取得し、それぞれの持ち服に対するお勧め服を取得する
-    public List<SaleClothVo> getRecomClothList(String userid, int min, int max) throws SQLException {
+    public List<SaleClothVo> getSaleClothList(String userid, int min, int max) throws SQLException {
         PreparedStatement stmt = null;
         ResultSet userClothSet = null;
 
