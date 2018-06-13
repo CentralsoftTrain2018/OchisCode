@@ -2,12 +2,12 @@ package bean;
 
 public class SaleClothDisplayBean {
 
+    //オススメ服表示画面用Bean
     public SaleClothDisplayBean() {
-
     }
 
     private ListOutUserClothBean userCloth;
-    private ListOutSaleClothBean saleCloth;
+    private ListSaleClothBean saleCloth;
 
     public ListOutUserClothBean getUserCloth() {
         return userCloth;
@@ -15,10 +15,10 @@ public class SaleClothDisplayBean {
     public void setUserCloth(ListOutUserClothBean usercloth) {
         this.userCloth = usercloth;
     }
-    public ListOutSaleClothBean getSalCloth() {
+    public ListSaleClothBean getSalCloth() {
         return saleCloth;
     }
-    public void setSaleCloth(ListOutSaleClothBean recomcloth) {
+    public void setSaleCloth(ListSaleClothBean recomcloth) {
         this.saleCloth = recomcloth;
     }
 

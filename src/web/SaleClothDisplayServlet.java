@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bean.ListOutSaleClothBean;
+import bean.ListSaleClothBean;
 import bean.ListOutUserClothBean;
 import bean.SaleClothDisplayBean;
 import service.ClothService;
@@ -52,7 +52,7 @@ public class SaleClothDisplayServlet extends HttpServlet
         int max = Integer.parseInt(minmax[1]);
         ClothService cs = new ClothService();
         ListOutUserClothBean ucbean = cs.userCloth("user");
-        ListOutSaleClothBean rcbean = cs.getSelectedSaleCloth(clothid, min, max);
+        ListSaleClothBean rcbean = cs.getSelectedSaleCloth(clothid, min, max);
 
 
         SaleClothDisplayBean bean = new SaleClothDisplayBean();

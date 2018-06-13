@@ -3,12 +3,12 @@ package bean;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListOutSaleClothBean
+//販売服のリスト
+public class ListSaleClothBean
 {
     private List<SaleClothBean> list =new ArrayList<>();
-    private List<String> userClothList = new ArrayList<>();
 
-    public ListOutSaleClothBean()
+    public ListSaleClothBean()
     {
     }
 
@@ -22,15 +22,6 @@ public class ListOutSaleClothBean
         this.list = list;
     }
 
-    public List<String> getUserClothList()
-    {
-        return userClothList;
-    }
-
-    public void setUserClothList(List<String> userClothList)
-    {
-        this.userClothList = userClothList;
-    }
 
     @Override
     public String toString() {
