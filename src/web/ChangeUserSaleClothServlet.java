@@ -37,25 +37,43 @@ public class ChangeUserSaleClothServlet extends HttpServlet
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
 
-    //シミュレーション画面の服の変更(持ち服から)
+    //コーデ画面の服の変更(持ち服から)
+    //編集：功刀
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         //プルダウンの値を取得(文字化け対策に文字コード変更)
         request.setCharacterEncoding( "utf-8" );
-
+        //プルダウンで選択された上下服の情報を取得
         String topclothstr = request.getParameter( "topcloth" );
         String bottomclothstr = request.getParameter( "bottomcloth" );
 
         CoordinateBean bean = new CoordinateBean();
 
-        String[] topcloth = topclothstr.split( "-" );
-        String[] bottomcloth = bottomclothstr.split( "-" );
+        //モデル変更用の値を一時的に前のモデルのデータをセット
+        String[] topcloth = { request.getParameter( "topcolor" ),
+                request.getParameter( "toppattern" ),
+                request.getParameter( "topcategory" ),
+                request.getParameter( "topsize" ) };
+        String[] bottomcloth = { request.getParameter( "bottomcolor" ),
+                request.getParameter( "bottompattern" ),
+                request.getParameter( "bottomcategory" ),
+                request.getParameter( "bottomsize" ) };
+
+        //プルダウンからの入力があった場合に配列を上書き
+        if (topclothstr!=null)
+        {
+            String[] topclothnew = topclothstr.split( "-" );
+            System.arraycopy(topclothnew,0,topcloth,0,topclothnew.length);
+        }
+
+        if (bottomclothstr!=null)
+        {
+            String[] bottomclothnew = bottomclothstr.split( "-" );
+            System.arraycopy(bottomclothnew,0,bottomcloth,0,bottomclothnew.length);
+        }
+
         ClothService cserv = new ClothService();
-        System.out.println( bottomcloth[2] );
-        //color + "-" + pattern + "-" + category + "-"+size+"\";
-
         //プルダウンで選択された上下に応じてbeanにセットする値を変更
-
         bean.setTopCategory( CategoryEnum.valueOf( topcloth[2] ) );
         bean.setTopColor( ColorEnum.valueOf( topcloth[0] ) );
         bean.setTopPattern( PatternEnum.valueOf( topcloth[1] ) );

@@ -12,6 +12,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>コーデ画面</title>
 
+<!-- 上下服のプルダウンの値を変更 編集:功刀 -->
+
 </head>
 <!-- cssファイル読み込み -->
 <link rel="stylesheet" type="text/css" href="css/PileImage.css">
@@ -146,16 +148,16 @@
             type="submit" value="変更">
         </form>
         <br>
+
         <form method="POST" action="ChangeUserSaleClothServlet">
-          <!-- 持ち服と販売服を合わせたプルダウン(上下は分ける) -->
+          <!-- 持ち服を上下に分けたプルダウン -->
           <select name="topcloth">
-
-
             <%
               for (bean.UserClothBean topcloth : bean.getUscbean().getTopclothlist())
               {
             %>
-            <option value="<%=topcloth.toString()%>"><%=topcloth%></option>
+            <option
+              value="<%=topcloth.getColor().name()%>-<%=topcloth.getPattern().name()%>-<%=topcloth.getCategory().name()%>-<%=topcloth.getSize().name()%>"><%=topcloth%></option>
             <%
               }
             %>
@@ -165,8 +167,9 @@
             <%
               for (bean.UserClothBean bottomcloth : bean.getUscbean().getBottomclothlist())
               {
-            %>
-            <option value="<%=bottomcloth.toString()%>"><%=bottomcloth%></option>
+            %><option
+            value="<%=bottomcloth.getColor().name()%>-<%=bottomcloth.getPattern().name()%>-<%=bottomcloth.getCategory().name()%>-<%=bottomcloth.getSize().name()%>"><%=bottomcloth%></option>
+
             <%
               }
             %>

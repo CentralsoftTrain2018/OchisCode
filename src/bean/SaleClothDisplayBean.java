@@ -21,6 +21,4 @@ public class SaleClothDisplayBean {
     public void setSaleCloth(ListSaleClothBean recomcloth) {
         this.saleClothList = recomcloth;
     }
-
-
 }
