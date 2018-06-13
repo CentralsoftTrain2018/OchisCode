@@ -153,7 +153,7 @@
 
           <!-- 表示している服の情報をサーブレットに受け渡し -->
           <input type="hidden" name="topcolor"
-            value="<%=bean%>"> <input
+            value="<%=bean.getTopColor().name()%>"> <input
             type="hidden" name="toppattern"
             value="<%=bean.getTopPattern().name()%>"> <input
             type="hidden" name="topcategory"

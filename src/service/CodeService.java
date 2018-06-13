@@ -2,18 +2,21 @@ package service;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
+import bean.CoordinateBean;
 import bean.CoordinateDisplayBean;
 import dao.Dao;
 import dao.SaveCodeDao;
 import vo.SaveCodeVo;
 
 //コーデ(取り出し・登録)のService
-
-//作成者<野間>
 public class CodeService {
 
-    public void registCoordinate(String userid, CoordinateDisplayBean bean) {
+    public void registCoordinate(String userid, CoordinateDisplayBean bean)
+    {
         try (
                 Connection con = Dao.getConnection();)
         {
@@ -23,18 +26,54 @@ public class CodeService {
             savecode.setUserid(userid);
             savecode.setTopscolor(bean.getTopColor());
             savecode.setTopscategory(bean.getTopCategory());
-            savecode.setTopspttern(bean.getTopPattern());
+            savecode.setTopspattern(bean.getTopPattern());
             savecode.setTopssize(bean.getTopSize());
-            savecode.setBotomsscolor(bean.getBottomColor());
-            savecode.setBotomscategory(bean.getTopCategory());
-            savecode.setBotomspttern(bean.getTopPattern());
-            savecode.setBotomssize(bean.getTopSize());
+            savecode.setBottomscolor(bean.getBottomColor());
+            savecode.setBottomscategory(bean.getBottomCategory());
+            savecode.setBottomspattern(bean.getBottomPattern());
+            savecode.setBottomssize(bean.getBottomSize());
 
-            //savecodedao.doRegist(savecode);
+            savecodedao.registCode(savecode);
 
         } catch (SQLException | ClassNotFoundException e)
         {
             throw new RuntimeException(e);
         }
     }
+
+    //コーデの情報取得
+    //作成者<野間>
+    public List<CoordinateBean> coordinateDisplay() {
+        CoordinateBean bean;
+        // List<CoordinateBean>  listbean;
+        try (
+                Connection con = Dao.getConnection();) {
+            SaveCodeDao scdao = new SaveCodeDao(con);
+            Collection<SaveCodeVo> list = scdao.getCodeCloth();
+
+            List<CoordinateBean> codelist = new ArrayList<CoordinateBean>();
+            for (SaveCodeVo scvo : list) {
+                bean = new CoordinateBean();
+                bean.setTopColor(scvo.getTopscolor());
+                bean.setTopCategory(scvo.getTopscategory());
+                bean.setTopPattern(scvo.getTopspattern());
+                bean.setTopSize(scvo.getTopssize());
+                bean.setBottomColor(scvo.getTopscolor());
+                bean.setBottomCategory(scvo.getBottomscategory());
+                bean.setBottomPattern(scvo.getTopspattern());
+                bean.setBottomSize(scvo.getTopssize());
+
+                codelist.add(bean);
+            }
+            //listbean.setList( codelist );
+
+            return codelist;
+
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+
+    }
 }
+

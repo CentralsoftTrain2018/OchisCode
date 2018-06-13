@@ -51,14 +51,14 @@ public class RegistCoordinateServlet extends HttpServlet {
         bean.setBottomSize( SizeEnum.valueOf( request.getParameter( "bottomsize" ) ) );
 
         CodeService codeserv = new CodeService();
-
+        codeserv.registCoordinate("user", bean);
 
         ClothService cserv =new ClothService();
         bean.setUscbean(cserv.userSaleCloth("user"));
 
         request.setAttribute( "bean", bean );
 
-        RequestDispatcher disp = request.getRequestDispatcher( "/coordinate.jsp" );
+        RequestDispatcher disp = request.getRequestDispatcher( "/coordinatedisplay.jsp" );
         disp.forward( request, response );
     }
 
