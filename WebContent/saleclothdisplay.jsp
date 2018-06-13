@@ -76,10 +76,10 @@
                 <option value=" price > 15000">15001-</option>
               </select>
               <select name="sort">
-               <option value="clothid降順">新着順</option>
-               <option value="clothid昇順">古い順</option>
-               <option value="値段降順">値段が高い順</option>
-               <option value="値段昇順">値段が安い順</option>
+               <option value="clothid DESC">新着順</option>
+               <option value="clothid ASC">古い順</option>
+               <option value="price DESC">値段が高い順</option>
+               <option value="price ASC">値段が安い順</option>
               </select><input type="submit" value="オススメ服表示">
 
             </form>

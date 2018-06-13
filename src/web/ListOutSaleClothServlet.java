@@ -46,9 +46,10 @@ public class ListOutSaleClothServlet extends HttpServlet
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         ClothService cs = new ClothService();
-
+        String order="clothid DESC";//並び替えのプルダウン初期値→新着順
         ListOutUserClothBean ucbean = cs.userCloth("user");
-        ListSaleClothBean rcbean = cs.getSaleCloth("user", " price > 0 and price < 3000");
+
+        ListSaleClothBean rcbean = cs.getSaleCloth("user", " price > 0 and price < 3001", order);
 
         SaleClothDisplayBean bean = new SaleClothDisplayBean();
         bean.setUserCloth(ucbean);

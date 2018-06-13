@@ -47,13 +47,12 @@ public class SaleClothDisplayServlet extends HttpServlet
     {
         int clothid = Integer.parseInt(request.getParameter("usercloth"));
         String minmax = request.getParameter("narrow");
-        //String[] minmax = str.split("-");
-        //int min = Integer.parseInt(minmax[0]);
-        //int max = Integer.parseInt(minmax[1]);
+        String orderStr=request.getParameter("sort");
+
         ClothService cs = new ClothService();
         ListOutUserClothBean ucbean = cs.userCloth("user");
-        ListSaleClothBean rcbean = cs.getSelectedSaleCloth(clothid, minmax);
 
+        ListSaleClothBean rcbean = cs.getSelectedSaleCloth(clothid, minmax ,orderStr);
 
         SaleClothDisplayBean bean = new SaleClothDisplayBean();
         bean.setUserCloth(ucbean);
