@@ -22,7 +22,8 @@ public class UserClothBean extends ClothBean
         this.clothid = clothid;
     }
 
-    public String toString() {
+    public String toString()
+    {
         return getColor().name() + "色　" + getPattern().name() + "　" + getCategory().name() + "  " + getSize().name()
         + "サイズ";
     }
