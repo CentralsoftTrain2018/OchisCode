@@ -49,6 +49,8 @@ public class SaleClothDisplayServlet extends HttpServlet
     //オススメ一覧表示
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
+        request.setCharacterEncoding( "utf-8" );
+
         int clothid = Integer.parseInt(request.getParameter("usercloth"));
         String minmax = request.getParameter("narrow");
         String orderStr=request.getParameter("sort");
@@ -60,16 +62,14 @@ public class SaleClothDisplayServlet extends HttpServlet
 
         SaleClothDisplayBean bean = new SaleClothDisplayBean();
 
-        //デフォルトの服をセット(上)
-        bean.setTopCategory( CategoryEnum.Tシャツ );
-        bean.setTopColor( ColorEnum.白 );
-        bean.setTopPattern( PatternEnum.無地 );
-        bean.setTopSize( SizeEnum.M );
-        //デフォルトの服をセット(下)
-        bean.setBottomCategory( CategoryEnum.半ズボン );
-        bean.setBottomColor( ColorEnum.黒 );
-        bean.setBottomPattern( PatternEnum.無地 );
-        bean.setBottomSize( SizeEnum.M );
+        bean.setTopCategory( CategoryEnum.valueOf( request.getParameter( "topcategory" ) ) );
+        bean.setTopColor( ColorEnum.valueOf( request.getParameter( "topcolor" ) ) );
+        bean.setTopPattern( PatternEnum.valueOf( request.getParameter( "toppattern" ) ) );
+        bean.setTopSize( SizeEnum.valueOf( request.getParameter( "topsize" ) ) );
+        bean.setBottomCategory( CategoryEnum.valueOf( request.getParameter( "bottomcategory" ) ) );
+        bean.setBottomColor( ColorEnum.valueOf( request.getParameter( "bottomcolor" ) ) );
+        bean.setBottomPattern( PatternEnum.valueOf( request.getParameter( "bottompattern" ) ) );
+        bean.setBottomSize( SizeEnum.valueOf( request.getParameter( "bottomsize" ) ) );
 
         bean.setUserCloth(ucbean);
         bean.setSaleCloth(rcbean);

@@ -92,7 +92,24 @@
                <option value="clothid ASC">古い順</option>
                <option value="price DESC">値段が高い順</option>
                <option value="price ASC">値段が安い順</option>
-              </select><input type="submit" value="オススメ服表示">
+              </select>
+              <input type="hidden" name="topcolor"
+              value="<%=bean.getTopColor().name()%>"> <input
+              type="hidden" name="toppattern"
+              value="<%=bean.getTopPattern().name()%>"> <input
+              type="hidden" name="topcategory"
+              value="<%= bean.getTopCategory().name()%>"> <input
+              type="hidden" name="topsize"
+              value="<%= bean.getTopSize().name()%>"> <input
+              type="hidden" name="bottomcolor"
+              value="<%=bean.getBottomColor().name()%>"> <input
+              type="hidden" name="bottompattern"
+              value="<%=bean.getBottomPattern().name()%>"> <input
+              type="hidden" name="bottomcategory"
+              value="<%= bean.getBottomCategory().name()%>"> <input
+              type="hidden" name="bottomsize"
+              value="<%= bean.getBottomSize().name()%>">
+              <input type="submit" value="オススメ服表示">
 
             </form>
           </div>
