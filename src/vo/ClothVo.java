@@ -2,6 +2,7 @@ package vo;
 
 import domain.CategoryEnum;
 import domain.ColorEnum;
+import domain.JougeEnum;
 import domain.PatternEnum;
 import domain.SizeEnum;
 
@@ -10,6 +11,7 @@ public class ClothVo {
     protected ColorEnum color;
     protected PatternEnum pattern;
     protected SizeEnum size;
+    protected JougeEnum jouge;
 
   //コンストラクタ
     public ClothVo(CategoryEnum category, ColorEnum color, PatternEnum pattern, SizeEnum size)
@@ -59,5 +61,15 @@ public class ClothVo {
     {
         this.size = size;
     }
+
+    public JougeEnum getJouge() {
+        return jouge;
+    }
+
+    public void setJouge(JougeEnum jouge) {
+        this.jouge = jouge;
+    }
+
+
 
 }

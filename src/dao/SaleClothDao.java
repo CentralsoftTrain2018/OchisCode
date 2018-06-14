@@ -9,6 +9,7 @@ import java.util.List;
 
 import domain.CategoryEnum;
 import domain.ColorEnum;
+import domain.JougeEnum;
 import domain.PatternEnum;
 import domain.SizeEnum;
 import vo.SaleClothVo;
@@ -169,6 +170,7 @@ public class SaleClothDao extends Dao
                     ColorEnum.valueOf(recomClothSet.getString(4)),
                     PatternEnum.valueOf(recomClothSet.getString(5)),
                     SizeEnum.valueOf(recomClothSet.getString(2)),
+                    JougeEnum.valueOf(recomClothSet.getString(7)),
                     recomClothSet.getInt(3),
                     recomClothSet.getString(8));
 

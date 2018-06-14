@@ -2,6 +2,7 @@ package bean;
 
 import domain.CategoryEnum;
 import domain.ColorEnum;
+import domain.JougeEnum;
 import domain.PatternEnum;
 import domain.SizeEnum;
 //
@@ -15,6 +16,7 @@ public class ClothBean {
     protected CategoryEnum category;
     protected ColorEnum color;
     protected PatternEnum pattern;
+    protected JougeEnum jouge;
 
     public ClothBean() {
 
@@ -59,4 +61,14 @@ public class ClothBean {
     {
         this.pattern = pattern;
     }
+
+    public JougeEnum getJouge() {
+        return jouge;
+    }
+
+    public void setJouge(JougeEnum jouge) {
+        this.jouge = jouge;
+    }
+
+
 }

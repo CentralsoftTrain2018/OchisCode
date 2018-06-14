@@ -2,6 +2,7 @@ package vo;
 
 import domain.CategoryEnum;
 import domain.ColorEnum;
+import domain.JougeEnum;
 import domain.PatternEnum;
 import domain.SizeEnum;
 
@@ -13,6 +14,15 @@ public class SaleClothVo extends ClothVo
            ) {
         super(category, color, pattern, size);
 
+        this.Price=Price;
+        this.Url=Url;
+    }
+
+   public SaleClothVo(CategoryEnum category, ColorEnum color, PatternEnum pattern, SizeEnum size, JougeEnum jouge, int Price,String Url
+           ) {
+        super(category, color, pattern, size);
+
+        this.jouge = jouge;
         this.Price=Price;
         this.Url=Url;
     }
