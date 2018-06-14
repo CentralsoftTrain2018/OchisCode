@@ -33,6 +33,6 @@ public class SaleClothBean extends ClothBean
     }
 
     public String toString() {
-        return "金額:"+price+"　"+color + "　" + pattern + "　" + category ;
+        return "　"+price+"円"+color + "　" + pattern + "　" + category +"　"+size+"　";
     }
 }
