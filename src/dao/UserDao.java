@@ -2,6 +2,7 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import vo.UserVo;
@@ -33,13 +34,27 @@ public class UserDao extends Dao
             + " ?,"
             + " ? )";
 
+    //ユーザー検索用SQL文
+    private static final String SEARCHUSERSQL = "SELECT "
+            + "* "
+            + "FROM "
+            + "user "
+            + "where "
+            + "userid = ?";
+
     //登録
-    public void put(UserVo vo) throws SQLException
+    public boolean put(UserVo vo) throws SQLException
     {
         try (
                 PreparedStatement stmt = con.prepareStatement( REGISTUSERSQL );)
         {
             System.out.println( "Dao" );
+
+            if (this.isDup( vo ))
+            {
+                System.out.println( "重複あり、登録失敗" );
+                return false;
+            }
             //stmtに値をセット
             stmt.setString( 1, vo.getUserId() );
             stmt.setString( 2, vo.getPassword() );
@@ -47,7 +62,10 @@ public class UserDao extends Dao
             stmt.setString( 4, vo.getSize().name() );
             stmt.setInt( 5, vo.getBudget() );
             stmt.setString( 6, vo.getSex().name() );
-            int i = stmt.executeUpdate();
+
+            stmt.executeUpdate();
+            System.out.println( "重複なし、登録" );
+            return true;
         } catch (SQLException e)
         {
             throw e;
@@ -58,5 +76,37 @@ public class UserDao extends Dao
     public void update() throws SQLException
     {
 
+    }
+
+    //ユーザー検索
+    private boolean isDup(UserVo vo) throws SQLException
+    {
+        try (
+                PreparedStatement stmt = con.prepareStatement( SEARCHUSERSQL );)
+        {
+            System.out.println( "検索" );
+            stmt.setString( 1, vo.getUserId() );
+            System.out.println("検索ID："+vo.getUserId());
+            ResultSet rset = stmt.executeQuery();
+
+            String userId = null;
+
+            while (rset.next())
+            {
+            userId = rset.getString( 1 );
+            }
+
+            if (userId != null)
+            {
+                System.out.println("重複");
+                return true;
+            }
+
+            System.out.println("重複なし");
+            return false;
+        } catch (SQLException e)
+        {
+            throw e;
+        }
     }
 }

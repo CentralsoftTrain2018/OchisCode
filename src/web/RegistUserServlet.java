@@ -53,8 +53,14 @@ public class RegistUserServlet extends HttpServlet
         int budget = Integer.parseInt( budgetStr );
         SexEnum sex = SexEnum.valueOf( sexStr );
         UserService userv =new UserService();
-        //サービスに受け渡し
-        userv.registUser( userIdStr, passwordStr, userHeight, size, budget, sex );
+        
+        //サービスに受け渡しし、重複していた場合は別画面に遷移
+        if(!userv.registUser( userIdStr, passwordStr, userHeight, size, budget, sex ))
+        {
+            RequestDispatcher disp = request.getRequestDispatcher( "/useridduplicate.jsp" );
+            disp.forward( request, response );
+            return;
+        }
 
         System.out.println( "サーブレット：登録完了" );
         RequestDispatcher disp = request.getRequestDispatcher( "/login.html" );
