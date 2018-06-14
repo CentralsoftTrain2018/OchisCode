@@ -63,7 +63,7 @@ public class CodeService {
                 bean.setBottomColor(scvo.getBottomscolor());
                 bean.setBottomCategory(scvo.getBottomscategory());
                 bean.setBottomPattern(scvo.getBottomspattern());
-                bean.setBottomSize(scvo.getTopssize());
+                bean.setBottomSize(scvo.getBottomssize());
 
                 codelist.add(bean);
             }
