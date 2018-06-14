@@ -147,7 +147,10 @@
                   src="./images/<%=record.getPattern().name()%>.png" width=175
                   height=147 class=absolute />
                 <img
-                  onclick = "changeImg('上', '<%=record.getColor().name()%>', '無地', 'Tシャツ')"
+                  onclick = "changeImg('<%=record.getJouge().name()%>',
+                                       '<%=record.getColor().name()%>',
+                                       '<%=record.getPattern().name()%>',
+                                       '<%=record.getCategory().name()%>')"
                   src="./images/<%=record.getCategory().name()%>.png" width=175
                   height=147 class=absolute />
                </form>
