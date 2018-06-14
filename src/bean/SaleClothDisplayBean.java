@@ -27,7 +27,9 @@ public class SaleClothDisplayBean {
     private ListOutUserClothBean userClothList;
     private ListSaleClothBean saleClothList;
 
-
+    private String clothid;
+    private String narrow;
+    private String sort;
 
     public CategoryEnum getTopCategory() {
         return topCategory;
@@ -89,4 +91,24 @@ public class SaleClothDisplayBean {
     public void setSaleCloth(ListSaleClothBean recomcloth) {
         this.saleClothList = recomcloth;
     }
+    public String getClothid() {
+        return clothid;
+    }
+    public void setClothid(String clothid) {
+        this.clothid = clothid;
+    }
+    public String getNarrow() {
+        return narrow;
+    }
+    public void setNarrow(String narrow) {
+        this.narrow = narrow;
+    }
+    public String getSort() {
+        return sort;
+    }
+    public void setSort(String sort) {
+        this.sort = sort;
+    }
+
+
 }

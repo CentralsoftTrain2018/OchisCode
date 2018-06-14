@@ -88,6 +88,10 @@ public class SaleClothDisplayServlet extends HttpServlet
         bean.setUserCloth(ucbean);
         bean.setSaleCloth(rcbean);
 
+        bean.setClothid(request.getParameter("usercloth"));
+        bean.setNarrow(minmax);
+        bean.setSort(orderStr);
+
         //jspに遷移
         request.setAttribute( "bean", bean );
         RequestDispatcher disp = request.getRequestDispatcher( "/saleclothdisplay.jsp" );

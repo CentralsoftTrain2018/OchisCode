@@ -60,9 +60,9 @@ public class CodeService {
                 bean.setTopCategory(scvo.getTopscategory());
                 bean.setTopPattern(scvo.getTopspattern());
                 bean.setTopSize(scvo.getTopssize());
-                bean.setBottomColor(scvo.getTopscolor());
+                bean.setBottomColor(scvo.getBottomscolor());
                 bean.setBottomCategory(scvo.getBottomscategory());
-                bean.setBottomPattern(scvo.getTopspattern());
+                bean.setBottomPattern(scvo.getBottomspattern());
                 bean.setBottomSize(scvo.getTopssize());
 
                 codelist.add(bean);
