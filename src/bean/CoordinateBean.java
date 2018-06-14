@@ -68,4 +68,10 @@ public class CoordinateBean
     public void setBottomSize(SizeEnum bottomSize) {
         this.bottomSize = bottomSize;
     }
+    public String toString()
+    {
+        return topColor+"-"+topPattern+"-"+topCategory+"-"+topSize+
+                    "-"+bottomColor+"-"+bottomPattern+"-"+bottomCategory+"-"+bottomSize;
+    }
+    //"黒-水玉-Tシャツ-M-白-水玉-半ズボン-M
 }

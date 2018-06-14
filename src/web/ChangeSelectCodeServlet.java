@@ -14,6 +14,7 @@ import domain.ColorEnum;
 import domain.PatternEnum;
 import domain.SizeEnum;
 import service.ClothService;
+import service.CodeService;
 
 /**
  * Servlet implementation class ChangeSelectClothServlet
@@ -65,6 +66,7 @@ public class ChangeSelectCodeServlet extends HttpServlet
         }
 
         ClothService cserv = new ClothService();
+        CodeService codeserv = new CodeService();
         //プルダウンで選択された上下に応じてbeanにセットする値を変更
         //上の服
 
@@ -80,6 +82,7 @@ public class ChangeSelectCodeServlet extends HttpServlet
         bean.setBottomSize( SizeEnum.valueOf( cloth[7] ) );
 
         bean.setUscbean( cserv.userSaleCloth( "user" ) );
+        bean.setList(codeserv.coordinateDisplay());
         request.setAttribute( "bean", bean );
 
         RequestDispatcher disp = request.getRequestDispatcher( "/coordinatedisplay.jsp" );
