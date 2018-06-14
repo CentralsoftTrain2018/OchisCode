@@ -71,13 +71,8 @@ public class ListOutSaleClothServlet extends HttpServlet
         bean.setUserCloth(ucbean);
         bean.setSaleCloth(rcbean);
 
-        //ListOutRecomClothBean bean =cs.UserCloth();
 
-        //持ち服の表示
-        //TODO 持ち服情報を取っているが、beanにまとめて次のページに送れていない。
-//        ClothService cserv = new ClothService();
-//        cserv.userCloth( 1 );//userId=1の持ち服情報のbeanが帰ってくる。
-//        //bean2= cserv.UserCloth();
+
 
         //jspに遷移
         request.setAttribute( "bean", bean );

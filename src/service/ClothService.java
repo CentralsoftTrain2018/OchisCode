@@ -100,7 +100,7 @@ public class ClothService
 
             listoutrcbean.setList( rcbeanlist );
 
-            System.out.println( listoutrcbean );
+           // System.out.println( listoutrcbean );
 
             return listoutrcbean;
         } catch (ClassNotFoundException | SQLException e)
@@ -138,7 +138,7 @@ public class ClothService
 
             listoutrcbean.setList( rcbeanlist );
 
-            System.out.println( listoutrcbean );
+           // System.out.println( listoutrcbean );
 
             return listoutrcbean;
         } catch (ClassNotFoundException | SQLException e)

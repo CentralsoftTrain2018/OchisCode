@@ -73,5 +73,5 @@ public class CoordinateBean
         return topColor+"-"+topPattern+"-"+topCategory+"-"+topSize+
                     "-"+bottomColor+"-"+bottomPattern+"-"+bottomCategory+"-"+bottomSize;
     }
-    //"黒-水玉-Tシャツ-M-白-水玉-半ズボン-M
+
 }

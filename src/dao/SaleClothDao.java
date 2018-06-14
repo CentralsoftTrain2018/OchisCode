@@ -99,7 +99,7 @@ public class SaleClothDao extends Dao
             recomClothList.addAll(recomCloth);
         }
 
-        System.out.println(recomClothList);
+        //System.out.println(recomClothList);
 
         return recomClothList;
     }

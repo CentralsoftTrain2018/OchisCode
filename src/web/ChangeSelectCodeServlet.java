@@ -57,7 +57,7 @@ public class ChangeSelectCodeServlet extends HttpServlet
                 request.getParameter( "bottomcategory" ),
                 request.getParameter( "bottomsize" )
                 };
-        System.out.println(cloth);
+       // System.out.println(cloth);
         //プルダウンからの入力があった場合に配列を上書き
         if (clothstr!=null)
         {

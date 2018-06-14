@@ -113,8 +113,8 @@ public class SaveCodeDao extends Dao{
         stmt.setString(8, savecode.getTopssize().name());
         stmt.setString(9, savecode.getBottomssize().name());
 
-        System.out.println("確認");
+       // System.out.println("確認");
         int i =stmt.executeUpdate();
-        System.out.println("確認1");
+       // System.out.println("確認1");
     }
 }
