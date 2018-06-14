@@ -15,6 +15,8 @@ import vo.SaveCodeVo;
 //コーデ(取り出し・登録)のService
 public class CodeService {
 
+    //作成者：中村
+    //引数で渡されたコーデの情報をもとにDBに登録
     public void registCoordinate(String userid, CoordinateDisplayBean bean)
     {
         try (

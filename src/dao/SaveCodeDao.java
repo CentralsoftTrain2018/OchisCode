@@ -37,6 +37,8 @@ public class SaveCodeDao extends Dao{
                     + "from"
                     + " save_code";
 
+    //作成者：中村
+    //DBに服の情報を登録する
     private static final String RegistCoordinate_SQL =
             "insert "
                     + "into save_code( "
@@ -95,6 +97,7 @@ public class SaveCodeDao extends Dao{
             return list;
     }
 
+    //引数で渡された服の情報をDBに登録する
     public void registCode(SaveCodeVo savecode) throws SQLException {
         PreparedStatement stmt = null;
 

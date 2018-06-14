@@ -46,29 +46,7 @@ public class RegistUserServlet extends HttpServlet
         String sizeStr =request.getParameter("size");
         String budgetStr =request.getParameter("budget");
         String sexStr =request.getParameter("sex");
-        System.out.println(userIdStr+"-");
-        //入力がnullでないか確認し、nullの場合別画面に遷移
-        if(		userIdStr == "" ||
-                passwordStr == "" ||
-                userHeightStr == "" ||
-                sizeStr == "" ||
-                budgetStr == "" ||
-                sexStr == "")
-        {
-            System.out.println( "NULL" );
-            RequestDispatcher disp = request.getRequestDispatcher( "/nullerror.jsp" );
-            disp.forward( request, response );
-            return;
-        }
 
-        //数値が入力されているか確認し、数値でない場合は別画面に遷移
-        if(!isNumber( userHeightStr )
-                || !isNumber( budgetStr ))
-        {
-            RequestDispatcher disp = request.getRequestDispatcher( "/numbererror.jsp" );
-            disp.forward( request, response );
-            return;
-        }
         //身長、サイズ、予算、性別を適切な型に変換
         int userHeight = Integer.parseInt( userHeightStr );
         SizeEnum size =SizeEnum.valueOf(sizeStr);
@@ -88,15 +66,5 @@ public class RegistUserServlet extends HttpServlet
         doGet( request, response );
     }
 
-    //数値チェック
-    private boolean isNumber(String str) {
-        try
-        {
-            Integer.parseInt( str );
-            return true;
-        }catch (NumberFormatException e)
-        {
-            return false;
-        }
-    }
+
 }
