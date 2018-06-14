@@ -18,9 +18,9 @@
     flex: 1;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 /*子要素用クラス　服のデータ(画像、文字列)はこのクラス内にまとめること*/
 .item{
-  margin: 50;
+
 }
