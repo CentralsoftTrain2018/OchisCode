@@ -24,16 +24,6 @@ public class SaveCodeDao extends Dao{
     //登録したコーデの服情報を全て取り出す
     private static final String CoordinateOut_SQL =
             "select *"
-//                    +" code_number"
-//                    + " ,userid"
-//                    + " ,tops_color"
-//                    + " ,bottoms_color"
-//                    + " ,tops_pattern"
-//                    + " ,botoms_pattern"
-//                    + " ,tops_category"
-//                    + " ,botoms_category"
-//                    + " ,tops_size"
-//                    + " ,botoms_size "
                     + "from"
                     + " save_code";
 
@@ -113,8 +103,6 @@ public class SaveCodeDao extends Dao{
         stmt.setString(8, savecode.getTopssize().name());
         stmt.setString(9, savecode.getBottomssize().name());
 
-       // System.out.println("確認");
         int i =stmt.executeUpdate();
-       // System.out.println("確認1");
     }
 }

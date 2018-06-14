@@ -154,12 +154,7 @@ public class SaleClothDao extends Dao
         stmt.setInt(1, clothid);
         stmt.setInt(2, clothid);
         stmt.setInt(3, clothid);
-        //絞込みの範囲を決定
 
-        //stmt.setInt(4, min);
-        //stmt.setInt(5, max);
-        //並び替えの指定　新古と金額の昇順降順
-        //stmt.setString(6, order);
 
         /* SQL実行 */
         ResultSet recomClothSet = stmt.executeQuery();
