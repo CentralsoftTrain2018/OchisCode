@@ -52,9 +52,9 @@
         <!-- 画像表示部分 -->
         <!-- 越智くんの顔 -->
         <div class="relative">
-          <img src="./images/白.png" width="178" height="218" /> <img
-            src="./images/ochi's.png" class="absolute" width="178"
-            height="218" />
+          <img src="./images/白.png" width="160" height="120" /> <img
+            src="./images/ochi's.png" class="absolute" width="160"
+            height="120" />
         </div>
 
         <div class="relative">
