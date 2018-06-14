@@ -5,6 +5,7 @@
 /*縦2分割にしたい範囲*/
 .verticalContainer{
     display: flex;
+
 }
 /*2分割にした左側*/
 .model{
@@ -17,8 +18,9 @@
     flex: 1;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
 /*子要素用クラス　服のデータ(画像、文字列)はこのクラス内にまとめること*/
 .item{
-
+  margin: 50;
 }
