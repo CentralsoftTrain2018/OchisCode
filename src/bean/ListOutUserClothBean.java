@@ -24,6 +24,15 @@ public class ListOutUserClothBean
             this.list = list;
         }
 
+        public UserClothBean getSelectedCloth(int clothid) {
+            for(UserClothBean uc : list) {
+                if(uc.getClothid() == clothid) {
+                    return uc;
+                }
+            }
+            return null;
+        }
+
 
 
 }

@@ -32,7 +32,7 @@
           + pattern + ".png";
       document.getElementById("bottomcategory").src = "./images/"
           + category + ".png";
-	  
+
     }
   }
 </script>

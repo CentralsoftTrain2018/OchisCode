@@ -12,8 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import bean.ListOutUserClothBean;
 import bean.ListSaleClothBean;
 import bean.SaleClothDisplayBean;
+import bean.UserClothBean;
 import domain.CategoryEnum;
 import domain.ColorEnum;
+import domain.JougeEnum;
 import domain.PatternEnum;
 import domain.SizeEnum;
 import service.ClothService;
@@ -57,20 +59,32 @@ public class SaleClothDisplayServlet extends HttpServlet
 
         ClothService cs = new ClothService();
         ListOutUserClothBean ucbean = cs.userCloth("user");
+        UserClothBean selecteduc = ucbean.getSelectedCloth(clothid);
 
         ListSaleClothBean rcbean = cs.getSelectedSaleCloth(clothid, minmax ,orderStr);
 
         SaleClothDisplayBean bean = new SaleClothDisplayBean();
 
-        bean.setTopCategory( CategoryEnum.valueOf( request.getParameter( "topcategory" ) ) );
-        bean.setTopColor( ColorEnum.valueOf( request.getParameter( "topcolor" ) ) );
-        bean.setTopPattern( PatternEnum.valueOf( request.getParameter( "toppattern" ) ) );
-        bean.setTopSize( SizeEnum.valueOf( request.getParameter( "topsize" ) ) );
-        bean.setBottomCategory( CategoryEnum.valueOf( request.getParameter( "bottomcategory" ) ) );
-        bean.setBottomColor( ColorEnum.valueOf( request.getParameter( "bottomcolor" ) ) );
-        bean.setBottomPattern( PatternEnum.valueOf( request.getParameter( "bottompattern" ) ) );
-        bean.setBottomSize( SizeEnum.valueOf( request.getParameter( "bottomsize" ) ) );
-
+        if (selecteduc.getCategory().getJouge() == JougeEnum.上) {
+            bean.setTopCategory(CategoryEnum.valueOf(selecteduc.getCategory().name()));
+            bean.setTopColor(ColorEnum.valueOf(selecteduc.getColor().name()));
+            bean.setTopPattern(PatternEnum.valueOf(selecteduc.getPattern().name()));
+            bean.setTopSize(SizeEnum.valueOf(selecteduc.getSize().name()));
+            bean.setBottomCategory(CategoryEnum.valueOf(request.getParameter("bottomcategory")));
+            bean.setBottomColor(ColorEnum.valueOf(request.getParameter("bottomcolor")));
+            bean.setBottomPattern(PatternEnum.valueOf(request.getParameter("bottompattern")));
+            bean.setBottomSize(SizeEnum.valueOf(request.getParameter("bottomsize")));
+        }
+        else if (selecteduc.getCategory().getJouge() == JougeEnum.下) {
+            bean.setTopCategory(CategoryEnum.valueOf(request.getParameter("topcategory")));
+            bean.setTopColor(ColorEnum.valueOf(request.getParameter("topcolor")));
+            bean.setTopPattern(PatternEnum.valueOf(request.getParameter("toppattern")));
+            bean.setTopSize(SizeEnum.valueOf(request.getParameter("topsize")));
+            bean.setBottomCategory(CategoryEnum.valueOf(selecteduc.getCategory().name()));
+            bean.setBottomColor(ColorEnum.valueOf(selecteduc.getColor().name()));
+            bean.setBottomPattern(PatternEnum.valueOf(selecteduc.getPattern().name()));
+            bean.setBottomSize(SizeEnum.valueOf(selecteduc.getSize().name()));
+        }
         bean.setUserCloth(ucbean);
         bean.setSaleCloth(rcbean);
 
