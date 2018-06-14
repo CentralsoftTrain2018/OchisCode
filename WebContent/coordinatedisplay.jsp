@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
-<jsp:useBean id="bean" class="bean.CoordinateDisplayBean" scope="request" />
+<jsp:useBean id="bean" class="bean.CoordinateDisplayBean"
+  scope="request" />
 <%@ page import="java.lang.String"%>
 <%@ page import="domain.ColorEnum"%>
 <%@ page import="domain.PatternEnum"%>
@@ -72,166 +73,170 @@
             class="absolute" width="<%=bean.getBottomSize().getWidth()%>"
             height="<%=bean.getBottomSize().getHeight()%>" />
         </div>
-        <div class = "relative">
-        <form method="POST" action="RegistCoordinateServlet">
-        <!-- 表示している服の情報をサーブレットに受け渡し -->
-          <input type="hidden" name="topcolor"
-            value="<%=bean.getTopColor().name()%>"> <input
-            type="hidden" name="toppattern"
-            value="<%=bean.getTopPattern().name()%>"> <input
-            type="hidden" name="topcategory"
-            value="<%= bean.getTopCategory().name()%>"> <input
-            type="hidden" name="topsize"
-            value="<%= bean.getTopSize().name()%>"> <input
-            type="hidden" name="bottomcolor"
-            value="<%=bean.getBottomColor().name()%>"> <input
-            type="hidden" name="bottompattern"
-            value="<%=bean.getBottomPattern().name()%>"> <input
-            type="hidden" name="bottomcategory"
-            value="<%= bean.getBottomCategory().name()%>"> <input
-            type="hidden" name="bottomsize"
-            value="<%= bean.getBottomSize().name()%>"> <input
-            type="submit" value="コーデ登録">
-        </form>
+        <div class="relative">
+          <form method="POST" action="RegistCoordinateServlet">
+            <!-- 表示している服の情報をサーブレットに受け渡し -->
+            <input type="hidden" name="topcolor"
+              value="<%=bean.getTopColor().name()%>"> <input
+              type="hidden" name="toppattern"
+              value="<%=bean.getTopPattern().name()%>"> <input
+              type="hidden" name="topcategory"
+              value="<%= bean.getTopCategory().name()%>"> <input
+              type="hidden" name="topsize"
+              value="<%= bean.getTopSize().name()%>"> <input
+              type="hidden" name="bottomcolor"
+              value="<%=bean.getBottomColor().name()%>"> <input
+              type="hidden" name="bottompattern"
+              value="<%=bean.getBottomPattern().name()%>"> <input
+              type="hidden" name="bottomcategory"
+              value="<%= bean.getBottomCategory().name()%>"> <input
+              type="hidden" name="bottomsize"
+              value="<%= bean.getBottomSize().name()%>"> <input
+              type="submit" value="コーデ登録">
+          </form>
         </div>
       </div>
+
       <div class="contents">
-        <!-- 変更する服の情報を入力 -->
-        <form method="POST" action=ChangeCoordinateClothServlet>
-          <!-- 色プルダウン -->
-          <select name="color">
-            <%
-              for (ColorEnum ce : ColorEnum.values())
-              {
-            %>
-            <option value="<%=ce.name()%>">
-              <%= ce.name()%>
-            </option>
-            <%
-              }
-            %>
-          </select>
+        <div class="horizontalcontainer">
+          <div class="form1">
+            <!-- 変更する服の情報を入力 -->
+            <form method="POST" action=ChangeCoordinateClothServlet>
+              <!-- 色プルダウン -->
+              <select name="color">
+                <%
+                  for (ColorEnum ce : ColorEnum.values())
+                  {
+                %>
+                <option value="<%=ce.name()%>">
+                  <%= ce.name()%>
+                </option>
+                <%
+                  }
+                %>
+              </select>
 
-          <!-- 柄プルダウン -->
-          <select name="pattern">
-            <%
-              for (PatternEnum pe : PatternEnum.values())
-              {
-            %>
-            <option value="<%=pe.name()%>">
-              <%=pe%>
-            </option>
-            <%
-              }
-            %>
-          </select>
+              <!-- 柄プルダウン -->
+              <select name="pattern">
+                <%
+                  for (PatternEnum pe : PatternEnum.values())
+                  {
+                %>
+                <option value="<%=pe.name()%>">
+                  <%=pe%>
+                </option>
+                <%
+                  }
+                %>
+              </select>
 
-          <!-- カテゴリープルダウン -->
-          <select name="category">
-            <%
-              for (CategoryEnum cae : CategoryEnum.values())
-              {
-            %>
-            <option value="<%=cae.name()%>">
-              <%=cae%>
-            </option>
-            <%
-              }
-            %>
-          </select>
+              <!-- カテゴリープルダウン -->
+              <select name="category">
+                <%
+                  for (CategoryEnum cae : CategoryEnum.values())
+                  {
+                %>
+                <option value="<%=cae.name()%>">
+                  <%=cae%>
+                </option>
+                <%
+                  }
+                %>
+              </select>
 
-          <!-- サイズプルダウン -->
-          <select name="size">
-            <%
-              for (SizeEnum se : SizeEnum.values())
-              {
-            %>
-            <option value="<%=se.name()%>"><%=se%></option>
-            <%
-              }
-            %>
-          </select>
+              <!-- サイズプルダウン -->
+              <select name="size">
+                <%
+                  for (SizeEnum se : SizeEnum.values())
+                  {
+                %>
+                <option value="<%=se.name()%>"><%=se%></option>
+                <%
+                  }
+                %>
+              </select>
 
-          <!-- 表示している服の情報をサーブレットに受け渡し -->
-          <input type="hidden" name="topcolor"
-            value="<%=bean.getTopColor().name()%>"> <input
-            type="hidden" name="toppattern"
-            value="<%=bean.getTopPattern().name()%>"> <input
-            type="hidden" name="topcategory"
-            value="<%= bean.getTopCategory().name()%>"> <input
-            type="hidden" name="topsize"
-            value="<%= bean.getTopSize().name()%>"> <input
-            type="hidden" name="bottomcolor"
-            value="<%=bean.getBottomColor().name()%>"> <input
-            type="hidden" name="bottompattern"
-            value="<%=bean.getBottomPattern().name()%>"> <input
-            type="hidden" name="bottomcategory"
-            value="<%= bean.getBottomCategory().name()%>"> <input
-            type="hidden" name="bottomsize"
-            value="<%= bean.getBottomSize().name()%>"> <input
-            type="submit" value="変更">
-        </form>
-        <br>
+              <!-- 表示している服の情報をサーブレットに受け渡し -->
+              <input type="hidden" name="topcolor"
+                value="<%=bean.getTopColor().name()%>"> <input
+                type="hidden" name="toppattern"
+                value="<%=bean.getTopPattern().name()%>"> <input
+                type="hidden" name="topcategory"
+                value="<%= bean.getTopCategory().name()%>"> <input
+                type="hidden" name="topsize"
+                value="<%= bean.getTopSize().name()%>"> <input
+                type="hidden" name="bottomcolor"
+                value="<%=bean.getBottomColor().name()%>"> <input
+                type="hidden" name="bottompattern"
+                value="<%=bean.getBottomPattern().name()%>"> <input
+                type="hidden" name="bottomcategory"
+                value="<%= bean.getBottomCategory().name()%>"> <input
+                type="hidden" name="bottomsize"
+                value="<%= bean.getBottomSize().name()%>"> <input
+                type="submit" value="変更">
+            </form>
+          </div>
 
-        <form method="POST" action="ChangeUserSaleClothServlet">
-          <!-- 持ち服を上下に分けたプルダウン -->
-          <select name="topcloth">
-            <%
-              for (bean.UserClothBean topcloth : bean.getUscbean().getTopclothlist())
-              {
-            %>
-            <option
-              value="<%=topcloth.getColor().name()%>-<%=topcloth.getPattern().name()%>-<%=topcloth.getCategory().name()%>-<%=topcloth.getSize().name()%>"><%=topcloth%></option>
-            <%
-              }
-            %>
-          </select> <select name="bottomcloth">
-
-
-            <%
-              for (bean.UserClothBean bottomcloth : bean.getUscbean().getBottomclothlist())
-              {
-            %><option
-            value="<%=bottomcloth.getColor().name()%>-<%=bottomcloth.getPattern().name()%>-<%=bottomcloth.getCategory().name()%>-<%=bottomcloth.getSize().name()%>"><%=bottomcloth%></option>
-
-            <%
-              }
-            %>
-          </select> <br> <input type="hidden" name="topcolor"
-            value="<%=bean.getTopColor().name()%>"> <input
-            type="hidden" name="toppattern"
-            value="<%=bean.getTopPattern().name()%>"> <input
-            type="hidden" name="topcategory"
-            value="<%= bean.getTopCategory().name()%>"> <input
-            type="hidden" name="topsize"
-            value="<%= bean.getTopSize().name()%>"> <input
-            type="hidden" name="bottomcolor"
-            value="<%=bean.getBottomColor().name()%>"> <input
-            type="hidden" name="bottompattern"
-            value="<%=bean.getBottomPattern().name()%>"> <input
-            type="hidden" name="bottomcategory"
-            value="<%= bean.getBottomCategory().name()%>"> <input
-            type="hidden" name="bottomsize"
-            value="<%= bean.getBottomSize().name()%>"> <input
-            type="submit" value="変更">
-        </form>
-
-  <form method="POST" action="ChangeSelectCodeServlet">
-  <ul class="scrollsize">
+          <div class="form2">
+            <form method="POST" action="ChangeUserSaleClothServlet">
+              <!-- 持ち服を上下に分けたプルダウン -->
+              <select name="topcloth">
+                <%
+                  for (bean.UserClothBean topcloth : bean.getUscbean().getTopclothlist())
+                  {
+                %>
+                <option
+                  value="<%=topcloth.getColor().name()%>-<%=topcloth.getPattern().name()%>-<%=topcloth.getCategory().name()%>-<%=topcloth.getSize().name()%>"><%=topcloth%></option>
+                <%
+                  }
+                %>
+              </select> <select name="bottomcloth">
 
 
-      <%  for(bean.CoordinateBean code:bean.getList() )
-      {
-        %>
-            <li><input type="submit" name="cloth" value="<%=code.toString()%>"></li>
+                <%
+                  for (bean.UserClothBean bottomcloth : bean.getUscbean().getBottomclothlist())
+                  {
+                %><option
+                  value="<%=bottomcloth.getColor().name()%>-<%=bottomcloth.getPattern().name()%>-<%=bottomcloth.getCategory().name()%>-<%=bottomcloth.getSize().name()%>"><%=bottomcloth%></option>
 
-    <%
-        }
-         %>
-         </ul>
-        </form>
-
-
+                <%
+                  }
+                %>
+              </select> <input type="hidden" name="topcolor"
+                value="<%=bean.getTopColor().name()%>"> <input
+                type="hidden" name="toppattern"
+                value="<%=bean.getTopPattern().name()%>"> <input
+                type="hidden" name="topcategory"
+                value="<%= bean.getTopCategory().name()%>"> <input
+                type="hidden" name="topsize"
+                value="<%= bean.getTopSize().name()%>"> <input
+                type="hidden" name="bottomcolor"
+                value="<%=bean.getBottomColor().name()%>"> <input
+                type="hidden" name="bottompattern"
+                value="<%=bean.getBottomPattern().name()%>"> <input
+                type="hidden" name="bottomcategory"
+                value="<%= bean.getBottomCategory().name()%>"> <input
+                type="hidden" name="bottomsize"
+                value="<%= bean.getBottomSize().name()%>"> <input
+                type="submit" value="変更">
+            </form>
+          </div>
+          <div class="form3">
+            <form method="POST" action="ChangeSelectCodeServlet">
+              <ul class="scrollsize">
+                <%
+                  for (bean.CoordinateBean code : bean.getList())
+                  {
+                %>
+                <li><input type="submit" name="cloth"
+                  value="<%=code.toString()%>"></li>
+                <%
+                  }
+                %>
+              </ul>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   </div>

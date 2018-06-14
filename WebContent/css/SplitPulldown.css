@@ -1,21 +1,24 @@
 @charset "UTF-8";
-/*ヘッダ作成用css
-*HTML5以降でないと<header></header>を使用できないためcssで実装
-* 作成：功刀
-*/
-
-/*画面全体*/
-.container{
+.horizontalcontainer{
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 /*ヘッダー部分*/
-.header{
+.form1{
     height: 50px;
     display: flex;
 }
+.form2{
+    height: 50px;
+    display: flex;
+}
+.form3{
+    height: 100px;
+    display: flex;
+}
+
 /*その他*/
-.content{
+.contents{
     flex: 1;
 }
