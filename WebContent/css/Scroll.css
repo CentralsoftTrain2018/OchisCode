@@ -3,9 +3,9 @@
 /*スクロール*/
 .scrollsize {
   padding: 0;
-  width: 260px;
-  height: 100px;
-  overflow-y: scroll;
+  width: 300px;
+  height: 200px;
+  overflow-y: auto;
   border: 1px solid #c0c0c0
 }
 

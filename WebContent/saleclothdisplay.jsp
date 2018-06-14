@@ -38,15 +38,22 @@
   <div class="container">
 
     <div class="header">
-      ホーム画面
-      <form method="POST" action="CoordinateServlet">
-        <input type="submit" value="コーデ画面へ">
-      </form>
-      <form method="POST" action="ListOutUserClotheServlet">
-        <input type="submit" value="所有服一覧へ">
-      </form>
-    </div>
 
+      <div class="model">ホーム画面</div>
+      <div class="buttons">
+        <div class="button">
+          <form method="POST" action="CoordinateServlet">
+            <input type="submit" value="コーデ画面へ">
+          </form>
+        </div>
+        <div class="button">
+          <form method="POST" action="ListOutUserClotheServlet">
+            <input type="submit" value="所有服一覧へ">
+          </form>
+        </div>
+      </div>
+
+    </div>
     <div class="content">
       <div class="verticalContainer">
         <!-- 左側モデル表示部分 -->

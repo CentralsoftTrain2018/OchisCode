@@ -25,15 +25,25 @@
 
 <body>
   <div class="container">
-    コーディネイト画面
+
+
     <div class="header">
-      <!-- 画面遷移ボタン -->
-      <form method="POST" action="ListOutSaleClothServlet">
+    <div class="model">コーディネイト画面</div>
+      <div class="buttons">
+        <div class="button">
+          <form method="POST" action="ListOutSaleClothServlet">
         <input type="submit" value="おすすめ画面へ">
       </form>
-      <form method="POST" action="ListOutUserClotheServlet">
-        <input type="submit" value="所有服一覧へ">
-      </form>
+        </div>
+        <div class="button">
+          <form method="POST" action="ListOutUserClotheServlet">
+            <input type="submit" value="所有服一覧へ">
+          </form>
+        </div>
+      </div>
+      <!-- 画面遷移ボタン -->
+
+
     </div>
 
     <div class="verticalContainer">
