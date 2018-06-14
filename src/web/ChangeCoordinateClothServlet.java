@@ -16,6 +16,7 @@ import domain.JougeEnum;
 import domain.PatternEnum;
 import domain.SizeEnum;
 import service.ClothService;
+import service.CodeService;
 
 /**
  * Servlet implementation class ChangeSelectClothServlet
@@ -79,6 +80,9 @@ public class ChangeCoordinateClothServlet extends HttpServlet
 
         ClothService cserv =new ClothService();
         bean.setUscbean(cserv.userSaleCloth("user"));
+
+        CodeService codeserv = new CodeService();
+        bean.setList(codeserv.coordinateDisplay());
 
         request.setAttribute( "bean", bean );
 

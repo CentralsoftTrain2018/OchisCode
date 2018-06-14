@@ -16,6 +16,7 @@ import domain.ColorEnum;
 import domain.PatternEnum;
 import domain.SizeEnum;
 import service.ClothService;
+import service.CodeService;
 
 /**
  * Servlet implementation class ChangeSelectClothServlet
@@ -84,6 +85,10 @@ public class ChangeUserSaleClothServlet extends HttpServlet
         bean.setBottomSize( SizeEnum.valueOf( bottomcloth[3] ) );
 
         bean.setUscbean( cserv.userSaleCloth( "user" ) );
+
+        CodeService codeserv = new CodeService();
+        bean.setList(codeserv.coordinateDisplay());
+
         request.setAttribute( "bean", bean );
 
         RequestDispatcher disp = request.getRequestDispatcher( "/coordinatedisplay.jsp" );
