@@ -14,6 +14,26 @@
 <link rel="stylesheet" type="text/css" href="css/Header.css">
 <link rel="stylesheet" type="text/css" href="css/TwoColumn.css">
 <body>
+<script type = "text/javascript">
+
+  function changeImg(jouge, color, pattern, category) {
+    if (jouge == "上") {
+      document.getElementById("topcolor").src = "./images/" + color
+          + ".png";
+      document.getElementById("toppattern").src = "./images/" + pattern
+          + ".png";
+      document.getElementById("topcategory").src = "./images/" + category
+          + ".png";
+    } else {
+      document.getElementById("bottomcolor").src = "./images/" + color
+          + ".png";
+      document.getElementById("bottompattern").src = "./images/"
+          + pattern + ".png";
+      document.getElementById("bottomcategory").src = "./images/"
+          + category + ".png";
+    }
+  }
+</script>
   <div class="container">
     <div class="header">
       ホーム画面
@@ -39,12 +59,12 @@
 
         <div class="relative">
           <!-- 上服 -->
-          <img src="./images/<%=bean.getTopColor().name()%>.png"
+          <img id = "topcolor" src="./images/<%=bean.getTopColor().name()%>.png"
             width="<%=bean.getTopSize().getWidth()%>"
-            height="<%=bean.getTopSize().getHeight()%>" /> <img
+            height="<%=bean.getTopSize().getHeight()%>" /> <img id = "toppattern"
             src="./images/<%=bean.getTopPattern().name()%>.png"
             class="absolute" width="<%=bean.getTopSize().getWidth()%>"
-            height="<%=bean.getTopSize().getHeight()%>" /> <img
+            height="<%=bean.getTopSize().getHeight()%>" /> <img id = "topcategory"
             src="./images/<%=bean.getTopCategory().name()%>.png"
             class="absolute" width="<%=bean.getTopSize().getWidth()%>"
             height="<%=bean.getTopSize().getHeight()%>" />
@@ -52,12 +72,12 @@
 
         <div class="relative">
           <!-- 下服 -->
-          <img src="./images/<%=bean.getBottomColor().name()%>.png"
+          <img id = "bottomcolor" src="./images/<%=bean.getBottomColor().name()%>.png"
             width="<%=bean.getBottomSize().getWidth()%>"
-            height="<%=bean.getBottomSize().getHeight()%>" /> <img
+            height="<%=bean.getBottomSize().getHeight()%>" /> <img id = "bottompattern"
             src="./images/<%=bean.getBottomPattern().name()%>.png"
             class="absolute" width="<%=bean.getBottomSize().getWidth()%>"
-            height="<%=bean.getBottomSize().getHeight()%>" /> <img
+            height="<%=bean.getBottomSize().getHeight()%>" /> <img id = "bottomcategory"
             src="./images/<%=bean.getBottomCategory().name()%>.png"
             class="absolute" width="<%=bean.getBottomSize().getWidth()%>"
             height="<%=bean.getBottomSize().getHeight()%>" />
@@ -125,7 +145,8 @@
                   height=147 /> <img
                   src="./images/<%=record.getPattern().name()%>.png" width=175
                   height=147 class=absolute />
-                  <input type = "image"
+                <img
+                  onclick = "changeImg('上', '<%=record.getColor().name()%>', '無地', 'Tシャツ')"
                   src="./images/<%=record.getCategory().name()%>.png" width=175
                   height=147 class=absolute />
                </form>

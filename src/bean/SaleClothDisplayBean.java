@@ -23,6 +23,7 @@ public class SaleClothDisplayBean {
     private ColorEnum bottomColor;
     private PatternEnum bottomPattern;
     private SizeEnum bottomSize;
+
     private ListOutUserClothBean userClothList;
     private ListSaleClothBean saleClothList;
 
