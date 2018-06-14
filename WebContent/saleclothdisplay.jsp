@@ -39,16 +39,28 @@
 
         <div class="relative">
           <!-- 上服 -->
-          <img src="./images/白.png" width="178" height="218" />
-          <img src="./images/無地.png" class="absolute" width="178" height="218" /> <img
-            src="./images/Tシャツ.png" class="absolute" width="178" height="218" />
+          <img src="./images/<%=bean.getTopColor().name()%>.png"
+            width="<%=bean.getTopSize().getWidth()%>"
+            height="<%=bean.getTopSize().getHeight()%>" /> <img
+            src="./images/<%=bean.getTopPattern().name()%>.png"
+            class="absolute" width="<%=bean.getTopSize().getWidth()%>"
+            height="<%=bean.getTopSize().getHeight()%>" /> <img
+            src="./images/<%=bean.getTopCategory().name()%>.png"
+            class="absolute" width="<%=bean.getTopSize().getWidth()%>"
+            height="<%=bean.getTopSize().getHeight()%>" />
         </div>
 
         <div class="relative">
           <!-- 下服 -->
-          <img src="./images/白.png" width="178" height="218" />
-          <img src="./images/水玉.png" class="absolute" width="178" height="218" /> <img
-            src="./images/半ズボン.png" class="absolute" width="178" height="218" />
+          <img src="./images/<%=bean.getBottomColor().name()%>.png"
+            width="<%=bean.getBottomSize().getWidth()%>"
+            height="<%=bean.getBottomSize().getHeight()%>" /> <img
+            src="./images/<%=bean.getBottomPattern().name()%>.png"
+            class="absolute" width="<%=bean.getBottomSize().getWidth()%>"
+            height="<%=bean.getBottomSize().getHeight()%>" /> <img
+            src="./images/<%=bean.getBottomCategory().name()%>.png"
+            class="absolute" width="<%=bean.getBottomSize().getWidth()%>"
+            height="<%=bean.getBottomSize().getHeight()%>" />
         </div>
       </div>
 

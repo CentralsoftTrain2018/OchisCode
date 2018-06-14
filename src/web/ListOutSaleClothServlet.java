@@ -12,6 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import bean.ListOutUserClothBean;
 import bean.ListSaleClothBean;
 import bean.SaleClothDisplayBean;
+import domain.CategoryEnum;
+import domain.ColorEnum;
+import domain.PatternEnum;
+import domain.SizeEnum;
 import service.ClothService;
 
 /**
@@ -52,6 +56,18 @@ public class ListOutSaleClothServlet extends HttpServlet
         ListSaleClothBean rcbean = cs.getSaleCloth("user", " price > 0 and price < 3001", order);
 
         SaleClothDisplayBean bean = new SaleClothDisplayBean();
+
+        //デフォルトの服をセット(上)
+        bean.setTopCategory( CategoryEnum.Tシャツ );
+        bean.setTopColor( ColorEnum.白 );
+        bean.setTopPattern( PatternEnum.無地 );
+        bean.setTopSize( SizeEnum.M );
+        //デフォルトの服をセット(下)
+        bean.setBottomCategory( CategoryEnum.半ズボン );
+        bean.setBottomColor( ColorEnum.黒 );
+        bean.setBottomPattern( PatternEnum.無地 );
+        bean.setBottomSize( SizeEnum.M );
+
         bean.setUserCloth(ucbean);
         bean.setSaleCloth(rcbean);
 
