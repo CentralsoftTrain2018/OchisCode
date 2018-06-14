@@ -23,17 +23,17 @@ public class SaveCodeDao extends Dao{
     //作成者<野間>
     //登録したコーデの服情報を全て取り出す
     private static final String CoordinateOut_SQL =
-            "select "
-                    +" code_number"
-                    + " ,userid"
-                    + " ,tops_color"
-                    + " ,bottoms_color"
-                    + " ,tops_pattern"
-                    + " ,botoms_pattern"
-                    + " ,tops_category"
-                    + " ,botoms_category"
-                    + " ,tops_size"
-                    + " ,botoms_size"
+            "select *"
+//                    +" code_number"
+//                    + " ,userid"
+//                    + " ,tops_color"
+//                    + " ,bottoms_color"
+//                    + " ,tops_pattern"
+//                    + " ,botoms_pattern"
+//                    + " ,tops_category"
+//                    + " ,botoms_category"
+//                    + " ,tops_size"
+//                    + " ,botoms_size "
                     + "from"
                     + " save_code";
 
@@ -74,9 +74,9 @@ public class SaveCodeDao extends Dao{
 
             /* Statementの作成 */
             stmt = con.prepareStatement(CoordinateOut_SQL);
-
+            System.out.println("VO");
             rset = stmt.executeQuery();
-
+            System.out.println("Vo1");
             while(rset.next())
             {
                 SaveCodeVo scvo = new SaveCodeVo(
@@ -84,10 +84,10 @@ public class SaveCodeDao extends Dao{
                         rset.getString(2),
                         ColorEnum.valueOf(rset.getString(3)),
                         ColorEnum.valueOf(rset.getString(4)),
-                        CategoryEnum.valueOf(rset.getString(5)),
-                        CategoryEnum.valueOf(rset.getString(6)),
-                        PatternEnum.valueOf(rset.getString(7)),
-                        PatternEnum.valueOf(rset.getString(8)),
+                        PatternEnum.valueOf(rset.getString(5)),
+                        PatternEnum.valueOf(rset.getString(6)),
+                        CategoryEnum.valueOf(rset.getString(7)),
+                        CategoryEnum.valueOf(rset.getString(8)),
                         SizeEnum.valueOf(rset.getString(9)),
                         SizeEnum.valueOf(rset.getString(10))
                         );

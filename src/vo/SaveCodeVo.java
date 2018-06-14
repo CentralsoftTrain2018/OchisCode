@@ -28,10 +28,10 @@ public class SaveCodeVo
             String userid,
             ColorEnum topscolor,
             ColorEnum bottomscolor,
-            CategoryEnum topscategory,
-            CategoryEnum bottomscategory,
             PatternEnum topspattern,
             PatternEnum bottomspattern,
+            CategoryEnum topscategory,
+            CategoryEnum bottomscategory,
             SizeEnum topssize,
             SizeEnum bottomssize)
     {
