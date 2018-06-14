@@ -55,6 +55,7 @@ public class RegistCoordinateServlet extends HttpServlet {
 
         ClothService cserv =new ClothService();
         bean.setUscbean(cserv.userSaleCloth("user"));
+        bean.setList(codeserv.coordinateDisplay());
 
         request.setAttribute( "bean", bean );
 

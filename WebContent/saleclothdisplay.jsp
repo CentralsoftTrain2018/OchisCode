@@ -1,3 +1,4 @@
+<%@page import="domain.ColorEnum"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
 <jsp:useBean id="bean" class="bean.SaleClothDisplayBean" scope="request" />
@@ -31,6 +32,7 @@
           + pattern + ".png";
       document.getElementById("bottomcategory").src = "./images/"
           + category + ".png";
+	  
     }
   }
 </script>
@@ -52,9 +54,9 @@
         <!-- 画像表示部分 -->
         <!-- 越智くんの顔 -->
         <div class="relative">
-          <img src="./images/白.png" width="160" height="120" /> <img
-            src="./images/ochi's.png" class="absolute" width="160"
-            height="120" />
+          <img src="./images/白.png" width="178" height="218" /> <img
+            src="./images/ochi's.png" class="absolute" width="178"
+            height="218" />
         </div>
 
         <div class="relative">
@@ -102,7 +104,6 @@
                   }
                 %>
               </select> <select name="narrow">
-               <option value=" price > 0 ">0以上</option>
                 <option value=" price > 0 and price < 5001">0-5000</option>
                 <option value=" price > 5000 and price < 10001">5001-10000</option>
                 <option value=" price > 10000 and price < 15001">10001-15000</option>
