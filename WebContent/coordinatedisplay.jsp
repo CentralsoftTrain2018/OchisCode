@@ -6,6 +6,7 @@
 <%@ page import="domain.PatternEnum"%>
 <%@ page import="domain.CategoryEnum"%>
 <%@ page import="domain.SizeEnum"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -217,11 +218,12 @@
 
   <form method="POST" action="ChangeSelectCodeServlet">
   <ul class="scrollsize">
-  <%
-        for(int i=0;i<10;i++)
-        {
+
+
+      <%  for(bean.CoordinateBean code:bean.getList() )
+      {
         %>
-            <li><input type="submit" name="cloth" value="白-無地-Tシャツ-M-黒-水玉-半ズボン-M"></li>
+            <li><input type="submit" name="cloth" value="<%=code.toString()%>"></li>
 
     <%
         }
