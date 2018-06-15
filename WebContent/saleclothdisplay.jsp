@@ -14,6 +14,7 @@
 <link rel="stylesheet" type="text/css" href="css/PileImage.css">
 <link rel="stylesheet" type="text/css" href="css/Header.css">
 <link rel="stylesheet" type="text/css" href="css/TwoColumn.css">
+<link rel="stylesheet" type="text/css" href="css/BackGround.css">
 
 <script type="text/javascript">
     function changeImg(jouge, color, pattern, category) {

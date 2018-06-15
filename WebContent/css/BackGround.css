@@ -1,0 +1,10 @@
+@charset "UTF-8";
+/*背景表示用
+作成：功刀
+*/
+
+/*bodyタグ内の背景*/
+body{
+background-image:url ("../images/黒.png") ;
+
+}
