@@ -64,9 +64,7 @@ public class SaveCodeDao extends Dao{
 
             /* Statementの作成 */
             stmt = con.prepareStatement(CoordinateOut_SQL);
-            System.out.println("VO");
             rset = stmt.executeQuery();
-            System.out.println("Vo1");
             while(rset.next())
             {
                 SaveCodeVo scvo = new SaveCodeVo(
