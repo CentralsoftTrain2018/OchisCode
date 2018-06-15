@@ -8,6 +8,6 @@ body{
 background-image: url(../images/OchiHome.png);
 background-position: right ;
 background-repeat: no-repeat;
-
+background-attachment: fixed;
 
 }
