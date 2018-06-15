@@ -58,8 +58,7 @@
         var elms = document.getElementById("sort");
         if (elms){
             for(i = 0; i < elms.options.length; i++){
-                if (elms.options[i].value == "<%=bean.getSort()%>
-  ") {
+                if (elms.options[i].value == "<%=bean.getSort()%>") {
           elms[i].selected = true;
         }
       }
