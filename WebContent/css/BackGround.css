@@ -1,0 +1,13 @@
+@charset "UTF-8";
+/*背景表示用
+作成：功刀
+*/
+
+/*bodyタグ内の背景*/
+body{
+background-image: url(../images/OchiHome.png);
+background-position: right ;
+background-repeat: no-repeat;
+
+
+}
