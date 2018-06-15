@@ -24,7 +24,7 @@ public class UserService
 
             //登録を実行し登録結果の有無を返す
             return userDao.put(userVo);
-        } catch (ClassNotFoundException | SQLException e)
+        } catch (SQLException e)
         {
             e.printStackTrace();
             throw new RuntimeException( e );
@@ -38,7 +38,7 @@ public class UserService
                 Connection con = Dao.getConnection();)
         {
             //TODO 処理を追加
-        } catch (ClassNotFoundException | SQLException e)
+        } catch (SQLException e)
         {
             e.printStackTrace();
             throw new RuntimeException( e );

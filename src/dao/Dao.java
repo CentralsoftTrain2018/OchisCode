@@ -1,30 +1,56 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
+
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
 
 public class Dao
 {
     protected Connection con;
 
-     public Dao(Connection con) {
+    public Dao(Connection con)
+    {
         super();
         this.con = con;
     }
 
-    public static Connection getConnection() throws ClassNotFoundException, SQLException
+    public static Connection getConnection()
+            throws SQLException
+    {
+        InitialContext context;
+        DataSource ds = null;
+        try
+        {
+            context = new InitialContext();
+            ds = (DataSource) context.lookup( "java:comp/env/jdbc/myapp" );
+        } catch (NamingException e)
+        {
+            e.printStackTrace();
+            throw new RuntimeException( e );
+        }
+
+        Connection con = ds.getConnection();
+
+        return con;
+    }
+
+    /*
+     //コネクションプーリングなし
+     public static Connection getConnection() throws ClassNotFoundException, SQLException
      {
         //TODO サーバー上での動作用に変更されているのでローカルでの使用時はユーザー名パスをrootに変更
         //接続文字列の構築
-        /* ユーザ名 */
-        String user = "root";
-        /* パスワード */
-        String pass = "root";
+         ユーザ名
+        String user = "user";
+         パスワード
+        String pass = "user";
 
-        /* サーバ名 */
+         サーバ名
         String servername = "localhost:3306";
-        /* DB名 */
+         DB名
         String dbname = "ochi'scode";
 
         // ドライバーのロード
@@ -45,5 +71,5 @@ public class Dao
 
         //取得したコネクションの返却
         return c;
-     }
+     }*/
 }

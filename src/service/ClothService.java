@@ -52,7 +52,7 @@ public class ClothService
 
             return listbean;//
 
-        } catch (ClassNotFoundException | SQLException e)
+        } catch ( SQLException e)
         {
             e.printStackTrace();
             throw new RuntimeException( e );
@@ -68,7 +68,7 @@ public class ClothService
             UserClothDao ucdao = new UserClothDao( con );
             UserClothVo user = new UserClothVo( id, category,  color,  pattern,  size);
             ucdao.doRegist(user);
-        } catch (SQLException | ClassNotFoundException e)
+        } catch (SQLException e)
         {
             throw new RuntimeException(e);
         }
@@ -103,7 +103,7 @@ public class ClothService
             System.out.println( listoutrcbean );
 
             return listoutrcbean;
-        } catch (ClassNotFoundException | SQLException e)
+        } catch (SQLException e)
         {
             e.printStackTrace();
             throw new RuntimeException( e );
@@ -141,7 +141,7 @@ public class ClothService
             System.out.println( listoutrcbean );
 
             return listoutrcbean;
-        } catch (ClassNotFoundException | SQLException e)
+        } catch (SQLException e)
         {
             e.printStackTrace();
             throw new RuntimeException( e );
@@ -192,7 +192,7 @@ public class ClothService
 
             return listbean;//
 
-        } catch (ClassNotFoundException | SQLException e)
+        } catch (SQLException e)
         {
             e.printStackTrace();
             throw new RuntimeException( e );
