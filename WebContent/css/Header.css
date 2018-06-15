@@ -15,8 +15,28 @@
     height: 50px;
     display: flex;
 }
+/*ヘッダ用コンテンツ表示
+*右揃え
+*/
+.headcontents{
+  display:flex;
+  justify-content: flex-end;
+}
+/*画面遷移用ボタンの位置*/
+.button{
+  float:right;
+}
+.buttons{
+  margin-left: auto;
+}
 
 /*その他*/
 .content{
     flex: 1;
 }
+
+/*ヘッダ用ロゴ表示部分*/
+.headlogo{
+  width: 300px;
+}
+
