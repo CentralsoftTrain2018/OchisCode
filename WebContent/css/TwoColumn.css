@@ -22,23 +22,9 @@
     flex-wrap: wrap;
 }
 
-/*ヘッダ用コンテンツ表示
-*右揃え
-*/
-.headcontents{
-  display:flex;
-  justify-content: flex-end;
-}
-
 /*子要素用クラス　服のデータ(画像、文字列)はこのクラス内にまとめること*/
 .item{
   margin:10px;
 }
 
-/*画面遷移用ボタンの位置*/
-.button{
-  float:right;
-}
-.buttons{
-  margin-left: auto;
-}
+

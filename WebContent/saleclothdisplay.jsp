@@ -15,6 +15,8 @@
 <link rel="stylesheet" type="text/css" href="css/Header.css">
 <link rel="stylesheet" type="text/css" href="css/TwoColumn.css">
 <link rel="stylesheet" type="text/css" href="css/Pulldown.css">
+<link rel="stylesheet" type="text/css" href="css/BackGround.css">
+
 
 <script type="text/javascript">
     function changeImg(jouge, color, pattern, category) {
@@ -56,20 +58,21 @@
         var elms = document.getElementById("sort");
         if (elms){
             for(i = 0; i < elms.options.length; i++){
-                if (elms.options[i].value == "<%=bean.getSort()%>") {
-                    elms[i].selected = true;
-                }
-            }
+                if (elms.options[i].value == "<%=bean.getSort()%>
+  ") {
+          elms[i].selected = true;
         }
+      }
     }
-  </script>
+  }
+</script>
 
-<body onload = "onLoad()">
+<body onload="onLoad()">
   <div class="container">
 
     <div class="header">
-
-      <div class="model">Ochi's Code</div>
+      <div class="headlogo">Ochi's Code</div>
+      <div class="title">オススメ画面</div>
       <div class="buttons">
         <div class="button">
           <form method="POST" action="CoordinateServlet">
@@ -160,6 +163,7 @@
               </div>
               <div class="styled-select yellow rounded">
                 <select id = "sort" name="sort">
+
                   <option value="clothid DESC">新着順</option>
                   <option value="clothid ASC">古い順</option>
                   <option value="price DESC">値段が高い順</option>

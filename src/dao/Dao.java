@@ -17,6 +17,7 @@ public class Dao
         this.con = con;
     }
 
+    //コネクションプーリング
     public static Connection getConnection()
             throws SQLException
     {
