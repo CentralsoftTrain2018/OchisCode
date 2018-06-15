@@ -19,6 +19,15 @@
     flex-wrap: wrap;
 }
 
+/*子要素用クラス　服のデータ(画像、文字列)はこのクラス内にまとめること*/
+.item{
+  margin:10px;
+}
+
+/*ヘッダ用ロゴ表示部分*/
+.headlogo{
+	width: 300px;
+}
 /*ヘッダ用コンテンツ表示
 *右揃え
 */
@@ -26,12 +35,6 @@
   display:flex;
   justify-content: flex-end;
 }
-
-/*子要素用クラス　服のデータ(画像、文字列)はこのクラス内にまとめること*/
-.item{
-  margin:10px;
-}
-
 /*画面遷移用ボタンの位置*/
 .button{
   float:right;

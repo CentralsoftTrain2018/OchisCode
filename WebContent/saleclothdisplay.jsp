@@ -64,12 +64,12 @@
     }
   </script>
 
-<body onload = "onLoad()">
+<body onload = "onLoad()" >
   <div class="container">
 
     <div class="header">
 
-      <div class="model">Ochi's Code</div>
+      <div class="headlogo">Ochi's Code</div>
       <div class="buttons">
         <div class="button">
           <form method="POST" action="CoordinateServlet">

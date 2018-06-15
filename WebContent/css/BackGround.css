@@ -5,6 +5,9 @@
 
 /*bodyタグ内の背景*/
 body{
-background-image:url ("../images/黒.png") ;
+background-image: url(../images/OchiHome.png);
+background-position: right ;
+background-repeat: no-repeat;
+
 
 }
