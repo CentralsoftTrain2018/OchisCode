@@ -56,20 +56,21 @@
         var elms = document.getElementById("sort");
         if (elms){
             for(i = 0; i < elms.options.length; i++){
-                if (elms.options[i].value == "<%=bean.getSort()%>") {
-                    elms[i].selected = true;
-                }
-            }
+                if (elms.options[i].value == "<%=bean.getSort()%>
+  ") {
+          elms[i].selected = true;
         }
+      }
     }
-  </script>
+  }
+</script>
 
-<body onload = "onLoad()" >
+<body onload="onLoad()">
   <div class="container">
 
     <div class="header">
-
       <div class="headlogo">Ochi's Code</div>
+      <div class="title">オススメ画面</div>
       <div class="buttons">
         <div class="button">
           <form method="POST" action="CoordinateServlet">
@@ -137,7 +138,7 @@
 
               <!-- プルダウン、ボタン -->
               <form method="POST" action="SaleClothDisplayServlet">
-                <select id = "usercloth" name="usercloth">
+                <select id="usercloth" name="usercloth">
                   <%
                     for (bean.UserClothBean str : bean.getUserCloth().getList())
                     {
@@ -146,13 +147,13 @@
                   <%
                     }
                   %>
-                </select> <select id = "narrow" name="narrow">
+                </select> <select id="narrow" name="narrow">
                   <option value=" price > 0 ">0以上</option>
                   <option value=" price > 0 and price < 5001">0-5000</option>
                   <option value=" price > 5000 and price < 10001">5001-10000</option>
                   <option value=" price > 10000 and price < 15001">10001-15000</option>
                   <option value=" price > 15000">15001-</option>
-                </select> <select id = "sort" name="sort">
+                </select> <select id="sort" name="sort">
                   <option value="clothid DESC">新着順</option>
                   <option value="clothid ASC">古い順</option>
                   <option value="price DESC">値段が高い順</option>
