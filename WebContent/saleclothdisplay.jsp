@@ -14,6 +14,7 @@
 <link rel="stylesheet" type="text/css" href="css/PileImage.css">
 <link rel="stylesheet" type="text/css" href="css/Header.css">
 <link rel="stylesheet" type="text/css" href="css/TwoColumn.css">
+<link rel="stylesheet" type="text/css" href="css/Pulldown.css">
 
 <script type="text/javascript">
     function changeImg(jouge, color, pattern, category) {
@@ -132,10 +133,11 @@
         <!-- 右側プルダウン、画像表示部分 -->
         <div class="contents">
           <div class="container">
-            <div class="header">
+            <div class="pulldown">
 
               <!-- プルダウン、ボタン -->
               <form method="POST" action="SaleClothDisplayServlet">
+              <div class="styled-select yellow rounded">
                 <select id = "usercloth" name="usercloth">
                   <%
                     for (bean.UserClothBean str : bean.getUserCloth().getList())
@@ -145,18 +147,26 @@
                   <%
                     }
                   %>
-                </select> <select id = "narrow" name="narrow">
+                </select>
+              </div>
+              <div class="styled-select yellow rounded">
+                <select id = "narrow" name="narrow">
                   <option value=" price > 0 ">0以上</option>
                   <option value=" price > 0 and price < 5001">0-5000</option>
                   <option value=" price > 5000 and price < 10001">5001-10000</option>
                   <option value=" price > 10000 and price < 15001">10001-15000</option>
                   <option value=" price > 15000">15001-</option>
-                </select> <select id = "sort" name="sort">
+                </select>
+              </div>
+              <div class="styled-select yellow rounded">
+                <select id = "sort" name="sort">
                   <option value="clothid DESC">新着順</option>
                   <option value="clothid ASC">古い順</option>
                   <option value="price DESC">値段が高い順</option>
                   <option value="price ASC">値段が安い順</option>
-                </select> <input type="hidden" name="topcolor"
+                </select>
+              </div>
+                <input type="hidden" name="topcolor"
                   value="<%=bean.getTopColor().name()%>"> <input
                   type="hidden" name="toppattern"
                   value="<%=bean.getTopPattern().name()%>"> <input
