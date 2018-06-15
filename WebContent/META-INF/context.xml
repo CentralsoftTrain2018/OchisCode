@@ -6,6 +6,6 @@
               type="javax.sql.DataSource"
               driverClassName="com.mysql.jdbc.Driver"
               url="jdbc:mysql://localhost:3306/ochi'scode"
-              username="root"
-              password="root" />
+              username="user"
+              password="user" />
 </Context>
