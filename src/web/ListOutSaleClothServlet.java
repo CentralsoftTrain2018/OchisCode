@@ -53,7 +53,7 @@ public class ListOutSaleClothServlet extends HttpServlet
         String order="clothid DESC";//並び替えのプルダウン初期値→新着順
         ListOutUserClothBean ucbean = cs.userCloth("user");
 
-        ListSaleClothBean rcbean = cs.getSaleCloth("user", " price > 0 and price < 3001", order);
+        ListSaleClothBean rcbean = cs.getSaleCloth("user", " price < 0 ", order);
 
         SaleClothDisplayBean bean = new SaleClothDisplayBean();
 
@@ -64,7 +64,7 @@ public class ListOutSaleClothServlet extends HttpServlet
         bean.setTopSize( SizeEnum.M );
         //デフォルトの服をセット(下)
         bean.setBottomCategory( CategoryEnum.半ズボン );
-        bean.setBottomColor( ColorEnum.黒 );
+        bean.setBottomColor( ColorEnum.白 );
         bean.setBottomPattern( PatternEnum.無地 );
         bean.setBottomSize( SizeEnum.M );
 
