@@ -70,7 +70,7 @@
   <div class="container">
 
     <div class="header">
-      <div class="headlogo">Ochi's Code</div>
+      <div class="headlogo"><img src="./images/Logo4.png" width="150" height="70" /></div>
       <div class="title">オススメ画面</div>
       <div class="buttons">
         <div class="button">

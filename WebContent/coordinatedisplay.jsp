@@ -29,7 +29,8 @@
 
 
     <div class="header">
-    <div class="model">コーディネイト画面</div>
+    <div class="headlogo"><img src="./images/Logo4.png" width="150" height="70" /></div>
+      <div class="title">コーディネイト画面</div>
       <div class="buttons">
         <div class="button">
           <form method="POST" action="ListOutSaleClothServlet">
