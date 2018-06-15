@@ -19,7 +19,8 @@
 
 
 <script type="text/javascript">
-    function changeImg(jouge, color, pattern, category) {
+    function changeImg(jouge, color, pattern, category)
+    {
       if (jouge == "上") {
         document.getElementById("topcolor").src = "./images/" + color
             + ".png";
@@ -38,27 +39,37 @@
       }
     }
 
-    function onLoad() {
+    function onLoad()
+    {
       var elms = document.getElementById("usercloth");
-        if (elms){
-            for(i = 0; i < elms.options.length; i++){
-                if (elms.options[i].value == "<%=bean.getClothid()%>") {
+        if (elms)
+        {
+            for(i = 0; i < elms.options.length; i++)
+            {
+                if (elms.options[i].value == "<%=bean.getClothid()%>")
+                {
                     elms[i].selected = true;
                 }
             }
         }
         var elms = document.getElementById("narrow");
-        if (elms){
-            for(i = 0; i < elms.options.length; i++){
-                if (elms.options[i].value == "<%=bean.getNarrow()%>") {
+        if (elms)
+        {
+            for(i = 0; i < elms.options.length; i++)
+            {
+                if (elms.options[i].value == "<%=bean.getNarrow()%>")
+                {
                     elms[i].selected = true;
                 }
             }
         }
         var elms = document.getElementById("sort");
-        if (elms){
-            for(i = 0; i < elms.options.length; i++){
-                if (elms.options[i].value == "<%=bean.getSort()%>") {
+        if (elms)
+        {
+            for(i = 0; i < elms.options.length; i++)
+            {
+                if (elms.options[i].value == "<%=bean.getSort()%>")
+                {
           elms[i].selected = true;
         }
       }
@@ -68,9 +79,10 @@
 
 <body onload="onLoad()">
   <div class="container">
-
     <div class="header">
-      <div class="headlogo"><img src="./images/Logo4.png" width="150" height="70" /></div>
+      <div class="headlogo">
+        <img src="./images/Logo4.png" width="150" height="70" />
+      </div>
       <div class="title">オススメ画面</div>
       <div class="buttons">
         <div class="button">
@@ -139,36 +151,37 @@
 
               <!-- プルダウン、ボタン -->
               <form method="POST" action="SaleClothDisplayServlet">
-              <div class="styled-select yellow rounded">
-                <select id = "usercloth" name="usercloth">
-                  <%
-                    for (bean.UserClothBean str : bean.getUserCloth().getList())
-                    {
-                  %>
-                  <option value="<%=str.getClothid()%>"><%=str%></option>
-                  <%
-                    }
-                  %>
-                </select>
-              </div>
-              <div class="styled-select yellow rounded">
-                <select id = "narrow" name="narrow">
-                  <option value=" price > 0 ">0以上</option>
-                  <option value=" price > 0 and price < 5001">0-5000</option>
-                  <option value=" price > 5000 and price < 10001">5001-10000</option>
-                  <option value=" price > 10000 and price < 15001">10001-15000</option>
-                  <option value=" price > 15000">15001-</option>
-                </select>
-              </div>
-              <div class="styled-select yellow rounded">
-                <select id = "sort" name="sort">
-
-                  <option value="clothid DESC">新着順</option>
-                  <option value="clothid ASC">古い順</option>
-                  <option value="price DESC">値段が高い順</option>
-                  <option value="price ASC">値段が安い順</option>
-                </select>
-              </div>
+                <div class="styled-select yellow rounded">
+                  <select id="usercloth" name="usercloth">
+                    <%
+                      for (bean.UserClothBean str : bean.getUserCloth().getList())
+                      {
+                    %>
+                    <option value="<%=str.getClothid()%>"><%=str%></option>
+                    <%
+                      }
+                    %>
+                  </select>
+                </div>
+                <!-- 絞込み -->
+                <div class="styled-select yellow rounded">
+                  <select id="narrow" name="narrow">
+                    <option value=" price > 0 ">0以上</option>
+                    <option value=" price > 0 and price < 5001">0-5000</option>
+                    <option value=" price > 5000 and price < 10001">5001-10000</option>
+                    <option value=" price > 10000 and price < 15001">10001-15000</option>
+                    <option value=" price > 15000">15001-</option>
+                  </select>
+                </div>
+                <!-- 並び替え -->
+                <div class="styled-select yellow rounded">
+                  <select id="sort" name="sort">
+                    <option value="clothid DESC">新着順</option>
+                    <option value="clothid ASC">古い順</option>
+                    <option value="price DESC">値段が高い順</option>
+                    <option value="price ASC">値段が安い順</option>
+                  </select>
+                </div>
                 <input type="hidden" name="topcolor"
                   value="<%=bean.getTopColor().name()%>"> <input
                   type="hidden" name="toppattern"
@@ -186,11 +199,10 @@
                   type="hidden" name="bottomsize"
                   value="<%= bean.getBottomSize().name()%>"> <input
                   type="submit" value="オススメ服表示">
-
               </form>
             </div>
+            <!-- 販売服表示 -->
             <div class="contents">
-
               <%
                 for (bean.SaleClothBean record : bean.getSaleCloth().getList())
                 {

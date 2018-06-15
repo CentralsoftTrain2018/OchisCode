@@ -26,16 +26,17 @@
 
 <body>
   <div class="container">
-
-
     <div class="header">
-    <div class="headlogo"><img src="./images/Logo4.png" width="150" height="70" /></div>
+      <div class="headlogo">
+        <img src="./images/Logo4.png" width="150" height="70" />
+      </div>
       <div class="title">コーディネイト画面</div>
+      <!-- 画面遷移ボタン -->
       <div class="buttons">
         <div class="button">
           <form method="POST" action="ListOutSaleClothServlet">
-        <input type="submit" value="おすすめ画面へ">
-      </form>
+            <input type="submit" value="おすすめ画面へ">
+          </form>
         </div>
         <div class="button">
           <form method="POST" action="ListOutUserClotheServlet">
@@ -43,22 +44,17 @@
           </form>
         </div>
       </div>
-      <!-- 画面遷移ボタン -->
-
-
     </div>
 
     <div class="verticalContainer">
+      <!-- 画像表示部分 -->
       <div class="model">
-        <!-- 画像表示部分 -->
         <!-- 越智くんの顔 -->
         <div class="relative">
           <img src="./images/白.png" width="160" height="120" /> <img
             src="./images/ochi's.png" class="absolute" width="160"
             height="120" />
         </div>
-
-
         <!-- 上 -->
         <div class="relative">
           <img src="./images/<%=bean.getTopColor().name()%>.png"
@@ -71,8 +67,6 @@
             class="absolute" width="<%=bean.getTopSize().getWidth()%>"
             height="<%=bean.getTopSize().getHeight()%>" />
         </div>
-
-
         <!-- 下 -->
         <div class="relative">
           <img src="./images/<%=bean.getBottomColor().name()%>.png"
@@ -85,6 +79,7 @@
             class="absolute" width="<%=bean.getBottomSize().getWidth()%>"
             height="<%=bean.getBottomSize().getHeight()%>" />
         </div>
+
         <div class="relative">
           <form method="POST" action="RegistCoordinateServlet">
             <!-- 表示している服の情報をサーブレットに受け渡し -->
