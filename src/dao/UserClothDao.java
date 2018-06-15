@@ -95,9 +95,7 @@ public class UserClothDao extends Dao
             stmt.setString(4,user.getPattern().name());
             stmt.setString(5,user.getCategory().name());
             stmt.setString(6, user.getCategory().getJouge().name());
-            System.out.println("確認");
             int i =stmt.executeUpdate();
-            System.out.println("確認1");
         }catch(SQLException e)
         {
             throw e;

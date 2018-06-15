@@ -100,7 +100,6 @@ public class ClothService
 
             listoutrcbean.setList( rcbeanlist );
 
-            System.out.println( listoutrcbean );
 
             return listoutrcbean;
         } catch (SQLException e)
@@ -138,7 +137,6 @@ public class ClothService
 
             listoutrcbean.setList( rcbeanlist );
 
-            System.out.println( listoutrcbean );
 
             return listoutrcbean;
         } catch (SQLException e)

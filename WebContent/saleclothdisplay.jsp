@@ -68,7 +68,7 @@
 
     <div class="header">
 
-      <div class="model">ホーム画面</div>
+      <div class="model">Ochi's Code</div>
       <div class="buttons">
         <div class="button">
           <form method="POST" action="CoordinateServlet">

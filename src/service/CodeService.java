@@ -67,7 +67,6 @@ public class CodeService {
 
                 codelist.add(bean);
             }
-            //listbean.setList( codelist );
 
             return codelist;
 
