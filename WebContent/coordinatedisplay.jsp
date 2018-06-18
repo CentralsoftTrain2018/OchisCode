@@ -48,6 +48,7 @@
 
     <div class="verticalContainer">
       <!-- 画像表示部分 -->
+
       <div class="model">
         <div class = "flame">
           <!-- 越智くんの顔 -->
