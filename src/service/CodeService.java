@@ -76,5 +76,29 @@ public class CodeService {
         }
 
     }
+
+
+    //コーデ情報の削除・
+    //作成者<高田>
+    public void deleteCoordinate(int code_number)
+    {
+        try (
+                Connection con = Dao.getConnection();
+                )
+        {
+
+            SaveCodeDao scdao = new SaveCodeDao(con);
+            scdao.deleteCode(code_number);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+
+}
+
+
+
+
 }
 
