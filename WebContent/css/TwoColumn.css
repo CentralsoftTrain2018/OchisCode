@@ -9,7 +9,13 @@
 }
 /*2分割にした左側*/
 .model{
-    width: 300px;
+    width: 400px;
+}
+.flame {
+  float:left;
+  border:solid;
+  width:400;
+  height:400;
 }
 .pulldown {
   width : 300px

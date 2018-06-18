@@ -11,6 +11,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>持ち服登録</title>
 </head>
+
+<link rel="stylesheet" type="text/css" href="css/BackGround.css">
+
 <body>
 持ち服登録
 

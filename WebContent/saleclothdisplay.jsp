@@ -103,6 +103,7 @@
         <!-- 左側モデル表示部分 -->
 
         <div class="model">
+        <div class = "flame">
           <!-- 画像表示部分 -->
           <!-- 越智くんの顔 -->
           <div class="relative">
@@ -141,6 +142,7 @@
               src="./images/<%=bean.getBottomCategory().name()%>.png"
               class="absolute" width="<%=bean.getBottomSize().getWidth()%>"
               height="<%=bean.getBottomSize().getHeight()%>" />
+            </div>
           </div>
         </div>
 
