@@ -10,6 +10,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>所有服　一覧</title>
 </head>
+
+<link rel="stylesheet" type="text/css" href="css/BackGround.css">
+
 <style>
 .relative {
     position: relative;
@@ -29,6 +32,15 @@
 </form>
 <form method="POST" action="ListOutSaleClothServlet">
  <input type="submit" value="おすすめ画面へ">
+</form>
+
+<br><br>
+
+<form method = "POST" action = "NarrowingUsrClothServlet">
+  <select>
+    <option value = "0">絞込み</option>
+  </select>
+  <input type = "submit" value = "絞込み">
 </form>
 
 <br><br>

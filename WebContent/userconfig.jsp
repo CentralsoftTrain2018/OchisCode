@@ -1,30 +1,45 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
-<%@ page import="domain.SizeEnum"%>
 <!DOCTYPE html>
 <html>
+<%@ page import="domain.SizeEnum"%>
 <head>
 <meta charset="UTF-8">
-<title>ユーザー登録</title>
+<title>登録情報変更</title>
 </head>
 <body>
+変更する値を入力してください。
   <form method="POST" action="RegistUserServlet">
-    登録情報を入力してください <br>
     <table>
       <tr>
-        <td>ユーザーID(半角英数字4文字以上)</td>
-        <td><input name="userid" type="text" required="required" pattern="^([a-zA-Z0-9]{4,})$"></td>
+        <td>項目</td>
+        <td>変更前</td>
+        <td>変更後</td>
       </tr>
       <tr>
-        <td>パスワード(半角英数字8文字以上)</td>
-        <td><input name="password" type="password" required="required" pattern="{8,}"></td>
+        <td>ユーザーID：</td>
+        <td>
+          <%
+            //beanの情報=
+          %>
+        </td>
       </tr>
       <tr>
-        <td>身長(半角数字)</td>
+        <td>身長：</td>
+        <td>
+          <%
+            //beanの情報=
+          %>
+        </td>
         <td><input name="userheight" type="number" required="required"></td>
       </tr>
       <tr>
-        <td>服のサイズ</td>
+        <td>服のサイズ：</td>
+        <td>
+          <%
+            //beanの情報=
+          %>
+        </td>
         <td><select name="size" required="required">
             <%
               for (SizeEnum se : SizeEnum.values())
@@ -37,16 +52,27 @@
         </select></td>
       </tr>
       <tr>
-        <td>予算(半角数字)</td>
+        <td>予算：</td>
+        <td>
+          <%
+            //beanの情報=
+          %>
+        </td>
         <td><input name="budget" type="number" required="required"></td>
       </tr>
       <tr>
-        <td>性別</td>
+        <td>性別：</td>
+        <td>
+          <%
+            //beanの情報=
+          %>
+        </td>
         <td><input name="sex" type="radio" checked="checked" value="男">男<input
           name="sex" type="radio" value="女">女</td>
       </tr>
     </table>
-    <input type="submit" value="登録">
+    <input type="submit" value="登録情報変更">
   </form>
+
 </body>
 </html>
