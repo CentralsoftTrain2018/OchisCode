@@ -10,6 +10,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>所有服　一覧</title>
 </head>
+
+<link rel="stylesheet" type="text/css" href="css/BackGround.css">
+
 <style>
 .relative {
     position: relative;
