@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class RegistServlet
  */
-@WebServlet("/CoordinateServlet")
+@WebServlet("/DeleteCoordinateServlet")
 
 //服のシミュレーション画面
 public class DeleteCoordinateServlet extends HttpServlet
@@ -35,9 +35,9 @@ public class DeleteCoordinateServlet extends HttpServlet
     //作成者<野間>
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
+        System.out.println("確認");
         request.setCharacterEncoding( "utf-8" );
         //値の取り出し
-
 
         RequestDispatcher disp = request.getRequestDispatcher( "/coordinatedisplay" );
         disp.forward( request, response );
