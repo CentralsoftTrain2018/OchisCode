@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class RegistServlet
  */
-@WebServlet("/CoordinateServlet")
+@WebServlet("/DeleteCoordinateServlet")
 
 //服のシミュレーション画面
 public class DeleteCoordinateServlet extends HttpServlet

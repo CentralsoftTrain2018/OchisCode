@@ -36,7 +36,7 @@
 
 <br><br>
 
-<form method = "POST" action = "ListOutUserClotheServlet">
+<form method = "POST" action = "NarrowingUsrClothServlet">
   <select>
     <option value = "0">絞込み</option>
   </select>
