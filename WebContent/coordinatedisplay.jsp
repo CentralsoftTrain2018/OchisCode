@@ -49,58 +49,59 @@
     <div class="verticalContainer">
       <!-- 画像表示部分 -->
       <div class="model">
-        <!-- 越智くんの顔 -->
-        <div class="relative">
-          <img src="./images/白.png" width="160" height="120" /> <img
-            src="./images/ochi's.png" class="absolute" width="160"
-            height="120" />
-        </div>
-        <!-- 上 -->
-        <div class="relative">
-          <img src="./images/<%=bean.getTopColor().name()%>.png"
-            width="<%=bean.getTopSize().getWidth()%>"
-            height="<%=bean.getTopSize().getHeight()%>" /> <img
-            src="./images/<%=bean.getTopPattern().name()%>.png"
-            class="absolute" width="<%=bean.getTopSize().getWidth()%>"
-            height="<%=bean.getTopSize().getHeight()%>" /> <img
-            src="./images/<%=bean.getTopCategory().name()%>.png"
-            class="absolute" width="<%=bean.getTopSize().getWidth()%>"
-            height="<%=bean.getTopSize().getHeight()%>" />
-        </div>
-        <!-- 下 -->
-        <div class="relative">
-          <img src="./images/<%=bean.getBottomColor().name()%>.png"
-            width="<%=bean.getBottomSize().getWidth()%>"
-            height="<%=bean.getBottomSize().getHeight()%>" /> <img
-            src="./images/<%=bean.getBottomPattern().name()%>.png"
-            class="absolute" width="<%=bean.getBottomSize().getWidth()%>"
-            height="<%=bean.getBottomSize().getHeight()%>" /> <img
-            src="./images/<%=bean.getBottomCategory().name()%>.png"
-            class="absolute" width="<%=bean.getBottomSize().getWidth()%>"
-            height="<%=bean.getBottomSize().getHeight()%>" />
-        </div>
-
-        <div class="relative">
-          <form method="POST" action="RegistCoordinateServlet">
-            <!-- 表示している服の情報をサーブレットに受け渡し -->
-            <input type="hidden" name="topcolor"
-              value="<%=bean.getTopColor().name()%>"> <input
-              type="hidden" name="toppattern"
-              value="<%=bean.getTopPattern().name()%>"> <input
-              type="hidden" name="topcategory"
-              value="<%= bean.getTopCategory().name()%>"> <input
-              type="hidden" name="topsize"
-              value="<%= bean.getTopSize().name()%>"> <input
-              type="hidden" name="bottomcolor"
-              value="<%=bean.getBottomColor().name()%>"> <input
-              type="hidden" name="bottompattern"
-              value="<%=bean.getBottomPattern().name()%>"> <input
-              type="hidden" name="bottomcategory"
-              value="<%= bean.getBottomCategory().name()%>"> <input
-              type="hidden" name="bottomsize"
-              value="<%= bean.getBottomSize().name()%>"> <input
-              type="submit" value="コーデ登録">
-          </form>
+        <div class = "flame">
+          <!-- 越智くんの顔 -->
+          <div class="relative">
+            <img src="./images/白.png" width="160" height="120" /> <img
+              src="./images/ochi's.png" class="absolute" width="160"
+              height="120" />
+          </div>
+          <!-- 上 -->
+          <div class="relative">
+            <img src="./images/<%=bean.getTopColor().name()%>.png"
+              width="<%=bean.getTopSize().getWidth()%>"
+              height="<%=bean.getTopSize().getHeight()%>" /> <img
+              src="./images/<%=bean.getTopPattern().name()%>.png"
+              class="absolute" width="<%=bean.getTopSize().getWidth()%>"
+              height="<%=bean.getTopSize().getHeight()%>" /> <img
+              src="./images/<%=bean.getTopCategory().name()%>.png"
+              class="absolute" width="<%=bean.getTopSize().getWidth()%>"
+              height="<%=bean.getTopSize().getHeight()%>" />
+          </div>
+          <!-- 下 -->
+          <div class="relative">
+            <img src="./images/<%=bean.getBottomColor().name()%>.png"
+              width="<%=bean.getBottomSize().getWidth()%>"
+              height="<%=bean.getBottomSize().getHeight()%>" /> <img
+              src="./images/<%=bean.getBottomPattern().name()%>.png"
+              class="absolute" width="<%=bean.getBottomSize().getWidth()%>"
+              height="<%=bean.getBottomSize().getHeight()%>" /> <img
+              src="./images/<%=bean.getBottomCategory().name()%>.png"
+              class="absolute" width="<%=bean.getBottomSize().getWidth()%>"
+              height="<%=bean.getBottomSize().getHeight()%>" />
+          </div>
+          <div class="relative">
+            <form method="POST" action="RegistCoordinateServlet">
+              <!-- 表示している服の情報をサーブレットに受け渡し -->
+              <input type="hidden" name="topcolor"
+                value="<%=bean.getTopColor().name()%>"> <input
+                type="hidden" name="toppattern"
+                value="<%=bean.getTopPattern().name()%>"> <input
+                type="hidden" name="topcategory"
+                value="<%= bean.getTopCategory().name()%>"> <input
+                type="hidden" name="topsize"
+                value="<%= bean.getTopSize().name()%>"> <input
+                type="hidden" name="bottomcolor"
+                value="<%=bean.getBottomColor().name()%>"> <input
+                type="hidden" name="bottompattern"
+                value="<%=bean.getBottomPattern().name()%>"> <input
+                type="hidden" name="bottomcategory"
+                value="<%= bean.getBottomCategory().name()%>"> <input
+                type="hidden" name="bottomsize"
+                value="<%= bean.getBottomSize().name()%>"> <input
+                type="submit" value="コーデ登録">
+            </form>
+          </div>
         </div>
       </div>
 
