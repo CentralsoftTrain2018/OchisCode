@@ -53,6 +53,14 @@ public class SaveCodeDao extends Dao{
                     + "    ?, "
                     + "    ? "
                     +")";
+    //作成者：高田
+    //コーデ情報の削除
+    private static final String DeleteCoordinate_SQL =
+                "delete"
+                        +" from"
+                        +" save_code "
+                        +" where "
+                        +" code_number=?";
 
 
     //コーデの服情報の取り出し
@@ -102,5 +110,14 @@ public class SaveCodeDao extends Dao{
         stmt.setString(9, savecode.getBottomssize().name());
 
         int i =stmt.executeUpdate();
+    }
+
+
+    public void deleteCode(int code_number)throws SQLException
+    {
+        PreparedStatement stmt=null;
+         stmt = con.prepareStatement(DeleteCoordinate_SQL);
+         stmt.setInt(1, code_number);
+         int i = stmt.executeUpdate();
     }
 }

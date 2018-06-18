@@ -101,6 +101,11 @@
                 value="<%= bean.getBottomSize().name()%>"> <input
                 type="submit" value="コーデ登録">
             </form>
+              <form method="POST" action="DeleteCoordinateServlet">
+
+              <input type="submit" name="code_num" value="コーデ削除">
+             </form>
+
           </div>
         </div>
       </div>
