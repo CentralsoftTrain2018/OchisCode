@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import service.CodeService;
+
 /**
  * Servlet implementation class RegistServlet
  */
@@ -38,6 +40,13 @@ public class DeleteCoordinateServlet extends HttpServlet
         System.out.println("確認");
         request.setCharacterEncoding( "utf-8" );
         //値の取り出し
+
+        String Coordinate = request.getParameter("code");
+        System.out.println(Coordinate);
+
+        CodeService codeserv = new CodeService();
+
+
 
         RequestDispatcher disp = request.getRequestDispatcher( "/coordinatedisplay" );
         disp.forward( request, response );

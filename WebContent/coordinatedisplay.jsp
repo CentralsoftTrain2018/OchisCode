@@ -102,11 +102,6 @@
                 value="<%= bean.getBottomSize().name()%>"> <input
                 type="submit" value="コーデ登録">
             </form>
-              <form method="POST" action="DeleteCoordinateServlet">
-
-              <input type="submit" name="code_num" value="コーデ削除">
-             </form>
-
           </div>
         </div>
       </div>
@@ -236,19 +231,22 @@
             </form>
           </div>
           <div class="form3">
-            <form method="POST" action="ChangeSelectCodeServlet">
-              <ul class="scrollsize">
+          <ul class="scrollsize">
                 <%
                   for (bean.CoordinateBean code : bean.getList())
                   {
                 %>
-                <li><input type="submit" name="cloth"
-                  value="<%=code.toString()%>"></li>
+                <li><form method="POST" action="ChangeSelectCodeServlet">
+                <input type="submit" name="cloth"
+                  value="<%=code.toString()%>"> </form></li>
+               <li><form method="POST" action="DeleteCoordinateServlet">
+               <input type="hidden" name="code" value="<%=code.toString()%>">
+               <input type="submit" value="コーデ削除">
+             </form></li>
                 <%
                   }
                 %>
               </ul>
-            </form>
           </div>
         </div>
       </div>
