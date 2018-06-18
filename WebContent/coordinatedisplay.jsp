@@ -100,6 +100,9 @@
               type="hidden" name="bottomsize"
               value="<%= bean.getBottomSize().name()%>"> <input
               type="submit" value="コーデ登録">
+
+              <input type="submit" value="コーデ削除">
+
           </form>
         </div>
       </div>
