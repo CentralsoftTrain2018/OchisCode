@@ -35,6 +35,15 @@
 </form>
 
 <br><br>
+
+<form method = "POST" action = "ListOutUserClotheServlet">
+  <select>
+    <option value = "0">絞込み</option>
+  </select>
+  <input type = "submit" value = "絞込み">
+</form>
+
+<br><br>
 <%for(UserClothBean record : bean.getList()) {%>
 <% out.println("<td>");%>
 <%=record.toString() %>
