@@ -32,7 +32,16 @@ public class LoginServlet extends HttpServlet
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         System.out.println( "ログインサーブレット" );
+        //入力情報の取得
+        String userid = request.getParameter( "userid" );
+        String password = request.getParameter( "password" );
+        //TODO サービスへID,パスを渡す
+
+        //TODO 結果に応じて遷移先を変更
+
+
         //持ち服一覧へ遷移
+
         RequestDispatcher disp = request.getRequestDispatcher( "ListOutSaleClothServlet" );
         disp.forward( request, response );
     }
