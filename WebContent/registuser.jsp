@@ -12,12 +12,12 @@
     登録情報を入力してください <br>
     <table>
       <tr>
-        <td>ユーザーID</td>
-        <td><input name="userid" type="text" required="required"></td>
+        <td>ユーザーID(半角英数字4文字以上)</td>
+        <td><input name="userid" type="text" required="required" pattern="^([a-zA-Z0-9]{4,})$"></td>
       </tr>
       <tr>
-        <td>パスワード(半角英数字)</td>
-        <td><input name="password" type="password" required="required"></td>
+        <td>パスワード(半角英数字8文字以上)</td>
+        <td><input name="password" type="password" required="required" pattern="{8,}"></td>
       </tr>
       <tr>
         <td>身長(半角数字)</td>

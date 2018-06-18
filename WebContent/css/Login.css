@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+body{
+
+}
+.form_conf {
+    text-align: center;
+}
+
+.button{
+  display:inline-block;
+}
+
+.img{
+  text-align:center;
+}
+.center{
+  text-align: center;
+}
+table{
+  margin: 0 auto;
+}
