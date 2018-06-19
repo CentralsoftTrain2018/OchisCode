@@ -3,6 +3,14 @@
 body{
 
 }
+p{
+  text-align: center;
+}
+.message{
+  font-size: large;
+  color: #ff0000;
+}
+
 .form_conf {
     text-align: center;
 }

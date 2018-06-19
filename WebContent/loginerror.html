@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ログインエラー</title>
+</head>
+
+<!-- cssインポート -->
+<link rel="stylesheet" type="text/css" href="css/Login.css">
+<link rel="stylesheet" type="text/css" href="css/BackGround.css">
+
+<body>
+  <div class="img">
+    <img src="./images/LoginLogo.png" width="778" height="280" />
+  </div>
+
+<p><span class="message">IDまたはパスワードが違います。</span></p>
+
+  <!-- ログイン情報入力フォーム -->
+  <div class="form_conf">
+    <form method="POST" action="LoginServlet">
+      <table>
+        <tr>
+          <td>ユーザーID：</td>
+          <td><input name="userid" type="text" required="required"
+            pattern="^[a-zA-Z0-9]+$"></td>
+        </tr>
+        <tr>
+          <td>パスワード：</td>
+          <td><input name="password" type="password" required="required"></td>
+        </tr>
+      </table>
+      <input type="submit" value="ログイン">
+    </form>
+    <form method="POST" action="registuser.jsp">
+      <input type="submit" value="新規登録">
+    </form>
+  </div>
+
+</body>
+</html>

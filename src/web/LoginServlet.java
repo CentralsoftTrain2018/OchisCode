@@ -57,7 +57,7 @@ public class LoginServlet extends HttpServlet
 
 
            //エラー画面へ遷移
-            RequestDispatcher disp = request.getRequestDispatcher( "ListOutSaleClothServlet" );
+            RequestDispatcher disp = request.getRequestDispatcher( "/loginerror.html" );
             disp.forward( request, response );
 
         }
