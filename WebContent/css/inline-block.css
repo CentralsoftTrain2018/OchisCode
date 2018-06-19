@@ -5,7 +5,11 @@
 */
 
 
-.button_float{
-  margin:0px 15px 0px 0px;
+.button_floata{
+  margin:0px 15px 15px 0px;
   float:left;
+}
+
+.button_floatb{
+  margin:0px 0px 15px 0px;
 }
