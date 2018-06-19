@@ -23,6 +23,7 @@
 <link rel="stylesheet" type="text/css" href="css/TwoColumn.css">
 <link rel="stylesheet" type="text/css" href="css/Scroll.css">
 <link rel="stylesheet" type="text/css" href="css/BackGround.css">
+<link rel="stylesheet" type="text/css" href="css/inline-block.css">
 
 <body>
   <div class="container">
@@ -236,13 +237,15 @@
                   for (bean.CoordinateBean code : bean.getList())
                   {
                 %>
-                <li><form method="POST" action="ChangeSelectCodeServlet">
-                <input type="submit" name="cloth"
-                  value="<%=code.toString()%>"> </form></li>
+               <li><form method="POST" action="ChangeSelectCodeServlet">
+               <div class ="button_float">
+               <input type="submit" name="cloth"
+               value="<%=code.toString()%>">
+               </div> </form></li>
                <li><form method="POST" action="DeleteCoordinateServlet">
                <input type="hidden" name="code" value="<%=code.getCode_num()%>">
                <input type="submit" value="コーデ削除">
-             </form></li>
+               </form> </li>
                 <%
                   }
                 %>

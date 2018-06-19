@@ -1,0 +1,11 @@
+@charset "UTF-8";
+/*
+ボタン横並び
+作成者<野間>
+*/
+
+
+.button_float{
+  margin:0px 15px 0px 0px;
+  float:left;
+}
