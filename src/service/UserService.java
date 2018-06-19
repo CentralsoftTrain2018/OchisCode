@@ -3,6 +3,7 @@ package service;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import bean.UserInfoBean;
 import dao.Dao;
 import dao.UserDao;
 import domain.SexEnum;
@@ -59,4 +60,39 @@ public class UserService
             throw new RuntimeException( e );
         }
     }
+    //ユーザーのIDとpasswordが正しいか確認する。
+    public UserInfoBean checkUser(String user,String password)
+    {
+        try (
+                Connection con = Dao.getConnection();)
+        {
+
+            UserDao userDao =new UserDao(con);
+            UserVo uvo=userDao.checkUser(user,password);
+
+            UserInfoBean bean=new UserInfoBean();
+
+            //ID,PASSが一致していた場合
+            if(uvo != null) {
+                bean.setUserid(uvo.getUserId());
+                bean.setPassword(uvo.getPassword());
+                bean.setUserheight(uvo.getUserHeight());
+                bean.setSize(uvo.getSize());
+                bean.setBudget(uvo.getBudget());
+                bean.setSex(uvo.getSex());
+                bean.setUserExist(true);
+
+            return bean;
+            }
+
+            bean.setUserExist(false);
+            return bean;
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+            throw new RuntimeException( e );
+        }
+    }
+
 }
