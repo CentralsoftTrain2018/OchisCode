@@ -12,18 +12,8 @@
 </head>
 
 <link rel="stylesheet" type="text/css" href="css/BackGround.css">
+<link rel="stylesheet" type="text/css" href="css/PileImage.css">
 
-<style>
-.relative {
-    position: relative;
-}
-<%-- absolute内のleftとtopは画像の位置を設定した --%>
-.absolute {
-    position: absolute;
-    left: 220px;
-    top: -80px;
-}
-</style>
 <body>
 
 所有服一覧
@@ -44,24 +34,27 @@
 </form>
 
 <br><br>
-<%for(UserClothBean record : bean.getList()) {%>
-<% out.println("<td>");%>
-<%=record.toString() %>
-<br><br>
-<br><br>
-<% out.println("</td>");%>
-<% out.println("<td>");%>
-<% out.println("<div class="+"relative"+">");%>
-<%String color = record.getColor().name();%>
-<%String cate = record.getCategory().name();%>
-<%String pat = record.getPattern().name();%>
-<% out.println("<img src=./images/"+ color +".png width=50 height=50/ class=absolute>");%>
-<% out.println("<img src=./images/"+ pat +".png width=50 height=50/ class=absolute>");%>
-<% out.println("<img src=./images/"+ cate +".png width=50 height=50/ class=absolute>");%>
-
-<%out.println("</div>");%>
-<%out.println("</td>"); %>
-<%} %>
+<table border="1">
+    <tbody>
+      <%for(UserClothBean record : bean.getList()) {%>
+      <tr>
+        <td ><%=record.toString() %></td>
+        <td>
+          <div class = "relative">
+            <img src="./images/<%=record.getColor().name()%>.png" width=50 height=50/>
+            <img src="./images/<%=record.getPattern().name()%>.png" class = "absolute" width=50 height=50/>
+            <img src="./images/<%=record.getCategory().name()%>.png" class = "absolute" width=50 height=50/>
+          </div>
+        </td>
+        <td>
+           <form>
+             <input type="submit" value="削除">
+           </form>
+        </td>
+      </tr>
+      <%} %>
+    </tbody>
+</table>
 
 <form method="POST" action="registusercloth.jsp">
  <input type="submit" value="持ち服登録画面へ">
