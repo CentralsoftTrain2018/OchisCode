@@ -14,6 +14,7 @@ public class UserInfoBean
     private SizeEnum size;
     private int budget;
     private SexEnum sex;
+    private boolean isUserExist;//ユーザー認証
 
     public UserInfoBean()
     {
@@ -78,4 +79,16 @@ public class UserInfoBean
     {
         this.sex = sex;
     }
+
+    public boolean isUserExist()
+    {
+        return isUserExist;
+    }
+
+    public void setUserExist(boolean isUserExist)
+    {
+        this.isUserExist = isUserExist;
+    }
+
+
 }

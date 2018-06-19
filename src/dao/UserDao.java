@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import domain.SexEnum;
+import domain.SizeEnum;
 import vo.UserVo;
 
 //ユーザー関連のDao
@@ -48,6 +50,15 @@ public class UserDao extends Dao
             + " user"
             + " WHERE"
             + " userid = ? ";
+
+    private static final String GETUSERIDPASSSQL = "SELECT "
+            + " *"
+            + "FROM "
+            + "user "
+            + "where "
+            + "userid = ?"
+            + " AND"
+            + " password = ?";
 
     //登録
     public boolean put(UserVo vo) throws SQLException
@@ -128,5 +139,39 @@ public class UserDao extends Dao
         {
             throw e;
         }
+    }
+
+    //ユーザー情報の取得
+    public UserVo checkUser(String user, String password) throws SQLException
+    {
+        try (
+                PreparedStatement stmt = con.prepareStatement( GETUSERIDPASSSQL );)
+        {
+            stmt.setString( 1, user );
+            stmt.setString( 2, password );
+            // System.out.println("検索ID："+user);
+            ResultSet rset = stmt.executeQuery();//sql実行
+
+            UserVo uvo = null;
+
+            while (rset.next())
+            {
+                System.out.println( "a" + rset.getString( 1 ) );
+                uvo = new UserVo(
+                        rset.getString( 1 ),
+                        rset.getString( 2 ),
+                        rset.getInt( 3 ),
+                        SizeEnum.valueOf( rset.getString( 4 ) ),
+                        rset.getInt( 5 ),
+                        SexEnum.valueOf( rset.getString( 6 ) ) );
+
+            }
+
+            return uvo;
+        } catch (SQLException e)
+        {
+            throw e;
+        }
+
     }
 }
