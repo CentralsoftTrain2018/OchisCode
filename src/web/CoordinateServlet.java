@@ -8,8 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import bean.CoordinateDisplayBean;
+import bean.UserInfoBean;
 import domain.CategoryEnum;
 import domain.ColorEnum;
 import domain.PatternEnum;
@@ -45,6 +47,10 @@ public class CoordinateServlet extends HttpServlet
         ClothService cserv =new ClothService();
         CodeService codeserv = new CodeService();
 
+      //sessionでユーザの情報を取得
+        HttpSession session = request.getSession();
+        UserInfoBean userBean = (UserInfoBean) session.getAttribute( "userinfobean" );
+
         //デフォルトの服をセット(上)
         bean.setTopCategory( CategoryEnum.Tシャツ );
         bean.setTopColor( ColorEnum.白 );
@@ -56,7 +62,7 @@ public class CoordinateServlet extends HttpServlet
         bean.setBottomPattern( PatternEnum.無地 );
         bean.setBottomSize( SizeEnum.M );
         //TODO 持ち服を上下に分けて取得
-        bean.setUscbean(cserv.userSaleCloth("user"));
+        bean.setUscbean(cserv.userSaleCloth(userBean.getUserid()));
         //コーデ情報を取得
 
         bean.setList(codeserv.coordinateDisplay());

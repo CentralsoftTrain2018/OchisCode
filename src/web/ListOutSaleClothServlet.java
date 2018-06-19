@@ -8,10 +8,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import bean.ListOutUserClothBean;
 import bean.ListSaleClothBean;
 import bean.SaleClothDisplayBean;
+import bean.UserInfoBean;
 import domain.CategoryEnum;
 import domain.ColorEnum;
 import domain.PatternEnum;
@@ -49,11 +51,16 @@ public class ListOutSaleClothServlet extends HttpServlet
     //オススメ一覧表示
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
+
+        //sessionでユーザの情報を取得
+        HttpSession session = request.getSession();
+        UserInfoBean userBean = (UserInfoBean) session.getAttribute( "userinfobean" );
+
         ClothService cs = new ClothService();
         String order="clothid DESC";//並び替えのプルダウン初期値→新着順
-        ListOutUserClothBean ucbean = cs.userCloth("user", "", "", "");
 
-        ListSaleClothBean rcbean = cs.getSaleCloth("user", " price < 0 ", order);
+        ListOutUserClothBean ucbean = cs.userCloth(userBean.getUserid(), "", "", "");
+        ListSaleClothBean rcbean = cs.getSaleCloth(userBean.getUserid(), " price < 0 ", order);
 
         SaleClothDisplayBean bean = new SaleClothDisplayBean();
 

@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import bean.ListOutUserClothBean;
 import bean.UserInfoBean;
+import service.ClothService;
 import service.UserService;
 
 /**
@@ -60,6 +62,12 @@ public class LoginServlet extends HttpServlet
 
         }
         System.out.println("ログイン成功");
+
+        ClothService cserv = new ClothService();
+        ListOutUserClothBean bean;
+
+        bean = cserv.userCloth( userBean.getUserid(), "", "", "");//userIdは定数
+        session.setAttribute("userclothbean", bean);
 
         session.setAttribute( "userinfobean", userBean );
         //持ち服一覧へ遷移

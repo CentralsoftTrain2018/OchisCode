@@ -8,8 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import bean.CoordinateDisplayBean;
+import bean.UserInfoBean;
 import domain.CategoryEnum;
 import domain.ColorEnum;
 import domain.PatternEnum;
@@ -39,6 +41,10 @@ public class RegistCoordinateServlet extends HttpServlet {
         //プルダウンの値を取得(文字化け対策に文字コード変更)
         request.setCharacterEncoding( "utf-8" );
 
+      //sessionでユーザの情報を取得
+        HttpSession session = request.getSession();
+        UserInfoBean userBean = (UserInfoBean) session.getAttribute( "userinfobean" );
+
         CoordinateDisplayBean bean = new CoordinateDisplayBean();
 
         bean.setTopCategory( CategoryEnum.valueOf( request.getParameter( "topcategory" ) ) );
@@ -51,10 +57,10 @@ public class RegistCoordinateServlet extends HttpServlet {
         bean.setBottomSize( SizeEnum.valueOf( request.getParameter( "bottomsize" ) ) );
 
         CodeService codeserv = new CodeService();
-        codeserv.registCoordinate("user", bean);
+        codeserv.registCoordinate(userBean.getUserid(), bean);
 
         ClothService cserv =new ClothService();
-        bean.setUscbean(cserv.userSaleCloth("user"));
+        bean.setUscbean(cserv.userSaleCloth(userBean.getUserid()));
         bean.setList(codeserv.coordinateDisplay());
 
         request.setAttribute( "bean", bean );

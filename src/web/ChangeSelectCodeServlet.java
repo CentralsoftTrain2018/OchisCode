@@ -7,8 +7,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import bean.CoordinateDisplayBean;
+import bean.UserInfoBean;
 import domain.CategoryEnum;
 import domain.ColorEnum;
 import domain.PatternEnum;
@@ -41,6 +43,11 @@ public class ChangeSelectCodeServlet extends HttpServlet
     {
         //プルダウンの値を取得(文字化け対策に文字コード変更)
         request.setCharacterEncoding( "utf-8" );
+
+        //sessionでユーザの情報を取得
+        HttpSession session = request.getSession();
+        UserInfoBean userBean = (UserInfoBean) session.getAttribute( "userinfobean" );
+
         //プルダウンで選択された上下服の情報を取得
         String clothstr = request.getParameter( "cloth" );
 
@@ -80,7 +87,7 @@ public class ChangeSelectCodeServlet extends HttpServlet
         bean.setBottomCategory( CategoryEnum.valueOf( cloth[6] ) );
         bean.setBottomSize( SizeEnum.valueOf( cloth[7] ) );
 
-        bean.setUscbean( cserv.userSaleCloth( "user" ) );
+        bean.setUscbean( cserv.userSaleCloth( userBean.getUserid() ) );
         bean.setList(codeserv.coordinateDisplay());
         request.setAttribute( "bean", bean );
 

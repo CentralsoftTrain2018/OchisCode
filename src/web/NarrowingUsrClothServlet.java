@@ -8,8 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import bean.ListOutUserClothBean;
+import bean.UserInfoBean;
 import service.ClothService;
 
 /**
@@ -31,12 +33,17 @@ public class NarrowingUsrClothServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding( "utf-8" );
+
+      //sessionでユーザの情報を取得
+        HttpSession session = request.getSession();
+        UserInfoBean userBean = (UserInfoBean) session.getAttribute( "userinfobean" );
+
         ListOutUserClothBean bean = new ListOutUserClothBean();
 
         ClothService cserv = new ClothService();
 
         String narrow = request.getParameter("narrow");
-        bean = cserv.userCloth( "user", narrow, "", "");//userIdは定数
+        bean = cserv.userCloth( userBean.getUserid(), narrow, "", "");//userIdは定数
 
         request.setAttribute( "bean", bean );
         RequestDispatcher disp = request.getRequestDispatcher( "/listoutusercloth.jsp" );
