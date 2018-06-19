@@ -38,6 +38,14 @@
 </form>
 
 <br><br>
+件数：<%=bean.getList().size() %>
+<form>
+<input type = "submit" value = "前のページへ">
+</form>
+現在のページ：
+<form>
+<input type = "submit" value = "次のページへ">
+</form>
 <table border="1">
     <tbody>
       <%for(UserClothBean record : bean.getList()) {%>

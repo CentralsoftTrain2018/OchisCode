@@ -36,7 +36,7 @@ public class NarrowingUsrClothServlet extends HttpServlet {
         ClothService cserv = new ClothService();
 
         String narrow = request.getParameter("narrow");
-        bean = cserv.userCloth( "user", narrow );//userIdは定数
+        bean = cserv.userCloth( "user", narrow, "", "");//userIdは定数
 
         request.setAttribute( "bean", bean );
         RequestDispatcher disp = request.getRequestDispatcher( "/listoutusercloth.jsp" );

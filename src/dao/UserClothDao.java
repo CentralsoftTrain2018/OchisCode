@@ -60,11 +60,11 @@ public class UserClothDao extends Dao
             + " clothid = ?";
 
     //ユーザーの持ち服一覧をDBから取得し、Listで返す
-    public Collection<UserClothVo> getAllUserCloth(String id, String narrow) throws SQLException
+    public Collection<UserClothVo> getAllUserCloth(String id, String narrow, String limit, String offset) throws SQLException
     {
         List<UserClothVo> list = new ArrayList<>();
         try (
-                PreparedStatement stmt = con.prepareStatement( LISTUSERCLOTHES_SQL + narrow);)
+                PreparedStatement stmt = con.prepareStatement( LISTUSERCLOTHES_SQL + narrow + offset);)
         {
             stmt.setString( 1, id );
             ResultSet rset = stmt.executeQuery();

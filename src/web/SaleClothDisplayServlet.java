@@ -58,7 +58,7 @@ public class SaleClothDisplayServlet extends HttpServlet
         String orderStr=request.getParameter("sort");
 
         ClothService cs = new ClothService();
-        ListOutUserClothBean ucbean = cs.userCloth("user", "");
+        ListOutUserClothBean ucbean = cs.userCloth("user", "", "", "");
         UserClothBean selecteduc = ucbean.getSelectedCloth(clothid);
 
         ListSaleClothBean rcbean = cs.getSelectedSaleCloth(clothid, minmax ,orderStr);
