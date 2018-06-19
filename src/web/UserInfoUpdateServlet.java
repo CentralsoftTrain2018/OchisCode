@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import bean.UserInfoBean;
 import domain.SexEnum;
 import domain.SizeEnum;
+import service.UserService;
 
 /**
  * 入力をもとにユーザー情報を更新するサーブレット
@@ -66,6 +67,9 @@ public class UserInfoUpdateServlet extends HttpServlet
         }
 
         //TODO サービス層へデータを受け渡し、DBを更新する
+        UserService userserv = new UserService();
+        
+        userserv.updateUser(userBean);
 
 
         //セッションにユーザー情報をセット

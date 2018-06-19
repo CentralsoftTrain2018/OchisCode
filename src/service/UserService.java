@@ -33,12 +33,15 @@ public class UserService
     }
 
     //ユーザー登録情報変更
-    public void updateUser()
+    public void updateUser(UserInfoBean userBean)
     {
         try (
                 Connection con = Dao.getConnection();)
         {
             //TODO 処理を追加
+        	UserDao userdao = new UserDao(con);
+        	
+        	userdao.update(userBean);
         } catch (SQLException e)
         {
             e.printStackTrace();
