@@ -46,8 +46,7 @@ public class DeleteUserServlet extends HttpServlet
         //セッションで保持しているユーザー情報を削除
         session.removeAttribute("userinfobean");
 
-        //
-        RequestDispatcher disp = request.getRequestDispatcher("/userinfo.jsp");
+        RequestDispatcher disp = request.getRequestDispatcher("/goodbye.html");
         disp.forward(request, response);
     }
 
