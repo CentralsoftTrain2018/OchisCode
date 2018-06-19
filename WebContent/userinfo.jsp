@@ -52,7 +52,7 @@
     <input type="submit" value="戻る">
   </form>
   <!-- 退会ボタン -->
-  <form method="POST" onclick="confirmFunction1()">
+  <form onsubmit="confirmFunction1()" method="POST" action="">
     <input type="submit" value="退会する">
   </form>
 </body>
