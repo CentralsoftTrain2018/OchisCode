@@ -10,11 +10,13 @@
 <!-- 退会ボタンに対してアラート表示 -->
 <script>
   function confirmFunction1() {
-    var message = "本当に退会しますか？";
+    var message = "登録した持ち服、コーデ情報、ユーザー情報はすべて削除されます。\n本当に退会しますか？";
     //「OK」ボタンをクリックした時
     if (confirm(message)) {
       alert("さようなら");
+      return true;
     }
+    return false;
   }
 </script>
 
@@ -52,7 +54,7 @@
     <input type="submit" value="戻る">
   </form>
   <!-- 退会ボタン -->
-  <form onsubmit="confirmFunction1()" method="POST" action="">
+  <form onclick="return confirmFunction1();" method="POST" action="DeleteUserServlet">
     <input type="submit" value="退会する">
   </form>
 </body>
