@@ -27,8 +27,12 @@
 <br><br>
 
 <form method = "POST" action = "NarrowingUsrClothServlet">
-  <select>
-    <option value = "0">絞込み</option>
+  <select name = "narrow">
+    <option value = "">一覧表示</option>
+    <%for (domain.CategoryEnum category : domain.CategoryEnum.values()) {%>
+    <option value = "and category = '<%=category.name() %>'"><%=category.name() %>
+    </option>
+    <%} %>
   </select>
   <input type = "submit" value = "絞込み">
 </form>

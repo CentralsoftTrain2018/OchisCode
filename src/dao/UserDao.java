@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import bean.UserInfoBean;
+import domain.SexEnum;
+import domain.SizeEnum;
 import vo.UserVo;
 
 //ユーザー関連のDao
@@ -53,6 +55,23 @@ public class UserDao extends Dao
             + " sex = ?"
             + " WHERE"
             + " userid = ?";
+
+    //ユーザー情報削除
+    private static final String DELETEUSERSQL = "DELETE"
+            + " FROM"
+            + " user"
+            + " WHERE"
+            + " userid = ? ";
+
+    private static final String GETUSERIDPASSSQL = "SELECT "
+            + " *"
+            + "FROM "
+            + "user "
+            + "where "
+            + "userid = ?"
+            + " AND"
+            + " password = ?";
+
 
     //登録
     public boolean put(UserVo vo) throws SQLException
@@ -118,27 +137,74 @@ public class UserDao extends Dao
         {
             System.out.println( "検索" );
             stmt.setString( 1, vo.getUserId() );
-            System.out.println("検索ID："+vo.getUserId());
+            System.out.println( "検索ID：" + vo.getUserId() );
             ResultSet rset = stmt.executeQuery();
 
             String userId = null;
 
             while (rset.next())
             {
-            userId = rset.getString( 1 );
+                userId = rset.getString( 1 );
             }
 
             if (userId != null)
             {
-                System.out.println("重複");
+                System.out.println( "重複" );
                 return true;
             }
 
-            System.out.println("重複なし");
+            System.out.println( "重複なし" );
             return false;
         } catch (SQLException e)
         {
             throw e;
         }
+    }
+
+    public void deleteUser(String userId) throws SQLException
+    {
+        try (
+                PreparedStatement stmt = con.prepareStatement( DELETEUSERSQL );)
+        {
+            stmt.setString( 1, userId );
+            stmt.executeUpdate();
+        } catch (SQLException e)
+        {
+            throw e;
+        }
+    }
+
+    //ユーザー情報の取得
+    public UserVo checkUser(String user, String password) throws SQLException
+    {
+        try (
+                PreparedStatement stmt = con.prepareStatement( GETUSERIDPASSSQL );)
+        {
+            stmt.setString( 1, user );
+            stmt.setString( 2, password );
+            // System.out.println("検索ID："+user);
+            ResultSet rset = stmt.executeQuery();//sql実行
+
+            UserVo uvo = null;
+
+            while (rset.next())
+            {
+                System.out.println( "a" + rset.getString( 1 ) );
+                uvo = new UserVo(
+                        rset.getString( 1 ),
+                        rset.getString( 2 ),
+                        rset.getInt( 3 ),
+                        SizeEnum.valueOf( rset.getString( 4 ) ),
+                        rset.getInt( 5 ),
+                        SexEnum.valueOf( rset.getString( 6 ) ) );
+
+            }
+
+            return uvo;
+        } catch (SQLException e)
+        {
+            throw e;
+        }
+
     }
 }

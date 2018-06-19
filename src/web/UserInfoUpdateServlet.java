@@ -71,6 +71,7 @@ public class UserInfoUpdateServlet extends HttpServlet
         
         userserv.updateUser(userBean);
 
+
         //セッションにユーザー情報をセット
         session.setAttribute( "userinfobean", userBean );
         //requestにユーザー情報をセット

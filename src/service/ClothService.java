@@ -25,7 +25,7 @@ import vo.UserClothVo;
 public class ClothService
 {
     //持ち服一覧
-    public ListOutUserClothBean userCloth(String userId)
+    public ListOutUserClothBean userCloth(String userId, String narrow)
     {
         UserClothBean bean;
         ListOutUserClothBean listbean;
@@ -34,7 +34,7 @@ public class ClothService
         {
             UserClothDao ucdao = new UserClothDao( con );
             //ユーザーの持ち服一覧をDBから取得
-            Collection<UserClothVo> list = ucdao.getAllUserCloth( userId );
+            Collection<UserClothVo> list = ucdao.getAllUserCloth( userId, narrow );
             listbean = new ListOutUserClothBean();
 
             List<UserClothBean> clothlist = new ArrayList<UserClothBean>();
@@ -158,7 +158,7 @@ public class ClothService
         {
             UserClothDao ucdao = new UserClothDao( con );
             //ユーザーの持ち服一覧をDBから取得
-            Collection<UserClothVo> list = ucdao.getAllUserCloth( userId );
+            Collection<UserClothVo> list = ucdao.getAllUserCloth( userId, "" );
             listbean = new UserSaleClothBean();
             //上下で分けて入れるList
             List<UserClothBean> topClothList = new ArrayList<UserClothBean>();

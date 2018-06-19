@@ -51,7 +51,7 @@ public class UserClothDao extends Dao
                     + "    ?, "
                     + "    ?, "
                     + "    ? "
-                    +")";
+                    +") ";
 
     private static final String DELETE_SQL = "delete "
             + " from"
@@ -60,11 +60,11 @@ public class UserClothDao extends Dao
             + " clothid = ?";
 
     //ユーザーの持ち服一覧をDBから取得し、Listで返す
-    public Collection<UserClothVo> getAllUserCloth(String id) throws SQLException
+    public Collection<UserClothVo> getAllUserCloth(String id, String narrow) throws SQLException
     {
         List<UserClothVo> list = new ArrayList<>();
         try (
-                PreparedStatement stmt = con.prepareStatement( LISTUSERCLOTHES_SQL);)
+                PreparedStatement stmt = con.prepareStatement( LISTUSERCLOTHES_SQL + narrow);)
         {
             stmt.setString( 1, id );
             ResultSet rset = stmt.executeQuery();
