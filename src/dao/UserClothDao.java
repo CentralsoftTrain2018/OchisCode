@@ -102,4 +102,9 @@ public class UserClothDao extends Dao
         }
 
     }
+
+    //持ち服削除
+    public void doDelete(int clothid) {
+
+    }
 }

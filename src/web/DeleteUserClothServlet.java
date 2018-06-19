@@ -36,10 +36,12 @@ public class DeleteUserClothServlet extends HttpServlet {
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
+    //作成者：中村
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int clothid = Integer.parseInt(request.getParameter("clothid"));
         System.out.println(clothid);
         ClothService cs = new ClothService();
+        cs.deleteUserCloth(clothid);
         RequestDispatcher disp = request.getRequestDispatcher( "ListOutUserClotheServlet" );
         disp.forward( request, response );
     }
