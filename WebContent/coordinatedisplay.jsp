@@ -240,7 +240,7 @@
                 <input type="submit" name="cloth"
                   value="<%=code.toString()%>"> </form></li>
                <li><form method="POST" action="DeleteCoordinateServlet">
-               <input type="hidden" name="code" value="<%=code.toString()%>">
+               <input type="hidden" name="code" value="<%=code.getCode_num()%>">
                <input type="submit" value="コーデ削除">
              </form></li>
                 <%

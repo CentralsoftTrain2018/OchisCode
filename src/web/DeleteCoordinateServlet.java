@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import service.CodeService;
-
 /**
  * Servlet implementation class RegistServlet
  */
@@ -43,10 +41,6 @@ public class DeleteCoordinateServlet extends HttpServlet
 
         String Coordinate = request.getParameter("code");
         System.out.println(Coordinate);
-
-        CodeService codeserv = new CodeService();
-
-
 
         RequestDispatcher disp = request.getRequestDispatcher( "/coordinatedisplay" );
         disp.forward( request, response );
