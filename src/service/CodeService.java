@@ -45,13 +45,13 @@ public class CodeService {
 
     //コーデの情報取得
     //作成者<野間>
-    public List<CoordinateBean> coordinateDisplay() {
+    public List<CoordinateBean> coordinateDisplay(String userId) {
         CoordinateBean bean;
         // List<CoordinateBean>  listbean;
         try (
                 Connection con = Dao.getConnection();) {
             SaveCodeDao scdao = new SaveCodeDao(con);
-            Collection<SaveCodeVo> list = scdao.getCodeCloth();
+            Collection<SaveCodeVo> list = scdao.getCodeCloth(userId);
 
             List<CoordinateBean> codelist = new ArrayList<CoordinateBean>();
             for (SaveCodeVo scvo : list) {

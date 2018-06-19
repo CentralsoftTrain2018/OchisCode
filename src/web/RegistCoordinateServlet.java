@@ -23,27 +23,33 @@ import service.CodeService;
  * Servlet implementation class RegistCoordinateServlet
  */
 @WebServlet("/RegistCoordinateServlet")
-public class RegistCoordinateServlet extends HttpServlet {
+public class RegistCoordinateServlet extends HttpServlet
+{
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RegistCoordinateServlet() {
+    public RegistCoordinateServlet()
+    {
         super();
     }
 
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
-  //作成者：中村
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    //コーデ登録
+    //作成者：中村
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
         //プルダウンの値を取得(文字化け対策に文字コード変更)
         request.setCharacterEncoding( "utf-8" );
 
-      //sessionでユーザの情報を取得
+        //sessionでユーザの情報を取得
         HttpSession session = request.getSession();
         UserInfoBean userBean = (UserInfoBean) session.getAttribute( "userinfobean" );
+
+        String userId = userBean.getUserid();
 
         CoordinateDisplayBean bean = new CoordinateDisplayBean();
 
@@ -57,11 +63,14 @@ public class RegistCoordinateServlet extends HttpServlet {
         bean.setBottomSize( SizeEnum.valueOf( request.getParameter( "bottomsize" ) ) );
 
         CodeService codeserv = new CodeService();
-        codeserv.registCoordinate(userBean.getUserid(), bean);
+        //コーデ登録
+        codeserv.registCoordinate( userBean.getUserid(), bean );
 
-        ClothService cserv =new ClothService();
-        bean.setUscbean(cserv.userSaleCloth(userBean.getUserid()));
-        bean.setList(codeserv.coordinateDisplay());
+        ClothService cserv = new ClothService();
+
+        //コーデ画面で必要な情報を取得
+        bean.setUscbean( cserv.userSaleCloth( userId ) );
+        bean.setList( codeserv.coordinateDisplay( userId ) );
 
         request.setAttribute( "bean", bean );
 
@@ -72,8 +81,9 @@ public class RegistCoordinateServlet extends HttpServlet {
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-         doGet( request, response );
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
+        doGet( request, response );
     }
 
 }

@@ -47,7 +47,7 @@ public class CoordinateServlet extends HttpServlet
         ClothService cserv =new ClothService();
         CodeService codeserv = new CodeService();
 
-      //sessionでユーザの情報を取得
+        //sessionでユーザの情報を取得
         HttpSession session = request.getSession();
         UserInfoBean userBean = (UserInfoBean) session.getAttribute( "userinfobean" );
 
@@ -56,16 +56,18 @@ public class CoordinateServlet extends HttpServlet
         bean.setTopColor( ColorEnum.白 );
         bean.setTopPattern( PatternEnum.無地 );
         bean.setTopSize( SizeEnum.M );
+
         //デフォルトの服をセット(下)
         bean.setBottomCategory( CategoryEnum.半ズボン );
         bean.setBottomColor( ColorEnum.黒 );
         bean.setBottomPattern( PatternEnum.無地 );
         bean.setBottomSize( SizeEnum.M );
-        //TODO 持ち服を上下に分けて取得
-        bean.setUscbean(cserv.userSaleCloth(userBean.getUserid()));
-        //コーデ情報を取得
 
-        bean.setList(codeserv.coordinateDisplay());
+        //持ち服を上下に分けて取得
+        bean.setUscbean(cserv.userSaleCloth(userBean.getUserid()));
+
+        //コーデ情報を取得
+        bean.setList(codeserv.coordinateDisplay(userBean.getUserid()));
 
         request.setAttribute( "bean", bean );
         RequestDispatcher disp = request.getRequestDispatcher( "/coordinatedisplay.jsp" );

@@ -51,6 +51,8 @@ public class ChangeUserSaleClothServlet extends HttpServlet
         HttpSession session = request.getSession();
         UserInfoBean userBean = (UserInfoBean) session.getAttribute( "userinfobean" );
 
+        String userId = userBean.getUserid();
+
         //プルダウンで選択された上下服の情報を取得
         String topclothstr = request.getParameter( "topcloth" );
         String bottomclothstr = request.getParameter( "bottomcloth" );
@@ -91,10 +93,12 @@ public class ChangeUserSaleClothServlet extends HttpServlet
         bean.setBottomPattern( PatternEnum.valueOf( bottomcloth[1] ) );
         bean.setBottomSize( SizeEnum.valueOf( bottomcloth[3] ) );
 
-        bean.setUscbean( cserv.userSaleCloth( userBean.getUserid() ) );
+        //持ち服を上下に分けて取得
+        bean.setUscbean( cserv.userSaleCloth( userId ) );
 
         CodeService codeserv = new CodeService();
-        bean.setList(codeserv.coordinateDisplay());
+        //コーデ一覧を取得
+        bean.setList(codeserv.coordinateDisplay(userId));
 
         request.setAttribute( "bean", bean );
 

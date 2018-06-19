@@ -48,6 +48,8 @@ public class ChangeSelectCodeServlet extends HttpServlet
         HttpSession session = request.getSession();
         UserInfoBean userBean = (UserInfoBean) session.getAttribute( "userinfobean" );
 
+        String userId = userBean.getUserid();
+
         //プルダウンで選択された上下服の情報を取得
         String clothstr = request.getParameter( "cloth" );
 
@@ -87,8 +89,10 @@ public class ChangeSelectCodeServlet extends HttpServlet
         bean.setBottomCategory( CategoryEnum.valueOf( cloth[6] ) );
         bean.setBottomSize( SizeEnum.valueOf( cloth[7] ) );
 
-        bean.setUscbean( cserv.userSaleCloth( userBean.getUserid() ) );
-        bean.setList(codeserv.coordinateDisplay());
+        //上下のリスト
+        bean.setUscbean( cserv.userSaleCloth( userId ) );
+        //コーデリスト
+        bean.setList(codeserv.coordinateDisplay(userId));
         request.setAttribute( "bean", bean );
 
         RequestDispatcher disp = request.getRequestDispatcher( "/coordinatedisplay.jsp" );

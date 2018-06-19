@@ -25,7 +25,9 @@ public class SaveCodeDao extends Dao{
     private static final String CoordinateOut_SQL =
             "select *"
                     + "from"
-                    + " save_code";
+                    + " save_code"
+                    + " WHERE"
+                    + " userid = ?";
 
     //作成者：中村
     //DBに服の情報を登録する
@@ -64,7 +66,7 @@ public class SaveCodeDao extends Dao{
 
 
     //コーデの服情報の取り出し
-    public List<SaveCodeVo> getCodeCloth()throws SQLException
+    public List<SaveCodeVo> getCodeCloth(String userId)throws SQLException
     {
         List<SaveCodeVo> list = new ArrayList<>();
         PreparedStatement stmt = null;
@@ -72,6 +74,7 @@ public class SaveCodeDao extends Dao{
 
             /* Statementの作成 */
             stmt = con.prepareStatement(CoordinateOut_SQL);
+            stmt.setString( 1, userId );
             rset = stmt.executeQuery();
             while(rset.next())
             {

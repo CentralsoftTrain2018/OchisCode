@@ -49,6 +49,8 @@ public class ChangeCoordinateClothServlet extends HttpServlet
         HttpSession session = request.getSession();
         UserInfoBean userBean = (UserInfoBean) session.getAttribute( "userinfobean" );
 
+        String userId = userBean.getUserid();
+
         String colorStr = request.getParameter( "color" );
         String patternStr = request.getParameter( "pattern" );
         String categoryStr = request.getParameter( "category" );
@@ -83,11 +85,13 @@ public class ChangeCoordinateClothServlet extends HttpServlet
             bean.setBottomSize( SizeEnum.valueOf( sizeStr ) );
         }
 
+        //上下一覧
         ClothService cserv =new ClothService();
-        bean.setUscbean(cserv.userSaleCloth(userBean.getUserid()));
+        bean.setUscbean(cserv.userSaleCloth(userId));
 
+        //コーデ一覧取得
         CodeService codeserv = new CodeService();
-        bean.setList(codeserv.coordinateDisplay());
+        bean.setList(codeserv.coordinateDisplay(userId));
 
         request.setAttribute( "bean", bean );
 
