@@ -51,6 +51,7 @@ public class UserDao extends Dao
             + " WHERE"
             + " userid = ? ";
 
+    //ユーザー認証用SQL文
     private static final String GETUSERIDPASSSQL = "SELECT "
             + " *"
             + "FROM "
