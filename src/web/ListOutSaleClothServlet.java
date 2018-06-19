@@ -58,8 +58,8 @@ public class ListOutSaleClothServlet extends HttpServlet
 
         ClothService cs = new ClothService();
         String order="clothid DESC";//並び替えのプルダウン初期値→新着順
-        ListOutUserClothBean ucbean = cs.userCloth(userBean.getUserid(), "");
 
+        ListOutUserClothBean ucbean = cs.userCloth(userBean.getUserid(), "", "", "");
         ListSaleClothBean rcbean = cs.getSaleCloth(userBean.getUserid(), " price < 0 ", order);
 
         SaleClothDisplayBean bean = new SaleClothDisplayBean();

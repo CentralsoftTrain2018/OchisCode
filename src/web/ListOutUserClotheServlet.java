@@ -45,7 +45,7 @@ public class ListOutUserClotheServlet extends HttpServlet
         HttpSession session = request.getSession();
         UserInfoBean userBean = (UserInfoBean) session.getAttribute( "userinfobean" );
 
-        bean = cserv.userCloth( userBean.getUserid(), "" );//userIdは定数
+        bean = cserv.userCloth( userBean.getUserid(), "", "", "");//userIdは定数
 
         request.setAttribute( "bean", bean );
         RequestDispatcher disp = request.getRequestDispatcher( "/listoutusercloth.jsp" );

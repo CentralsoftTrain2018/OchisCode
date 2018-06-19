@@ -66,7 +66,7 @@ public class LoginServlet extends HttpServlet
         ClothService cserv = new ClothService();
         ListOutUserClothBean bean;
 
-        bean = cserv.userCloth( userBean.getUserid(), "" );//userIdは定数
+        bean = cserv.userCloth( userBean.getUserid(), "", "", "");//userIdは定数
         session.setAttribute("userclothbean", bean);
 
         session.setAttribute( "userinfobean", userBean );
