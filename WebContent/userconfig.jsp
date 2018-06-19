@@ -67,8 +67,8 @@ function onLoad()
       <tr>
         <td>性別：</td>
         <td><%=bean.getSex().name()%></td>
-        <td><input name="sex" type="radio" value="男">男<input
-          name="sex" type="radio" value="女">女</td>
+        <td><input name="sex" type="radio" value="男" <%if(bean.getSex(  ).name().equals( "男" )){ %> checked="checked" <%} %>>男
+        <input name="sex" type="radio" value="女" <%if(bean.getSex(  ).name().equals( "女" )){ %> checked="checked" <%} %>>女</td>
       </tr>
     </table>
     <input type="submit" value="登録情報変更">
