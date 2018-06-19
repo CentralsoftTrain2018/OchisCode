@@ -47,7 +47,8 @@
           </div>
         </td>
         <td>
-           <form>
+           <form method = "POST" action = "DeleteUserClothServlet">
+             <input type = "hidden" name = "clothid" value = <%=record.getClothid()%>>
              <input type="submit" value="削除">
            </form>
         </td>
