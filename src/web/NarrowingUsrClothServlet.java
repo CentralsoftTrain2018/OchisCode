@@ -30,11 +30,13 @@ public class NarrowingUsrClothServlet extends HttpServlet {
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding( "utf-8" );
         ListOutUserClothBean bean = new ListOutUserClothBean();
 
         ClothService cserv = new ClothService();
 
-        bean = cserv.userCloth( "user" );//userIdは定数
+        String narrow = request.getParameter("narrow");
+        bean = cserv.userCloth( "user", narrow );//userIdは定数
 
         request.setAttribute( "bean", bean );
         RequestDispatcher disp = request.getRequestDispatcher( "/listoutusercloth.jsp" );
