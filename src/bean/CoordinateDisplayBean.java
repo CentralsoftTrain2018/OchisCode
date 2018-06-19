@@ -6,6 +6,7 @@ import java.util.List;
 import domain.CategoryEnum;
 import domain.ColorEnum;
 import domain.PatternEnum;
+import domain.SexEnum;
 import domain.SizeEnum;
 
 //コーディネイト画面用Bean
@@ -24,6 +25,9 @@ public class CoordinateDisplayBean
     private SizeEnum bottomSize;
 
     private  List<CoordinateBean> list =new ArrayList<CoordinateBean>();
+
+    //モデル表示用の性別
+    private SexEnum sex;
 
     public List<CoordinateBean> getList() {
         return list;
@@ -129,4 +133,15 @@ public class CoordinateDisplayBean
     {
         this.uscbean = uscbean;
     }
+
+    public SexEnum getSex()
+    {
+        return sex;
+    }
+
+    public void setSex(SexEnum sex)
+    {
+        this.sex = sex;
+    }
+
 }

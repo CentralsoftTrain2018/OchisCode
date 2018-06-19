@@ -7,32 +7,33 @@ import java.util.List;
 public class ListOutUserClothBean
 {
 
-       private  List<UserClothBean> list =new ArrayList<UserClothBean>();
+    private List<UserClothBean> list = new ArrayList<UserClothBean>();
 
-        public ListOutUserClothBean()
+    public ListOutUserClothBean()
+    {
+
+    }
+
+    public List<UserClothBean> getList()
+    {
+        return list;
+    }
+
+    public void setList(List<UserClothBean> list)
+    {
+        this.list = list;
+    }
+
+    public UserClothBean getSelectedCloth(int clothid)
+    {
+        for (UserClothBean uc : list)
         {
-
-        }
-
-        public List<UserClothBean> getList()
-        {
-            return list;
-        }
-
-        public void setList(List<UserClothBean> list)
-        {
-            this.list = list;
-        }
-
-        public UserClothBean getSelectedCloth(int clothid) {
-            for(UserClothBean uc : list) {
-                if(uc.getClothid() == clothid) {
-                    return uc;
-                }
+            if (uc.getClothid() == clothid)
+            {
+                return uc;
             }
-            return null;
         }
-
-
+        return null;
+    }
 
 }

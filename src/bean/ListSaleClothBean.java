@@ -6,7 +6,7 @@ import java.util.List;
 //販売服のリスト
 public class ListSaleClothBean
 {
-    private List<SaleClothBean> list =new ArrayList<>();
+    private List<SaleClothBean> list = new ArrayList<>();
 
     public ListSaleClothBean()
     {
@@ -22,9 +22,9 @@ public class ListSaleClothBean
         this.list = list;
     }
 
-
     @Override
-    public String toString() {
+    public String toString()
+    {
         return "ListOutRecomClothBean [list=" + list + "]";
     }
 }
