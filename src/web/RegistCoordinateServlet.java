@@ -62,6 +62,9 @@ public class RegistCoordinateServlet extends HttpServlet
         bean.setBottomPattern( PatternEnum.valueOf( request.getParameter( "bottompattern" ) ) );
         bean.setBottomSize( SizeEnum.valueOf( request.getParameter( "bottomsize" ) ) );
 
+        //性別を取得
+        bean.setSex(userBean.getSex());
+
         CodeService codeserv = new CodeService();
         //コーデ登録
         codeserv.registCoordinate( userBean.getUserid(), bean );

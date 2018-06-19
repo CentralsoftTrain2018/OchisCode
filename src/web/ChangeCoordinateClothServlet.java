@@ -84,7 +84,8 @@ public class ChangeCoordinateClothServlet extends HttpServlet
             bean.setBottomPattern( PatternEnum.valueOf( patternStr ) );
             bean.setBottomSize( SizeEnum.valueOf( sizeStr ) );
         }
-
+        //性別を取得
+        bean.setSex(userBean.getSex());
         //上下一覧
         ClothService cserv =new ClothService();
         bean.setUscbean(cserv.userSaleCloth(userId));
