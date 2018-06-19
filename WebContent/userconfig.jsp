@@ -18,7 +18,7 @@ function onLoad()
     {
         for(i = 0; i < elms.options.length; i++)
         {
-            if (elms.options[i].value == <%=bean.getSize().name()%> )
+            if (elms.options[i].value == "<%=bean.getSize().name()%>" )
             {
               elms[i].selected = true;
             }
@@ -48,7 +48,7 @@ function onLoad()
       <tr>
         <td>服のサイズ：</td>
         <td><%=bean.getSize().name()%></td>
-        <td><select name="size">
+        <td><select id = "size" name="size">
             <%
               for (SizeEnum se : SizeEnum.values())
               {
