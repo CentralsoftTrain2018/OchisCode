@@ -8,6 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import bean.UserInfoBean;
+import domain.SexEnum;
+import domain.SizeEnum;
 
 /**
  * ログイン用サーブレット
@@ -32,14 +37,23 @@ public class LoginServlet extends HttpServlet
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         System.out.println( "ログインサーブレット" );
+        HttpSession session = request.getSession();
         //入力情報の取得
         String userid = request.getParameter( "userid" );
         String password = request.getParameter( "password" );
         //TODO サービスへID,パスを渡す
 
         //TODO 結果に応じて遷移先を変更
+        UserInfoBean userBean = new UserInfoBean();
 
+        userBean.setUserid( "user" );
+        userBean.setPassword( "user" );
+        userBean.setUserheight( 170 );
+        userBean.setSize( SizeEnum.M );
+        userBean.setBudget( 50000 );
+        userBean.setSex( SexEnum.男 );
 
+        session.setAttribute( "userinfobean", userBean );
         //持ち服一覧へ遷移
 
         RequestDispatcher disp = request.getRequestDispatcher( "ListOutSaleClothServlet" );

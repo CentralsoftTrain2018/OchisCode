@@ -144,6 +144,9 @@
               height="<%=bean.getBottomSize().getHeight()%>" />
             </div>
           </div>
+          <form method="POST" action="UserInfoServlet">
+          <input type="submit" value="ユーザー情報">
+          </form>
         </div>
 
         <!-- 右側プルダウン、画像表示部分 -->

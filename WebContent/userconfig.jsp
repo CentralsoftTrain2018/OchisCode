@@ -18,7 +18,7 @@ function onLoad()
     {
         for(i = 0; i < elms.options.length; i++)
         {
-            if (elms.options[i].value == "<%=bean.getSize().name()%>")
+            if (elms.options[i].value == <%=bean.getSize().name()%> )
             {
               elms[i].selected = true;
             }
@@ -27,9 +27,9 @@ function onLoad()
 }
 </script>
 
-<body onload="onLoad()">
+<body onload="onLoad();">
   変更する値を入力してください。
-  <form method="POST" action="">
+  <form method="POST" action="UserInfoUpdateServlet">
     <table>
       <tr>
         <td>項目</td>
@@ -53,10 +53,7 @@ function onLoad()
               for (SizeEnum se : SizeEnum.values())
               {
             %>
-            <option value="<%=se.name()%>"
-              <%if (bean.getSize().name() == se.name())
-        {
-        }%>><%=se%></option>
+            <option value="<%=se.name()%>"><%=se%></option>
             <%
               }
             %>

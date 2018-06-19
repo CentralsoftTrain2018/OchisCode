@@ -41,7 +41,7 @@
     </tr>
   </table>
   <!-- 登録情報変更ボタン -->
-  <form method="POST" action="UserInfoServlet">
+  <form method="POST" action="UserConfigServlet">
     <input type="submit" value="ユーザー情報を変更する">
   </form>
   <!-- おすすめ表示に戻る -->
