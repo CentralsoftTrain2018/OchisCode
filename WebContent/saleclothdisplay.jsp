@@ -104,6 +104,7 @@
         </div>
         <div class="button">
           <form method="POST" action="ListOutUserClotheServlet">
+            <input type = "hidden" name = "page" value = 1>
             <input type="submit" value="所有服一覧へ">
           </form>
         </div>

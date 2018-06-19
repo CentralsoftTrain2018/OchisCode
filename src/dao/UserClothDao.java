@@ -64,7 +64,7 @@ public class UserClothDao extends Dao
     {
         List<UserClothVo> list = new ArrayList<>();
         try (
-                PreparedStatement stmt = con.prepareStatement( LISTUSERCLOTHES_SQL + narrow + offset);)
+                PreparedStatement stmt = con.prepareStatement( LISTUSERCLOTHES_SQL + narrow + limit + offset);)
         {
             stmt.setString( 1, id );
             ResultSet rset = stmt.executeQuery();

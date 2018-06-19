@@ -38,14 +38,19 @@
 </form>
 
 <br><br>
-件数：<%=bean.getList().size() %>
-<form>
+<%if(bean.getPage() != 1) {%>
+<form method="POST" action="ListOutUserClotheServlet">
+<input type = "hidden" name = "page" value = <%=bean.getPage() - 1 %>>
 <input type = "submit" value = "前のページへ">
 </form>
-現在のページ：
-<form>
+<%} %>
+現在のページ：<%=bean.getPage() %>
+<%if(bean.getList().size() == 5) {%>
+<form method="POST" action="ListOutUserClotheServlet">
+<input type = "hidden" name = "page" value = <%=bean.getPage() + 1 %>>
 <input type = "submit" value = "次のページへ">
 </form>
+<%} %>
 <table border="1">
     <tbody>
       <%for(UserClothBean record : bean.getList()) {%>

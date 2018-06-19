@@ -37,16 +37,19 @@ public class ListOutUserClotheServlet extends HttpServlet
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-
-        ListOutUserClothBean bean ;
+        ListOutUserClothBean bean;
 
         ClothService cserv = new ClothService();
 
         HttpSession session = request.getSession();
         UserInfoBean userBean = (UserInfoBean) session.getAttribute( "userinfobean" );
 
-        bean = cserv.userCloth( userBean.getUserid(), "", "", "");//userIdは定数
+        int page = Integer.parseInt(request.getParameter("page"));
+        int offsetnum = 5 * (page - 1);
+        String offset = " offset " + offsetnum + " ";
 
+        bean = cserv.userCloth( userBean.getUserid(), "", " limit 5 ", offset);//userIdは定数
+        bean.setPage(page);
         request.setAttribute( "bean", bean );
         RequestDispatcher disp = request.getRequestDispatcher( "/listoutusercloth.jsp" );
         disp.forward( request, response );
