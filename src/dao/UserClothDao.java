@@ -53,6 +53,12 @@ public class UserClothDao extends Dao
                     + "    ? "
                     +")";
 
+    private static final String DELETE_SQL = "delete "
+            + " from"
+            + " user_cloth"
+            + " where"
+            + " clothid = ?";
+
     //ユーザーの持ち服一覧をDBから取得し、Listで返す
     public Collection<UserClothVo> getAllUserCloth(String id) throws SQLException
     {
@@ -104,7 +110,16 @@ public class UserClothDao extends Dao
     }
 
     //持ち服削除
-    public void doDelete(int clothid) {
+    public void doDelete(int clothid) throws SQLException {
+        try (
+                PreparedStatement stmt = con.prepareStatement( DELETE_SQL);)
+        {
+            stmt.setInt(1, clothid);
+            int i =stmt.executeUpdate();
 
+        }catch (SQLException e)
+        {
+            throw e;
+        }
     }
 }
