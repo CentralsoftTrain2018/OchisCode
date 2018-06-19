@@ -64,6 +64,7 @@ public class CodeService {
                 bean.setBottomCategory(scvo.getBottomscategory());
                 bean.setBottomPattern(scvo.getBottomspattern());
                 bean.setBottomSize(scvo.getBottomssize());
+                bean.setCode_num(scvo.getCodenum());
 
                 codelist.add(bean);
             }
