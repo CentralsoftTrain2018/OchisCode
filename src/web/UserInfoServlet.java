@@ -8,7 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import bean.UserInfoBean;
 
@@ -36,8 +35,10 @@ public class UserInfoServlet extends HttpServlet
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         //セッションからユーザー情報を取得
-        HttpSession session = request.getSession();
+        //HttpSession session = request.getSession();
         UserInfoBean userBean = (UserInfoBean)request.getSession().getAttribute("userinfobean");
+
+        //requestにユーザー情報のbeanをセット
         request.setAttribute( "bean", userBean );
 
         //ユーザー情報表示へ遷移

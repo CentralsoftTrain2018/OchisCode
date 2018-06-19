@@ -2,6 +2,7 @@ package web;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import bean.UserInfoBean;
+import domain.SexEnum;
 import domain.SizeEnum;
 
 /**
@@ -42,18 +44,36 @@ public class UserInfoUpdateServlet extends HttpServlet
         String sexStr = request.getParameter( "sex" );
 
         HttpSession session = request.getSession();
-        UserInfoBean userBean = (UserInfoBean) request.getSession().getAttribute( "userinfobean" );
+        UserInfoBean userBean = (UserInfoBean) session.getAttribute( "userinfobean" );
 
+        //入力があったかどうかの確認を行い、入力があった場合はユーザー情報のBeanの値を更新
+        //身長
         if (userheightStr != null)
         {
             userBean.setUserheight( Integer.parseInt( userheightStr ) );
         }
-
-        if (sizeStr != null)
+        //性別
+        userBean.setSize( SizeEnum.valueOf( sizeStr ) );
+        //予算
+        if (budgetStr != null)
         {
-            userBean.setSize( SizeEnum.valueOf( sizeStr ) );
+            userBean.setBudget( Integer.parseInt( budgetStr ) );
         }
-        //TODO 以降のnullチェック
+        //性別
+        if (sexStr != null)
+        {
+            userBean.setSex( SexEnum.valueOf( sexStr ) );
+        }
+
+        //TODO サービス層へデータを受け渡し、DBを更新する
+
+        //セッションにユーザー情報をセット
+        session.setAttribute( "userinfobean", userBean );
+        //requestにユーザー情報をセット
+        request.setAttribute( "bean", userBean );
+        //ユーザー情報表示へ遷移
+        RequestDispatcher disp = request.getRequestDispatcher( "/userinfo.jsp" );
+        disp.forward( request, response );
     }
 
     /**

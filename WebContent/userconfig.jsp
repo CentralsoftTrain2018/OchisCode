@@ -8,7 +8,26 @@
 <meta charset="UTF-8">
 <title>登録情報変更</title>
 </head>
-<body>
+
+<!-- プルダウンのデフォルト値変更 -->
+<script type="text/javascript">
+function onLoad()
+{
+  var elms = document.getElementById("size");
+    if (elms)
+    {
+        for(i = 0; i < elms.options.length; i++)
+        {
+            if (elms.options[i].value == "<%=bean.getSize().name()%>")
+            {
+              elms[i].selected = true;
+            }
+        }
+    }
+}
+</script>
+
+<body onload="onLoad()">
   変更する値を入力してください。
   <form method="POST" action="">
     <table>
@@ -24,17 +43,20 @@
       <tr>
         <td>身長：</td>
         <td><%=bean.getUserheight()%></td>
-        <td><input name="userheight" type="number" required="required"></td>
+        <td><input name="userheight" type="number"></td>
       </tr>
       <tr>
         <td>服のサイズ：</td>
         <td><%=bean.getSize().name()%></td>
-        <td><select name="size" required="required">
+        <td><select name="size">
             <%
               for (SizeEnum se : SizeEnum.values())
               {
             %>
-            <option value="<%=se.name()%>"><%=se%></option>
+            <option value="<%=se.name()%>"
+              <%if (bean.getSize().name() == se.name())
+        {
+        }%>><%=se%></option>
             <%
               }
             %>
@@ -43,12 +65,12 @@
       <tr>
         <td>予算：</td>
         <td><%=bean.getBudget()%></td>
-        <td><input name="budget" type="number" required="required"></td>
+        <td><input name="budget" type="number"></td>
       </tr>
       <tr>
         <td>性別：</td>
         <td><%=bean.getSex().name()%></td>
-        <td><input name="sex" type="radio" checked="checked" value="男">男<input
+        <td><input name="sex" type="radio" value="男">男<input
           name="sex" type="radio" value="女">女</td>
       </tr>
     </table>
