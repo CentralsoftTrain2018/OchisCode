@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import bean.UserInfoBean;
 import vo.UserVo;
 
 //ユーザー関連のDao
@@ -42,6 +43,17 @@ public class UserDao extends Dao
             + "where "
             + "userid = ?";
 
+    //ユーザ変更用SQL文
+    private static final String UPDATEUSERSQL = "UPDATE "
+            + " user"
+            + " SET"
+            + " height = ?,"
+            + " size = ?,"
+            + " budget = ?,"
+            + " sex = ?"
+            + " WHERE"
+            + " userid = ?";
+
     //登録
     public boolean put(UserVo vo) throws SQLException
     {
@@ -73,8 +85,28 @@ public class UserDao extends Dao
     }
 
     //変更
-    public void update() throws SQLException
+    public void update(UserInfoBean userBean) throws SQLException
     {
+        try (
+                PreparedStatement stmt = con.prepareStatement( UPDATEUSERSQL );)
+        {
+            stmt.setInt(1, userBean.getUserheight());
+            stmt.setString(2, userBean.getSize().name());
+            stmt.setInt(3, userBean.getBudget());
+            stmt.setString(4, userBean.getSex().name());
+
+            stmt.setString(5, userBean.getUserid());
+            int numline = stmt.executeUpdate();
+            //numlineの値が1かを確認
+            if(numline != 1)
+            {
+                 //1以外の場合RunTimeExceptionをnewしてthrow
+                RuntimeException run = new RuntimeException("userIDがヒットしませんでした。");
+                throw run;
+            }
+
+        }
+
 
     }
 
