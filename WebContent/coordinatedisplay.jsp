@@ -28,6 +28,10 @@
     {
       document.getElementById("ochiface").src = "./images/ochi_smile.PNG";
     }
+    function changeOchiFaceNonSmile()
+    {
+      document.getElementById("ochiface").src = "./images/ochi's.png";
+    }
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>コーデ画面</title>
@@ -71,7 +75,7 @@
 
       <div class="model">
         <div class="flame">
-          <input type="radio" name="sexradio" onclick="changeOchiFaceMan()" />男
+          <input type="radio" name="sexradio" onclick="changeOchiFaceMan()" checked="checked" />男
           <input type="radio" name="sexradio" onclick="changeOchiFaceWoman()" />女
           <!-- 越智くんの顔 -->
           <div class="relative">
