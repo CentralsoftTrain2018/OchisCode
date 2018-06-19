@@ -46,7 +46,7 @@ public class LoginServlet extends HttpServlet
         //TODO 結果に応じて遷移先を変更
         UserInfoBean userBean = new UserInfoBean();
 
-        userBean.setUserid( "user" );
+        userBean.setUserid( "chikuwa" );
         userBean.setPassword( "user" );
         userBean.setUserheight( 170 );
         userBean.setSize( SizeEnum.M );

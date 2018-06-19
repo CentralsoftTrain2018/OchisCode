@@ -67,6 +67,7 @@ public class UserInfoUpdateServlet extends HttpServlet
 
         //TODO サービス層へデータを受け渡し、DBを更新する
 
+
         //セッションにユーザー情報をセット
         session.setAttribute( "userinfobean", userBean );
         //requestにユーザー情報をセット

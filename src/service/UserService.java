@@ -52,6 +52,7 @@ public class UserService
                 Connection con = Dao.getConnection();)
         {
             UserDao userDao = new UserDao( con );
+            userDao.deleteUser( userId );
 
         } catch (SQLException e)
         {

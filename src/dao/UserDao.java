@@ -42,6 +42,13 @@ public class UserDao extends Dao
             + "where "
             + "userid = ?";
 
+    //ユーザー情報削除
+    private static final String DELETEUSERSQL = "DELETE"
+            + " FROM"
+            + " user"
+            + " WHERE"
+            + " userid = ? ";
+
     //登録
     public boolean put(UserVo vo) throws SQLException
     {
@@ -86,24 +93,37 @@ public class UserDao extends Dao
         {
             System.out.println( "検索" );
             stmt.setString( 1, vo.getUserId() );
-            System.out.println("検索ID："+vo.getUserId());
+            System.out.println( "検索ID：" + vo.getUserId() );
             ResultSet rset = stmt.executeQuery();
 
             String userId = null;
 
             while (rset.next())
             {
-            userId = rset.getString( 1 );
+                userId = rset.getString( 1 );
             }
 
             if (userId != null)
             {
-                System.out.println("重複");
+                System.out.println( "重複" );
                 return true;
             }
 
-            System.out.println("重複なし");
+            System.out.println( "重複なし" );
             return false;
+        } catch (SQLException e)
+        {
+            throw e;
+        }
+    }
+
+    public void deleteUser(String userId) throws SQLException
+    {
+        try (
+                PreparedStatement stmt = con.prepareStatement( DELETEUSERSQL );)
+        {
+            stmt.setString( 1, userId );
+            stmt.executeUpdate();
         } catch (SQLException e)
         {
             throw e;
