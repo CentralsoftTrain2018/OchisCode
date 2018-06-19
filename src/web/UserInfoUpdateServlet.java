@@ -49,26 +49,26 @@ public class UserInfoUpdateServlet extends HttpServlet
 
         //入力があったかどうかの確認を行い、入力があった場合はユーザー情報のBeanの値を更新
         //身長
-        if (userheightStr != null)
+        if (userheightStr != "")
         {
             userBean.setUserheight( Integer.parseInt( userheightStr ) );
         }
         //性別
         userBean.setSize( SizeEnum.valueOf( sizeStr ) );
         //予算
-        if (budgetStr != null)
+        if (budgetStr != "")
         {
             userBean.setBudget( Integer.parseInt( budgetStr ) );
         }
         //性別
-        if (sexStr != null)
+        if (sexStr != "")
         {
             userBean.setSex( SexEnum.valueOf( sexStr ) );
         }
 
         //TODO サービス層へデータを受け渡し、DBを更新する
         UserService userserv = new UserService();
-        
+
         userserv.updateUser(userBean);
 
 

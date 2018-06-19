@@ -8,7 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import bean.UserInfoBean;
 import domain.CategoryEnum;
 import domain.ColorEnum;
 import domain.PatternEnum;
@@ -39,6 +41,11 @@ public class RegistUserClothServlet extends HttpServlet
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         request.setCharacterEncoding( "utf-8" );
+
+      //sessionでユーザの情報を取得
+        HttpSession session = request.getSession();
+        UserInfoBean userBean = (UserInfoBean) session.getAttribute( "userinfobean" );
+
         //値の取り出し
         String color = request.getParameter( "color" );
         String pattern = request.getParameter( "pattern" );
@@ -46,7 +53,7 @@ public class RegistUserClothServlet extends HttpServlet
         String size = request.getParameter( "size" );
 
         //TODO コネクションからID取得
-        String id="user";
+        String id = userBean.getUserid();
 
         ClothService cloth = new ClothService();
 

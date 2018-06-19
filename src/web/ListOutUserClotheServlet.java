@@ -8,8 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import bean.ListOutUserClothBean;
+import bean.UserInfoBean;
 import service.ClothService;
 
 //import bean.UserClothBean;
@@ -36,11 +38,14 @@ public class ListOutUserClotheServlet extends HttpServlet
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
 
-        ListOutUserClothBean bean = new ListOutUserClothBean();
+        ListOutUserClothBean bean ;
 
         ClothService cserv = new ClothService();
 
-        bean = cserv.userCloth( "user", "" );//userIdは定数
+        HttpSession session = request.getSession();
+        UserInfoBean userBean = (UserInfoBean) session.getAttribute( "userinfobean" );
+
+        bean = cserv.userCloth( userBean.getUserid(), "" );//userIdは定数
 
         request.setAttribute( "bean", bean );
         RequestDispatcher disp = request.getRequestDispatcher( "/listoutusercloth.jsp" );

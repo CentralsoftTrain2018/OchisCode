@@ -8,11 +8,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import bean.ListOutUserClothBean;
 import bean.ListSaleClothBean;
 import bean.SaleClothDisplayBean;
 import bean.UserClothBean;
+import bean.UserInfoBean;
 import domain.CategoryEnum;
 import domain.ColorEnum;
 import domain.JougeEnum;
@@ -53,12 +55,16 @@ public class SaleClothDisplayServlet extends HttpServlet
     {
         request.setCharacterEncoding( "utf-8" );
 
+      //sessionでユーザの情報を取得
+        HttpSession session = request.getSession();
+        UserInfoBean userBean = (UserInfoBean) session.getAttribute( "userinfobean" );
+
         int clothid = Integer.parseInt(request.getParameter("usercloth"));
         String minmax = request.getParameter("narrow");
         String orderStr=request.getParameter("sort");
 
         ClothService cs = new ClothService();
-        ListOutUserClothBean ucbean = cs.userCloth("user", "");
+        ListOutUserClothBean ucbean = cs.userCloth(userBean.getUserid(), "");
         UserClothBean selecteduc = ucbean.getSelectedCloth(clothid);
 
         ListSaleClothBean rcbean = cs.getSelectedSaleCloth(clothid, minmax ,orderStr);
