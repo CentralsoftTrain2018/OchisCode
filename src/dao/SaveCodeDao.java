@@ -112,7 +112,7 @@ public class SaveCodeDao extends Dao{
         int i =stmt.executeUpdate();
     }
 
-
+    //引数で指定された番号のコーデを削除する
     public void deleteCode(int code_number)throws SQLException
     {
         PreparedStatement stmt=null;

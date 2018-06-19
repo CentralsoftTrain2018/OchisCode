@@ -19,7 +19,17 @@ public class CoordinateBean
     private PatternEnum bottomPattern;
     private SizeEnum bottomSize;
 
+    //コーデ削除用
+    private int code_num;
 
+    public int getCode_num()
+    {
+        return code_num;
+    }
+    public void setCode_num(int code_num)
+    {
+        this.code_num = code_num;
+    }
     public CategoryEnum getTopCategory() {
         return topCategory;
     }
