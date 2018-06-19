@@ -7,6 +7,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>ユーザー情報</title>
 </head>
+<!-- 退会ボタンに対してアラート表示 -->
+<script>
+  function confirmFunction1() {
+    var message = "本当に退会しますか？";
+    //「OK」ボタンをクリックした時
+    if (confirm(message)) {
+      alert("さようなら");
+    }
+  }
+</script>
+
 <body>
   <!-- ユーザー情報表示 -->
   <table>
@@ -16,28 +27,20 @@
     </tr>
     <tr>
       <td>身長：</td>
-      <td>
-        <%=bean.getUserheight(  )%>
-      </td>
+      <td><%=bean.getUserheight()%></td>
     </tr>
     <tr>
 
       <td>服のサイズ：</td>
-      <td>
-        <%=bean.getSize().name()%>
-      </td>
+      <td><%=bean.getSize().name()%></td>
     </tr>
     <tr>
       <td>予算：</td>
-      <td>
-        <%=bean.getBudget(  )%>
-      </td>
+      <td><%=bean.getBudget()%></td>
     </tr>
     <tr>
       <td>性別：</td>
-      <td>
-        <%=bean.getSex(  ).name(  )%>
-      </td>
+      <td><%=bean.getSex().name()%></td>
     </tr>
   </table>
   <!-- 登録情報変更ボタン -->
@@ -47,6 +50,10 @@
   <!-- おすすめ表示に戻る -->
   <form method="POST" action="ListOutSaleClothServlet">
     <input type="submit" value="戻る">
+  </form>
+  <!-- 退会ボタン -->
+  <form onsubmit="confirmFunction1()" method="POST" action="">
+    <input type="submit" value="退会する">
   </form>
 </body>
 </html>

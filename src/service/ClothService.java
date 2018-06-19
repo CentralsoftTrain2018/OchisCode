@@ -198,4 +198,19 @@ public class ClothService
 
     }
 
+   //持ち服の削除
+   //作成者：中村
+   public void deleteUserCloth(int clothid) {
+       try (
+               Connection con = Dao.getConnection();)
+       {
+           UserClothDao ucdao = new UserClothDao( con );
+           ucdao.doDelete(clothid);
+
+       } catch (SQLException e)
+       {
+           e.printStackTrace();
+           throw new RuntimeException( e );
+       }
+   }
 }

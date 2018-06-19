@@ -70,11 +70,17 @@
             {
                 if (elms.options[i].value == "<%=bean.getSort()%>")
                 {
-          elms[i].selected = true;
+                    elms[i].selected = true;
+                }
+            }
         }
-      }
     }
-  }
+
+    function changeOchiFaceSmile()
+    {
+      document.getElementById("ochiface").src = "./images/ochi_smile.PNG";
+    }
+
 </script>
 
 <body onload="onLoad()">
@@ -107,9 +113,9 @@
           <!-- 画像表示部分 -->
           <!-- 越智くんの顔 -->
           <div class="relative">
-            <img src="./images/白.png" width="160" height="120" /> <img
+            <img src="./images/白.png" width="160" height="120" /> <img id = "ochiface"
               src="./images/ochi's.png" class="absolute" width="160"
-              height="120" />
+              height="120" onclick = "changeOchiFaceSmile()"/>
           </div>
 
           <div class="relative">
