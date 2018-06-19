@@ -58,7 +58,6 @@
         </div>
         <div class="button">
           <form method="POST" action="ListOutUserClotheServlet">
-            <input type = "hidden" name = "page" value = 1>
             <input type="submit" value="所有服一覧へ">
           </form>
         </div>
@@ -258,13 +257,15 @@
                   {
                 %>
                <li><form method="POST" action="ChangeSelectCodeServlet">
-               <div class ="button_float">
+               <div class ="button_floata">
                <input type="submit" name="cloth"
                value="<%=code.toString()%>">
                </div> </form></li>
                <li><form method="POST" action="DeleteCoordinateServlet">
+               <div class ="button_floatb">
                <input type="hidden" name="code" value="<%=code.getCode_num()%>">
                <input type="submit" value="コーデ削除">
+               </div>
                </form> </li>
                 <%
                   }

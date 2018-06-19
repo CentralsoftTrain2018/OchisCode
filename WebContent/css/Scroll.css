@@ -2,8 +2,9 @@
 /*作成高田*/
 /*スクロール*/
 .scrollsize {
+  list-style:none;
   padding: 0;
-  width: 350px;
+  width: 450px;
   height: 200px;
   overflow-y: auto;
   border: 1px solid #c0c0c0
