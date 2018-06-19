@@ -93,6 +93,9 @@ public class ChangeUserSaleClothServlet extends HttpServlet
         bean.setBottomPattern( PatternEnum.valueOf( bottomcloth[1] ) );
         bean.setBottomSize( SizeEnum.valueOf( bottomcloth[3] ) );
 
+        //ユーザーの性別をセット
+        bean.setSex(userBean.getSex());
+
         //持ち服を上下に分けて取得
         bean.setUscbean( cserv.userSaleCloth( userId ) );
 

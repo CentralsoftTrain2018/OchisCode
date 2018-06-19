@@ -62,6 +62,8 @@ public class CoordinateServlet extends HttpServlet
         bean.setBottomColor( ColorEnum.白 );
         bean.setBottomPattern( PatternEnum.無地 );
         bean.setBottomSize( SizeEnum.M );
+        //ユーザーの性別をセット
+        bean.setSex(userBean.getSex());
 
         //持ち服を上下に分けて取得
         bean.setUscbean(cserv.userSaleCloth(userBean.getUserid()));

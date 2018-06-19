@@ -7,6 +7,7 @@
 <%@ page import="domain.PatternEnum"%>
 <%@ page import="domain.CategoryEnum"%>
 <%@ page import="domain.SizeEnum"%>
+<%@ page import="domain.SexEnum"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -68,14 +69,22 @@
       <!-- 画像表示部分 -->
 
       <div class="model">
-        <div class = "flame">
-        <input type = "radio" name = "sexradio" onclick = "changeOchiFaceMan()"/>男
-        <input type = "radio" name = "sexradio" onclick = "changeOchiFaceWoman()"/>女
+        <div class="flame">
+          <input type="radio" name="sexradio" onclick="changeOchiFaceMan()" />男
+          <input type="radio" name="sexradio" onclick="changeOchiFaceWoman()" />女
           <!-- 越智くんの顔 -->
           <div class="relative">
-            <img src="./images/白.png" width="160" height="120" /> <img id = "ochiface"
-              src="./images/ochi's.png" class="absolute" width="160"
-              height="120" onclick = "changeOchiFaceSmile()"/>
+            <%if(bean.getSex() == SexEnum.男) {%>
+            <img src="./images/白.png" width="160" height="120" /> <img
+              id="ochiface" src="./images/ochi's.png" class="absolute"
+              width="160" height="120" onclick="changeOchiFaceSmile()" />
+            <%} %>
+            <%if(bean.getSex() == SexEnum.女) {%>
+            <img src="./images/白.png" width="160" height="120" /> <img
+              id="ochiface" src="./images/ochi_smile.PNG" class="absolute"
+              width="160" height="120" onclick="changeOchiFaceNonSmile()" />
+
+            <%} %>
           </div>
           <!-- 上 -->
           <div class="relative">
@@ -251,24 +260,25 @@
             </form>
           </div>
           <div class="form3">
-          <ul class="scrollsize">
-                <%
+            <ul class="scrollsize">
+              <%
                   for (bean.CoordinateBean code : bean.getList())
                   {
                 %>
-               <li><form method="POST" action="ChangeSelectCodeServlet">
-               <div class ="button_float">
-               <input type="submit" name="cloth"
-               value="<%=code.toString()%>">
-               </div> </form></li>
-               <li><form method="POST" action="DeleteCoordinateServlet">
-               <input type="hidden" name="code" value="<%=code.getCode_num()%>">
-               <input type="submit" value="コーデ削除">
-               </form> </li>
-                <%
+              <li><form method="POST" action="ChangeSelectCodeServlet">
+                  <div class="button_float">
+                    <input type="submit" name="cloth" value="<%=code.toString()%>">
+                  </div>
+                </form></li>
+              <li><form method="POST" action="DeleteCoordinateServlet">
+                  <input type="hidden" name="code"
+                    value="<%=code.getCode_num()%>"> <input type="submit"
+                    value="コーデ削除">
+                </form></li>
+              <%
                   }
                 %>
-              </ul>
+            </ul>
           </div>
         </div>
       </div>

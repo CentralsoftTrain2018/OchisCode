@@ -62,7 +62,6 @@ public class LoginServlet extends HttpServlet
 
         }
         System.out.println("ログイン成功");
-
         ClothService cserv = new ClothService();
         ListOutUserClothBean bean;
 
