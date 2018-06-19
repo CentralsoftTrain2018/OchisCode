@@ -11,6 +11,23 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
+<script type="text/javascript">
+    function changeOchiFaceMan()
+    {
+        document.getElementById("ochiface").src = "./images/ochi's.png";
+    }
+
+    function changeOchiFaceWoman()
+    {
+      document.getElementById("ochiface").src = "./images/ochi_smile.PNG";
+    }
+
+    function changeOchiFaceSmile()
+    {
+      document.getElementById("ochiface").src = "./images/ochi_smile.PNG";
+    }
+</script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>コーデ画面</title>
 
@@ -51,11 +68,13 @@
 
       <div class="model">
         <div class = "flame">
+        <input type = "radio" name = "sexradio" onclick = "changeOchiFaceMan()"/>男
+        <input type = "radio" name = "sexradio" onclick = "changeOchiFaceWoman()"/>女
           <!-- 越智くんの顔 -->
           <div class="relative">
-            <img src="./images/白.png" width="160" height="120" /> <img
+            <img src="./images/白.png" width="160" height="120" /> <img id = "ochiface"
               src="./images/ochi's.png" class="absolute" width="160"
-              height="120" />
+              height="120" onclick = "changeOchiFaceSmile()"/>
           </div>
           <!-- 上 -->
           <div class="relative">
