@@ -8,6 +8,7 @@ public class ListOutUserClothBean
 {
 
     private List<UserClothBean> list = new ArrayList<UserClothBean>();
+    private int page;
 
     public ListOutUserClothBean()
     {
@@ -35,5 +36,15 @@ public class ListOutUserClothBean
         }
         return null;
     }
+
+    public int getPage() {
+        return page;
+    }
+
+    public void setPage(int page) {
+        this.page = page;
+    }
+
+
 
 }
