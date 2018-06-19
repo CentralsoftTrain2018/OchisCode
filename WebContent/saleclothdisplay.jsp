@@ -3,6 +3,7 @@
   pageEncoding="UTF-8"%>
 <jsp:useBean id="bean" class="bean.SaleClothDisplayBean" scope="request" />
 <%@ page import="java.lang.String"%>
+<%@ page import="domain.SexEnum"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -81,6 +82,11 @@
       document.getElementById("ochiface").src = "./images/ochi_smile.PNG";
     }
 
+
+    function changeOchiFaceNonSmile()
+    {
+      document.getElementById("ochiface").src = "./images/ochi's.png";
+    }
 </script>
 
 <body onload="onLoad()">
@@ -114,9 +120,21 @@
           <!-- 画像表示部分 -->
           <!-- 越智くんの顔 -->
           <div class="relative">
+
+ <%if(bean.getSex() == SexEnum.男) {%>
+
+
             <img src="./images/白.png" width="160" height="120" /> <img id = "ochiface"
               src="./images/ochi's.png" class="absolute" width="160"
               height="120" onclick = "changeOchiFaceSmile()"/>
+        <%} %>
+<%if(bean.getSex() == SexEnum.女) {%>
+
+  <img src="./images/白.png" width="160" height="120" /> <img id = "ochiface"
+              src="./images/ochi_smile.PNG" class="absolute" width="160"
+              height="120" onclick = "changeOchiFaceNonSmile()"/>
+
+ <%} %>
           </div>
 
           <div class="relative">

@@ -75,11 +75,10 @@ public class ListOutSaleClothServlet extends HttpServlet
         bean.setBottomPattern( PatternEnum.無地 );
         bean.setBottomSize( SizeEnum.M );
 
+        bean.setSex(userBean.getSex());
+
         bean.setUserCloth(ucbean);
         bean.setSaleCloth(rcbean);
-
-
-
 
         //jspに遷移
         request.setAttribute( "bean", bean );
