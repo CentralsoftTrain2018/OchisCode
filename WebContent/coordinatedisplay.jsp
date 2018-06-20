@@ -75,8 +75,15 @@
 
       <div class="model">
         <div class="flame">
-          <input type="radio" name="sexradio" onclick="changeOchiFaceMan()" checked="checked" />男
-          <input type="radio" name="sexradio" onclick="changeOchiFaceWoman()" />女
+          <input type="radio" name="sexradio" onclick="changeOchiFaceMan()"
+          <%if(bean.getSex() == SexEnum.男) { %>
+          checked="checked"
+          <%} %> />男
+          <input type="radio" name="sexradio" onclick="changeOchiFaceWoman()"
+          <%if(bean.getSex() == SexEnum.女) { %>
+          checked="checked"
+          <%} %> />女
+
           <!-- 越智くんの顔 -->
           <div class="relative">
             <%if(bean.getSex() == SexEnum.男) {%>
