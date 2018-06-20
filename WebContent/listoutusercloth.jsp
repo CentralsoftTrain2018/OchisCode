@@ -15,6 +15,7 @@
 
 <link rel="stylesheet" type="text/css" href="css/BackGround.css">
 <link rel="stylesheet" type="text/css" href="css/PileImage.css">
+<link rel="stylesheet" type="text/css" href="css/margin.css">
 
 <body>
 <div class = "container">
@@ -38,7 +39,7 @@
  </div>
 
 <br><br>
-
+<div class ="margin-left">
 <form method = "POST" action = "NarrowingUsrClothServlet">
   <select name = "narrow">
     <option value = "">一覧表示</option>
@@ -66,7 +67,11 @@
 </form>
 <%} %>
 </div>
-<table border="1">
+</div>
+
+<!--持ち服の表示(テーブル)-->
+<div class ="margin-left">
+<table width="500" border="1">
     <tbody>
       <%for(UserClothBean record : bean.getList()) {%>
       <tr>
@@ -89,10 +94,14 @@
       <%} %>
     </tbody>
 </table>
+</div>
 
+<div class ="margin-left">
 <form method="POST" action="registusercloth.jsp">
  <input type="submit" value="持ち服登録画面へ">
 </form>
+</div>
+
 
 <br>
 </div>
