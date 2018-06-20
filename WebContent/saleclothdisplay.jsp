@@ -9,6 +9,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>おすすめ画面</title>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script src="https://www.googletagmanager.com/gtag/js?id=UA-121088811-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-121088811-1');
+</script>
+
 </head>
 
 <!-- cssファイル読み込み -->
@@ -252,7 +262,8 @@
                       height=147 class=absolute />
                   </form>
                 </div>
-                <br> <a href="<%=record.getURL()%>"><%=record.toString()%></a>
+                <!-- リンクの調整 -->
+                <br> <a href="<%=record.getURL()%>"  onclick="ga('send','event','ec1','click','file', 1);"><%=record.toString()%></a>
               </div>
               <%
                 }

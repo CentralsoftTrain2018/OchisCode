@@ -44,7 +44,7 @@ public class CoordinateServlet extends HttpServlet
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         CoordinateDisplayBean bean = new CoordinateDisplayBean();
-        ClothService cserv =new ClothService();
+        ClothService cserv = new ClothService();
         CodeService codeserv = new CodeService();
 
         //sessionでユーザの情報を取得
@@ -63,13 +63,13 @@ public class CoordinateServlet extends HttpServlet
         bean.setBottomPattern( PatternEnum.無地 );
         bean.setBottomSize( SizeEnum.M );
         //ユーザーの性別をセット
-        bean.setSex(userBean.getSex());
+        bean.setSex( userBean.getSex() );
 
         //持ち服を上下に分けて取得
-        bean.setUscbean(cserv.userSaleCloth(userBean.getUserid()));
+        bean.setUscbean( cserv.userSaleCloth( userBean.getUserid() ) );
 
         //コーデ情報を取得
-        bean.setList(codeserv.coordinateDisplay(userBean.getUserid()));
+        bean.setList( codeserv.coordinateDisplay( userBean.getUserid() ) );
 
         request.setAttribute( "bean", bean );
         RequestDispatcher disp = request.getRequestDispatcher( "/coordinatedisplay.jsp" );
