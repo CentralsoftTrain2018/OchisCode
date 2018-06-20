@@ -50,9 +50,9 @@ public class LoginServlet extends HttpServlet
 
         userBean=userv.checkUser(userid, password);
 
+        
         if(!userBean.isUserExist())
-        {//false
-         // TODO エラー画面へ
+        {
            System.out.println("ログイン失敗");
 
 

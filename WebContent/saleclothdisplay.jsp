@@ -165,7 +165,7 @@
                 class="absolute" width="<%=bean.getTopSize().getWidth()%>"
                 height="<%=bean.getTopSize().getHeight()%>" /> <img
                 id="topcategory"
-                src="./images/<%=bean.getTopCategory().name()%>.png"
+                src="./images/<%=bean.getTopCategory().name()+"hand"%>.png"
                 class="absolute" width="<%=bean.getTopSize().getWidth()%>"
                 height="<%=bean.getTopSize().getHeight()%>" />
             </div>
@@ -181,7 +181,7 @@
                 class="absolute" width="<%=bean.getBottomSize().getWidth()%>"
                 height="<%=bean.getBottomSize().getHeight()%>" /> <img
                 id="bottomcategory"
-                src="./images/<%=bean.getBottomCategory().name()%>.png"
+                src="./images/<%=bean.getBottomCategory().name()+"leg"%>.png"
                 class="absolute" width="<%=bean.getBottomSize().getWidth()%>"
                 height="<%=bean.getBottomSize().getHeight()%>" />
             </div>
