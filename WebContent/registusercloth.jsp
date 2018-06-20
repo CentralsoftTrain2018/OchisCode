@@ -55,5 +55,10 @@
  <input type="hidden"  name="page" value=1>
  <input type="submit" value="登録">
 </form>
+
+<form method="POST" action="ListOutUserClotheServlet">
+<input type="hidden"  name="page" value=1>
+<input type="submit" value="戻る">
+</form>
 </body>
 </html>
