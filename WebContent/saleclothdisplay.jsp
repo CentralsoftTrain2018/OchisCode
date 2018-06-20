@@ -38,14 +38,14 @@
         document.getElementById("toppattern").src = "./images/"
             + pattern + ".png";
         document.getElementById("topcategory").src = "./images/"
-            + category + ".png";
+            + category + "hand.png";
       } else {
         document.getElementById("bottomcolor").src = "./images/"
             + color + ".png";
         document.getElementById("bottompattern").src = "./images/"
             + pattern + ".png";
         document.getElementById("bottomcategory").src = "./images/"
-            + category + ".png";
+            + category + "leg.png";
 
       }
     }
@@ -79,8 +79,7 @@
         {
             for(i = 0; i < elms.options.length; i++)
             {
-                if (elms.options[i].value == "<%=bean.getSort()%>
-  ") {
+                if (elms.options[i].value == "<%=bean.getSort()%>") {
           elms[i].selected = true;
         }
       }
