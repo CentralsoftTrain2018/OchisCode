@@ -14,20 +14,35 @@
 <head>
 
 <script type="text/javascript">
-  function changeOchiFaceMan() {
-    document.getElementById("ochiface").src = "./images/ochi's.png";
-  }
 
-  function changeOchiFaceWoman() {
-    document.getElementById("ochiface").src = "./images/ochi_smile.PNG";
-  }
+    function changeOchiFaceMan()
+    {
+     document.getElementById("ochiface").src = "./images/ochi's.png";
+    }
+    function changeOchiFaceWoman()
+    {
+      document.getElementById("ochiface").src = "./images/ochi_woman.png";
+    }
+    function changeOchiFaceSmile()
+    {
+      var element = document.getElementById( "man" ) ;
+      if ( element.checked ) {
+          document.getElementById("ochiface").src = "./images/ochi_smile.png";
+      } else {
+         document.getElementById("ochiface").src = "./images/ochi_woman_smile.png";// チェックされていない
+      }
 
-  function changeOchiFaceSmile() {
-    document.getElementById("ochiface").src = "./images/ochi_smile.PNG";
-  }
-  function changeOchiFaceNonSmile() {
-    document.getElementById("ochiface").src = "./images/ochi's.png";
-  }
+    }
+    function changeOchiFaceWomanSmile()
+    {
+      var element = document.getElementById( "woman" ) ;
+      if ( element.checked ) {
+         document.getElementById("ochiface").src = "./images/ochi_woman_smile.png";
+      } else {
+         document.getElementById("ochiface").src = "./images/ochi_smile.png";// チェックされていない
+      }
+
+    }
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>コーデ画面</title>
@@ -47,13 +62,15 @@
   <div class="container">
     <div class="header">
       <div class="headlogo">
-        <img src="./images/Logo4.png" width="150" height="70" />
+        <a href="javascript:moveSaleCloth.submit();">
+          <img src="./images/Logo4.png" width="150" height="70" />
+        </a>
       </div>
       <div class="title">コーディネイト画面</div>
       <!-- 画面遷移ボタン -->
       <div class="buttons">
         <div class="button">
-          <form method="POST" action="ListOutSaleClothServlet">
+          <form method="POST" name = "moveSaleCloth"action="ListOutSaleClothServlet">
             <input type="submit" value="おすすめ画面へ">
           </form>
         </div>
@@ -71,32 +88,31 @@
 
       <div class="model">
         <div class="flame">
-          <input type="radio" name="sexradio" onclick="changeOchiFaceMan()"
-            <%if (bean.getSex() == SexEnum.男)
-      {%> checked="checked" <%}%> />男
-          <input type="radio" name="sexradio" onclick="changeOchiFaceWoman()"
-            <%if (bean.getSex() == SexEnum.女)
-      {%> checked="checked" <%}%> />女
 
+          <input type="radio" name="sexradio" id="man" onclick="changeOchiFaceMan()"
+          <%if(bean.getSex() == SexEnum.男) { %>
+          checked="checked"
+          <%} %> />男
+          <input type="radio" name="sexradio" id="woman" onclick="changeOchiFaceWoman()"
+          <%if(bean.getSex() == SexEnum.女) { %>
+          checked="checked"
+
+          <%} %> />女
           <!-- 越智くんの顔 -->
           <div class="relative">
-            <%
-              if (bean.getSex() == SexEnum.男)
-              {
+
+            <%   if (bean.getSex() == SexEnum.男){
             %>
+
             <img src="./images/白.png" width="160" height="120" /> <img
               id="ochiface" src="./images/ochi's.png" class="absolute"
-              width="160" height="120" onclick="changeOchiFaceSmile()" />
-            <%
-              }
-            %>
-            <%
-              if (bean.getSex() == SexEnum.女)
-              {
-            %>
+              width="160" height="120"  onclick="changeOchiFaceSmile()" />
+            <%} %>
+
+            <%if(bean.getSex() == SexEnum.女) {%>
             <img src="./images/白.png" width="160" height="120" /> <img
-              id="ochiface" src="./images/ochi_smile.PNG" class="absolute"
-              width="160" height="120" onclick="changeOchiFaceNonSmile()" />
+              id="ochiface" src="./images/ochi_woman.png" class="absolute"
+              width="160" height="120"  onclick="changeOchiFaceWomanSmile()" />
 
             <%
               }

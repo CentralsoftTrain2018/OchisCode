@@ -87,11 +87,15 @@
   }
 
   function changeOchiFaceSmile() {
-    document.getElementById("ochiface").src = "./images/ochi_smile.PNG";
+    document.getElementById("ochiface").src = "./images/ochi_smile.png";
   }
 
   function changeOchiFaceNonSmile() {
     document.getElementById("ochiface").src = "./images/ochi's.png";
+  }
+
+  function changeOchiFaceWomanSmile(){
+    document.getElementById("ochiface").src = "./images/ochi_woman_smile.png";
   }
 </script>
 
@@ -145,8 +149,8 @@
               %>
 
               <img src="./images/白.png" width="160" height="120" /> <img
-                id="ochiface" src="./images/ochi_smile.PNG" class="absolute"
-                width="160" height="120" onclick="changeOchiFaceNonSmile()" />
+                id="ochiface" src="./images/ochi_woman.png" class="absolute"
+                width="160" height="120" onclick="changeOchiFaceWomanSmile()" />
 
               <%
                 }
