@@ -47,13 +47,15 @@
   <div class="container">
     <div class="header">
       <div class="headlogo">
-        <img src="./images/Logo4.png" width="150" height="70" />
+        <a href="javascript:moveSaleCloth.submit();">
+          <img src="./images/Logo4.png" width="150" height="70" />
+        </a>
       </div>
       <div class="title">コーディネイト画面</div>
       <!-- 画面遷移ボタン -->
       <div class="buttons">
         <div class="button">
-          <form method="POST" action="ListOutSaleClothServlet">
+          <form method="POST" name = "moveSaleCloth"action="ListOutSaleClothServlet">
             <input type="submit" value="おすすめ画面へ">
           </form>
         </div>
