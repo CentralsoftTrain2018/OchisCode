@@ -79,24 +79,21 @@
         {
             for(i = 0; i < elms.options.length; i++)
             {
-                if (elms.options[i].value == "<%=bean.getSort()%>")
-                {
-                    elms[i].selected = true;
-                }
-            }
+                if (elms.options[i].value == "<%=bean.getSort()%>
+  ") {
+          elms[i].selected = true;
         }
+      }
     }
+  }
 
-    function changeOchiFaceSmile()
-    {
-      document.getElementById("ochiface").src = "./images/ochi_smile.PNG";
-    }
+  function changeOchiFaceSmile() {
+    document.getElementById("ochiface").src = "./images/ochi_smile.PNG";
+  }
 
-
-    function changeOchiFaceNonSmile()
-    {
-      document.getElementById("ochiface").src = "./images/ochi's.png";
-    }
+  function changeOchiFaceNonSmile() {
+    document.getElementById("ochiface").src = "./images/ochi's.png";
+  }
 </script>
 
 <body onload="onLoad()">
@@ -114,8 +111,8 @@
         </div>
         <div class="button">
           <form method="POST" action="ListOutUserClotheServlet">
-            <input type = "hidden" name = "page" value = 1>
-            <input type="submit" value="所有服一覧へ">
+            <input type="hidden" name="page" value=1> <input
+              type="submit" value="所有服一覧へ">
           </form>
         </div>
       </div>
@@ -126,61 +123,71 @@
         <!-- 左側モデル表示部分 -->
 
         <div class="model">
-        <div class = "flame">
-          <!-- 画像表示部分 -->
-          <!-- 越智くんの顔 -->
-          <div class="relative">
+          <div class="flame">
+            <!-- 画像表示部分 -->
+            <!-- 越智くんの顔 -->
+            <div class="relative">
 
- <%if(bean.getSex() == SexEnum.男) {%>
+              <%
+                if (bean.getSex() == SexEnum.男)
+                {
+              %>
 
 
-            <img src="./images/白.png" width="160" height="120" /> <img id = "ochiface"
-              src="./images/ochi's.png" class="absolute" width="160"
-              height="120" onclick = "changeOchiFaceSmile()"/>
-        <%} %>
-<%if(bean.getSex() == SexEnum.女) {%>
+              <img src="./images/白.png" width="160" height="120" /> <img
+                id="ochiface" src="./images/ochi's.png" class="absolute"
+                width="160" height="120" onclick="changeOchiFaceSmile()" />
+              <%
+                }
+              %>
+              <%
+                if (bean.getSex() == SexEnum.女)
+                {
+              %>
 
-  <img src="./images/白.png" width="160" height="120" /> <img id = "ochiface"
-              src="./images/ochi_smile.PNG" class="absolute" width="160"
-              height="120" onclick = "changeOchiFaceNonSmile()"/>
+              <img src="./images/白.png" width="160" height="120" /> <img
+                id="ochiface" src="./images/ochi_smile.PNG" class="absolute"
+                width="160" height="120" onclick="changeOchiFaceNonSmile()" />
 
- <%} %>
-          </div>
+              <%
+                }
+              %>
+            </div>
 
-          <div class="relative">
-            <!-- 上服 -->
-            <img id="topcolor"
-              src="./images/<%=bean.getTopColor().name()%>.png"
-              width="<%=bean.getTopSize().getWidth()%>"
-              height="<%=bean.getTopSize().getHeight()%>" /> <img
-              id="toppattern"
-              src="./images/<%=bean.getTopPattern().name()%>.png"
-              class="absolute" width="<%=bean.getTopSize().getWidth()%>"
-              height="<%=bean.getTopSize().getHeight()%>" /> <img
-              id="topcategory"
-              src="./images/<%=bean.getTopCategory().name()%>.png"
-              class="absolute" width="<%=bean.getTopSize().getWidth()%>"
-              height="<%=bean.getTopSize().getHeight()%>" />
-          </div>
+            <div class="relative">
+              <!-- 上服 -->
+              <img id="topcolor"
+                src="./images/<%=bean.getTopColor().name()%>.png"
+                width="<%=bean.getTopSize().getWidth()%>"
+                height="<%=bean.getTopSize().getHeight()%>" /> <img
+                id="toppattern"
+                src="./images/<%=bean.getTopPattern().name()%>.png"
+                class="absolute" width="<%=bean.getTopSize().getWidth()%>"
+                height="<%=bean.getTopSize().getHeight()%>" /> <img
+                id="topcategory"
+                src="./images/<%=bean.getTopCategory().name()%>.png"
+                class="absolute" width="<%=bean.getTopSize().getWidth()%>"
+                height="<%=bean.getTopSize().getHeight()%>" />
+            </div>
 
-          <div class="relative">
-            <!-- 下服 -->
-            <img id="bottomcolor"
-              src="./images/<%=bean.getBottomColor().name()%>.png"
-              width="<%=bean.getBottomSize().getWidth()%>"
-              height="<%=bean.getBottomSize().getHeight()%>" /> <img
-              id="bottompattern"
-              src="./images/<%=bean.getBottomPattern().name()%>.png"
-              class="absolute" width="<%=bean.getBottomSize().getWidth()%>"
-              height="<%=bean.getBottomSize().getHeight()%>" /> <img
-              id="bottomcategory"
-              src="./images/<%=bean.getBottomCategory().name()%>.png"
-              class="absolute" width="<%=bean.getBottomSize().getWidth()%>"
-              height="<%=bean.getBottomSize().getHeight()%>" />
+            <div class="relative">
+              <!-- 下服 -->
+              <img id="bottomcolor"
+                src="./images/<%=bean.getBottomColor().name()%>.png"
+                width="<%=bean.getBottomSize().getWidth()%>"
+                height="<%=bean.getBottomSize().getHeight()%>" /> <img
+                id="bottompattern"
+                src="./images/<%=bean.getBottomPattern().name()%>.png"
+                class="absolute" width="<%=bean.getBottomSize().getWidth()%>"
+                height="<%=bean.getBottomSize().getHeight()%>" /> <img
+                id="bottomcategory"
+                src="./images/<%=bean.getBottomCategory().name()%>.png"
+                class="absolute" width="<%=bean.getBottomSize().getWidth()%>"
+                height="<%=bean.getBottomSize().getHeight()%>" />
             </div>
           </div>
           <form method="POST" action="UserInfoServlet">
-          <input type="submit" value="ユーザー情報">
+            <input type="submit" value="ユーザー情報">
           </form>
         </div>
 
@@ -244,6 +251,9 @@
             <!-- 販売服表示 -->
             <div class="contents">
               <%
+                int i = 0;
+              %>
+              <%
                 for (bean.SaleClothBean record : bean.getSaleCloth().getList())
                 {
               %>
@@ -263,7 +273,15 @@
                   </form>
                 </div>
                 <!-- リンクの調整 -->
-                <br> <a href="<%=record.getURL()%>"  onclick="ga(‘send’, ‘event’, ‘link’, ‘chick’, ‘test’, true);"><%=record.toString()%></a>
+                <br> <a href="javascript:<%="form" + i %>.submit();"><%=record.toString()%></a>
+                <form method="POST" name="<%="form" + i%>"
+                  action="CountLinkClickServlet">
+                  <input type="hidden" name="URL" value="<%=record.getURL()%>">
+                  <input type="hidden" name="clothid" value="<%=record.getClothid()%>">
+                </form>
+                <%
+                  i++;
+                %>
               </div>
               <%
                 }

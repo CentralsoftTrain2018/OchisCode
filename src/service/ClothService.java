@@ -34,7 +34,7 @@ public class ClothService
         {
             UserClothDao ucdao = new UserClothDao( con );
             //ユーザーの持ち服一覧をDBから取得
-            Collection<UserClothVo> list = ucdao.getAllUserCloth( userId, narrow, limit, offset);
+            Collection<UserClothVo> list = ucdao.getAllUserCloth( userId, narrow, limit, offset );
             listbean = new ListOutUserClothBean();
 
             List<UserClothBean> clothlist = new ArrayList<UserClothBean>();
@@ -52,7 +52,7 @@ public class ClothService
 
             return listbean;//
 
-        } catch ( SQLException e)
+        } catch (SQLException e)
         {
             e.printStackTrace();
             throw new RuntimeException( e );
@@ -60,20 +60,21 @@ public class ClothService
     }
 
     //持ち服登録
-    public void registCloth(String id, SizeEnum size,ColorEnum color,PatternEnum pattern, CategoryEnum category )
+    public void registCloth(String id, SizeEnum size, ColorEnum color, PatternEnum pattern, CategoryEnum category)
     {
         try (
                 Connection con = Dao.getConnection();)
         {
             UserClothDao ucdao = new UserClothDao( con );
-            UserClothVo user = new UserClothVo( id, category,  color,  pattern,  size);
-            ucdao.doRegist(user);
+            UserClothVo user = new UserClothVo( id, category, color, pattern, size );
+            ucdao.doRegist( user );
         } catch (SQLException e)
         {
-            throw new RuntimeException(e);
+            throw new RuntimeException( e );
         }
     }
 
+    //持ち服すべてに対するオススメを取得
     public ListSaleClothBean getSaleCloth(String userid, String minmax, String order)
     {
         try (
@@ -91,15 +92,14 @@ public class ClothService
                 linercbean.setPattern( rcvo.getPattern() );
                 linercbean.setCategory( rcvo.getCategory() );
                 linercbean.setJouge( rcvo.getJouge() );
-                linercbean.setPrice(rcvo.getPrice());//金額の取得
-                linercbean.setURL(rcvo.getUrl());//URLの取得
-                linercbean.setSize(rcvo.getSize());//サイズの取得
+                linercbean.setPrice( rcvo.getPrice() );//金額の取得
+                linercbean.setURL( rcvo.getUrl() );//URLの取得
+                linercbean.setSize( rcvo.getSize() );//サイズの取得
 
                 rcbeanlist.add( linercbean );
             }
 
             listoutrcbean.setList( rcbeanlist );
-
 
             return listoutrcbean;
         } catch (SQLException e)
@@ -110,6 +110,7 @@ public class ClothService
 
     }
 
+    //持ち服に対応するオススメ服を取得
     public ListSaleClothBean getSelectedSaleCloth(int clothid, String minmax, String order)
     {
         try (
@@ -128,15 +129,15 @@ public class ClothService
                 linercbean.setPattern( rcvo.getPattern() );
                 linercbean.setCategory( rcvo.getCategory() );
                 linercbean.setJouge( rcvo.getJouge() );
-                linercbean.setPrice(rcvo.getPrice());//金額の取得
-                linercbean.setURL(rcvo.getUrl());//URLの取得
-                linercbean.setSize(rcvo.getSize());//サイズの取得
+                linercbean.setPrice( rcvo.getPrice() );//金額の取得
+                linercbean.setURL( rcvo.getUrl() );//URLの取得
+                linercbean.setSize( rcvo.getSize() );//サイズの取得
+                linercbean.setClothid( rcvo.getClothid() );
 
                 rcbeanlist.add( linercbean );
             }
 
             listoutrcbean.setList( rcbeanlist );
-
 
             return listoutrcbean;
         } catch (SQLException e)
@@ -149,7 +150,7 @@ public class ClothService
 
     //持ち服を上下に分けて取得
     //更新：功刀
-   public UserSaleClothBean userSaleCloth(String userId)
+    public UserSaleClothBean userSaleCloth(String userId)
     {
         UserClothBean bean;
         UserSaleClothBean listbean;
@@ -168,7 +169,7 @@ public class ClothService
             {
                 bean = new UserClothBean();
                 if (uvo.getCategory().getJouge() == JougeEnum.上)
-            {
+                {
                     bean.setClothid( uvo.getClothid() );
                     bean.setCategory( uvo.getCategory() );
                     bean.setColor( uvo.getColor() );
@@ -176,14 +177,14 @@ public class ClothService
                     bean.setSize( uvo.getSize() );
                     topClothList.add( bean );
                 } else
-            {
+                {
                     bean.setClothid( uvo.getClothid() );
                     bean.setCategory( uvo.getCategory() );
                     bean.setColor( uvo.getColor() );
                     bean.setPattern( uvo.getPattern() );
                     bean.setSize( uvo.getSize() );
                     bottomClothList.add( bean );
-            }
+                }
             }
             listbean.setBottomclothlist( bottomClothList );
             listbean.setTopclothlist( topClothList );
@@ -198,19 +199,35 @@ public class ClothService
 
     }
 
-   //持ち服の削除
-   //作成者：中村
-   public void deleteUserCloth(int clothid) {
-       try (
-               Connection con = Dao.getConnection();)
-       {
-           UserClothDao ucdao = new UserClothDao( con );
-           ucdao.doDelete(clothid);
+    //持ち服の削除
+    //作成者：中村
+    public void deleteUserCloth(int clothid)
+    {
+        try (
+                Connection con = Dao.getConnection();)
+        {
+            UserClothDao ucdao = new UserClothDao( con );
+            ucdao.doDelete( clothid );
 
-       } catch (SQLException e)
-       {
-           e.printStackTrace();
-           throw new RuntimeException( e );
-       }
-   }
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+            throw new RuntimeException( e );
+        }
+    }
+
+    //DBのリンククリック数を更新
+    public void countPlus(int clothid)
+    {
+        try (
+                Connection con = Dao.getConnection();)
+        {
+            SaleClothDao scdao = new SaleClothDao( con );
+            scdao.countUp( clothid );
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+            throw new RuntimeException( e );
+        }
+    }
 }

@@ -10,46 +10,61 @@ public class SaleClothVo extends ClothVo
 {
     private int Price;
     private String Url;
-   public SaleClothVo(CategoryEnum category, ColorEnum color, PatternEnum pattern, SizeEnum size,int Price,String Url
-           ) {
-        super(category, color, pattern, size);
+    private int clothid;
 
-        this.Price=Price;
-        this.Url=Url;
+    public SaleClothVo(CategoryEnum category, ColorEnum color, PatternEnum pattern, SizeEnum size, int Price,
+            String Url)
+    {
+        super( category, color, pattern, size );
+
+        this.Price = Price;
+        this.Url = Url;
+
     }
 
-   public SaleClothVo(CategoryEnum category, ColorEnum color, PatternEnum pattern, SizeEnum size, JougeEnum jouge, int Price,String Url
-           ) {
-        super(category, color, pattern, size);
+    public SaleClothVo(CategoryEnum category, ColorEnum color, PatternEnum pattern, SizeEnum size, JougeEnum jouge,
+            int Price, String Url, int clothid)
+    {
+        super( category, color, pattern, size );
 
         this.jouge = jouge;
-        this.Price=Price;
-        this.Url=Url;
+        this.Price = Price;
+        this.Url = Url;
+        this.clothid = clothid;
     }
 
     public int getPrice()
-{
-    return Price;
-}
+    {
+        return Price;
+    }
 
-
-public void setPrice(int price)
-{
-    Price = price;
-}
-
+    public void setPrice(int price)
+    {
+        Price = price;
+    }
 
     public String getUrl()
-{
-    return Url;
-}
+    {
+        return Url;
+    }
 
-public void setUrl(String url)
-{
-    Url = url;
-}
+    public void setUrl(String url)
+    {
+        Url = url;
+    }
 
-    public String toString() {
+    public int getClothid()
+    {
+        return clothid;
+    }
+
+    public void setClothid(int clothid)
+    {
+        this.clothid = clothid;
+    }
+
+    public String toString()
+    {
         return "色：" + color + "　柄：" + pattern + "　カテゴリー：" + category + "\n";
     }
 }

@@ -5,35 +5,46 @@ package bean;
  */
 public class SaleClothBean extends ClothBean
 {
-	private int price;
-	private String URL;
+    private int price;
+    private String URL;
+    private int clothid;
 
-	public SaleClothBean()
-	{
-	}
+    public SaleClothBean()
+    {
+    }
 
-	public int getPrice()
-	{
-		return price;
-	}
+    public int getPrice()
+    {
+        return price;
+    }
 
-	public void setPrice(int price)
-	{
-		this.price = price;
-	}
+    public void setPrice(int price)
+    {
+        this.price = price;
+    }
 
-	public String getURL()
-	{
-		return URL;
-	}
+    public String getURL()
+    {
+        return URL;
+    }
 
-	public void setURL(String uRL)
-	{
-		URL = uRL;
-	}
+    public void setURL(String uRL)
+    {
+        URL = uRL;
+    }
 
-	public String toString()
-	{
-		return price + "円" + color + " " + pattern + " " + category + " " + size;
-	}
+    public int getClothid()
+    {
+        return clothid;
+    }
+
+    public void setClothid(int clothid)
+    {
+        this.clothid = clothid;
+    }
+
+    public String toString()
+    {
+        return price + "円" + color + " " + pattern + " " + category + " " + size;
+    }
 }

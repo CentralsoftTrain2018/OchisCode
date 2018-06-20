@@ -11,14 +11,16 @@ import domain.SizeEnum;
  *作成：功刀
  */
 
-public class ClothBean {
+public class ClothBean
+{
     protected SizeEnum size;
     protected CategoryEnum category;
     protected ColorEnum color;
     protected PatternEnum pattern;
     protected JougeEnum jouge;
 
-    public ClothBean() {
+    public ClothBean()
+    {
 
     }
 
@@ -62,13 +64,13 @@ public class ClothBean {
         this.pattern = pattern;
     }
 
-    public JougeEnum getJouge() {
+    public JougeEnum getJouge()
+    {
         return jouge;
     }
 
-    public void setJouge(JougeEnum jouge) {
+    public void setJouge(JougeEnum jouge)
+    {
         this.jouge = jouge;
     }
-
-
 }
