@@ -90,10 +90,7 @@
     document.getElementById("ochiface").src = "./images/ochi_smile.png";
   }
 
-  function changeOchiFaceNonSmile() {
-    document.getElementById("ochiface").src = "./images/ochi's.png";
-  }
-
+ 
   function changeOchiFaceWomanSmile(){
     document.getElementById("ochiface").src = "./images/ochi_woman_smile.png";
   }
