@@ -206,7 +206,7 @@ border: 1px #c0c0c0 solid; /* セクションの境界線 */
 #main div.emphasis h2 {
 margin: 0 0 0.8em; /* 見出しのマージン（上、左右、下） */
 font-size: 130%; /* 見出しの文字サイズ */
-color: #ff8000; /* 見出しの文字色 */
+background-color: #ffce68; /* 見出しの背景色 */
 }
  /* 段落 */
 #main div.emphasis p {

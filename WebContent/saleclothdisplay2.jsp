@@ -92,6 +92,10 @@
                   action="ListOutUserClotheServlet">
                   <input type="hidden" name="page" value=1>
                 </form></li>
+<li><a href="javascript:moveuserinfo.submit();">ユーザー情報へ</a>
+                <form method="POST" name = "moveuserinfo"
+                  action="UserInfoServlet">
+                </form></li>
 </ul>
 
 <hr class="none">
@@ -108,6 +112,7 @@
 <div id="main">
 
 <div class="section emphasis">
+<h2>オススメ服</h2>
 <div class = "cloth">
 <%for (bean.SaleClothBean record : bean.getSaleCloth().getList()){%>
               <div class="item">
@@ -139,11 +144,19 @@
 
 <!-- サイドバー開始 -->
 <div id="nav">
+
 <div class = "model">
 <div class = "relative">
-<img src="./images/白.png" width="160" height="120" /> <img
-id="ochiface" src="./images/ochi's.png" class="absolute"
-width="160" height="120"/>
+<% if (bean.getSex() == SexEnum.男){%>
+  <img src="./images/白.png" width="160" height="120" /> <img
+   id="ochiface" src="./images/ochi's.png" class="absolute"
+   width="160" height="120" onclick="changeOchiFaceSmile()" />
+<%}%>
+<%if (bean.getSex() == SexEnum.女){%>
+  <img src="./images/白.png" width="160" height="120" /> <img
+   id="ochiface" src="./images/ochi_smile.PNG" class="absolute"
+   width="160" height="120" onclick="changeOchiFaceNonSmile()" />
+<%}%>
 </div>
 
 <!-- 上 -->
