@@ -99,6 +99,9 @@ public class SaleClothDisplayServlet extends HttpServlet
         bean.setNarrow(minmax);
         bean.setSort(orderStr);
 
+        //性別を取得
+        bean.setSex(userBean.getSex());
+
         //jspに遷移
         request.setAttribute( "bean", bean );
         RequestDispatcher disp = request.getRequestDispatcher( "/saleclothdisplay.jsp" );
