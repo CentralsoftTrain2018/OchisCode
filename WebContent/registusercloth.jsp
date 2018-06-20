@@ -52,6 +52,7 @@
 <option value="<%=se.name() %>"><%=se %></option>
 <%} %>
 </select>
+ <input type="hidden"  name="page" value=1>
  <input type="submit" value="登録">
 </form>
 </body>

@@ -81,6 +81,7 @@
         <td>
            <form method = "POST" action = "DeleteUserClothServlet">
              <input type = "hidden" name = "clothid" value = <%=record.getClothid()%>>
+             <input type = "hidden" name = "page" value = <%=bean.getPage()%>>
              <input type="submit" value="削除">
            </form>
         </td>
