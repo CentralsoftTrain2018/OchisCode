@@ -16,21 +16,33 @@
 <script type="text/javascript">
     function changeOchiFaceMan()
     {
-        document.getElementById("ochiface").src = "./images/ochi's.png";
+     document.getElementById("ochiface").src = "./images/ochi's.png";
     }
 
     function changeOchiFaceWoman()
     {
-      document.getElementById("ochiface").src = "./images/ochi_smile.PNG";
+      document.getElementById("ochiface").src = "./images/ochi_woman.png";
     }
 
     function changeOchiFaceSmile()
     {
-      document.getElementById("ochiface").src = "./images/ochi_smile.PNG";
+      var element = document.getElementById( "man" ) ;
+      if ( element.checked ) {
+          document.getElementById("ochiface").src = "./images/ochi_smile.png";
+      } else {
+         document.getElementById("ochiface").src = "./images/ochi_woman_smile.png";// チェックされていない
+      }
+
     }
-    function changeOchiFaceNonSmile()
+    function changeOchiFaceWomanSmile()
     {
-      document.getElementById("ochiface").src = "./images/ochi's.png";
+      var element = document.getElementById( "woman" ) ;
+      if ( element.checked ) {
+         document.getElementById("ochiface").src = "./images/ochi_woman_smile.png";
+      } else {
+         document.getElementById("ochiface").src = "./images/ochi_smile.png";// チェックされていない
+      }
+
     }
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -75,26 +87,28 @@
 
       <div class="model">
         <div class="flame">
-          <input type="radio" name="sexradio" onclick="changeOchiFaceMan()"
+          <input type="radio" name="sexradio" id="man" onclick="changeOchiFaceMan()"
           <%if(bean.getSex() == SexEnum.男) { %>
           checked="checked"
           <%} %> />男
-          <input type="radio" name="sexradio" onclick="changeOchiFaceWoman()"
+          <input type="radio" name="sexradio" id="woman" onclick="changeOchiFaceWoman()"
           <%if(bean.getSex() == SexEnum.女) { %>
           checked="checked"
+
           <%} %> />女
 
           <!-- 越智くんの顔 -->
           <div class="relative">
-            <%if(bean.getSex() == SexEnum.男) {%>
+            <%if(bean.getSex() == SexEnum.男 ) {%>
             <img src="./images/白.png" width="160" height="120" /> <img
               id="ochiface" src="./images/ochi's.png" class="absolute"
-              width="160" height="120" onclick="changeOchiFaceSmile()" />
+              width="160" height="120"  onclick="changeOchiFaceSmile()" />
             <%} %>
+
             <%if(bean.getSex() == SexEnum.女) {%>
             <img src="./images/白.png" width="160" height="120" /> <img
-              id="ochiface" src="./images/ochi_smile.PNG" class="absolute"
-              width="160" height="120" onclick="changeOchiFaceNonSmile()" />
+              id="ochiface" src="./images/ochi_woman.png" class="absolute"
+              width="160" height="120"  onclick="changeOchiFaceWomanSmile()" />
 
             <%} %>
           </div>
