@@ -6,3 +6,19 @@
 .margin-left{
   margin:0px 0px 0px 150px;
 }
+
+.margin-center{
+  margin:20px 0px 0px 200px
+}
+
+.margin-right{
+  position: fixed;
+  top: 185px;
+  left: 570px
+}
+
+.margin{
+  position: fixed;
+  top: 185px;
+  left: 160px
+}

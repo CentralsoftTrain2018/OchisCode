@@ -51,19 +51,24 @@
   <input type = "hidden" name = "page" value = 1>
   <input type = "submit" value = "絞込み">
 </form>
-
+<div class ="margin-center">
 現在のページ：<%=bean.getPage() %>
+</div>
 <div style="display:inline-flex">
 <%if(bean.getPage() != 1) {%>
 <form method="POST" action="ListOutUserClotheServlet">
 <input type = "hidden" name = "page" value = <%=bean.getPage() - 1 %>>
+<div class ="margin">
 <input type = "submit" value = "前のページへ">
+</div>
 </form>
 <%} %>
 <%if(bean.getList().size() == 5) {%>
 <form method="POST" action="ListOutUserClotheServlet">
 <input type = "hidden" name = "page" value = <%=bean.getPage() + 1 %>>
+<div class ="margin-right">
 <input type = "submit" value = "次のページへ">
+</div>
 </form>
 <%} %>
 </div>
