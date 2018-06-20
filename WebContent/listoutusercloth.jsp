@@ -11,18 +11,31 @@
 <title>所有服　一覧</title>
 </head>
 
+<link rel="stylesheet" type="text/css" href="css/Header.css">
+
 <link rel="stylesheet" type="text/css" href="css/BackGround.css">
 <link rel="stylesheet" type="text/css" href="css/PileImage.css">
 
 <body>
-
-所有服一覧
-<form method="POST" action="CoordinateServlet">
- <input type="submit" value="コーデ画面へ">
-</form>
-<form method="POST" action="ListOutSaleClothServlet">
- <input type="submit" value="おすすめ画面へ">
-</form>
+<div class = "container">
+ <div class = "header">
+    <div class = "headlogo">
+      <img src="./images/Logo4.png" width="150" height="70" />
+    </div>
+    <div class = "title"> 所有服一覧 </div>
+    <div class = "buttons">
+     <div class = "button">
+      <form method="POST" action="CoordinateServlet">
+        <input type="submit" value="コーデ画面へ">
+      </form>
+     </div>
+     <div class = "button">
+      <form method="POST" action="ListOutSaleClothServlet">
+        <input type="submit" value="おすすめ画面へ">
+      </form>
+     </div>
+    </div>
+ </div>
 
 <br><br>
 
@@ -34,23 +47,25 @@
     </option>
     <%} %>
   </select>
+  <input type = "hidden" name = "page" value = 1>
   <input type = "submit" value = "絞込み">
 </form>
 
-<br><br>
+現在のページ：<%=bean.getPage() %>
+<div style="display:inline-flex">
 <%if(bean.getPage() != 1) {%>
 <form method="POST" action="ListOutUserClotheServlet">
 <input type = "hidden" name = "page" value = <%=bean.getPage() - 1 %>>
 <input type = "submit" value = "前のページへ">
 </form>
 <%} %>
-現在のページ：<%=bean.getPage() %>
 <%if(bean.getList().size() == 5) {%>
 <form method="POST" action="ListOutUserClotheServlet">
 <input type = "hidden" name = "page" value = <%=bean.getPage() + 1 %>>
 <input type = "submit" value = "次のページへ">
 </form>
 <%} %>
+</div>
 <table border="1">
     <tbody>
       <%for(UserClothBean record : bean.getList()) {%>
@@ -79,6 +94,7 @@
 </form>
 
 <br>
+</div>
 </body>
 
 </html>

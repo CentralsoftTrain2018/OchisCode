@@ -42,8 +42,13 @@ public class NarrowingUsrClothServlet extends HttpServlet {
 
         ClothService cserv = new ClothService();
 
+        int page = Integer.parseInt(request.getParameter("page"));
+        int offsetnum = 5 * (page - 1);
+        String offset = " offset " + offsetnum + " ";
+
         String narrow = request.getParameter("narrow");
-        bean = cserv.userCloth( userBean.getUserid(), narrow, "", "");//userIdは定数
+        bean = cserv.userCloth( userBean.getUserid(), narrow, " limit 5 ", offset);//userIdは定数
+        bean.setPage(page);
 
         request.setAttribute( "bean", bean );
         RequestDispatcher disp = request.getRequestDispatcher( "/listoutusercloth.jsp" );
