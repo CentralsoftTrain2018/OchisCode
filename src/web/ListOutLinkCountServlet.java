@@ -8,20 +8,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import service.ClothService;
-
 /**
- * Servlet implementation class CountLinkClickServlet
+ * 管理者用クリック数確認画面に遷移
  */
-@WebServlet("/CountLinkClickServlet")
-public class CountLinkClickServlet extends HttpServlet
+@WebServlet("/ListOutLinkCountServlet")
+public class ListOutLinkCountServlet extends HttpServlet
 {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CountLinkClickServlet()
+    public ListOutLinkCountServlet()
     {
         super();
         // TODO Auto-generated constructor stub
@@ -32,17 +30,7 @@ public class CountLinkClickServlet extends HttpServlet
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        System.out.println( "クリック数カウント用" );
-        request.setCharacterEncoding( "utf-8" );
 
-        int clothid = Integer.parseInt( request.getParameter( "clothid" ));
-        ClothService cserv =new ClothService();
-
-        cserv.countPlus( clothid );
-
-        //リンク先のECサイトへ遷移
-        String linkURL = request.getParameter( "URL" );
-        response.sendRedirect(linkURL);
     }
 
     /**
@@ -50,6 +38,7 @@ public class CountLinkClickServlet extends HttpServlet
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
+        // TODO Auto-generated method stub
         doGet( request, response );
     }
 

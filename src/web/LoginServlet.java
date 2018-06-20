@@ -42,30 +42,24 @@ public class LoginServlet extends HttpServlet
         //入力情報の取得
         String userid = request.getParameter( "userid" );
         String password = request.getParameter( "password" );
-        //TODO サービスへID,パスを渡す
+
         UserService userv= new UserService();
-        //TODO 結果に応じて遷移先を変更
-        UserInfoBean userBean = new UserInfoBean();
 
+        UserInfoBean userBean = userv.checkUser(userid, password);
 
-        userBean=userv.checkUser(userid, password);
-
-        
         if(!userBean.isUserExist())
         {
            System.out.println("ログイン失敗");
-
-
            //エラー画面へ遷移
             RequestDispatcher disp = request.getRequestDispatcher( "/loginerror.html" );
             disp.forward( request, response );
-
         }
         System.out.println("ログイン成功");
         ClothService cserv = new ClothService();
         ListOutUserClothBean bean;
 
-        bean = cserv.userCloth( userBean.getUserid(), "", "", "");//userIdは定数
+        bean = cserv.userCloth( userBean.getUserid(), "", "", "");
+
         session.setAttribute("userclothbean", bean);
 
         session.setAttribute( "userinfobean", userBean );

@@ -14,24 +14,20 @@
 <head>
 
 <script type="text/javascript">
-    function changeOchiFaceMan()
-    {
-        document.getElementById("ochiface").src = "./images/ochi's.png";
-    }
+  function changeOchiFaceMan() {
+    document.getElementById("ochiface").src = "./images/ochi's.png";
+  }
 
-    function changeOchiFaceWoman()
-    {
-      document.getElementById("ochiface").src = "./images/ochi_smile.PNG";
-    }
+  function changeOchiFaceWoman() {
+    document.getElementById("ochiface").src = "./images/ochi_smile.PNG";
+  }
 
-    function changeOchiFaceSmile()
-    {
-      document.getElementById("ochiface").src = "./images/ochi_smile.PNG";
-    }
-    function changeOchiFaceNonSmile()
-    {
-      document.getElementById("ochiface").src = "./images/ochi's.png";
-    }
+  function changeOchiFaceSmile() {
+    document.getElementById("ochiface").src = "./images/ochi_smile.PNG";
+  }
+  function changeOchiFaceNonSmile() {
+    document.getElementById("ochiface").src = "./images/ochi's.png";
+  }
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>コーデ画面</title>
@@ -63,8 +59,8 @@
         </div>
         <div class="button">
           <form method="POST" action="ListOutUserClotheServlet">
-            <input type = "hidden" name = "page" value = 1>
-            <input type="submit" value="所有服一覧へ">
+            <input type="hidden" name="page" value=1> <input
+              type="submit" value="所有服一覧へ">
           </form>
         </div>
       </div>
@@ -76,27 +72,35 @@
       <div class="model">
         <div class="flame">
           <input type="radio" name="sexradio" onclick="changeOchiFaceMan()"
-          <%if(bean.getSex() == SexEnum.男) { %>
-          checked="checked"
-          <%} %> />男
+            <%if (bean.getSex() == SexEnum.男)
+      {%> checked="checked" <%}%> />男
           <input type="radio" name="sexradio" onclick="changeOchiFaceWoman()"
-          <%if(bean.getSex() == SexEnum.女) { %>
-          checked="checked"
-          <%} %> />女
+            <%if (bean.getSex() == SexEnum.女)
+      {%> checked="checked" <%}%> />女
 
           <!-- 越智くんの顔 -->
           <div class="relative">
-            <%if(bean.getSex() == SexEnum.男) {%>
+            <%
+              if (bean.getSex() == SexEnum.男)
+              {
+            %>
             <img src="./images/白.png" width="160" height="120" /> <img
               id="ochiface" src="./images/ochi's.png" class="absolute"
               width="160" height="120" onclick="changeOchiFaceSmile()" />
-            <%} %>
-            <%if(bean.getSex() == SexEnum.女) {%>
+            <%
+              }
+            %>
+            <%
+              if (bean.getSex() == SexEnum.女)
+              {
+            %>
             <img src="./images/白.png" width="160" height="120" /> <img
               id="ochiface" src="./images/ochi_smile.PNG" class="absolute"
               width="160" height="120" onclick="changeOchiFaceNonSmile()" />
 
-            <%} %>
+            <%
+              }
+            %>
           </div>
           <!-- 上 -->
           <div class="relative">
@@ -106,7 +110,7 @@
               src="./images/<%=bean.getTopPattern().name()%>.png"
               class="absolute" width="<%=bean.getTopSize().getWidth()%>"
               height="<%=bean.getTopSize().getHeight()%>" /> <img
-              src="./images/<%=bean.getTopCategory().name()+"hand"%>.png"
+              src="./images/<%=bean.getTopCategory().name() + "hand"%>.png"
               class="absolute" width="<%=bean.getTopSize().getWidth()%>"
               height="<%=bean.getTopSize().getHeight()%>" />
           </div>
@@ -118,7 +122,7 @@
               src="./images/<%=bean.getBottomPattern().name()%>.png"
               class="absolute" width="<%=bean.getBottomSize().getWidth()%>"
               height="<%=bean.getBottomSize().getHeight()%>" /> <img
-              src="./images/<%=bean.getBottomCategory().name()+"leg"%>.png"
+              src="./images/<%=bean.getBottomCategory().name() + "leg"%>.png"
               class="absolute" width="<%=bean.getBottomSize().getWidth()%>"
               height="<%=bean.getBottomSize().getHeight()%>" />
           </div>
@@ -274,23 +278,24 @@
           <div class="form3">
             <ul class="scrollsize">
               <%
-                  for (bean.CoordinateBean code : bean.getList())
-                  {
-                %>
-               <li><form method="POST" action="ChangeSelectCodeServlet">
-               <div class ="button_floata">
-               <input type="submit" name="cloth"
-               value="<%=code.toString()%>">
-               </div> </form></li>
-               <li><form method="POST" action="DeleteCoordinateServlet">
-               <div class ="button_floatb">
-               <input type="hidden" name="code" value="<%=code.getCode_num()%>">
-               <input type="submit" value="コーデ削除">
-               </div>
-               </form> </li>
-                <%
-                  }
-                %>
+                for (bean.CoordinateBean code : bean.getList())
+                {
+              %>
+              <li><form method="POST" action="ChangeSelectCodeServlet">
+                  <div class="button_floata">
+                    <input type="submit" name="cloth" value="<%=code.toString()%>">
+                  </div>
+                </form></li>
+              <li><form method="POST" action="DeleteCoordinateServlet">
+                  <div class="button_floatb">
+                    <input type="hidden" name="code"
+                      value="<%=code.getCode_num()%>"> <input type="submit"
+                      value="コーデ削除">
+                  </div>
+                </form></li>
+              <%
+                }
+              %>
             </ul>
           </div>
         </div>
