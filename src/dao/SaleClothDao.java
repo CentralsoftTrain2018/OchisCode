@@ -48,6 +48,18 @@ public class SaleClothDao extends Dao
             + " WHERE"
             + " clothid = ?";
 
+    //クリックカウント取得用SQL文
+    private static final String GETALLCLICKCOUNTSQL = "SELECT"
+            + " color,"
+            + " pattern,"
+            + " category,"
+            + " SUM(clickcount)"
+            + " FROM sale_cloth"
+            + " GROUP BY "
+            + " color,"
+            + " pattern,"
+            + " category";
+
     //販売服をすべて
     public List<SaleClothVo> getRecomCloth() throws SQLException
     {
@@ -68,8 +80,7 @@ public class SaleClothDao extends Dao
                     PatternEnum.valueOf( rset.getString( 3 ) ),
                     SizeEnum.valueOf( rset.getString( 4 ) ),
                     rset.getInt( 5 ),
-                    rset.getString( 6 )
-            );
+                    rset.getString( 6 ) );
             list.add( recomvo );
         }
         return list;
@@ -171,7 +182,7 @@ public class SaleClothDao extends Dao
                     JougeEnum.valueOf( recomClothSet.getString( 7 ) ),
                     recomClothSet.getInt( 3 ),
                     recomClothSet.getString( 8 ),
-                    recomClothSet.getInt( 1 ));
+                    recomClothSet.getInt( 1 ) );
 
             recomClothList.add( recomCloth );
         }
@@ -193,4 +204,19 @@ public class SaleClothDao extends Dao
             throw e;
         }
     }
+
+    //リンクのクリック回数を集計
+    public void getAllcount() throws SQLException
+    {
+        try (
+                PreparedStatement stmt = con.prepareStatement( GETALLCLICKCOUNTSQL );)
+        {
+            ResultSet rset = stmt.executeQuery();
+
+        } catch (SQLException e)
+        {
+            throw e;
+        }
+    }
+
 }

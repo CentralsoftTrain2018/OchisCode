@@ -2,11 +2,15 @@ package web;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import bean.ListOutLinkCountBean;
+import service.ClothService;
 
 /**
  * 管理者用クリック数確認画面に遷移
@@ -30,7 +34,13 @@ public class ListOutLinkCountServlet extends HttpServlet
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-
+        ClothService cserv =new ClothService();
+        //クリック数をDBから取得
+        ListOutLinkCountBean bean = cserv.getAllClothCount();
+        request.setAttribute( "bean", bean );
+        //一覧画面に遷移
+        RequestDispatcher disp = request.getRequestDispatcher("/listoutlinkcount.jsp");
+        disp.forward(request, response);
     }
 
     /**

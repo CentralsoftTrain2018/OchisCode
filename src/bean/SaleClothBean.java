@@ -8,6 +8,7 @@ public class SaleClothBean extends ClothBean
     private int price;
     private String URL;
     private int clothid;
+    private int clickcount;
 
     public SaleClothBean()
     {
@@ -41,6 +42,16 @@ public class SaleClothBean extends ClothBean
     public void setClothid(int clothid)
     {
         this.clothid = clothid;
+    }
+
+    public int getClickcount()
+    {
+        return clickcount;
+    }
+
+    public void setClickcount(int clickcount)
+    {
+        this.clickcount = clickcount;
     }
 
     public String toString()

@@ -6,20 +6,28 @@ import domain.JougeEnum;
 import domain.PatternEnum;
 import domain.SizeEnum;
 
-public class ClothVo {
+public class ClothVo
+{
     protected CategoryEnum category;
     protected ColorEnum color;
     protected PatternEnum pattern;
     protected SizeEnum size;
     protected JougeEnum jouge;
 
-  //コンストラクタ
+    //コンストラクタ
     public ClothVo(CategoryEnum category, ColorEnum color, PatternEnum pattern, SizeEnum size)
     {
         this.category = category;
         this.color = color;
         this.pattern = pattern;
         this.size = size;
+    }
+
+    public ClothVo(CategoryEnum category, ColorEnum color, PatternEnum pattern)
+    {
+        this.category = category;
+        this.color = color;
+        this.pattern = pattern;
     }
 
     public CategoryEnum getCategory()
@@ -62,14 +70,14 @@ public class ClothVo {
         this.size = size;
     }
 
-    public JougeEnum getJouge() {
+    public JougeEnum getJouge()
+    {
         return jouge;
     }
 
-    public void setJouge(JougeEnum jouge) {
+    public void setJouge(JougeEnum jouge)
+    {
         this.jouge = jouge;
     }
-
-
 
 }

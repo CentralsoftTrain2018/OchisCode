@@ -11,6 +11,7 @@ public class SaleClothVo extends ClothVo
     private int Price;
     private String Url;
     private int clothid;
+    private int clickcount;
 
     public SaleClothVo(CategoryEnum category, ColorEnum color, PatternEnum pattern, SizeEnum size, int Price,
             String Url)
@@ -31,6 +32,11 @@ public class SaleClothVo extends ClothVo
         this.Price = Price;
         this.Url = Url;
         this.clothid = clothid;
+    }
+
+    public SaleClothVo(CategoryEnum category, ColorEnum color, PatternEnum pattern,int clickcount) {
+        super( category, color, pattern );
+        this.clickcount = clickcount;
     }
 
     public int getPrice()
@@ -61,6 +67,16 @@ public class SaleClothVo extends ClothVo
     public void setClothid(int clothid)
     {
         this.clothid = clothid;
+    }
+
+    public int getClickcount()
+    {
+        return clickcount;
+    }
+
+    public void setClickcount(int clickcount)
+    {
+        this.clickcount = clickcount;
     }
 
     public String toString()

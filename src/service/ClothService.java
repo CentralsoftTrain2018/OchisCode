@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import bean.ListOutLinkCountBean;
 import bean.ListOutUserClothBean;
 import bean.ListSaleClothBean;
 import bean.SaleClothBean;
@@ -224,6 +225,21 @@ public class ClothService
         {
             SaleClothDao scdao = new SaleClothDao( con );
             scdao.countUp( clothid );
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+            throw new RuntimeException( e );
+        }
+    }
+
+    //販売服のリンククリック数を集計して表示
+    public ListOutLinkCountBean getAllClothCount(){
+        ListOutLinkCountBean bean =new ListOutLinkCountBean();
+        try (
+                Connection con = Dao.getConnection();)
+        {
+            SaleClothDao scdao = new SaleClothDao( con );
+            return null;
         } catch (SQLException e)
         {
             e.printStackTrace();
