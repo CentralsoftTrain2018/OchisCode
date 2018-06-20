@@ -14,7 +14,7 @@
 <!-- cssインポート -->
 <link rel="stylesheet" type="text/css" href="css/Login.css">
 <link rel="stylesheet" type="text/css" href="css/BackGround.css">
-<link rel="stylesheet" type="text/css" href="css/Coordinate.css">
+<link rel="stylesheet" type="text/css" href="css/SaleClothDisplay.css">
 <link rel="stylesheet" type="text/css" href="css/PileImage.css">
 
 <script type="text/javascript">
