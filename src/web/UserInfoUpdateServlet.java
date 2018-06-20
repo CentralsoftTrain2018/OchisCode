@@ -66,7 +66,6 @@ public class UserInfoUpdateServlet extends HttpServlet
             userBean.setSex( SexEnum.valueOf( sexStr ) );
         }
 
-        //TODO サービス層へデータを受け渡し、DBを更新する
         UserService userserv = new UserService();
 
         userserv.updateUser(userBean);

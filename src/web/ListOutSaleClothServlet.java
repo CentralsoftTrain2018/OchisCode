@@ -81,9 +81,12 @@ public class ListOutSaleClothServlet extends HttpServlet
         bean.setUserCloth(ucbean);
         bean.setSaleCloth(rcbean);
 
+        bean.setNarrow("");
+        bean.setSort("");
+
         //jspに遷移
         request.setAttribute( "bean", bean );
-        RequestDispatcher disp = request.getRequestDispatcher( "/saleclothdisplay.jsp" );
+        RequestDispatcher disp = request.getRequestDispatcher( "/saleclothdisplay2.jsp" );
         disp.forward( request, response );
         doGet( request, response );
     }

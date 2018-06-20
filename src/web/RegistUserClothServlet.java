@@ -52,7 +52,6 @@ public class RegistUserClothServlet extends HttpServlet
         String category = request.getParameter( "category" );
         String size = request.getParameter( "size" );
 
-        //TODO コネクションからID取得
         String id = userBean.getUserid();
 
         ClothService cloth = new ClothService();
