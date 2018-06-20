@@ -37,7 +37,7 @@ public class UserConfigServlet extends HttpServlet
     {
         //セッションからユーザー情報を取得
         HttpSession session = request.getSession();
-        UserInfoBean userBean = (UserInfoBean)request.getSession().getAttribute("userinfobean");
+        UserInfoBean userBean = (UserInfoBean)session.getAttribute("userinfobean");
         request.setAttribute( "bean", userBean );
 
         //ユーザー情報表示へ遷移

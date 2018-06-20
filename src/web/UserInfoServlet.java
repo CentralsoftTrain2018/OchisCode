@@ -36,8 +36,8 @@ public class UserInfoServlet extends HttpServlet
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         //セッションからユーザー情報を取得
-        //HttpSession session = request.getSession();
-        UserInfoBean userBean = (UserInfoBean)request.getSession().getAttribute("userinfobean");
+        HttpSession session = request.getSession();
+        UserInfoBean userBean = (UserInfoBean)session.getAttribute("userinfobean");
 
         //requestにユーザー情報のbeanをセット
         request.setAttribute( "bean", userBean );

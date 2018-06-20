@@ -112,7 +112,7 @@ public class SaveCodeDao extends Dao{
         stmt.setString(8, savecode.getTopssize().name());
         stmt.setString(9, savecode.getBottomssize().name());
 
-        int i =stmt.executeUpdate();
+        stmt.executeUpdate();
     }
 
     //引数で指定された番号のコーデを削除する
@@ -121,6 +121,6 @@ public class SaveCodeDao extends Dao{
         PreparedStatement stmt=null;
          stmt = con.prepareStatement(DeleteCoordinate_SQL);
          stmt.setInt(1, code_number);
-         int i = stmt.executeUpdate();
+         stmt.executeUpdate();
     }
 }
