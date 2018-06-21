@@ -4,22 +4,25 @@
 作成者<野間>*/
 
 .margin{
-width: 500px;
   margin:0px 0px 0px 150px;
 }
 
 .margin-center{
-  margin:20px 0px 0px 340px;
+  margin:30px 0px 0px 200px;
 }
 
 .margin-r{
   position: absolute;
   top: 185px;
+  bottom: 0;
+  right: 0;
   left: 570px
 }
 
 .margin-l{
    position: absolute;
   top: 185px;
+  bottom: 0;
+  right: 0;
   left: 160px
 }

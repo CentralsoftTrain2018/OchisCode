@@ -53,7 +53,6 @@
   <input type = "hidden" name = "page" value = 1>
   <input type = "submit" value = "絞込み">
 </form>
-</div>
 <div class ="margin-center">
 現在のページ：<%=bean.getPage() %>
 </div>
@@ -78,7 +77,6 @@
 
 
 <!--持ち服の表示(テーブル)-->
-<div class="margin">
 <table width="500" border="1">
     <tbody>
       <%for(UserClothBean record : bean.getList()) {%>
