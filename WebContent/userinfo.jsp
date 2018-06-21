@@ -47,10 +47,12 @@
             action="ListOutSaleClothServlet"></form>
 </h1>
 
-<ul class="guide">
-<li class="first"><a href="#">FAQ</a></li>
-<li><a href="#">アクセス</a></li>
-</ul>
+ <ul class="guide">
+          <li class="first"><a href="javascript:logout.submit();"
+            onclick="return confirm('ログアウトしますか？')">ログアウト</a>
+            <form method="POST" name="logout" action="LogOutServlet"></form></li>
+
+        </ul>
 
 <ul class="nl clearFix">
 <li class="first"><a href="javascript:movecoordinate.submit();">コーデ画面へ</a>
