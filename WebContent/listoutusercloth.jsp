@@ -11,34 +11,54 @@
 <title>所有服　一覧</title>
 </head>
 
+<link rel="stylesheet" type="text/css" href="css/Login.css">
+<link rel="stylesheet" type="text/css" href="css/BackGround.css">
+<link rel="stylesheet" type="text/css" href="css/SaleClothDisplay.css">
 <link rel="stylesheet" type="text/css" href="css/Header.css">
-
 <link rel="stylesheet" type="text/css" href="css/BackGround.css">
 <link rel="stylesheet" type="text/css" href="css/PileImage.css">
 <link rel="stylesheet" type="text/css" href="css/margin.css">
 
-<body>
-<div class = "container">
- <div class = "header">
-    <div class = "headlogo">
-      <a href="javascript:moveSaleCloth.submit();">
-          <img src="./images/Logo4.png" width="150" height="70" />
-      </a>
-    </div>
-    <div class = "title"> 所有服一覧 </div>
-    <div class = "buttons">
-     <div class = "button">
-      <form method="POST" action="CoordinateServlet">
-        <input type="submit" value="コーデ画面へ">
-      </form>
-     </div>
-     <div class = "button">
-      <form method="POST" name = moveSaleCloth action="ListOutSaleClothServlet">
-        <input type="submit" value="おすすめ画面へ">
-      </form>
-     </div>
-    </div>
- </div>
+<body onload="onLoad()">
+  <!-- コンテナ開始 -->
+  <div id="container">
+
+    <!-- ページ開始 -->
+    <div id="page">
+
+
+      <!-- ヘッダ開始 -->
+      <div id="header">
+
+        <h1 class="siteTitle">
+          <a href="javascript:moveSaleCloth.submit();"> <img
+            src="./images/Logo4.png" width="150" height="70" />
+          </a>
+          <form method="POST" name=moveSaleCloth
+            action="ListOutSaleClothServlet"></form>
+        </h1>
+
+        <ul class="guide">
+          <li class="first"><a href="javascript:logout.submit();"
+            onclick="return confirm('ログアウトしますか？')">ログアウト</a>
+            <form method="POST" name="logout" action="LogOutServlet"></form></li>
+          <li><a href="#">アクセス</a></li>
+        </ul>
+
+        <ul class="nl clearFix">
+          <li class="first"><a
+            href="javascript:movecoordinate.submit();">コーデ画面へ</a>
+            <form method="POST" name="movecoordinate"
+              action="CoordinateServlet"></form></li>
+          <li><a href="javascript:movesalecloth.submit();">おすすめ画面へ</a>
+            <form method="POST" name="movesalecloth"
+              action="ListOutSaleClothServlet">
+              <input type="hidden" name="page" value=1>
+            </form></li>
+          <li><a href="javascript:moveuserinfo.submit();">ユーザー情報へ</a>
+            <form method="POST" name="moveuserinfo" action="UserInfoServlet">
+            </form></li>
+        </ul>
 
 <br><br>
 <div class="margin">
@@ -108,6 +128,14 @@
 
 <br>
 </div>
+</div>
+      <!-- コンテンツ終了 -->
+
+    </div>
+    <!-- ページ終了 -->
+
+  </div>
+  <!-- コンテナ終了 -->
 </body>
 
 </html>
