@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bean.ListOutLinkCountBean;
+import bean.SaleClothBean;
 import service.ClothService;
 
 /**
@@ -49,16 +50,16 @@ public class ListOutLinkCountServlet extends HttpServlet
         request.setCharacterEncoding( "utf-8" );
         String distAddress = request.getParameter( "address" );
 
+        ClothService cserv = new ClothService();
+        //クリック数をDBから取得
+        ListOutLinkCountBean bean = cserv.getAllClothCount();
+
         //メールアドレスが入力されていた場合メールを送信
         if (distAddress != null)
         {
             System.out.println( "ちくわ" );
-            //this.sendMail( distAddress );
+            this.sendMail( distAddress, bean );
         }
-
-        ClothService cserv = new ClothService();
-        //クリック数をDBから取得
-        ListOutLinkCountBean bean = cserv.getAllClothCount();
         request.setAttribute( "bean", bean );
         //一覧画面に遷移
         RequestDispatcher disp = request.getRequestDispatcher( "/listoutlinkcount.jsp" );
@@ -75,7 +76,7 @@ public class ListOutLinkCountServlet extends HttpServlet
     }
 
     //集計データメール送信用メソッド
-    private void sendMail(String mailAddress)
+    private void sendMail(String mailAddress, ListOutLinkCountBean bean)
     {
         Properties props = new Properties();
         props.put( "mail.smtp.host", "smtp.gmail.com" );
@@ -92,8 +93,11 @@ public class ListOutLinkCountServlet extends HttpServlet
             }
         } ) );
 
+        //送信元アドレス
         String srcAddress = account + "@gmail.com";
-        String distAddress = mailAddress; // カンマ区切りで複数メール
+        //宛先アドレス
+        String distAddress = mailAddress;
+        System.out.println( "宛先：　" + distAddress );
         try
         {
             msg.setFrom( new InternetAddress( srcAddress ) );
@@ -101,9 +105,15 @@ public class ListOutLinkCountServlet extends HttpServlet
             //件名
             msg.setSubject( "クリック回数データ" );
             //送信内容
-            String mailText = "バンジー代10％オフ\n" +
-
-                    "末まで";
+            StringBuilder strb = new StringBuilder( "色,柄,カテゴリ,クリック回数\n" );
+            for (SaleClothBean linebean : bean.getList())
+            {
+                strb.append( linebean.getColor().name() + ","
+                        + linebean.getPattern().name() + ","
+                        + linebean.getCategory().name() + ","
+                        + linebean.getClickcount() + "\n" );
+            }
+            String mailText = strb.toString();
 
             msg.setText( mailText );
             //送信
