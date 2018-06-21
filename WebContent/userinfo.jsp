@@ -40,10 +40,10 @@
 <div id="header">
 
 <h1 class="siteTitle">
-  <a href="javascript:moveSaleCloth.submit();">
+  <a href="javascript:moveSaleClothImage.submit();">
     <img src="./images/Logo4.png" width="150" height="70" />
   </a>
- <form method="POST" name="moveSaleCloth"
+ <form method="POST" name="moveSaleClothImage"
             action="ListOutSaleClothServlet"></form>
 </h1>
 
@@ -64,8 +64,8 @@
                   action="ListOutUserClotheServlet">
                   <input type="hidden" name="page" value=1>
                 </form></li>
-<li><a href="javascript:moveuserinfo.submit();">おすすめ画面へ</a>
-                <form method="POST" name = "movesalecloth"
+<li><a href="javascript:moveSaleClothButton.submit();">おすすめ画面へ</a>
+                <form method="POST" name = "moveSaleClothButton"
                   action="ListOutSaleClothServlet">
                 </form></li>
 </ul>
