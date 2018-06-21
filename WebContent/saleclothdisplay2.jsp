@@ -117,8 +117,53 @@
 <!-- メインカラム開始 -->
 <div id="main">
 
+
 <div class="section emphasis">
 <h2>オススメ服</h2>
+<div style="display:inline-flex">
+<%if(bean.getPage() != 1) {%>
+<form method="POST" action="SaleClothDisplayServlet">
+  <input type = "hidden" name = "page" value = <%=bean.getPage() - 1 %>>
+  <input type="hidden" name="topcolor" value="<%=bean.getTopColor().name()%>">
+  <input type="hidden" name="toppattern" value="<%=bean.getTopPattern().name()%>">
+  <input type="hidden" name="topcategory" value="<%= bean.getTopCategory().name()%>">
+  <input type="hidden" name="topsize" value="<%= bean.getTopSize().name()%>">
+  <input type="hidden" name="bottomcolor" value="<%=bean.getBottomColor().name()%>">
+  <input type="hidden" name="bottompattern" value="<%=bean.getBottomPattern().name()%>">
+  <input type="hidden" name="bottomcategory" value="<%= bean.getBottomCategory().name()%>">
+  <input type="hidden" name="bottomsize"value="<%= bean.getBottomSize().name()%>">
+  <input type = "hidden" name = "narrow" value = <%=bean.getNarrow() %>>
+  <input type = "hidden" name = "sort" value = <%=bean.getSort() %>>
+  <input type = "hidden" name = "usercloth" value = <%=bean.getClothid() %>>
+
+<div class ="margin">
+<input type = "submit" value = "前のページへ">
+</div>
+</form>
+<%} %>
+
+現在のページ：<%=bean.getPage() %>
+
+<%if(bean.getSaleCloth().getList().size() == 9) {%>
+<form method="POST" action="SaleClothDisplayServlet">
+  <input type = "hidden" name = "page" value = <%=bean.getPage() + 1 %>>
+  <input type="hidden" name="topcolor" value="<%=bean.getTopColor().name()%>">
+  <input type="hidden" name="toppattern" value="<%=bean.getTopPattern().name()%>">
+  <input type="hidden" name="topcategory" value="<%= bean.getTopCategory().name()%>">
+  <input type="hidden" name="topsize" value="<%= bean.getTopSize().name()%>">
+  <input type="hidden" name="bottomcolor" value="<%=bean.getBottomColor().name()%>">
+  <input type="hidden" name="bottompattern" value="<%=bean.getBottomPattern().name()%>">
+  <input type="hidden" name="bottomcategory" value="<%= bean.getBottomCategory().name()%>">
+  <input type="hidden" name="bottomsize"value="<%= bean.getBottomSize().name()%>">
+  <input type = "hidden" name = "narrow" value = <%=bean.getNarrow() %>>
+  <input type = "hidden" name = "sort" value = <%=bean.getSort() %>>
+  <input type = "hidden" name = "usercloth" value = <%=bean.getClothid() %>>
+<div class ="margin-right">
+<input type = "submit" value = "次のページへ">
+</div>
+</form>
+<%} %>
+</div>
 <div class = "cloth">
 <%for (bean.SaleClothBean record : bean.getSaleCloth().getList()){%>
               <div class="item">
@@ -236,23 +281,17 @@
  </div>
 </div>
 
-<input type="hidden" name="topcolor"
-                  value="<%=bean.getTopColor().name()%>"> <input
-                  type="hidden" name="toppattern"
-                  value="<%=bean.getTopPattern().name()%>"> <input
-                  type="hidden" name="topcategory"
-                  value="<%= bean.getTopCategory().name()%>"> <input
-                  type="hidden" name="topsize"
-                  value="<%= bean.getTopSize().name()%>"> <input
-                  type="hidden" name="bottomcolor"
-                  value="<%=bean.getBottomColor().name()%>"> <input
-                  type="hidden" name="bottompattern"
-                  value="<%=bean.getBottomPattern().name()%>"> <input
-                  type="hidden" name="bottomcategory"
-                  value="<%= bean.getBottomCategory().name()%>"> <input
-                  type="hidden" name="bottomsize"
-                  value="<%= bean.getBottomSize().name()%>"> <input
-                  type="submit" value="オススメ服表示">
+<input type="hidden" name="topcolor" value="<%=bean.getTopColor().name()%>">
+<input type="hidden" name="toppattern" value="<%=bean.getTopPattern().name()%>">
+<input type="hidden" name="topcategory" value="<%= bean.getTopCategory().name()%>">
+<input type="hidden" name="topsize" value="<%= bean.getTopSize().name()%>">
+<input type="hidden" name="bottomcolor" value="<%=bean.getBottomColor().name()%>">
+<input type="hidden" name="bottompattern" value="<%=bean.getBottomPattern().name()%>">
+<input type="hidden" name="bottomcategory" value="<%= bean.getBottomCategory().name()%>">
+<input type="hidden" name="bottomsize"value="<%= bean.getBottomSize().name()%>">
+<input type = "hidden" name = "page" value = "1">
+<input type="submit" value="オススメ服表示">
+
 
 </form>
 

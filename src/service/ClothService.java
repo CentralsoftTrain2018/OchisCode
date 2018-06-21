@@ -76,13 +76,13 @@ public class ClothService
     }
 
     //持ち服すべてに対するオススメを取得
-    public ListSaleClothBean getSaleCloth(String userid, String minmax, String order)
+    public ListSaleClothBean getSaleCloth(String userid, String minmax, String order, int offset)
     {
         try (
                 Connection con = Dao.getConnection();)
         {
             SaleClothDao rcdao = new SaleClothDao( con );
-            List<SaleClothVo> rcvolist = rcdao.getSaleClothList( userid, minmax, order );
+            List<SaleClothVo> rcvolist = rcdao.getSaleClothList( userid, minmax, order, offset);
 
             ListSaleClothBean listoutrcbean = new ListSaleClothBean();
             List<SaleClothBean> rcbeanlist = new ArrayList<SaleClothBean>();
@@ -112,14 +112,14 @@ public class ClothService
     }
 
     //持ち服に対応するオススメ服を取得
-    public ListSaleClothBean getSelectedSaleCloth(int clothid, String minmax, String order)
+    public ListSaleClothBean getSelectedSaleCloth(int clothid, String minmax, String order, int offset)
     {
         try (
                 Connection con = Dao.getConnection();)
         {
             SaleClothDao rcdao = new SaleClothDao( con );
 
-            List<SaleClothVo> rcvolist = rcdao.getRecomCloth( clothid, minmax, order );
+            List<SaleClothVo> rcvolist = rcdao.getRecomCloth( clothid, minmax, order, offset);
 
             ListSaleClothBean listoutrcbean = new ListSaleClothBean();
             List<SaleClothBean> rcbeanlist = new ArrayList<SaleClothBean>();

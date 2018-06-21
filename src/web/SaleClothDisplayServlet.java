@@ -62,13 +62,15 @@ public class SaleClothDisplayServlet extends HttpServlet
         int clothid = Integer.parseInt(request.getParameter("usercloth"));
         String minmax = request.getParameter("narrow");
         String orderStr=request.getParameter("sort");
+        int page = Integer.parseInt(request.getParameter("page"));
+        int offset = 9 * (page - 1);
 
         ClothService cs = new ClothService();
         ListOutUserClothBean ucbean = cs.userCloth(userBean.getUserid(), "", "", "");
 
         UserClothBean selecteduc = ucbean.getSelectedCloth(clothid);
 
-        ListSaleClothBean rcbean = cs.getSelectedSaleCloth(clothid, minmax ,orderStr);
+        ListSaleClothBean rcbean = cs.getSelectedSaleCloth(clothid, minmax ,orderStr, offset);
 
         SaleClothDisplayBean bean = new SaleClothDisplayBean();
 
@@ -98,6 +100,7 @@ public class SaleClothDisplayServlet extends HttpServlet
         bean.setClothid(request.getParameter("usercloth"));
         bean.setNarrow(minmax);
         bean.setSort(orderStr);
+        bean.setPage(page);
 
         //性別を取得
         bean.setSex(userBean.getSex());
