@@ -132,9 +132,9 @@
   <input type="hidden" name="bottompattern" value="<%=bean.getBottomPattern().name()%>">
   <input type="hidden" name="bottomcategory" value="<%= bean.getBottomCategory().name()%>">
   <input type="hidden" name="bottomsize"value="<%= bean.getBottomSize().name()%>">
-  <input type = "hidden" name = "narrow" value = <%=bean.getNarrow() %>>
-  <input type = "hidden" name = "sort" value = <%=bean.getSort() %>>
-  <input type = "hidden" name = "usercloth" value = <%=bean.getClothid() %>>
+  <input type = "hidden" name = "narrow" value = "<%=bean.getNarrow() %>">
+  <input type = "hidden" name = "sort" value = "<%=bean.getSort() %>">
+  <input type = "hidden" name = "usercloth" value = "<%=bean.getClothid() %>">
 
 <div class ="margin">
 <input type = "submit" value = "前のページへ">
@@ -155,9 +155,9 @@
   <input type="hidden" name="bottompattern" value="<%=bean.getBottomPattern().name()%>">
   <input type="hidden" name="bottomcategory" value="<%= bean.getBottomCategory().name()%>">
   <input type="hidden" name="bottomsize"value="<%= bean.getBottomSize().name()%>">
-  <input type = "hidden" name = "narrow" value = <%=bean.getNarrow() %>>
-  <input type = "hidden" name = "sort" value = <%=bean.getSort() %>>
-  <input type = "hidden" name = "usercloth" value = <%=bean.getClothid() %>>
+  <input type = "hidden" name = "narrow" value = "<%=bean.getNarrow() %>">
+  <input type = "hidden" name = "sort" value = "<%=bean.getSort() %>">
+  <input type = "hidden" name = "usercloth" value = "<%=bean.getClothid() %>">
 <div class ="margin-right">
 <input type = "submit" value = "次のページへ">
 </div>
