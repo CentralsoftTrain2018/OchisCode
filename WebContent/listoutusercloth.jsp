@@ -32,8 +32,10 @@
 
         <h1 class="siteTitle">
           <a href="javascript:moveSaleCloth.submit();"> <img
-            src="./images/Logo4.png" width="150" height="70" />
+            src="./images/LoginLogo.png" width="400" height="150" />
           </a>
+           <form method="POST" name=moveSaleCloth action="ListOutSaleClothServlet">
+          </form>
         </h1>
 
         <ul class="guide">
@@ -57,6 +59,7 @@
             <form method="POST" name="moveuserinfo" action="UserInfoServlet">
             </form></li>
         </ul>
+         </div>
 
 <br><br>
 <form method = "POST" action = "NarrowingUsrClothServlet">
