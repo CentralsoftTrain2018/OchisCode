@@ -5,9 +5,11 @@
 
 /*bodyタグ内の背景*/
 body{
-background-image: url(../images/OchiHome.png);
+background-image: url(../images/BackGroundOchi.png);
 background-position: right ;
 background-repeat: no-repeat;
 background-attachment: fixed;
+
+
 
 }
