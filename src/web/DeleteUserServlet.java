@@ -43,10 +43,10 @@ public class DeleteUserServlet extends HttpServlet
         UserService userv = new UserService();
         //サービス層へユーザーID受け渡し
         userv.deleteUser( userBean.getUserid() );
-        //セッションで保持しているユーザー情報を削除
-        session.removeAttribute("userinfobean");
+        //セッションを削除
+        session.invalidate();
 
-        RequestDispatcher disp = request.getRequestDispatcher("/goodbye.html");
+        RequestDispatcher disp = request.getRequestDispatcher("/login.html");
         disp.forward(request, response);
     }
 

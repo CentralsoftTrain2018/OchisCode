@@ -233,13 +233,33 @@ public class ClothService
     }
 
     //販売服のリンククリック数を集計して表示
-    public ListOutLinkCountBean getAllClothCount(){
-        ListOutLinkCountBean bean =new ListOutLinkCountBean();
+    public ListOutLinkCountBean getAllClothCount()
+    {
+        //返り値のBean宣言
+        ListOutLinkCountBean bean = new ListOutLinkCountBean();
         try (
                 Connection con = Dao.getConnection();)
         {
+            List<SaleClothBean> list = new ArrayList<>();
             SaleClothDao scdao = new SaleClothDao( con );
-            return null;
+            //DBから結果を取得
+            Collection<SaleClothVo> voList = scdao.getAllcount();
+
+            //DBの結果をbeanにセットするlistに変更
+            for (SaleClothVo vo : voList)
+            {
+                SaleClothBean linebean =new SaleClothBean();
+                linebean.setCategory( vo.getCategory() );
+                linebean.setColor( vo.getColor() );
+                linebean.setPattern( vo.getPattern() );
+                linebean.setClickcount( vo.getClickcount() );
+
+                list.add( linebean );
+            }
+
+            //beanに集計データをセット
+            bean.setList( list );
+            return bean;
         } catch (SQLException e)
         {
             e.printStackTrace();

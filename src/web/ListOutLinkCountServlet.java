@@ -34,11 +34,15 @@ public class ListOutLinkCountServlet extends HttpServlet
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
+        System.out.println( "管理者用遷移サーブレット" );
         ClothService cserv =new ClothService();
         //クリック数をDBから取得
         ListOutLinkCountBean bean = cserv.getAllClothCount();
         request.setAttribute( "bean", bean );
         //一覧画面に遷移
+        System.out.println( "jspに遷移" );
+
+        
         RequestDispatcher disp = request.getRequestDispatcher("/listoutlinkcount.jsp");
         disp.forward(request, response);
     }

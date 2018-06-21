@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import domain.CategoryEnum;
@@ -206,12 +207,26 @@ public class SaleClothDao extends Dao
     }
 
     //リンクのクリック回数を集計
-    public void getAllcount() throws SQLException
+    public Collection<SaleClothVo> getAllcount() throws SQLException
     {
         try (
                 PreparedStatement stmt = con.prepareStatement( GETALLCLICKCOUNTSQL );)
         {
+            //返り値の配列宣言
+            List<SaleClothVo> clothList = new ArrayList<>();
             ResultSet rset = stmt.executeQuery();
+
+            //結果をすべて配列に格納
+            while (rset.next())
+            {
+                SaleClothVo svo = new SaleClothVo(
+                        CategoryEnum.valueOf( rset.getString( 3 ) ),
+                        ColorEnum.valueOf( rset.getString( 1 ) ),
+                        PatternEnum.valueOf( rset.getString( 2 ) ),
+                        rset.getInt( 4 ) );
+                clothList.add( svo );
+            }
+            return clothList;
 
         } catch (SQLException e)
         {

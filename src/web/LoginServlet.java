@@ -43,24 +43,33 @@ public class LoginServlet extends HttpServlet
         String userid = request.getParameter( "userid" );
         String password = request.getParameter( "password" );
 
-        UserService userv= new UserService();
+        UserService userv = new UserService();
 
-        UserInfoBean userBean = userv.checkUser(userid, password);
+        UserInfoBean userBean = userv.checkUser( userid, password );
 
-        if(!userBean.isUserExist())
+        if (!userBean.isUserExist())
         {
-           System.out.println("ログイン失敗");
-           //エラー画面へ遷移
+            System.out.println( "ログイン失敗" );
+            //エラー画面へ遷移
             RequestDispatcher disp = request.getRequestDispatcher( "/loginerror.html" );
             disp.forward( request, response );
         }
-        System.out.println("ログイン成功");
+        System.out.println( "ログイン成功" );
+
+        //管理者の場合管理者画面へ遷移する
+        if (userBean.isUserExist() && userBean.getUserid().equals( "admin" ))
+        {
+            System.out.println( "管理者としてログイン" );
+            RequestDispatcher disp = request.getRequestDispatcher( "ListOutLinkCountServlet" );
+            disp.forward( request, response );
+            return;
+        }
         ClothService cserv = new ClothService();
         ListOutUserClothBean bean;
 
-        bean = cserv.userCloth( userBean.getUserid(), "", "", "");
+        bean = cserv.userCloth( userBean.getUserid(), "", "", "" );
 
-        session.setAttribute("userclothbean", bean);
+       // session.setAttribute( "userclothbean", bean );
 
         session.setAttribute( "userinfobean", userBean );
         //持ち服一覧へ遷移
