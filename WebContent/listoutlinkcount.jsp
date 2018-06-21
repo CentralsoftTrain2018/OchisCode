@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <jsp:useBean id="bean" class="bean.ListOutLinkCountBean" scope="request" />
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <title>管理者画面</title>
 </head>
 <body>
@@ -26,5 +26,10 @@
 <% }%>
 
 </table>
+
+<form method="POST" action="ListOutLinkCountServlet">
+<input type="email"  name="address" placeholder="送信先メールアドレスを入力" required="required">
+<input type="submit" value="集計データを送信">
+</form>
 </body>
 </html>
