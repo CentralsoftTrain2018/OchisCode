@@ -5,9 +5,44 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<!-- cssインポート -->
+<link rel="stylesheet" type="text/css" href="css/Login.css">
+<link rel="stylesheet" type="text/css" href="css/BackGround.css">
+<link rel="stylesheet" type="text/css" href="css/UserInfo.css">
+<link rel="stylesheet" type="text/css" href="css/PileImage.css">
+
 <title>ユーザー登録</title>
 </head>
 <body>
+<!-- コンテナ開始 -->
+<div id="container">
+
+<!-- ページ開始 -->
+<div id="page">
+
+
+
+<!-- コンテンツ開始 -->
+<div id="content">
+
+<div id="header">
+
+<h1 class="siteTitle">
+  <a href="javascript:moveLogin.submit();">
+    <img src="./images/Logo4.png" width="150" height="70" />
+  </a>
+ <form method="POST" name="moveLogin"
+            action="login.html"></form>
+</h1>
+</div>
+<!-- メインカラム開始 -->
+<div id="main">
+
+
+  <!-- ユーザー情報表示 -->
+  <div  class ="normal">
+ <div class="emphasis">
+<h2>新規登録</h2>
   <form method="POST" action="RegistUserServlet">
     登録情報を入力してください <br>
     <table>
@@ -48,5 +83,19 @@
     </table>
     <input type="submit" value="登録">
   </form>
+  </div>
+   <form method="POST" action="login.html">
+    <input type="submit" value="戻る">
+  </form>
+  </div>
+  </div>
+  </div>
+<!-- コンテンツ終了 -->
+
+</div>
+<!-- ページ終了 -->
+
+</div>
+<!-- コンテナ終了 -->
 </body>
 </html>
