@@ -74,8 +74,8 @@
       <div id="header">
 
         <h1 class="siteTitle">
-          <a href="javascript:moveSaleCloth.submit();"> <img
-            src="./images/Logo4.png" width="150" height="70" />
+          <a href="javascript:moveSaleCloth.submit();">
+            <img src="./images/LoginLogo.png" width="400" height="150" />
           </a>
           <form method="POST" name=moveSaleCloth action="ListOutSaleClothServlet">
           </form>
