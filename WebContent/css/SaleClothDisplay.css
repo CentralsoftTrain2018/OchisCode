@@ -30,7 +30,7 @@ border-right: 1px #c0c0c0 solid; /* コンテナの右境界線 */
 /* --- ページ --- */
 #page {
 width: 840px; /* ページの幅 */
-height:840px;
+height:900px;
 margin: 0 auto; /* センタリング */
 }
 
