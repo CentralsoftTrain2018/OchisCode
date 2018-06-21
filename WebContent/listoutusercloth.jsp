@@ -32,7 +32,7 @@
 
         <h1 class="siteTitle">
           <a href="javascript:moveSaleCloth.submit();"> <img
-            src="./images/LoginLogo.png" width="400" height="150" />
+            src="./images/Logo4.png" width="150" height="70" />
           </a>
         </h1>
 
@@ -40,6 +40,7 @@
           <li class="first"><a href="javascript:logout.submit();"
             onclick="return confirm('ログアウトしますか？')">ログアウト</a>
             <form method="POST" name="logout" action="LogOutServlet"></form></li>
+          <li><a href="#">アクセス</a></li>
         </ul>
 
         <ul class="nl clearFix">
@@ -95,11 +96,11 @@
 
 
 <!--持ち服の表示(テーブル)-->
-<table width="500" border="1">
+<table width="500" border="5" cellspacing="10">
     <tbody>
       <%for(UserClothBean record : bean.getList()) {%>
-      <tr>
-        <td ><%=record.toString() %></td>
+      <tr align=center>
+      <td bgcolor=peachpuff><%=record.toString() %></td>
         <td>
           <div class = "relative">
             <img src="./images/<%=record.getColor().name()%>.png" width=50 height=50/>
@@ -107,7 +108,7 @@
             <img src="./images/<%=record.getCategory().name()%>.png" class = "absolute" width=50 height=50/>
           </div>
         </td>
-        <td>
+        <td bgcolor=orangered>
            <form method = "POST" action = "DeleteUserClothServlet">
              <input type = "hidden" name = "clothid" value = <%=record.getClothid()%>>
              <input type = "hidden" name = "page" value = <%=bean.getPage()%>>
