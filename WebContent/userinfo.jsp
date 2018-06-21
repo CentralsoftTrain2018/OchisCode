@@ -79,7 +79,10 @@
 
   <!-- ユーザー情報表示 -->
   <div  class ="normal">
- <h2>
+ <div class="emphasis">
+
+ <h2>ユーザ登録情報</h2>
+
  <table>
     <tr>
       <td>ユーザーID：</td>
@@ -104,7 +107,7 @@
     </tr>
   </table>
 
-</h2>
+</div>
   </div>
    <!-- 登録情報変更ボタン -->
   <form method="POST" action="UserConfigServlet">

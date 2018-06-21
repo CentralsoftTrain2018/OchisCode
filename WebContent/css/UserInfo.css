@@ -30,7 +30,7 @@ border-right: 1px #c0c0c0 solid; /* コンテナの右境界線 */
 /* --- ページ --- */
 #page {
 width: 840px; /* ページの幅 */
-height:840px;
+height:600px;
 margin: 0 auto; /* センタリング */
 }
 
@@ -169,7 +169,6 @@ margin-bottom: 10px; /* コンテンツの下マージン */
 #main {
 float: center;
 }
-}
 
 /* --- ページタイトル（下層ページ） --- */
 #main h1.pageTitle {
@@ -200,14 +199,17 @@ line-height: 160%; /* 行の高さ */
 
 /* --- 強調セクション --- */
 #main div.emphasis {
-padding: 1.1em 15px 0; /* セクションのパディング（上、左右、下） */
+
 border: 1px #c0c0c0 solid; /* セクションの境界線 */
+background-color: #6cccfb; /* 見出しの背景色 */
+font-size: 150%; /* 見出しの文字サイズ */
+
 }
- /* ユーザ情報欄の文字設定 */
+ /* ユーザ情報欄の文字 */
 #main div.emphasis h2 {
 margin: 0 0 0.8em; /* 見出しのマージン（上、左右、下） */
-font-size: 150%; /* 見出しの文字サイズ */
-background-color: #ffce68; /* 見出しの背景色 */
+font-size: 100%; /* 見出しの文字サイズ */
+background-color: #efec65; /* 見出しの背景色 */
 }
  /* 段落 */
 #main div.emphasis p {
