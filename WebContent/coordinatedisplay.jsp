@@ -52,42 +52,214 @@
 </head>
 <!-- cssファイル読み込み -->
 <link rel="stylesheet" type="text/css" href="css/PileImage.css">
-<link rel="stylesheet" type="text/css" href="css/Header.css">
-<link rel="stylesheet" type="text/css" href="css/TwoColumn.css">
 <link rel="stylesheet" type="text/css" href="css/Scroll.css">
 <link rel="stylesheet" type="text/css" href="css/BackGround.css">
-<link rel="stylesheet" type="text/css" href="css/inline-block.css">
+<link rel="stylesheet" type="text/css" href="css/SaleClothDisplay.css">
 
 <body>
-  <div class="container">
-    <div class="header">
-      <div class="headlogo">
-        <a href="javascript:moveSaleCloth.submit();">
-          <img src="./images/Logo4.png" width="150" height="70" />
-        </a>
-      </div>
-      <div class="title">コーディネイト画面</div>
-      <!-- 画面遷移ボタン -->
-      <div class="buttons">
-        <div class="button">
-          <form method="POST" name = "moveSaleCloth"action="ListOutSaleClothServlet">
-            <input type="submit" value="おすすめ画面へ">
-          </form>
-        </div>
-        <div class="button">
-          <form method="POST" action="ListOutUserClotheServlet">
-            <input type="hidden" name="page" value=1> <input
-              type="submit" value="所有服一覧へ">
-          </form>
-        </div>
-      </div>
-    </div>
+<div id="container">
 
-    <div class="verticalContainer">
+  <div id = "page">
+     <div id = "header">
+       <h1 class="siteTitle">
+         <a href="javascript:moveSaleClothImage.submit();">
+           <img src="./images/Logo4.png" width="150" height="70" />
+         </a>
+         <form method="POST" name= "moveSaleClothImage" action="ListOutSaleClothServlet">
+         </form>
+       </h1>
+        <ul class="guide">
+          <li class="first">
+            <a href="javascript:logout.submit();"
+                onclick="return confirm('ログアウトしますか？')">ログアウト</a>
+              <form method="POST" name="logout" action="LogOutServlet">
+              </form>
+            </li>
+            <li>
+              <a href="#">アクセス</a>
+            </li>
+        </ul>
+
+        <ul class="nl clearFix">
+          <li class="first">
+            <a href="javascript:moveSaleClothButton.submit();">おすすめ画面へ</a>
+              <form method="POST" name="moveSaleClothButton"
+               action="ListOutSaleClothServlet"></form></li>
+            <li>
+              <a href="javascript:moveusercloth.submit();">所持服一覧へ</a>
+              <form method="POST" name="moveusercloth"
+               action="ListOutUserClotheServlet">
+              <input type="hidden" name="page" value=1>
+              </form>
+            </li>
+            <li>
+              <a href="javascript:moveuserinfo.submit();">ユーザー情報へ</a>
+              <form method="POST" name="moveuserinfo" action="UserInfoServlet">
+              </form>
+            </li>
+        </ul>
+   </div>
+
+    <div id = "content">
       <!-- 画像表示部分 -->
+      <div id = "main">
+        <div class = "section emphasis">
+          <h2>自由に着替える</h2>
+            <!-- 変更する服の情報を入力 -->
+            <form method="POST" action=ChangeCoordinateClothServlet>
+              <!-- 色プルダウン -->
+              <select name="color">
+                <%
+                  for (ColorEnum ce : ColorEnum.values())
+                  {
+                %>
+                <option value="<%=ce.name()%>">
+                  <%= ce.name()%>
+                </option>
+                <%
+                  }
+                %>
+              </select>
 
+              <!-- 柄プルダウン -->
+              <select name="pattern">
+                <%
+                  for (PatternEnum pe : PatternEnum.values())
+                  {
+                %>
+                <option value="<%=pe.name()%>">
+                  <%=pe%>
+                </option>
+                <%
+                  }
+                %>
+              </select>
+
+              <!-- カテゴリープルダウン -->
+              <select name="category">
+                <%
+                  for (CategoryEnum cae : CategoryEnum.values())
+                  {
+                %>
+                <option value="<%=cae.name()%>">
+                  <%=cae%>
+                </option>
+                <%
+                  }
+                %>
+              </select>
+
+              <!-- サイズプルダウン -->
+              <select name="size">
+                <%
+                  for (SizeEnum se : SizeEnum.values())
+                  {
+                %>
+                <option value="<%=se.name()%>"><%=se%></option>
+                <%
+                  }
+                %>
+              </select>
+
+              <!-- 表示している服の情報をサーブレットに受け渡し -->
+              <input type="hidden" name="topcolor"
+                value="<%=bean.getTopColor().name()%>"> <input
+                type="hidden" name="toppattern"
+                value="<%=bean.getTopPattern().name()%>"> <input
+                type="hidden" name="topcategory"
+                value="<%= bean.getTopCategory().name()%>"> <input
+                type="hidden" name="topsize"
+                value="<%= bean.getTopSize().name()%>"> <input
+                type="hidden" name="bottomcolor"
+                value="<%=bean.getBottomColor().name()%>"> <input
+                type="hidden" name="bottompattern"
+                value="<%=bean.getBottomPattern().name()%>"> <input
+                type="hidden" name="bottomcategory"
+                value="<%= bean.getBottomCategory().name()%>"> <input
+                type="hidden" name="bottomsize"
+                value="<%= bean.getBottomSize().name()%>"> <input
+                type="submit" value="変更">
+            </form>
+          </div>
+
+    <div class = "section emphasis">
+    <h2>所持している服から着替える</h2>
+          <div class="form2">
+            <form method="POST" action="ChangeUserSaleClothServlet">
+              <!-- 持ち服を上下に分けたプルダウン -->
+              <select name="topcloth">
+                <%
+                  for (bean.UserClothBean topcloth : bean.getUscbean().getTopclothlist())
+                  {
+                %>
+                <option
+                  value="<%=topcloth.getColor().name()%>-<%=topcloth.getPattern().name()%>-<%=topcloth.getCategory().name()%>-<%=topcloth.getSize().name()%>"><%=topcloth%></option>
+                <%
+                  }
+                %>
+              </select> <select name="bottomcloth">
+
+
+                <%
+                  for (bean.UserClothBean bottomcloth : bean.getUscbean().getBottomclothlist())
+                  {
+                %><option
+                  value="<%=bottomcloth.getColor().name()%>-<%=bottomcloth.getPattern().name()%>-<%=bottomcloth.getCategory().name()%>-<%=bottomcloth.getSize().name()%>"><%=bottomcloth%></option>
+
+                <%
+                  }
+                %>
+              </select> <input type="hidden" name="topcolor"
+                value="<%=bean.getTopColor().name()%>"> <input
+                type="hidden" name="toppattern"
+                value="<%=bean.getTopPattern().name()%>"> <input
+                type="hidden" name="topcategory"
+                value="<%= bean.getTopCategory().name()%>"> <input
+                type="hidden" name="topsize"
+                value="<%= bean.getTopSize().name()%>"> <input
+                type="hidden" name="bottomcolor"
+                value="<%=bean.getBottomColor().name()%>"> <input
+                type="hidden" name="bottompattern"
+                value="<%=bean.getBottomPattern().name()%>"> <input
+                type="hidden" name="bottomcategory"
+                value="<%= bean.getBottomCategory().name()%>"> <input
+                type="hidden" name="bottomsize"
+                value="<%= bean.getBottomSize().name()%>"> <input
+                type="submit" value="変更">
+            </form>
+          </div>
+          </div>
+          <div class = "section emphasis">
+          <h2>登録コーデから着替える</h2>
+          <div class="form3">
+            <ul class="scrollsize">
+              <%
+                for (bean.CoordinateBean code : bean.getList())
+                {
+              %>
+              <li><form method="POST" action="ChangeSelectCodeServlet">
+                  <div class="button_floata">
+                    <input type="submit" name="cloth" value="<%=code.toString()%>">
+                  </div>
+                </form></li>
+              <li><form method="POST" action="DeleteCoordinateServlet">
+                  <div class="button_floatb">
+                    <input type="hidden" name="code"
+                      value="<%=code.getCode_num()%>"> <input type="submit"
+                      value="コーデ削除">
+                  </div>
+                </form></li>
+              <%
+                }
+              %>
+            </ul>
+          </div>
+        </div>
+        </div>
+
+<!-- サイドバー開始 -->
+     <div id="nav">
       <div class="model">
-        <div class="flame">
 
           <input type="radio" name="sexradio" id="man" onclick="changeOchiFaceMan()"
           <%if(bean.getSex() == SexEnum.男) { %>
@@ -166,157 +338,8 @@
           </div>
         </div>
       </div>
-
-      <div class="contents">
-        <div class="horizontalcontainer">
-          <div class="form1">
-            <!-- 変更する服の情報を入力 -->
-            <form method="POST" action=ChangeCoordinateClothServlet>
-              <!-- 色プルダウン -->
-              <select name="color">
-                <%
-                  for (ColorEnum ce : ColorEnum.values())
-                  {
-                %>
-                <option value="<%=ce.name()%>">
-                  <%= ce.name()%>
-                </option>
-                <%
-                  }
-                %>
-              </select>
-
-              <!-- 柄プルダウン -->
-              <select name="pattern">
-                <%
-                  for (PatternEnum pe : PatternEnum.values())
-                  {
-                %>
-                <option value="<%=pe.name()%>">
-                  <%=pe%>
-                </option>
-                <%
-                  }
-                %>
-              </select>
-
-              <!-- カテゴリープルダウン -->
-              <select name="category">
-                <%
-                  for (CategoryEnum cae : CategoryEnum.values())
-                  {
-                %>
-                <option value="<%=cae.name()%>">
-                  <%=cae%>
-                </option>
-                <%
-                  }
-                %>
-              </select>
-
-              <!-- サイズプルダウン -->
-              <select name="size">
-                <%
-                  for (SizeEnum se : SizeEnum.values())
-                  {
-                %>
-                <option value="<%=se.name()%>"><%=se%></option>
-                <%
-                  }
-                %>
-              </select>
-
-              <!-- 表示している服の情報をサーブレットに受け渡し -->
-              <input type="hidden" name="topcolor"
-                value="<%=bean.getTopColor().name()%>"> <input
-                type="hidden" name="toppattern"
-                value="<%=bean.getTopPattern().name()%>"> <input
-                type="hidden" name="topcategory"
-                value="<%= bean.getTopCategory().name()%>"> <input
-                type="hidden" name="topsize"
-                value="<%= bean.getTopSize().name()%>"> <input
-                type="hidden" name="bottomcolor"
-                value="<%=bean.getBottomColor().name()%>"> <input
-                type="hidden" name="bottompattern"
-                value="<%=bean.getBottomPattern().name()%>"> <input
-                type="hidden" name="bottomcategory"
-                value="<%= bean.getBottomCategory().name()%>"> <input
-                type="hidden" name="bottomsize"
-                value="<%= bean.getBottomSize().name()%>"> <input
-                type="submit" value="変更">
-            </form>
-          </div>
-
-          <div class="form2">
-            <form method="POST" action="ChangeUserSaleClothServlet">
-              <!-- 持ち服を上下に分けたプルダウン -->
-              <select name="topcloth">
-                <%
-                  for (bean.UserClothBean topcloth : bean.getUscbean().getTopclothlist())
-                  {
-                %>
-                <option
-                  value="<%=topcloth.getColor().name()%>-<%=topcloth.getPattern().name()%>-<%=topcloth.getCategory().name()%>-<%=topcloth.getSize().name()%>"><%=topcloth%></option>
-                <%
-                  }
-                %>
-              </select> <select name="bottomcloth">
-
-
-                <%
-                  for (bean.UserClothBean bottomcloth : bean.getUscbean().getBottomclothlist())
-                  {
-                %><option
-                  value="<%=bottomcloth.getColor().name()%>-<%=bottomcloth.getPattern().name()%>-<%=bottomcloth.getCategory().name()%>-<%=bottomcloth.getSize().name()%>"><%=bottomcloth%></option>
-
-                <%
-                  }
-                %>
-              </select> <input type="hidden" name="topcolor"
-                value="<%=bean.getTopColor().name()%>"> <input
-                type="hidden" name="toppattern"
-                value="<%=bean.getTopPattern().name()%>"> <input
-                type="hidden" name="topcategory"
-                value="<%= bean.getTopCategory().name()%>"> <input
-                type="hidden" name="topsize"
-                value="<%= bean.getTopSize().name()%>"> <input
-                type="hidden" name="bottomcolor"
-                value="<%=bean.getBottomColor().name()%>"> <input
-                type="hidden" name="bottompattern"
-                value="<%=bean.getBottomPattern().name()%>"> <input
-                type="hidden" name="bottomcategory"
-                value="<%= bean.getBottomCategory().name()%>"> <input
-                type="hidden" name="bottomsize"
-                value="<%= bean.getBottomSize().name()%>"> <input
-                type="submit" value="変更">
-            </form>
-          </div>
-          <div class="form3">
-            <ul class="scrollsize">
-              <%
-                for (bean.CoordinateBean code : bean.getList())
-                {
-              %>
-              <li><form method="POST" action="ChangeSelectCodeServlet">
-                  <div class="button_floata">
-                    <input type="submit" name="cloth" value="<%=code.toString()%>">
-                  </div>
-                </form></li>
-              <li><form method="POST" action="DeleteCoordinateServlet">
-                  <div class="button_floatb">
-                    <input type="hidden" name="code"
-                      value="<%=code.getCode_num()%>"> <input type="submit"
-                      value="コーデ削除">
-                  </div>
-                </form></li>
-              <%
-                }
-              %>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+  </div>
+  </div>
   </div>
 </body>
 </html>
