@@ -5,8 +5,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- cssインポート -->
+<link rel="stylesheet" type="text/css" href="css/Login.css">
+<link rel="stylesheet" type="text/css" href="css/BackGround.css">
+<link rel="stylesheet" type="text/css" href="css/UserInfo.css">
+<link rel="stylesheet" type="text/css" href="css/PileImage.css">
+
 <title>ユーザー情報</title>
+
 </head>
+
 <!-- 退会ボタンに対してアラート表示 -->
 <script>
   function confirmFunction1() {
@@ -19,10 +27,60 @@
     return false;
   }
 </script>
-
 <body>
+<!-- コンテナ開始 -->
+<div id="container">
+
+<!-- ページ開始 -->
+<div id="page">
+
+
+<!-- ヘッダ開始 -->
+
+<div id="header">
+
+<h1 class="siteTitle">
+  <a href="javascript:moveSaleCloth.submit();">
+    <img src="./images/Logo4.png" width="150" height="70" />
+  </a>
+ <form method="POST" name="moveSaleCloth"
+            action="ListOutSaleClothServlet"></form>
+</h1>
+
+<ul class="guide">
+<li class="first"><a href="#">FAQ</a></li>
+<li><a href="#">アクセス</a></li>
+</ul>
+
+<ul class="nl clearFix">
+<li class="first"><a href="javascript:movecoordinate.submit();">コーデ画面へ</a>
+                <form method="POST" name= "movecoordinate"
+                  action="CoordinateServlet">
+                </form></li>
+<li><a href="javascript:moveusercloth.submit();">所持服一覧へ</a>
+                <form method="POST" name= "moveusercloth"
+                  action="ListOutUserClotheServlet">
+                  <input type="hidden" name="page" value=1>
+                </form></li>
+<li><a href="javascript:moveuserinfo.submit();">おすすめ画面へ</a>
+                <form method="POST" name = "movesalecloth"
+                  action="ListOutSaleClothServlet">
+                </form></li>
+</ul>
+<hr class="none">
+</div>
+<!-- ヘッダ終了 -->
+<div id="content">
+
+
+<!-- メインカラム開始 -->
+<div id="main">
+
+
   <!-- ユーザー情報表示 -->
-  <table>
+  <div  class ="normal">
+ <h2>
+ <table>
     <tr>
       <td>ユーザーID：</td>
       <td><%=bean.getUserid()%></td>
@@ -45,17 +103,37 @@
       <td><%=bean.getSex().name()%></td>
     </tr>
   </table>
-  <!-- 登録情報変更ボタン -->
+
+</h2>
+  </div>
+   <!-- 登録情報変更ボタン -->
   <form method="POST" action="UserConfigServlet">
     <input type="submit" value="ユーザー情報を変更する">
   </form>
-  <!-- おすすめ表示に戻る -->
-  <form method="POST" action="ListOutSaleClothServlet">
-    <input type="submit" value="戻る">
-  </form>
+
   <!-- 退会ボタン -->
   <form onclick="return confirmFunction1();" method="POST" action="DeleteUserServlet">
     <input type="submit" value="退会する">
   </form>
+  </div>
+<!-- メインカラム終了 -->
+
+<hr class="clear">
+</div>
+<!-- コンテンツ終了 -->
+
+</div>
+<!-- ページ終了 -->
+
+</div>
+<!-- コンテナ終了 -->
+
+
+
+
 </body>
+
+
+
+
 </html>
