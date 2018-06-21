@@ -32,7 +32,7 @@
 
         <h1 class="siteTitle">
           <a href="javascript:moveSaleCloth.submit();"> <img
-            src="./images/Logo4.png" width="150" height="70" />
+            src="./images/LoginLogo.png" width="400" height="150" />
           </a>
         </h1>
 
@@ -40,7 +40,6 @@
           <li class="first"><a href="javascript:logout.submit();"
             onclick="return confirm('ログアウトしますか？')">ログアウト</a>
             <form method="POST" name="logout" action="LogOutServlet"></form></li>
-          <li><a href="#">アクセス</a></li>
         </ul>
 
         <ul class="nl clearFix">

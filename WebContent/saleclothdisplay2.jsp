@@ -20,6 +20,7 @@
 <script type="text/javascript">
     function changeImg(jouge, color, pattern, category)
     {
+      <%System.out.println("test");%>
       if (jouge == "上") {
         document.getElementById("topcolor").src = "./images/" + color
             + ".png";
@@ -45,8 +46,7 @@
         {
             for(i = 0; i < elms.options.length; i++)
             {
-                if (elms.options[i].value == "<%=bean.getClothid()%>
-  ") {
+                if (elms.options[i].value == "<%=bean.getClothid()%>") {
           elms[i].selected = true;
         }
       }
@@ -74,18 +74,17 @@
       <div id="header">
 
         <h1 class="siteTitle">
-          <a href="javascript:moveSaleCloth.submit();"> <img
-            src="./images/Logo4.png" width="150" height="70" />
+          <a href="javascript:moveSaleCloth.submit();">
+            <img src="./images/LoginLogo.png" width="400" height="150" />
           </a>
-          <form method="POST" name=moveSaleCloth
-            action="ListOutSaleClothServlet"></form>
+          <form method="POST" name=moveSaleCloth action="ListOutSaleClothServlet">
+          </form>
         </h1>
 
         <ul class="guide">
           <li class="first"><a href="javascript:logout.submit();"
             onclick="return confirm('ログアウトしますか？')">ログアウト</a>
             <form method="POST" name="logout" action="LogOutServlet"></form></li>
-          <li><a href="#">アクセス</a></li>
         </ul>
 
         <ul class="nl clearFix">

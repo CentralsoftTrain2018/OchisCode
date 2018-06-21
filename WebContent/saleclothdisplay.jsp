@@ -90,7 +90,7 @@
     document.getElementById("ochiface").src = "./images/ochi_smile.png";
   }
 
- 
+
   function changeOchiFaceWomanSmile(){
     document.getElementById("ochiface").src = "./images/ochi_woman_smile.png";
   }
@@ -100,7 +100,7 @@
   <div class="container">
     <div class="header">
       <div class="headlogo">
-        <img src="./images/Logo4.png" width="150" height="70" />
+      <img src="./images/LoginLogo.png" width="400" height="150" />
       </div>
       <div class="title">オススメ画面</div>
       <div class="buttons">

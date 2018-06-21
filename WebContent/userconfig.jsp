@@ -46,17 +46,19 @@ function onLoad()
 <div id="header">
 
 <h1 class="siteTitle">
-  <a href="javascript:moveSaleCloth.submit();">
+  <a href="javascript:moveSaleClothImage.submit();">
     <img src="./images/Logo4.png" width="150" height="70" />
   </a>
- <form method="POST" name="moveSaleCloth"
+ <form method="POST" name="moveSaleClothImage"
             action="ListOutSaleClothServlet"></form>
 </h1>
 
-<ul class="guide">
-<li class="first"><a href="#">FAQ</a></li>
-<li><a href="#">アクセス</a></li>
-</ul>
+ <ul class="guide">
+          <li class="first"><a href="javascript:logout.submit();"
+            onclick="return confirm('ログアウトしますか？')">ログアウト</a>
+            <form method="POST" name="logout" action="LogOutServlet"></form></li>
+
+        </ul>
 
 <ul class="nl clearFix">
 <li class="first"><a href="javascript:movecoordinate.submit();">コーデ画面へ</a>
@@ -68,8 +70,8 @@ function onLoad()
                   action="ListOutUserClotheServlet">
                   <input type="hidden" name="page" value=1>
                 </form></li>
-<li><a href="javascript:moveuserinfo.submit();">おすすめ画面へ</a>
-                <form method="POST" name = "movesalecloth"
+<li><a href="javascript:moveSaleClothButtonsubmit();">おすすめ画面へ</a>
+                <form method="POST" name = "moveSaleClothButton"
                   action="ListOutSaleClothServlet">
                 </form></li>
 </ul>
@@ -86,7 +88,6 @@ function onLoad()
   <!-- ユーザー情報表示 -->
   <div  class ="normal">
 
-   <div  class ="normal">
  <div class="emphasis">
 
  <h2>登録情報変更</h2>
