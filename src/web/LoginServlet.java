@@ -10,9 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import bean.ListOutUserClothBean;
 import bean.UserInfoBean;
-import service.ClothService;
 import service.UserService;
 
 /**
@@ -64,12 +62,6 @@ public class LoginServlet extends HttpServlet
             disp.forward( request, response );
             return;
         }
-        ClothService cserv = new ClothService();
-        ListOutUserClothBean bean;
-
-        bean = cserv.userCloth( userBean.getUserid(), "", "", "" );
-
-       // session.setAttribute( "userclothbean", bean );
 
         session.setAttribute( "userinfobean", userBean );
         //持ち服一覧へ遷移
