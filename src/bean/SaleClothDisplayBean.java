@@ -32,6 +32,7 @@ public class SaleClothDisplayBean
     private String clothid;
     private String narrow;
     private String sort;
+    private int page;
 
     //モデルを表示する際の性別
     private SexEnum sex;
@@ -175,5 +176,15 @@ public class SaleClothDisplayBean
     {
         this.sex = sex;
     }
+
+    public int getPage() {
+        return page;
+    }
+
+    public void setPage(int page) {
+        this.page = page;
+    }
+
+
 
 }

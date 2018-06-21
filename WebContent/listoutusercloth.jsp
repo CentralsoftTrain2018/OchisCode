@@ -41,7 +41,7 @@
  </div>
 
 <br><br>
-<div class ="margin-left">
+<div class="margin">
 <form method = "POST" action = "NarrowingUsrClothServlet">
   <select name = "narrow">
     <option value = "">一覧表示</option>
@@ -53,6 +53,7 @@
   <input type = "hidden" name = "page" value = 1>
   <input type = "submit" value = "絞込み">
 </form>
+</div>
 <div class ="margin-center">
 現在のページ：<%=bean.getPage() %>
 </div>
@@ -60,7 +61,7 @@
 <%if(bean.getPage() != 1) {%>
 <form method="POST" action="ListOutUserClotheServlet">
 <input type = "hidden" name = "page" value = <%=bean.getPage() - 1 %>>
-<div class ="margin">
+<div class="margin-l">
 <input type = "submit" value = "前のページへ">
 </div>
 </form>
@@ -68,16 +69,16 @@
 <%if(bean.getList().size() == 5) {%>
 <form method="POST" action="ListOutUserClotheServlet">
 <input type = "hidden" name = "page" value = <%=bean.getPage() + 1 %>>
-<div class ="margin-right">
+<div class="margin-r">
 <input type = "submit" value = "次のページへ">
 </div>
 </form>
 <%} %>
 </div>
-</div>
+
 
 <!--持ち服の表示(テーブル)-->
-<div class ="margin-left">
+<div class="margin">
 <table width="500" border="1">
     <tbody>
       <%for(UserClothBean record : bean.getList()) {%>
@@ -101,14 +102,11 @@
       <%} %>
     </tbody>
 </table>
-</div>
 
-<div class ="margin-left">
 <form method="POST" action="registusercloth.jsp">
  <input type="submit" value="持ち服登録画面へ">
 </form>
 </div>
-
 
 <br>
 </div>

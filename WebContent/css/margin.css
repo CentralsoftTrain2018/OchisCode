@@ -3,22 +3,23 @@
 /*位置調整
 作成者<野間>*/
 
-.margin-left{
+.margin{
+width: 500px;
   margin:0px 0px 0px 150px;
 }
 
 .margin-center{
-  margin:20px 0px 0px 200px
+  margin:20px 0px 0px 340px;
 }
 
-.margin-right{
-  position: fixed;
+.margin-r{
+  position: absolute;
   top: 185px;
   left: 570px
 }
 
-.margin{
-  position: fixed;
+.margin-l{
+   position: absolute;
   top: 185px;
   left: 160px
 }

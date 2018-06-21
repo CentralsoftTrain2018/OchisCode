@@ -88,7 +88,7 @@ public class SaleClothDao extends Dao
     }
 
     //ユーザーの全持ち服を取得し、それぞれの持ち服に対するお勧め服を取得する
-    public List<SaleClothVo> getSaleClothList(String userid, String minmax, String order) throws SQLException
+    public List<SaleClothVo> getSaleClothList(String userid, String minmax, String order, int offset) throws SQLException
     {
         PreparedStatement stmt = null;
         ResultSet userClothSet = null;
@@ -110,7 +110,7 @@ public class SaleClothDao extends Dao
         //持ち服一つに対するお勧め服を取得(全持ち服分繰り返す)
         while (userClothSet.next())
         {
-            List<SaleClothVo> recomCloth = getRecomCloth( userClothSet.getInt( 1 ), minmax, order );
+            List<SaleClothVo> recomCloth = getRecomCloth( userClothSet.getInt( 1 ), minmax, order, offset);
             recomClothList.addAll( recomCloth );
         }
 
@@ -120,7 +120,7 @@ public class SaleClothDao extends Dao
     }
 
     //持ち服を指定して、お勧めの服を取得する
-    public List<SaleClothVo> getRecomCloth(int clothid, String minmax, String order) throws SQLException
+    public List<SaleClothVo> getRecomCloth(int clothid, String minmax, String order, int offset) throws SQLException
     {
         List<SaleClothVo> recomClothList = new ArrayList<SaleClothVo>();
         PreparedStatement stmt = con.prepareStatement(
@@ -159,16 +159,19 @@ public class SaleClothDao extends Dao
                         + " where"
                         + "  user_cloth.clothid = ? and"
                         + "  user_cloth.category = recommend.category and"
-                        + "  sale_cloth.category = recommend.rec_category) and"
+                        + "  sale_cloth.category = recommend.rec_category) and "
                         //金額によって絞込みを行う
                         + minmax
                         //並び替え
                         + " order by "
-                        + order );
+                        + order
+                        + " limit 9"
+                        + " offset ?");
         //持ち服の指定
         stmt.setInt( 1, clothid );
         stmt.setInt( 2, clothid );
         stmt.setInt( 3, clothid );
+        stmt.setInt( 4, offset);
 
         /* SQL実行 */
         ResultSet recomClothSet = stmt.executeQuery();

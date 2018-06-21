@@ -61,7 +61,7 @@ public class ListOutSaleClothServlet extends HttpServlet
 
         ListOutUserClothBean ucbean = cs.userCloth(userBean.getUserid(), "", "", "");
         //price < 0にして無効化
-        ListSaleClothBean rcbean = cs.getSaleCloth(userBean.getUserid(), " price < 0 ", order);
+        ListSaleClothBean rcbean = cs.getSaleCloth(userBean.getUserid(), " price < 0 ", order, 0);
 
         SaleClothDisplayBean bean = new SaleClothDisplayBean();
 
@@ -83,6 +83,7 @@ public class ListOutSaleClothServlet extends HttpServlet
 
         bean.setNarrow("");
         bean.setSort("");
+        bean.setPage(1);
 
         //jspに遷移
         request.setAttribute( "bean", bean );
