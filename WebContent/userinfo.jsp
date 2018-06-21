@@ -70,6 +70,9 @@
 <hr class="none">
 </div>
 <!-- ヘッダ終了 -->
+
+
+<!-- コンテンツ開始 -->
 <div id="content">
 
 
