@@ -88,7 +88,6 @@ function onLoad()
   <!-- ユーザー情報表示 -->
   <div  class ="normal">
 
-   <div  class ="normal">
  <div class="emphasis">
 
  <h2>登録情報変更</h2>
