@@ -34,8 +34,6 @@
           <a href="javascript:moveSaleCloth.submit();"> <img
             src="./images/Logo4.png" width="150" height="70" />
           </a>
-          <form method="POST" name=moveSaleCloth
-            action="ListOutSaleClothServlet"></form>
         </h1>
 
         <ul class="guide">
@@ -61,8 +59,8 @@
         </ul>
 
 <br><br>
-<div class="margin">
 <form method = "POST" action = "NarrowingUsrClothServlet">
+<div class="margin">
   <select name = "narrow">
     <option value = "">一覧表示</option>
     <%for (domain.CategoryEnum category : domain.CategoryEnum.values()) {%>
@@ -72,6 +70,7 @@
   </select>
   <input type = "hidden" name = "page" value = 1>
   <input type = "submit" value = "絞込み">
+  </div>
 </form>
 <div class ="margin-center">
 現在のページ：<%=bean.getPage() %>
@@ -121,13 +120,13 @@
     </tbody>
 </table>
 
+<div class="margin">
 <form method="POST" action="registusercloth.jsp">
  <input type="submit" value="持ち服登録画面へ">
 </form>
 </div>
 
 <br>
-</div>
 </div>
       <!-- コンテンツ終了 -->
 
