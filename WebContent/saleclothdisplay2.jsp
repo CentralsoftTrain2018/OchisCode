@@ -20,7 +20,6 @@
 <script type="text/javascript">
     function changeImg(jouge, color, pattern, category)
     {
-      <%System.out.println("test");%>
       if (jouge == "上") {
         document.getElementById("topcolor").src = "./images/" + color
             + ".png";
@@ -147,7 +146,7 @@
                   value="<%=bean.getClothid()%>">
 
                 <div class="margin">
-                  <input type="submit" value="前のページへ">
+                  <input type="submit" align = "left" value="前のページへ">
                 </div>
               </form>
               <%
@@ -183,7 +182,7 @@
                 <input type="hidden" name="usercloth"
                   value="<%=bean.getClothid()%>">
                 <div class="margin-right">
-                  <input type="submit" value="次のページへ">
+                  <input type="submit" align = "right" value="次のページへ">
                 </div>
               </form>
               <%
