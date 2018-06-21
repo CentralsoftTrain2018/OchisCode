@@ -137,7 +137,7 @@
                   </form>
                 </div>
                 <!-- リンクの調整 -->
-                <br> <a href="<%=record.getURL()%>"  onclick="ga(‘send’, ‘event’, ‘link’, ‘chick’, ‘test’, true);"><%=record.toString()%></a>
+                <br> <a href="<%=record.getURL()%>" onclick="ga(‘send’, ‘event’, ‘link’, ‘chick’, ‘test’, true);"><%=record.toString()%></a>
               </div>
               <%
                 }

@@ -98,14 +98,14 @@ margin: 0;
 /* --- ヘッダメニュー --- */
 #header ul.nl {
 width: 100%; /* IE 6のために幅の指定が必要 */
-margin: 0;
+margin: 0 auto;
 padding: 0;
 list-style-type: none;
 text-align: center;
 }
 /* メニュー項目 */
 #header ul.nl li {
-width: 140px; /* 項目の幅 */
+width: 280px; /* 項目の幅 */
 float: left;
 line-height: 100%;
 }
@@ -235,10 +235,14 @@ line-height: 120%; /* 行の高さ */
 }
 
 #main div.cloth {
-margin: 1;
 display: flex;
 flex-wrap: wrap;
 }
+
+#main div.cloth img {
+margin:0 10px 0 0;
+}
+
 /* --- ▲メインカラム内の設定終了 --- */
 
 
