@@ -17,7 +17,17 @@
 
 <title>持ち服登録</title>
 </head>
-
+<script>
+var set = 0;
+function doub() {
+  if (set == 0) {
+    set = 1;
+  } else {
+    alert("只今処理中です。\nそのままお待ちください。");
+    return false;
+  }
+}
+</script>
 
 
 <body>
@@ -51,7 +61,7 @@
 
 
               プルダウンで持っている服の色、柄、カテゴリ、サイズを選んでください。<br><br>
-              <form method="POST" action="RegistUserClothServlet">
+              <form method="POST" action="RegistUserClothServlet" onSubmit="return doub()">
                 <!-- 色プルダウン -->
                 <select name="color">
                   <%
