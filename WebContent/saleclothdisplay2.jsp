@@ -119,7 +119,9 @@
           <div class="section emphasis">
             <h2>オススメ服</h2>
               <div class="margin-center">
+              <%if(!bean.getSaleCloth().getList().isEmpty()) { %>
               現在のページ：<%=bean.getPage()%>
+              <%} %>
               </div>
             <div style="display: inline-flex">
               <%
