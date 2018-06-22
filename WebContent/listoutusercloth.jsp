@@ -87,6 +87,7 @@
 </form>
 <%} %>
 
+<%if(bean.getList().size() == 5) {%>
 <%if(bean.getPage() == 1) {%>
 <form method="POST" action="ListOutUserClotheServlet">
 <input type = "hidden" name = "page" value = <%=bean.getPage() + 1 %>>
@@ -95,7 +96,6 @@
 </div>
 </form>
 <%} else {%>
-<%if(bean.getList().size() == 5) {%>
 <form method="POST" action="ListOutUserClotheServlet">
 <input type = "hidden" name = "page" value = <%=bean.getPage() + 1 %>>
 <div class="margin-r">

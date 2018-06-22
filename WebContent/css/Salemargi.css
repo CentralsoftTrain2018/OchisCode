@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+/*位置調整
+作成者<野間>*/
+
+.margin-center{
+  margin:0px 0px 0px 230px;
+}
+
+.margin-r{
+  position: relative;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  left: 480px
+}
+
+.margin-r1{
+  position: relative;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  left: 390px
+}
+
+.margin-l{
+   position: relative;
+  top: 20px;
+  bottom: 0px;
+  right: 0px;
+  left: 170px;
+}
