@@ -76,7 +76,7 @@
           <a href="javascript:moveSaleCloth.submit();">
             <img src="./images/LoginLogo.png" width="400" height="150" />
           </a>
-          <form method="POST" name=moveSaleCloth action="ListOutSaleClothServlet">
+          <form method="POST" name="moveSaleCloth" action="ListOutSaleClothServlet">
           </form>
         </h1>
 

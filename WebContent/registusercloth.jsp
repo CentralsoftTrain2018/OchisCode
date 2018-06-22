@@ -18,9 +18,8 @@
 <title>持ち服登録</title>
 </head>
 
-<link rel="stylesheet" type="text/css" href="css/BackGround.css">
 
-<body>
+
 <body>
   <!-- コンテナ開始 -->
   <div id="container">
@@ -39,7 +38,7 @@
             <a href="javascript:moveSaleCloth.submit();"> <img
               src="./images/LoginLogo.png" width="400" height="150" />
             </a>
-            <form method="POST" name=moveSaleCloth
+            <form method="POST" name="moveSaleCloth"
               action="ListOutSaleClothServlet"></form>
           </h1>
         </div>
