@@ -87,7 +87,7 @@
 </form>
 <%} %>
 
-<%if(bean.getList().size() == 5) {%>
+<%if(bean.getPage() * 5 < bean.getList().size()) {%>
 <%if(bean.getPage() == 1) {%>
 <form method="POST" action="ListOutUserClotheServlet">
 <input type = "hidden" name = "page" value = <%=bean.getPage() + 1 %>>
@@ -114,13 +114,13 @@
       <%
                 if(!bean.getList().isEmpty()){
                   int last;
-                  if(bean.getPage() * 9 < bean.getList().size()) {
-                    last = bean.getPage() * 9;
+                  if(bean.getPage() * 5 < bean.getList().size()) {
+                    last = bean.getPage() * 5;
                   }
                   else {
                     last = bean.getList().size();
                   }
-                for (int n = (bean.getPage() - 1) * 9 ; n < last ; n++)
+                for (int n = (bean.getPage() - 1) * 5 ; n < last ; n++)
                 {
                   java.util.List<bean.UserClothBean> record = bean.getList();
               %>
