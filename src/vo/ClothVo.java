@@ -15,6 +15,10 @@ public class ClothVo
     protected JougeEnum jouge;
 
     //コンストラクタ
+    public ClothVo() {
+
+    }
+
     public ClothVo(CategoryEnum category, ColorEnum color, PatternEnum pattern, SizeEnum size)
     {
         this.category = category;

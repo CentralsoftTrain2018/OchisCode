@@ -13,6 +13,10 @@ public class SaleClothVo extends ClothVo
     private int clothid;
     private int clickcount;
 
+    public SaleClothVo() {
+
+    }
+
     public SaleClothVo(CategoryEnum category, ColorEnum color, PatternEnum pattern, SizeEnum size, int Price,
             String Url)
     {

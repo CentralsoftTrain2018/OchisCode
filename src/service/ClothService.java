@@ -132,7 +132,6 @@ public class ClothService
                 linercbean.setJouge( rcvo.getJouge() );
                 linercbean.setPrice( rcvo.getPrice() );//金額の取得
                 linercbean.setURL( rcvo.getUrl() );//URLの取得
-                linercbean.setSize( rcvo.getSize() );//サイズの取得
                 linercbean.setClothid( rcvo.getClothid() );
 
                 rcbeanlist.add( linercbean );
