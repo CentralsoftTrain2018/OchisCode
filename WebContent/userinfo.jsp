@@ -120,8 +120,8 @@
   </form>
 
   <!-- 退会ボタン -->
-  <form onclick="return confirmFunction1();" method="POST" action="DeleteUserServlet">
-    <input type="submit" value="退会する">
+  <form method="POST" action="DeleteUserServlet">
+    <input type="submit" value="退会する"onclick="return confirmFunction1();" >
   </form>
   </div>
 <!-- メインカラム終了 -->
