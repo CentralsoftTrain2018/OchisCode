@@ -101,6 +101,7 @@ public class SaleClothDisplayServlet extends HttpServlet
         bean.setNarrow(minmax);
         bean.setSort(orderStr);
         bean.setPage(page);
+        bean.setBudget(userBean.getBudget());
 
         //性別を取得
         bean.setSex(userBean.getSex());
