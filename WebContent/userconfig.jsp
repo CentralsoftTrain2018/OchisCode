@@ -97,9 +97,9 @@ function onLoad()
 
     <table>
       <tr>
-        <td>項目</td>
-        <td>変更前</td>
-        <td>変更後</td>
+        <th>項目</th>
+        <th>変更前</th>
+        <th>変更後</th>
       </tr>
       <tr>
         <td>ユーザーID：</td>
