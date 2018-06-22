@@ -56,6 +56,6 @@ public class SaleClothBean extends ClothBean
 
     public String toString()
     {
-        return price + "円 " + color + " " + pattern + " " + category;
+        return "id" + clothid +" " + price + "円 " + color + " " + pattern + " " + category;
     }
 }
