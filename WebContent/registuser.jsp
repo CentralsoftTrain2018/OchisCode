@@ -78,6 +78,12 @@
                       required="required" pattern="{8,}"></td>
                   </tr>
                   <tr>
+                    <td>パスワード(確認)</td>
+                    <td><input type="password" name="passwordConfirm"
+                      id="passwordConfirm" required oninput="check(this)"
+                      pattern="{8,}"></td>
+                  </tr>
+                  <tr>
                     <td>身長(半角数字)</td>
                     <td><input name="userheight" type="number"
                       required="required"></td>
