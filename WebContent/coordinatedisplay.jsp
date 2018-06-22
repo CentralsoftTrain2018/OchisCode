@@ -75,6 +75,9 @@
               <form method="POST" name="logout" action="LogOutServlet">
               </form>
             </li>
+            <li>
+              <a href="#">アクセス</a>
+            </li>
         </ul>
 
         <ul class="nl clearFix">

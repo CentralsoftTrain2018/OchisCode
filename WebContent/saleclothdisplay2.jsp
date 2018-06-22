@@ -76,7 +76,7 @@
           <a href="javascript:moveSaleCloth.submit();">
             <img src="./images/LoginLogo.png" width="400" height="150" />
           </a>
-          <form method="POST" name=moveSaleCloth action="ListOutSaleClothServlet">
+          <form method="POST" name="moveSaleCloth" action="ListOutSaleClothServlet">
           </form>
         </h1>
 
@@ -201,9 +201,11 @@
                 <div class="relative">
                   <form method="POST" action="SaleClothDisplayServlet">
                     <img src="./images/<%=record.getColor().name()%>.png"
-                      width=175 height=147 /> <img
+                      width=175 height=147 />
+                    <img
                       src="./images/<%=record.getPattern().name()%>.png" width=175
-                      height=147 class=absolute /> <img
+                      height=147 class=absolute />
+                    <img
                       onclick="changeImg('<%=record.getJouge().name()%>',
                                        '<%=record.getColor().name()%>',
                                        '<%=record.getPattern().name()%>',
@@ -213,7 +215,10 @@
                   </form>
                 </div>
                 <!-- リンクの調整 -->
-                <br> <a href="javascript:<%="form" + i%>.submit();"><%=record.toString()%></a>
+                <br>
+                <center>
+                <a href="javascript:<%="form" + i%>.submit();"><%=record.toString()%></a>
+                </center>
                 <form method="POST" name="<%="form" + i%>"
                   action="CountLinkClickServlet">
                   <input type="hidden" name="URL" value="<%=record.getURL()%>">
