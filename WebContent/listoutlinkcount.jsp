@@ -46,10 +46,10 @@
                 <table border="5" cellspacing="10">
                   <tbody>
                     <tr>
-                      <td>色</td>
-                      <td>柄</td>
-                      <td>カテゴリ</td>
-                      <td>クリック数</td>
+                      <th>色</th>
+                      <th>柄</th>
+                      <th>カテゴリ</th>
+                      <th>クリック数</th>
                     </tr>
                     <%
                       for (bean.SaleClothBean record : bean.getList())
