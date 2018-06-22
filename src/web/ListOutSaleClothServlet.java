@@ -84,6 +84,7 @@ public class ListOutSaleClothServlet extends HttpServlet
         bean.setNarrow("");
         bean.setSort("");
         bean.setPage(1);
+        bean.setBudget(userBean.getBudget());
 
         //jspに遷移
         request.setAttribute( "bean", bean );

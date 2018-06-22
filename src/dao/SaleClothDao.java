@@ -164,14 +164,11 @@ public class SaleClothDao extends Dao
                         + minmax
                         //並び替え
                         + " order by "
-                        + order
-                        + " limit 9"
-                        + " offset ?");
+                        + order);
         //持ち服の指定
         stmt.setInt( 1, clothid );
         stmt.setInt( 2, clothid );
         stmt.setInt( 3, clothid );
-        stmt.setInt( 4, offset);
 
         /* SQL実行 */
         ResultSet recomClothSet = stmt.executeQuery();

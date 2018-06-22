@@ -156,7 +156,7 @@
               現在のページ：<%=bean.getPage()%>
 
               <%
-                if (bean.getSaleCloth().getList().size() == 9)
+                if (bean.getPage() * 9 < bean.getSaleCloth().getList().size())
                 {
               %>
               <form method="POST" action="SaleClothDisplayServlet">
@@ -194,43 +194,52 @@
                 int i = 0;
               %>
               <%
-                for (bean.SaleClothBean record : bean.getSaleCloth().getList())
+                if(!bean.getSaleCloth().getList().isEmpty()){
+                  int last;
+                  if(bean.getPage() * 9 < bean.getSaleCloth().getList().size()) {
+                    last = bean.getPage() * 9;
+                  }
+                  else {
+                    last = bean.getSaleCloth().getList().size();
+                  }
+                for (int n = (bean.getPage() - 1) * 9 ; n < last ; n++)
                 {
+                  java.util.List<bean.SaleClothBean> record = bean.getSaleCloth().getList();
               %>
               <div class="item">
                 <div class="relative">
                   <form method="POST" action="SaleClothDisplayServlet">
-                    <img src="./images/<%=record.getColor().name()%>.png"
+                    <img src="./images/<%=record.get(n).getColor().name()%>.png"
                       width=175 height=147 />
                     <img
-                      src="./images/<%=record.getPattern().name()%>.png" width=175
+                      src="./images/<%=record.get(n).getPattern().name()%>.png" width=175
                       height=147 class=absolute />
                     <img
-                      onclick="changeImg('<%=record.getJouge().name()%>',
-                                       '<%=record.getColor().name()%>',
-                                       '<%=record.getPattern().name()%>',
-                                       '<%=record.getCategory().name()%>')"
-                      src="./images/<%=record.getCategory().name()%>.png" width=175
+                      onclick="changeImg('<%=record.get(n).getJouge().name()%>',
+                                       '<%=record.get(n).getColor().name()%>',
+                                       '<%=record.get(n).getPattern().name()%>',
+                                       '<%=record.get(n).getCategory().name()%>')"
+                      src="./images/<%=record.get(n).getCategory().name()%>.png" width=175
                       height=147 class=absolute />
                   </form>
                 </div>
                 <!-- リンクの調整 -->
                 <br>
                 <center>
-                <a href="javascript:<%="form" + i%>.submit();"><%=record.toString()%></a>
+                <a href="javascript:<%="form" + i%>.submit();"><%=record.get(n).toString()%></a>
                 </center>
                 <form method="POST" name="<%="form" + i%>"
                   action="CountLinkClickServlet">
-                  <input type="hidden" name="URL" value="<%=record.getURL()%>">
+                  <input type="hidden" name="URL" value="<%=record.get(n).getURL()%>">
                   <input type="hidden" name="clothid"
-                    value="<%=record.getClothid()%>">
+                    value="<%=record.get(n).getClothid()%>">
                 </form>
                 <%
                   i++;
                 %>
               </div>
               <%
-                }
+                }}
               %>
             </div>
           </div>
@@ -301,8 +310,8 @@
             <div class="section emphasis">
 
               <h2>絞込み</h2>
-              <input type="radio" name="narrow" value=" price > 0 "
-                checked="checked">0以上 <input type="radio" name="narrow"
+              <input type="radio" name="narrow" value=" price <= <%=bean.getBudget() %> "
+                checked="checked">予算内 <input type="radio" name="narrow"
                 value=" price > 0 and price < 5001"
                 <%if (bean.getNarrow().equals( " price > 0 and price < 5001" ))
       {%>
