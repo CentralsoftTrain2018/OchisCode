@@ -178,15 +178,14 @@ public class SaleClothDao extends Dao
 
         while (recomClothSet.next())
         {
-            SaleClothVo recomCloth = new SaleClothVo(
-                    CategoryEnum.valueOf( recomClothSet.getString( 6 ) ),
-                    ColorEnum.valueOf( recomClothSet.getString( 4 ) ),
-                    PatternEnum.valueOf( recomClothSet.getString( 5 ) ),
-                    SizeEnum.valueOf( recomClothSet.getString( 2 ) ),
-                    JougeEnum.valueOf( recomClothSet.getString( 7 ) ),
-                    recomClothSet.getInt( 3 ),
-                    recomClothSet.getString( 8 ),
-                    recomClothSet.getInt( 1 ) );
+            SaleClothVo recomCloth = new SaleClothVo();
+            recomCloth.setClothid(recomClothSet.getInt( 1 ));
+            recomCloth.setPrice(recomClothSet.getInt( 2 ));
+            recomCloth.setColor(ColorEnum.valueOf( recomClothSet.getString( 3 )));
+            recomCloth.setPattern(PatternEnum.valueOf( recomClothSet.getString( 4 )));
+            recomCloth.setCategory(CategoryEnum.valueOf( recomClothSet.getString( 5 )));
+            recomCloth.setJouge(JougeEnum.valueOf( recomClothSet.getString( 6 )));
+            recomCloth.setUrl(recomClothSet.getString( 7 ));
 
             recomClothList.add( recomCloth );
         }
