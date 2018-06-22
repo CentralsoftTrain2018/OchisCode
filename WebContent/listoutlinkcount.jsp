@@ -13,6 +13,17 @@
 
 <title>管理者画面</title>
 </head>
+<script>
+  var set = 0;
+  function doub() {
+    if (set == 0) {
+      set = 1;
+    } else {
+      alert("只今処理中です。\nそのままお待ちください。");
+      return false;
+    }
+  }
+</script>
 <body>
   <!-- コンテナ開始 -->
   <div id="container">
@@ -67,7 +78,7 @@
                   </tbody>
                 </table>
 
-                <form method="POST" action="ListOutLinkCountServlet">
+                <form method="POST" action="ListOutLinkCountServlet" onSubmit="return doub()">
                   <input type="email" name="address" placeholder="送信先メールアドレスを入力"
                     required="required"> <input type="submit"
                     value="集計データを送信">
