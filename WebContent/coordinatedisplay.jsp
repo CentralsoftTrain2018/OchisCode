@@ -61,6 +61,7 @@
 <link rel="stylesheet" type="text/css" href="css/Scroll.css">
 <link rel="stylesheet" type="text/css" href="css/BackGround.css">
 <link rel="stylesheet" type="text/css" href="css/SaleClothDisplay.css">
+<link rel="stylesheet" type="text/css" href="css/inline-block.css">
 
 <body>
   <div id="container">
@@ -242,8 +243,9 @@
                 <li><form method="POST" action="DeleteCoordinateServlet">
                     <div class="button_floatb">
                       <input type="hidden" name="code"
-                        value="<%=code.getCode_num()%>"> <input
-                        type="submit" value="コーデ削除">
+                        value="<%=code.getCode_num()%>">
+                        <div class = "button_floatb"><input
+                        type="submit" value="コーデ削除"></div>
                     </div>
                   </form></li>
                 <%
