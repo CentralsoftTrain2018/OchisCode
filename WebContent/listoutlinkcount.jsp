@@ -27,10 +27,10 @@
 
         <div id="header">
           <h1 class="siteTitle">
-            <a href="javascript:moveLogin.submit();"> <img
+            <a href="javascript:moveLogout.submit();"> <img
               src="./images/LoginLogo.png" width="400" height="150" />
             </a>
-            <form method="POST" name="moveLogin" action="login.html"></form>
+            <form method="POST" name="moveLogout" action="LogOutServlet"></form>
           </h1>
           <ul class="guide">
             <li class="first"><a href="javascript:logout.submit();"
