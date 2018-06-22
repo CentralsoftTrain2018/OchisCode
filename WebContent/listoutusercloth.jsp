@@ -40,7 +40,6 @@
           <li class="first"><a href="javascript:logout.submit();"
             onclick="return confirm('ログアウトしますか？')">ログアウト</a>
             <form method="POST" name="logout" action="LogOutServlet"></form></li>
-          <li><a href="#">アクセス</a></li>
         </ul>
 
         <ul class="nl clearFix">
@@ -84,6 +83,15 @@
 </div>
 </form>
 <%} %>
+
+<%if(bean.getPage() == 1) {%>
+<form method="POST" action="ListOutUserClotheServlet">
+<input type = "hidden" name = "page" value = <%=bean.getPage() + 1 %>>
+<div class="margin-r1">
+<input type = "submit" value = "次のページへ">
+</div>
+</form>
+<%} else {%>
 <%if(bean.getList().size() == 5) {%>
 <form method="POST" action="ListOutUserClotheServlet">
 <input type = "hidden" name = "page" value = <%=bean.getPage() + 1 %>>
@@ -92,14 +100,16 @@
 </div>
 </form>
 <%} %>
+<%} %>
 </div>
 
 
 <!--持ち服の表示(テーブル)-->
+<div class="margin-t">
 <table width="500" border="5" cellspacing="10">
     <tbody>
       <%for(UserClothBean record : bean.getList()) {%>
-      <tr align=center>
+      <tr>
       <td bgcolor=peachpuff><%=record.toString() %></td>
         <td>
           <div class = "relative">
@@ -108,7 +118,7 @@
             <img src="./images/<%=record.getCategory().name()%>.png" class = "absolute" width=50 height=50/>
           </div>
         </td>
-        <td bgcolor=orangered>
+        <td>
            <form method = "POST" action = "DeleteUserClothServlet">
              <input type = "hidden" name = "clothid" value = <%=record.getClothid()%>>
              <input type = "hidden" name = "page" value = <%=bean.getPage()%>>
@@ -119,12 +129,15 @@
       <%} %>
     </tbody>
 </table>
-
-<div class="margin">
-<form method="POST" action="registusercloth.jsp">
- <input type="submit" value="持ち服登録画面へ">
-</form>
 </div>
+
+
+<form method="POST" action="registusercloth.jsp">
+<div class="margin">
+ <input type="submit" value="持ち服登録画面へ">
+ </div>
+</form>
+
 
 <br>
 </div>

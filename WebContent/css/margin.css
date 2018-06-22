@@ -4,7 +4,7 @@
 作成者<野間>*/
 
 .margin{
-  margin:0px 0px 0px 170px;
+  margin:10px 0px 0px 170px;
 }
 
 .margin-center{
@@ -12,17 +12,29 @@
 }
 
 .margin-r{
-  position: absolute;
-  top: 200px;
-  bottom: 0px;
+  position: relative;
+  top: 20px;
+  bottom: 50px;
   right: 0px;
-  left: 580px
+  left: 480px
+}
+
+.margin-r1{
+  position: relative;
+  top: 20px;
+  bottom: 50px;
+  right: 0px;
+  left: 575px
 }
 
 .margin-l{
-   position: absolute;
-  top: 200px;
+   position: relative;
+  top: 20px;
   bottom: 0px;
   right: 0px;
   left: 170px;
+}
+
+.margin-t{
+  margin:20px 0px 0px 0px;
 }
