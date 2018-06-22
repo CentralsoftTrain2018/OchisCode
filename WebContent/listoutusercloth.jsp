@@ -95,7 +95,7 @@
 </div>
 </form>
 <%} else {%>
-<%if(bean.getList().size() == 5) {%>
+<%if(bean.getPage() * 5 < bean.getList().size()) {%>
 <form method="POST" action="ListOutUserClotheServlet">
 <input type = "hidden" name = "page" value = <%=bean.getPage() + 1 %>>
 <div class="margin-r">
@@ -111,25 +111,37 @@
 <div class="margin-t">
 <table width="500" border="5" cellspacing="10">
     <tbody>
-      <%for(UserClothBean record : bean.getList()) {%>
+      <%
+                if(!bean.getList().isEmpty()){
+                  int last;
+                  if(bean.getPage() * 9 < bean.getList().size()) {
+                    last = bean.getPage() * 9;
+                  }
+                  else {
+                    last = bean.getList().size();
+                  }
+                for (int n = (bean.getPage() - 1) * 9 ; n < last ; n++)
+                {
+                  java.util.List<bean.UserClothBean> record = bean.getList();
+              %>
       <tr>
-      <td bgcolor=peachpuff><%=record.toString() %></td>
+      <td bgcolor=peachpuff><%=record.get(n).toString() %></td>
         <td>
           <div class = "relative">
-            <img src="./images/<%=record.getColor().name()%>.png" width=50 height=50/>
-            <img src="./images/<%=record.getPattern().name()%>.png" class = "absolute" width=50 height=50/>
-            <img src="./images/<%=record.getCategory().name()%>.png" class = "absolute" width=50 height=50/>
+            <img src="./images/<%=record.get(n).getColor().name()%>.png" width=50 height=50/>
+            <img src="./images/<%=record.get(n).getPattern().name()%>.png" class = "absolute" width=50 height=50/>
+            <img src="./images/<%=record.get(n).getCategory().name()%>.png" class = "absolute" width=50 height=50/>
           </div>
         </td>
         <td>
            <form method = "POST" action = "DeleteUserClothServlet">
-             <input type = "hidden" name = "clothid" value = <%=record.getClothid()%>>
+             <input type = "hidden" name = "clothid" value = <%=record.get(n).getClothid()%>>
              <input type = "hidden" name = "page" value = <%=bean.getPage()%>>
              <input type="submit" value="削除">
            </form>
         </td>
       </tr>
-      <%} %>
+      <%}} %>
     </tbody>
 </table>
 </div>
