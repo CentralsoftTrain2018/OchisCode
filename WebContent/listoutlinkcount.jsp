@@ -42,8 +42,8 @@
             <!-- ユーザー情報表示 -->
             <div class="normal">
               <div class="emphasis">
-                <h2>テスト</h2>
-                <table border="5" cellspacing="10">
+                <h2>販売服閲覧数集計結果</h2>
+                <table width="600" border="5" cellspacing="10" bgcolor = #CCFFFF>
                   <tbody>
                     <tr>
                       <th>色</th>
@@ -55,8 +55,8 @@
                       for (bean.SaleClothBean record : bean.getList())
                       {
                     %>
-                    <tr>
-                      <td><%=record.getColor().name()%></td>
+                    <tr align="center" valign="center">
+                      <td ><%=record.getColor().name()%></td>
                       <td><%=record.getPattern().name()%></td>
                       <td><%=record.getCategory().name()%></td>
                       <td><%=record.getClickcount()%></td>

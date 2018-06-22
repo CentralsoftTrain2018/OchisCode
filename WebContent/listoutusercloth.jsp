@@ -125,7 +125,7 @@
                   java.util.List<bean.UserClothBean> record = bean.getList();
               %>
       <tr>
-      <td bgcolor=peachpuff><%=record.get(n).toString() %></td>
+      <td bgcolor=#FF8856><%=record.get(n).toString() %></td>
         <td>
           <div class = "relative">
             <img src="./images/<%=record.get(n).getColor().name()%>.png" width=50 height=50/>
