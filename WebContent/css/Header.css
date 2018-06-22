@@ -24,8 +24,11 @@
 
 }
 /*画面遷移用ボタンの位置*/
-.button{
+.button-l{
   float:right;
+}
+.button-r{
+	
 }
 .buttons{
   margin-left: auto;

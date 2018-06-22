@@ -73,7 +73,6 @@ public class UserDao extends Dao
             + " AND"
             + " password = ?";
 
-
     //登録
     public boolean put(UserVo vo) throws SQLException
     {
@@ -110,23 +109,22 @@ public class UserDao extends Dao
         try (
                 PreparedStatement stmt = con.prepareStatement( UPDATEUSERSQL );)
         {
-            stmt.setInt(1, userBean.getUserheight());
-            stmt.setString(2, userBean.getSize().name());
-            stmt.setInt(3, userBean.getBudget());
-            stmt.setString(4, userBean.getSex().name());
+            stmt.setInt( 1, userBean.getUserheight() );
+            stmt.setString( 2, userBean.getSize().name() );
+            stmt.setInt( 3, userBean.getBudget() );
+            stmt.setString( 4, userBean.getSex().name() );
 
-            stmt.setString(5, userBean.getUserid());
+            stmt.setString( 5, userBean.getUserid() );
             int numline = stmt.executeUpdate();
             //numlineの値が1かを確認
-            if(numline != 1)
+            if (numline != 1)
             {
-                 //1以外の場合RunTimeExceptionをnewしてthrow
-                RuntimeException run = new RuntimeException("userIDがヒットしませんでした。");
+                //1以外の場合RunTimeExceptionをnewしてthrow
+                RuntimeException run = new RuntimeException( "userIDがヒットしませんでした。" );
                 throw run;
             }
 
         }
-
 
     }
 
@@ -162,6 +160,7 @@ public class UserDao extends Dao
         }
     }
 
+    //ユーザー削除
     public void deleteUser(String userId) throws SQLException
     {
         try (
@@ -190,7 +189,6 @@ public class UserDao extends Dao
 
             while (rset.next())
             {
-                System.out.println( "a" + rset.getString( 1 ) );
                 uvo = new UserVo(
                         rset.getString( 1 ),
                         rset.getString( 2 ),

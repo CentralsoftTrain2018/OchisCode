@@ -57,9 +57,10 @@ public class ListOutLinkCountServlet extends HttpServlet
         //メールアドレスが入力されていた場合メールを送信
         if (distAddress != null)
         {
-            System.out.println( "ちくわ" );
             this.sendMail( distAddress, bean );
+            System.out.println( distAddress );
         }
+
         request.setAttribute( "bean", bean );
         //一覧画面に遷移
         RequestDispatcher disp = request.getRequestDispatcher( "/listoutlinkcount.jsp" );
