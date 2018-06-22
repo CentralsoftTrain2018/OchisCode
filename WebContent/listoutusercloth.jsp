@@ -125,7 +125,7 @@
                   java.util.List<bean.UserClothBean> record = bean.getList();
               %>
       <tr>
-      <td bgcolor=#FF8856><%=record.get(n).toString() %></td>
+      <td bgcolor=#FFDBC9><%=record.get(n).toString() %></td>
         <td>
           <div class = "relative">
             <img src="./images/<%=record.get(n).getColor().name()%>.png" width=50 height=50/>
@@ -133,7 +133,7 @@
             <img src="./images/<%=record.get(n).getCategory().name()%>.png" class = "absolute" width=50 height=50/>
           </div>
         </td>
-        <td>
+        <td bgcolor=#FFAD90>
            <form method = "POST" action = "DeleteUserClothServlet">
              <input type = "hidden" name = "clothid" value = <%=record.get(n).getClothid()%>>
              <input type = "hidden" name = "page" value = <%=bean.getPage()%>>
