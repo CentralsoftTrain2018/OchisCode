@@ -4,7 +4,7 @@ package domain;
 //編集:功刀
 public enum SizeEnum
 {
-    S(180, 90), M(200, 100), L(220 ,110 );
+    S(160,80), M(180, 90), L(200, 100);
     private int width;
     private int height;
 

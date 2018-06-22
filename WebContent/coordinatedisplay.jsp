@@ -78,7 +78,6 @@
           <li class="first"><a href="javascript:logout.submit();"
             onclick="return confirm('ログアウトしますか？')">ログアウト</a>
             <form method="POST" name="logout" action="LogOutServlet"></form></li>
-          <li><a href="#">アクセス</a></li>
         </ul>
 
         <ul class="nl clearFix">
