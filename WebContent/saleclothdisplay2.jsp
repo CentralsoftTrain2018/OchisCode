@@ -378,7 +378,7 @@
                 name="sort" value="price ASC"
                 <%if (bean.getSort().equals( "price ASC" ))
       {%> checked="checked"
-                <%}%>>10001-15000
+                <%}%>>値段が安い順
             </div>
 
             <div class="section normal">
