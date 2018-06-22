@@ -78,7 +78,7 @@
                   </tr>
                   <tr>
                     <td>パスワード(半角英数字8文字以上)</td>
-                    <td><input name="password" type="password"
+                    <td><input name="password" type="password" id="password"
                       required="required" pattern="{8,}"></td>
                   </tr>
                   <tr>
