@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bean.RegistUserBean;
 import domain.SexEnum;
 import domain.SizeEnum;
 import service.UserService;
@@ -53,11 +54,14 @@ public class RegistUserServlet extends HttpServlet
         int budget = Integer.parseInt( budgetStr );
         SexEnum sex = SexEnum.valueOf( sexStr );
         UserService userv =new UserService();
-        
+
         //サービスに受け渡しし、重複していた場合は別画面に遷移
         if(!userv.registUser( userIdStr, passwordStr, userHeight, size, budget, sex ))
         {
-            RequestDispatcher disp = request.getRequestDispatcher( "/useridduplicate.jsp" );
+            RegistUserBean bean =new RegistUserBean();
+            bean.setMessage( "すでにそのユーザーIDは使用されています。\n別のIDを使用してください。" );
+            request.setAttribute( "bean", bean );
+            RequestDispatcher disp = request.getRequestDispatcher( "/registuser.jsp" );
             disp.forward( request, response );
             return;
         }

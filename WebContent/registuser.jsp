@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
+  <jsp:useBean id="bean" class="bean.RegistUserBean" scope="request" />
 <%@ page import="domain.SizeEnum"%>
 <!DOCTYPE html>
 <html>
@@ -65,6 +66,9 @@
               <h2>新規登録</h2>
               <form method="POST" action="RegistUserServlet"
                 onSubmit="return doub()">
+                <%if(bean.getMessage(  )!=null){ %>
+                <%=bean.getMessage(  ) %><br>
+                <%} %>
                 登録情報を入力してください <br>
                 <table>
                   <tr>
