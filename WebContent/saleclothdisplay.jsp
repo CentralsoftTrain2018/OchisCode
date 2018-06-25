@@ -9,7 +9,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>おすすめ画面</title>
-<!-- Global site tag (gtag.js) - Google Analytics -->
+<%-- Global site tag (gtag.js) - Google Analytics --%>
 <script src="https://www.googletagmanager.com/gtag/js?id=UA-121088811-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -21,7 +21,7 @@
 
 </head>
 
-<!-- cssファイル読み込み -->
+<%-- cssファイル読み込み --%>
 <link rel="stylesheet" type="text/css" href="css/PileImage.css">
 <link rel="stylesheet" type="text/css" href="css/Header.css">
 <link rel="stylesheet" type="text/css" href="css/TwoColumn.css">
@@ -120,12 +120,12 @@
     </div>
     <div class="content">
       <div class="verticalContainer">
-        <!-- 左側モデル表示部分 -->
+        <%-- 左側モデル表示部分 --%>
 
         <div class="model">
           <div class="flame">
-            <!-- 画像表示部分 -->
-            <!-- 越智くんの顔 -->
+            <%-- 画像表示部分 --%>
+            <%-- 越智くんの顔 --%>
             <div class="relative">
 
               <%
@@ -155,7 +155,7 @@
             </div>
 
             <div class="relative">
-              <!-- 上服 -->
+              <%-- 上服 --%>
               <img id="topcolor"
                 src="./images/<%=bean.getTopColor().name()%>.png"
                 width="<%=bean.getTopSize().getWidth()%>"
@@ -171,7 +171,7 @@
             </div>
 
             <div class="relative">
-              <!-- 下服 -->
+              <%-- 下服 --%>
               <img id="bottomcolor"
                 src="./images/<%=bean.getBottomColor().name()%>.png"
                 width="<%=bean.getBottomSize().getWidth()%>"
@@ -191,12 +191,12 @@
           </form>
         </div>
 
-        <!-- 右側プルダウン、画像表示部分 -->
+        <%-- 右側プルダウン、画像表示部分 --%>
         <div class="contents">
           <div class="container">
             <div class="pulldown">
 
-              <!-- プルダウン、ボタン -->
+              <%-- プルダウン、ボタン --%>
               <form method="POST" action="SaleClothDisplayServlet">
                 <div class="styled-select yellow rounded">
                   <select id="usercloth" name="usercloth">
@@ -210,7 +210,7 @@
                     %>
                   </select>
                 </div>
-                <!-- 絞込み -->
+                <%-- 絞込み --%>
                 <div class="styled-select yellow rounded">
                   <select id="narrow" name="narrow">
                     <option value=" price > 0 ">0以上</option>
@@ -220,7 +220,7 @@
                     <option value=" price > 15000">15001-</option>
                   </select>
                 </div>
-                <!-- 並び替え -->
+                <%-- 並び替え --%>
                 <div class="styled-select yellow rounded">
                   <select id="sort" name="sort">
                     <option value="clothid DESC">新着順</option>
@@ -248,7 +248,7 @@
                   type="submit" value="オススメ服表示">
               </form>
             </div>
-            <!-- 販売服表示 -->
+            <%-- 販売服表示 --%>
             <div class="contents">
               <%
                 int i = 0;
@@ -272,7 +272,7 @@
                       height=147 class=absolute />
                   </form>
                 </div>
-                <!-- リンクの調整 -->
+                <%-- リンクの調整 --%>
                 <br> <a href="javascript:<%="form" + i %>.submit();"><%=record.toString()%></a>
                 <form method="POST" name="<%="form" + i%>"
                   action="CountLinkClickServlet">

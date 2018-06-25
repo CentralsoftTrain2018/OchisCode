@@ -20,14 +20,14 @@
 <link rel="stylesheet" type="text/css" href="css/margin.css">
 
 <body onload="onLoad()">
-  <!-- コンテナ開始 -->
+  <%-- コンテナ開始 --%>
   <div id="container">
 
-    <!-- ページ開始 -->
+    <%-- ページ開始 --%>
     <div id="page">
 
 
-      <!-- ヘッダ開始 -->
+      <%-- ヘッダ開始 --%>
       <div id="header">
 
         <h1 class="siteTitle">
@@ -107,7 +107,7 @@
 </div>
 
 
-<!--持ち服の表示(テーブル)-->
+<%--持ち服の表示(テーブル)--%>
 <div class="margin-t">
 <table width="500" border="5" cellspacing="10">
     <tbody>
@@ -156,13 +156,13 @@
 
 <br>
 </div>
-      <!-- コンテンツ終了 -->
+      <%-- コンテンツ終了 --%>
 
     </div>
-    <!-- ページ終了 -->
+    <%-- ページ終了 --%>
 
   </div>
-  <!-- コンテナ終了 -->
+  <%-- コンテナ終了 --%>
 </body>
 
 </html>

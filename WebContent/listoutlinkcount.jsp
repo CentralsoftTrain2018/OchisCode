@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<!-- cssインポート -->
+<%-- cssインポート --%>
 <link rel="stylesheet" type="text/css" href="css/Login.css">
 <link rel="stylesheet" type="text/css" href="css/BackGround.css">
 <link rel="stylesheet" type="text/css" href="css/UserInfo.css">
@@ -25,15 +25,15 @@
   }
 </script>
 <body>
-  <!-- コンテナ開始 -->
+  <%-- コンテナ開始 --%>
   <div id="container">
 
-    <!-- ページ開始 -->
+    <%-- ページ開始 --%>
     <div id="page">
 
 
 
-      <!-- コンテンツ開始 -->
+      <%-- コンテンツ開始 --%>
       <div id="content">
 
         <div id="header">
@@ -48,9 +48,9 @@
               onclick="return confirm('ログアウトしますか？')">ログアウト</a>
               <form method="POST" name="logout" action="LogOutServlet"></form></li>
           </ul>
-          <!-- メインカラム開始 -->
+          <%-- メインカラム開始 --%>
           <div id="main">
-            <!-- ユーザー情報表示 -->
+            <%-- ユーザー情報表示 --%>
             <div class="normal">
               <div class="emphasis">
                 <h2>販売服閲覧数集計結果</h2>
@@ -89,13 +89,13 @@
           </div>
 
         </div>
-        <!-- コンテンツ終了 -->
+        <%-- コンテンツ終了 --%>
 
       </div>
-      <!-- ページ終了 -->
+      <%-- ページ終了 --%>
 
     </div>
-    <!-- コンテナ終了 -->
+    <%-- コンテナ終了 --%>
   </div>
 </body>
 </html>

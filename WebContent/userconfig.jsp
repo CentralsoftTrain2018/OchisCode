@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>登録情報変更</title>
-<!-- cssインポート -->
+<%-- cssインポート --%>
 
 <link rel="stylesheet" type="text/css" href="css/Login.css">
 <link rel="stylesheet" type="text/css" href="css/BackGround.css">
@@ -16,7 +16,7 @@
 
 </head>
 
-<!-- プルダウンのデフォルト値変更 -->
+<%-- プルダウンのデフォルト値変更 --%>
 <script type="text/javascript">
 function onLoad()
 {
@@ -34,14 +34,14 @@ function onLoad()
 }
 </script>
 <body onload="onLoad();">
-<!-- コンテナ開始 -->
+<%-- コンテナ開始 --%>
 <div id="container">
 
-<!-- ページ開始 -->
+<%-- ページ開始 --%>
 <div id="page">
 
 
-<!-- ヘッダ開始 -->
+<%-- ヘッダ開始 --%>
 
 <div id="header">
 
@@ -77,15 +77,15 @@ function onLoad()
 </ul>
 <hr class="none">
 </div>
-<!-- ヘッダ終了 -->
+<%-- ヘッダ終了 --%>
 <div id="content">
 
 
-<!-- メインカラム開始 -->
+<%-- メインカラム開始 --%>
 <div id="main">
 
 
-  <!-- ユーザー情報表示 -->
+  <%-- ユーザー情報表示 --%>
   <div  class ="normal">
 
  <div class="emphasis">
@@ -142,20 +142,20 @@ function onLoad()
   </div>
   </div>
  </div>
-<!-- メインカラム終了 -->
+<%-- メインカラム終了 --%>
 <form action="UserInfoServlet">
  <input type="submit" value="戻る">
 </form>
 
 <hr class="clear">
 </div>
-<!-- コンテンツ終了 -->
+<%-- コンテンツ終了 --%>
 
 </div>
-<!-- ページ終了 -->
+<%-- ページ終了 --%>
 
 </div>
-<!-- コンテナ終了 -->
+<%-- コンテナ終了 --%>
 
 
 

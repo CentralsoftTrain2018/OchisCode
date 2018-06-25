@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<!-- cssインポート -->
+<%-- cssインポート --%>
 <link rel="stylesheet" type="text/css" href="css/Login.css">
 <link rel="stylesheet" type="text/css" href="css/BackGround.css">
 <link rel="stylesheet" type="text/css" href="css/UserInfo.css">
@@ -19,7 +19,6 @@
     if (input.value != document.getElementById('password').value) {
       input.setCustomValidity('パスワードが一致しません');
     } else {
-      // input is valid -- reset the error message
       input.setCustomValidity('');
     }
   }
@@ -35,15 +34,15 @@
   }
 </script>
 <body>
-  <!-- コンテナ開始 -->
+  <%-- コンテナ開始 --%>
   <div id="container">
 
-    <!-- ページ開始 -->
+    <%-- ページ開始 --%>
     <div id="page">
 
 
 
-      <!-- コンテンツ開始 -->
+      <%-- コンテンツ開始 --%>
       <div id="content">
 
         <div id="header">
@@ -56,11 +55,11 @@
             </form>
           </h1>
         </div>
-        <!-- メインカラム開始 -->
+        <%-- メインカラム開始 --%>
         <div id="main">
 
 
-          <!-- ユーザー情報表示 -->
+          <%-- ユーザー情報表示 --%>
           <div class="normal">
             <div class="emphasis">
               <h2>新規登録</h2>
@@ -125,13 +124,13 @@
           </div>
         </div>
       </div>
-      <!-- コンテンツ終了 -->
+      <%-- コンテンツ終了 --%>
 
     </div>
-    <!-- ページ終了 -->
+    <%-- ページ終了 --%>
 
   </div>
-  <!-- コンテナ終了 -->
+  <%-- コンテナ終了 --%>
 </body>
 </html>
 </html>

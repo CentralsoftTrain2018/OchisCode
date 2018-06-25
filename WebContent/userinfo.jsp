@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<!-- cssインポート -->
+<%-- cssインポート --%>
 <link rel="stylesheet" type="text/css" href="css/Login.css">
 <link rel="stylesheet" type="text/css" href="css/BackGround.css">
 <link rel="stylesheet" type="text/css" href="css/UserInfo.css">
@@ -15,7 +15,7 @@
 
 </head>
 
-<!-- 退会ボタンに対してアラート表示 -->
+<%-- 退会ボタンに対してアラート表示 --%>
 <script>
   function confirmFunction1() {
     var message = "登録した持ち服、コーデ情報、ユーザー情報はすべて削除されます。\n本当に退会しますか？";
@@ -28,14 +28,14 @@
   }
 </script>
 <body>
-<!-- コンテナ開始 -->
+<%-- コンテナ開始 --%>
 <div id="container">
 
-<!-- ページ開始 -->
+<%-- ページ開始 --%>
 <div id="page">
 
 
-<!-- ヘッダ開始 -->
+<%-- ヘッダ開始 --%>
 
 <div id="header">
 
@@ -71,18 +71,18 @@
 </ul>
 <hr class="none">
 </div>
-<!-- ヘッダ終了 -->
+<%-- ヘッダ終了 --%>
 
 
-<!-- コンテンツ開始 -->
+<%-- コンテンツ開始 --%>
 <div id="content">
 
 
-<!-- メインカラム開始 -->
+<%-- メインカラム開始 --%>
 <div id="main">
 
 
-  <!-- ユーザー情報表示 -->
+  <%-- ユーザー情報表示 --%>
   <div  class ="normal">
  <div class="emphasis">
 
@@ -114,27 +114,27 @@
 
 </div>
   </div>
-   <!-- 登録情報変更ボタン -->
+   <%-- 登録情報変更ボタン --%>
   <form method="POST" action="UserConfigServlet">
     <input type="submit" value="ユーザー情報を変更する">
   </form>
 
-  <!-- 退会ボタン -->
+  <%-- 退会ボタン --%>
   <form method="POST" action="DeleteUserServlet">
     <input type="submit" value="退会する"onclick="return confirmFunction1();" >
   </form>
   </div>
-<!-- メインカラム終了 -->
+<%-- メインカラム終了 --%>
 
 <hr class="clear">
 </div>
-<!-- コンテンツ終了 -->
+<%-- コンテンツ終了 --%>
 
 </div>
-<!-- ページ終了 -->
+<%-- ページ終了 --%>
 
 </div>
-<!-- コンテナ終了 -->
+<%-- コンテナ終了 --%>
 
 
 

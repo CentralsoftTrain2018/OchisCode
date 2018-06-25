@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<!-- cssインポート -->
+<%-- cssインポート --%>
 <link rel="stylesheet" type="text/css" href="css/Login.css">
 <link rel="stylesheet" type="text/css" href="css/BackGround.css">
 <link rel="stylesheet" type="text/css" href="css/UserInfo.css">
@@ -31,15 +31,15 @@ function doub() {
 
 
 <body>
-  <!-- コンテナ開始 -->
+  <%-- コンテナ開始 --%>
   <div id="container">
 
-    <!-- ページ開始 -->
+    <%-- ページ開始 --%>
     <div id="page">
 
 
 
-      <!-- コンテンツ開始 -->
+      <%-- コンテンツ開始 --%>
       <div id="content">
 
         <div id="header">
@@ -52,9 +52,9 @@ function doub() {
               action="ListOutSaleClothServlet"></form>
           </h1>
         </div>
-        <!-- メインカラム開始 -->
+        <%-- メインカラム開始 --%>
         <div id="main">
-          <!-- ユーザー情報表示 -->
+          <%-- ユーザー情報表示 --%>
           <div class="normal">
             <div class="emphasis">
               <h2>持ち服登録</h2>
@@ -62,7 +62,7 @@ function doub() {
 
               プルダウンで持っている服の色、柄、カテゴリ、サイズを選んでください。<br><br>
               <form method="POST" action="RegistUserClothServlet" onSubmit="return doub()">
-                <!-- 色プルダウン -->
+                <%-- 色プルダウン --%>
                 <select name="color">
                   <%
                     for (ColorEnum ce : ColorEnum.values())
@@ -76,7 +76,7 @@ function doub() {
                   %>
                 </select>
 
-                <!-- 柄プルダウン -->
+                <%-- 柄プルダウン --%>
                 <select name="pattern">
                   <%
                     for (PatternEnum pe : PatternEnum.values())
@@ -90,7 +90,7 @@ function doub() {
                   %>
                 </select>
 
-                <!-- カテゴリープルダウン -->
+                <%-- カテゴリープルダウン --%>
                 <select name="category">
                   <%
                     for (CategoryEnum cae : CategoryEnum.values())
@@ -104,7 +104,7 @@ function doub() {
                   %>
                 </select>
 
-                <!-- サイズプルダウン -->
+                <%-- サイズプルダウン --%>
                 <select name="size">
                   <%
                     for (SizeEnum se : SizeEnum.values())
@@ -127,12 +127,12 @@ function doub() {
           </div>
         </div>
       </div>
-      <!-- コンテンツ終了 -->
+      <%-- コンテンツ終了 --%>
 
     </div>
-    <!-- ページ終了 -->
+    <%-- ページ終了 --%>
 
   </div>
-  <!-- コンテナ終了 -->
+  <%-- コンテナ終了 --%>
 </body>
 </html>

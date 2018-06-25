@@ -46,7 +46,8 @@
         {
             for(i = 0; i < elms.options.length; i++)
             {
-                if (elms.options[i].value == "<%=bean.getClothid()%>") {
+                if (elms.options[i].value == "<%=bean.getClothid()%>
+  ") {
           elms[i].selected = true;
         }
       }
@@ -74,11 +75,11 @@
       <div id="header">
 
         <h1 class="siteTitle">
-          <a href="javascript:moveSaleCloth.submit();">
-            <img src="./images/LoginLogo.png" width="400" height="150" />
+          <a href="javascript:moveSaleCloth.submit();"> <img
+            src="./images/LoginLogo.png" width="400" height="150" />
           </a>
-          <form method="POST" name="moveSaleCloth" action="ListOutSaleClothServlet">
-          </form>
+          <form method="POST" name="moveSaleCloth"
+            action="ListOutSaleClothServlet"></form>
         </h1>
 
         <ul class="guide">
@@ -118,11 +119,16 @@
 
           <div class="section emphasis">
             <h2>オススメ服</h2>
-              <div class="margin-center">
-              <%if(!bean.getSaleCloth().getList().isEmpty()) { %>
+            <div class="margin-center">
+              <%
+                if (!bean.getSaleCloth().getList().isEmpty())
+                {
+              %>
               現在のページ：<%=bean.getPage()%>
-              <%} %>
-              </div>
+              <%
+                }
+              %>
+            </div>
             <div style="display: inline-flex">
               <%
                 if (bean.getPage() != 1)
@@ -152,7 +158,7 @@
                   value="<%=bean.getClothid()%>">
 
                 <div class="margin">
-                  <input type="submit" align = "left" value="前のページへ">
+                  <input type="submit" align="left" value="前のページへ">
                 </div>
               </form>
               <%
@@ -163,7 +169,10 @@
                 if (bean.getPage() * 9 < bean.getSaleCloth().getList().size())
                 {
               %>
-              <%if(bean.getPage() == 1) {%>
+              <%
+                if (bean.getPage() == 1)
+                  {
+              %>
               <form method="POST" action="SaleClothDisplayServlet">
                 <input type="hidden" name="page" value=<%=bean.getPage() + 1%>>
                 <input type="hidden" name="topcolor"
@@ -187,10 +196,13 @@
                 <input type="hidden" name="usercloth"
                   value="<%=bean.getClothid()%>">
                 <div class="margin-r">
-                  <input type="submit" align = "right" value="次のページへ">
+                  <input type="submit" align="right" value="次のページへ">
                 </div>
               </form>
-              <%} else { %>
+              <%
+                } else
+                  {
+              %>
               <form method="POST" action="SaleClothDisplayServlet">
                 <input type="hidden" name="page" value=<%=bean.getPage() + 1%>>
                 <input type="hidden" name="topcolor"
@@ -214,10 +226,12 @@
                 <input type="hidden" name="usercloth"
                   value="<%=bean.getClothid()%>">
                 <div class="margin-r1">
-                  <input type="submit" align = "right" value="次のページへ">
+                  <input type="submit" align="right" value="次のページへ">
                 </div>
               </form>
-              <%} %>
+              <%
+                }
+              %>
               <%
                 }
               %>
@@ -227,52 +241,54 @@
                 int i = 0;
               %>
               <%
-                if(!bean.getSaleCloth().getList().isEmpty()){
+                if (!bean.getSaleCloth().getList().isEmpty())
+                {
                   int last;
-                  if(bean.getPage() * 9 < bean.getSaleCloth().getList().size()) {
+                  if (bean.getPage() * 9 < bean.getSaleCloth().getList().size())
+                  {
                     last = bean.getPage() * 9;
-                  }
-                  else {
+                  } else
+                  {
                     last = bean.getSaleCloth().getList().size();
                   }
-                for (int n = (bean.getPage() - 1) * 9 ; n < last ; n++)
-                {
-                  java.util.List<bean.SaleClothBean> record = bean.getSaleCloth().getList();
+                  for (int n = (bean.getPage() - 1) * 9; n < last; n++)
+                  {
+                    java.util.List<bean.SaleClothBean> record = bean.getSaleCloth().getList();
               %>
               <div class="item">
                 <div class="relative">
                   <form method="POST" action="SaleClothDisplayServlet">
-                    <img src="./images/<%=record.get(n).getColor().name()%>.png"
-                      width=175 height=147 />
-                    <img
-                      src="./images/<%=record.get(n).getPattern().name()%>.png" width=175
-                      height=147 class=absolute />
-                    <img
-                      onclick="changeImg('<%=record.get(n).getJouge().name()%>',
-                                       '<%=record.get(n).getColor().name()%>',
-                                       '<%=record.get(n).getPattern().name()%>',
-                                       '<%=record.get(n).getCategory().name()%>')"
-                      src="./images/<%=record.get(n).getCategory().name()%>.png" width=175
-                      height=147 class=absolute />
+                    <img src="./images/<%=record.get( n ).getColor().name()%>.png"
+                      width=175 height=147 /> <img
+                      src="./images/<%=record.get( n ).getPattern().name()%>.png"
+                      width=175 height=147 class=absolute /> <img
+                      onclick="changeImg('<%=record.get( n ).getJouge().name()%>',
+                                       '<%=record.get( n ).getColor().name()%>',
+                                       '<%=record.get( n ).getPattern().name()%>',
+                                       '<%=record.get( n ).getCategory().name()%>')"
+                      src="./images/<%=record.get( n ).getCategory().name()%>.png"
+                      width=175 height=147 class=absolute />
                   </form>
                 </div>
                 <!-- リンクの調整 -->
                 <br>
                 <center>
-                <a href="javascript:<%="form" + i%>.submit();"><%=record.get(n).toString()%></a>
+                  <a href="javascript:<%="form" + i%>.submit();"><%=record.get( n ).toString()%></a>
                 </center>
                 <form method="POST" name="<%="form" + i%>"
                   action="CountLinkClickServlet">
-                  <input type="hidden" name="URL" value="<%=record.get(n).getURL()%>">
-                  <input type="hidden" name="clothid"
-                    value="<%=record.get(n).getClothid()%>">
+                  <input type="hidden" name="URL"
+                    value="<%=record.get( n ).getURL()%>"> <input
+                    type="hidden" name="clothid"
+                    value="<%=record.get( n ).getClothid()%>">
                 </form>
                 <%
                   i++;
                 %>
               </div>
               <%
-                }}
+                }
+                }
               %>
             </div>
           </div>
@@ -343,8 +359,9 @@
             <div class="section emphasis">
 
               <h2>絞込み</h2>
-              <input type="radio" name="narrow" value=" price <= <%=bean.getBudget() %> "
-                checked="checked">予算内 <input type="radio" name="narrow"
+              <input type="radio" name="narrow"
+                value=" price <= <%=bean.getBudget()%> " checked="checked">予算内
+              <input type="radio" name="narrow"
                 value=" price > 0 and price < 5001"
                 <%if (bean.getNarrow().equals( " price > 0 and price < 5001" ))
       {%>
@@ -370,15 +387,16 @@
                 checked="checked">新着順 <input type="radio" name="sort"
                 value="clothid ASC"
                 <%if (bean.getSort().equals( "clothid ASC" ))
-      {%> checked="checked"
-                <%}%>>古い順 <input type="radio" name="sort"
-                value="price DESC" <%if (bean.getSort().equals( "price DESC" ))
+      {%>
+                checked="checked" <%}%>>古い順 <input type="radio"
+                name="sort" value="price DESC"
+                <%if (bean.getSort().equals( "price DESC" ))
       {%>
                 checked="checked" <%}%>>値段が高い順 <input type="radio"
                 name="sort" value="price ASC"
                 <%if (bean.getSort().equals( "price ASC" ))
-      {%> checked="checked"
-                <%}%>>値段が安い順
+      {%>
+                checked="checked" <%}%>>値段が安い順
             </div>
 
             <div class="section normal">

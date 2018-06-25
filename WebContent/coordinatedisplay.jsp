@@ -53,10 +53,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>コーデ画面</title>
 
-<!-- 上下服のプルダウンの値を変更 編集:功刀 -->
+<%-- 上下服のプルダウンの値を変更 編集:功刀 --%>
 
 </head>
-<!-- cssファイル読み込み -->
+<%-- cssファイル読み込み --%>
 <link rel="stylesheet" type="text/css" href="css/PileImage.css">
 <link rel="stylesheet" type="text/css" href="css/Scroll.css">
 <link rel="stylesheet" type="text/css" href="css/BackGround.css">
@@ -98,13 +98,13 @@
       </div>
 
       <div id="content">
-        <!-- 画像表示部分 -->
+        <%-- 画像表示部分 --%>
         <div id="main">
           <div class="section emphasis">
             <h2>自由に着替える</h2>
-            <!-- 変更する服の情報を入力 -->
+            <%-- 変更する服の情報を入力 --%>
             <form method="POST" action=ChangeCoordinateClothServlet>
-              <!-- 色プルダウン -->
+              <%-- 色プルダウン --%>
               <select name="color">
                 <%
                   for (ColorEnum ce : ColorEnum.values())
@@ -118,7 +118,7 @@
                 %>
               </select>
 
-              <!-- 柄プルダウン -->
+              <%-- 柄プルダウン --%>
               <select name="pattern">
                 <%
                   for (PatternEnum pe : PatternEnum.values())
@@ -132,7 +132,7 @@
                 %>
               </select>
 
-              <!-- カテゴリープルダウン -->
+              <%-- カテゴリープルダウン --%>
               <select name="category">
                 <%
                   for (CategoryEnum cae : CategoryEnum.values())
@@ -146,7 +146,7 @@
                 %>
               </select>
 
-              <!-- サイズプルダウン -->
+              <%-- サイズプルダウン --%>
               <select name="size">
                 <%
                   for (SizeEnum se : SizeEnum.values())
@@ -158,7 +158,7 @@
                 %>
               </select>
 
-              <!-- 表示している服の情報をサーブレットに受け渡し -->
+              <%-- 表示している服の情報をサーブレットに受け渡し --%>
               <input type="hidden" name="topcolor"
                 value="<%=bean.getTopColor().name()%>"> <input
                 type="hidden" name="toppattern"
@@ -183,7 +183,7 @@
             <h2>所持している服から着替える</h2>
             <div class="form2">
               <form method="POST" action="ChangeUserSaleClothServlet">
-                <!-- 持ち服を上下に分けたプルダウン -->
+                <%-- 持ち服を上下に分けたプルダウン --%>
                 <select name="topcloth">
                   <%
                     for (bean.UserClothBean topcloth : bean.getUscbean().getTopclothlist())
@@ -256,7 +256,7 @@
           </div>
         </div>
 
-        <!-- サイドバー開始 -->
+        <%-- サイドバー開始 --%>
         <div id="nav">
           <div class="model">
 
@@ -268,7 +268,7 @@
               onclick="changeOchiFaceWoman()"
               <%if (bean.getSex() == SexEnum.女)
       {%> checked="checked" <%}%> />女
-            <!-- 越智くんの顔 -->
+            <%-- 越智くんの顔 --%>
             <div class="relative">
 
               <%
@@ -295,7 +295,7 @@
                 }
               %>
             </div>
-            <!-- 上 -->
+            <%-- 上 --%>
             <div class="relative">
               <img src="./images/<%=bean.getTopColor().name()%>.png"
                 width="<%=bean.getTopSize().getWidth()%>"
@@ -307,7 +307,7 @@
                 class="absolute" width="<%=bean.getTopSize().getWidth()%>"
                 height="<%=bean.getTopSize().getHeight()%>" />
             </div>
-            <!-- 下 -->
+            <%-- 下 --%>
             <div class="relative">
               <img src="./images/<%=bean.getBottomColor().name()%>.png"
                 width="<%=bean.getBottomSize().getWidth()%>"
@@ -322,7 +322,7 @@
             <div class="relative">
               <form method="POST" action="RegistCoordinateServlet"
                 onSubmit="return doub()">
-                <!-- 表示している服の情報をサーブレットに受け渡し -->
+                <%-- 表示している服の情報をサーブレットに受け渡し --%>
                 <input type="hidden" name="topcolor"
                   value="<%=bean.getTopColor().name()%>"> <input
                   type="hidden" name="toppattern"
